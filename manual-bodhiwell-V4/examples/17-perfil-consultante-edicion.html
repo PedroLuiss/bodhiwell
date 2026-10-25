@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bodhiwell — Perfil consultante edición</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bw-bg:#EFF0EC;
+      --bw-card:#F7F5F1;
+      --bw-card-soft:#F8F6F2;
+      --bw-input:#FFFFFF;
+      --bw-text:#13231D;
+      --bw-muted:rgba(19,35,29,.68);
+      --bw-muted-2:rgba(19,35,29,.46);
+      --bw-border-soft:rgba(16,25,21,.05);
+      --bw-border:rgba(16,25,21,.08);
+      --bw-primary:#82B194;
+      --bw-primary-soft:rgba(130,177,148,.08);
+      --bw-primary-border:rgba(130,177,148,.16);
+      --bw-shadow-card:0 10px 30px rgba(0,0,0,.03);
+      --bw-shadow-float:0 10px 18px rgba(18,34,28,.10);
+      --page-max:1416px;
+      --shell-gap:22px;
+      --sidebar-width:216px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Sora",system-ui,-apple-system,"Segoe UI",sans-serif;
+      background:var(--bw-bg);
+      color:var(--bw-text);
+      min-height:100vh;
+    }
+
+    .page-shell{
+      width:min(calc(100vw - 24px), var(--page-max));
+      margin:12px auto;
+      display:grid;
+      grid-template-columns:var(--sidebar-width) minmax(0,1fr);
+      gap:var(--shell-gap);
+      align-items:start;
+    }
+
+    .sidebar{
+      background:#F7F5F1;
+      border:1px solid var(--bw-border-soft);
+      border-radius:24px;
+      padding:18px 14px 16px;
+      min-height:760px;
+      display:flex;
+      flex-direction:column;
+      position:sticky;
+      top:12px;
+      align-self:start;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      font-size:14px;
+      margin:6px 4px 22px;
+    }
+    .brand-mark{
+      width:32px;
+      height:32px;
+      border-radius:10px;
+      background:url('../assets/img/brand/flor.png') center/contain no-repeat;
+      flex:0 0 32px;
+    }
+    .section-label{
+      margin:14px 8px 10px;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--bw-muted-2);
+      font-weight:800;
+    }
+    .nav{
+      display:grid;
+      gap:8px;
+    }
+    .nav-item{
+      min-height:44px;
+      border-radius:14px;
+      padding:0 14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--bw-muted);
+      font-weight:600;
+      border:1px solid transparent;
+      text-decoration:none;
+    }
+    .nav-item.active{
+      color:var(--bw-text);
+      background:rgba(130,177,148,.10);
+      border-color:rgba(130,177,148,.28);
+      font-weight:700;
+    }
+    .nav-icon,
+    .field-icon{
+      width:20px;
+      height:20px;
+      display:grid;
+      place-items:center;
+      flex:0 0 20px;
+      color:currentColor;
+    }
+    .nav-icon svg,
+    .field-icon svg,
+    .save-icon svg{
+      width:100%;
+      height:100%;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.85;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    .sidebar-divider{
+      height:1px;
+      background:rgba(16,25,21,.08);
+      margin:12px 10px;
+    }
+    .sidebar-spacer{flex:1 1 auto}
+    .user-mini{
+      margin:10px 8px 14px;
+      color:var(--bw-muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .logout{
+      min-height:42px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:1px solid rgba(16,25,21,.10);
+      background:rgba(255,255,255,.40);
+      font-weight:700;
+      margin:0 2px;
+    }
+
+    .main{
+      min-width:0;
+      padding:10px 0 40px;
+    }
+    .title-block{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin:10px 0 22px;
+    }
+    .hero-mark{
+      width:48px;
+      height:48px;
+      border-radius:999px;
+      background:#F7F5F1;
+      display:grid;
+      place-items:center;
+      color:#76A886;
+      flex:0 0 48px;
+    }
+    .hero-mark span{
+      font-size:24px;
+      line-height:1;
+    }
+    .title-block h1{
+      margin:0;
+      font-size:52px;
+      line-height:.96;
+      letter-spacing:-.055em;
+      font-weight:800;
+    }
+
+    .profile-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.6fr) 300px;
+      gap:28px;
+      align-items:start;
+    }
+
+    .content-column{
+      min-width:0;
+      position:relative;
+      padding-bottom:108px;
+    }
+
+    .card-stack{
+      display:grid;
+      gap:24px;
+    }
+
+    .content-card{
+      background:#F7F5F1;
+      border:1px solid var(--bw-border-soft);
+      border-radius:28px;
+      box-shadow:var(--bw-shadow-card);
+      padding:28px 28px 32px;
+    }
+
+    .profile-head{
+      display:grid;
+      gap:10px;
+      margin-bottom:28px;
+    }
+    .identity h2{
+      margin:0 0 10px;
+      font-size:23px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:800;
+    }
+    .identity p{
+      margin:0;
+      font-size:13px;
+      line-height:1.45;
+      color:var(--bw-muted);
+    }
+    .section-divider{
+      height:1px;
+      background:rgba(16,25,21,.06);
+      margin:0 0 28px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:24px 24px;
+    }
+    .grid-address{
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(220px,.6fr);
+      gap:24px 24px;
+    }
+    .grid-1{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:24px;
+      max-width:48%;
+    }
+    .field{
+      display:grid;
+      gap:10px;
+      min-width:0;
+    }
+    .label{
+      font-size:12px;
+      line-height:1.2;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#6E897C;
+    }
+    .input,
+    .select{
+      min-height:50px;
+      border-radius:16px;
+      background:var(--bw-input);
+      border:1px solid rgba(21,36,30,.08);
+      padding:0 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-size:14px;
+      color:var(--bw-text);
+    }
+    .placeholder{color:#A2AAA5}
+    .section-title{
+      margin:0 0 26px;
+      font-size:16px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+
+    .editor-shell{
+  background:transparent;
+  border:none;
+  border-radius:0;
+  padding:0;
+}
+    .editor{
+      background:#fff;
+      border:1px solid rgba(21,36,30,.10);
+      border-radius:16px;
+      overflow:hidden;
+      min-height:286px;
+    }
+    .editor-toolbar{
+      min-height:44px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      padding:0 18px;
+      border-bottom:1px solid rgba(16,25,21,.08);
+      color:#3D4943;
+      font-size:14px;
+    }
+    .toolbar-select{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:30px;
+    }
+    .toolbar-icon{
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:18px;
+    }
+    .editor-body{
+      min-height:240px;
+      padding:18px;
+      color:#98A1A7;
+      font-size:15px;
+      line-height:1.65;
+    }
+
+    .side-photo{
+      padding-top:12px;
+      display:grid;
+      gap:16px;
+      align-content:start;
+      justify-items:start;
+      position:sticky;
+      top:96px;
+      align-self:start;
+    }
+    .photo-frame{
+      width:176px;
+      height:176px;
+      border-radius:30px;
+      padding:6px;
+      background:#FFFFFF;
+      box-shadow:0 8px 20px rgba(18,34,28,.06);
+      position:relative;
+    }
+    .photo{
+      width:100%;
+      height:100%;
+      border-radius:24px;
+      overflow:hidden;
+      background:#F1EEE8;
+      border:1px solid rgba(255,255,255,.72);
+      display:block;
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .photo-edit{
+      position:absolute;
+      right:-2px;
+      bottom:-2px;
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      background:var(--bw-primary);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      box-shadow:0 6px 14px rgba(18,34,28,.12);
+      font-size:14px;
+      font-weight:800;
+    }
+    .photo-meta h3{
+      margin:0 0 6px;
+      font-size:17px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:800;
+    }
+    .photo-meta p{
+      margin:0;
+      font-size:12px;
+      line-height:1.55;
+      color:var(--bw-muted);
+      max-width:28ch;
+    }
+
+    .save-bar-wrap{
+      position:fixed;
+      left:var(--savebar-left, 24px);
+      width:var(--savebar-width, 640px);
+      bottom:20px;
+      z-index:30;
+      pointer-events:none;
+    }
+    .save-pill{
+      min-height:74px;
+      border-radius:24px;
+      background:#F7F5F1;
+      border:1px solid var(--bw-border-soft);
+      box-shadow:var(--bw-shadow-float);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 12px 12px 16px;
+      pointer-events:auto;
+    }
+    .save-state{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-width:0;
+    }
+    .save-dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--bw-primary);
+      flex:0 0 10px;
+      margin-top:6px;
+    }
+    .save-copy{
+      font-size:13px;
+      font-weight:800;
+      color:var(--bw-text);
+      line-height:1.25;
+      margin-bottom:2px;
+    }
+    .save-sub{
+      font-size:12px;
+      color:var(--bw-muted);
+      line-height:1.35;
+    }
+    .save-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      flex:0 0 auto;
+    }
+    .btn{
+      min-height:40px;
+      padding:0 18px;
+      border-radius:14px;
+      border:1px solid transparent;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
+      background:#FFFFFF;
+      color:var(--bw-text);
+      cursor:pointer;
+      font-family:inherit;
+    }
+    .btn-secondary{
+      background:transparent;
+      border-color:rgba(130,177,148,.40);
+      color:var(--bw-text);
+    }
+    .save-cta{
+      min-width:148px;
+      min-height:42px;
+      border-radius:14px;
+      background:var(--bw-primary);
+      color:#fff;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:800;
+      padding:0 18px;
+      border:0;
+      font-family:inherit;
+      cursor:pointer;
+    }
+
+    @media (max-width:1180px){
+      .page-shell{grid-template-columns:1fr}
+      .sidebar{position:relative;top:auto;min-height:auto}
+      .profile-layout{grid-template-columns:1fr}
+      .side-photo{position:relative;top:auto;grid-row:1}
+      .grid-address{grid-template-columns:1fr}
+      .grid-1{max-width:none}
+    }
+
+    @media (max-width:820px){
+      .title-block h1{font-size:40px}
+      .content-card{padding:22px}
+      .grid-2{grid-template-columns:1fr}
+      .grid-1{max-width:none}
+      .save-bar-wrap{
+        left:18px;
+        right:18px;
+        width:auto;
+        bottom:14px;
+      }
+      .save-pill{
+        flex-direction:column;
+        align-items:stretch;
+        padding:14px;
+      }
+      .save-actions{width:100%}
+      .save-actions .btn,
+      .save-actions .save-cta{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark"></div><div>Panel Consultante</div></div>
+
+      <div class="section-label">Registro</div>
+      <nav class="nav">
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V20h14V9.5"></path></svg></span><span>Inicio</span></a>
+        <a class="nav-item active" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 19c1.5-3 4-4.5 7-4.5S17.5 16 19 19"></path></svg></span><span>Perfil Público</span></a>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="section-label">Administración</div>
+      <nav class="nav">
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M7.5 3.5v4"></path><path d="M16.5 3.5v4"></path><path d="M3.5 9.5h17"></path></svg></span><span>Mis Reservas</span></a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M7 5.5h10v13H7z"></path><path d="M10 9h4"></path><path d="M10 12h4"></path><path d="M10 15h4"></path></svg></span><span>Mis Consultas</span></a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="4.5" y="7" width="15" height="10" rx="2"></rect><circle cx="9" cy="12" r="1"></circle></svg></span><span>Mis Pagos</span></a>
+        <div class="sidebar-divider"></div>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 19.5c3-2.5 5-4.7 5-8a5 5 0 1 0-10 0c0 3.3 2 5.5 5 8z"></path><path d="M12 7.5v4"></path></svg></span><span>Notificaciones</span></a>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+      <div class="user-mini">Andrés Camarano •<br>Consultante</div>
+      <div class="logout"><span class="nav-icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M10 17l-5-5 5-5"></path><path d="M5 12h10"></path><path d="M14 5h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"></path></svg></span><span>Cerrar sesión</span></div>
+    </aside>
+
+    <section class="main">
+      <div class="title-block">
+        <div class="hero-mark"><span>✦</span></div>
+        <h1>Mi Perfil</h1>
+      </div>
+
+      <div class="profile-layout">
+        <div class="content-column" id="content-column">
+          <div class="card-stack">
+            <section class="content-card">
+              <div class="profile-head">
+                <div class="identity">
+                  <h2>Andrés Camarano</h2>
+                  <p>luminariaslux@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="section-divider"></div>
+
+              <div class="grid-2">
+                <label class="field">
+                  <span class="label">Nombre</span>
+                  <div class="input">Andrés</div>
+                </label>
+                <label class="field">
+                  <span class="label">Apellido</span>
+                  <div class="input">Camarano</div>
+                </label>
+                <label class="field">
+                  <span class="label">Fecha de nacimiento</span>
+                  <div class="input"><span class="placeholder">DD/MM/AAAA</span><span class="field-icon"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="2"></rect><path d="M8 3.5v4"></path><path d="M16 3.5v4"></path><path d="M4 9.5h16"></path></svg></span></div>
+                </label>
+                <label class="field">
+                  <span class="label">Género</span>
+                  <div class="select"><span>&nbsp;</span><span class="field-icon"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg></span></div>
+                </label>
+                <label class="field">
+                  <span class="label">Correo electrónico</span>
+                  <div class="input">luminariaslux@gmail.com</div>
+                </label>
+                <label class="field">
+                  <span class="label">Número de teléfono</span>
+                  <div class="input">&nbsp;</div>
+                </label>
+              </div>
+            </section>
+
+            <section class="content-card">
+              <h2 class="section-title">Dirección:</h2>
+
+              <div class="grid-address">
+                <label class="field">
+                  <span class="label">País</span>
+                  <div class="select"><span>&nbsp;</span><span class="field-icon"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg></span></div>
+                </label>
+                <label class="field">
+                  <span class="label">Ciudad</span>
+                  <div class="input">&nbsp;</div>
+                </label>
+              </div>
+
+              <div class="grid-1" style="margin-top:24px">
+                <label class="field">
+                  <span class="label">Dirección</span>
+                  <div class="input">&nbsp;</div>
+                </label>
+              </div>
+            </section>
+
+            <section class="content-card">
+              <h2 class="section-title">Tu experiencia y sentir</h2>
+
+              <div class="editor-shell">
+                <div class="editor">
+                  <div class="editor-toolbar">
+                    <span class="toolbar-select">Normal</span>
+                    <span class="toolbar-icon">↕</span>
+                    <span class="toolbar-icon">B</span>
+                    <span class="toolbar-icon"><em>I</em></span>
+                    <span class="toolbar-icon">≣</span>
+                    <span class="toolbar-icon">☰</span>
+                    <span class="toolbar-icon">Tₓ</span>
+                  </div>
+                  <div class="editor-body">Cuéntanos tu historia, lo que vives y sientes cada día...</div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="save-bar-wrap" id="save-bar-wrap">
+            <div class="save-pill">
+              <div class="save-state">
+                <div class="save-dot"></div>
+                <div>
+                  <div class="save-copy">Tenés cambios sin guardar</div>
+                  <div class="save-sub">Guardalos para actualizar la información visible en tu perfil.</div>
+                </div>
+              </div>
+              <div class="save-actions">
+                <button class="btn btn-secondary" type="button">Salir</button>
+                <button class="save-cta" type="button">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side-photo">
+          <div class="photo-frame">
+            <div class="photo"><img src="../assets/img/examples/consultante-perfil-demo.png" alt="Foto de perfil de consultante"></div>
+            <div class="photo-edit">✎</div>
+          </div>
+          <div class="photo-meta">
+            <h3>Foto de perfil</h3>
+            <p>Proporción cuadrada recomendada para la imagen del consultante. Mantiene la misma lógica visual del perfil profesional, adaptada a este formato.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const column = document.getElementById('content-column');
+      const saveBar = document.getElementById('save-bar-wrap');
+      if (!column || !saveBar) return;
+
+      function updateSaveBarPosition(){
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        if (viewportWidth <= 820) return;
+
+        const rect = column.getBoundingClientRect();
+        saveBar.style.setProperty('--savebar-left', Math.round(rect.left) + 'px');
+        saveBar.style.setProperty('--savebar-width', Math.round(rect.width) + 'px');
+      }
+
+      updateSaveBarPosition();
+      window.addEventListener('resize', updateSaveBarPosition);
+      window.addEventListener('load', updateSaveBarPosition);
+      window.addEventListener('orientationchange', updateSaveBarPosition);
+    })();
+  </script>
+</body>
+</html>

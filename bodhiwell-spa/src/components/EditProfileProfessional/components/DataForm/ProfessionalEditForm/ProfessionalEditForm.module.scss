@@ -1,0 +1,149 @@
+@import '../../../../../assets/styles/variables';
+
+$bw-surface: $color-surface;
+$bw-border-soft: rgba(16, 25, 21, 0.05);
+$bw-border-input: rgba(21, 36, 30, 0.08);
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-primary: $color-primary;
+
+.card {
+    background: $bw-surface;
+    border: 1px solid $bw-border-soft;
+    border-radius: 24px;
+    box-shadow: $shadow-card;
+    padding: 24px;
+    font-family: $font-main;
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        color: $bw-text;
+    }
+}
+
+.card-desc {
+    margin: 0 0 18px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: $bw-muted;
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #6E897C;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 2px;
+}
+
+
+.section-group {
+    margin-bottom: 18px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.chip {
+    min-height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid $bw-border-input;
+    font-size: 12px;
+    font-weight: 700;
+    color: $bw-text;
+
+    &--cuerpo {
+        background: color-mix(in srgb, #304e8f 14%, white 86%);
+        color: #304e8f;
+        border: 1px solid color-mix(in srgb, #304e8f 32%, white 68%);
+    }
+
+    &--conciencia {
+        background:
+            color-mix(in srgb, #5C9DD6 14%, white 86%);
+        color: #5C9DD6;
+        border: 1px solid  color-mix(in srgb, #5C9DD6 32%, white 68%);
+    }
+
+    &--mente {
+        background:
+            color-mix(in srgb, #695EA6 14%, white 86%);
+        color: #695EA6;
+        border: 1px solid color-mix(in srgb, #695EA6 32%, white 68%);
+    }
+
+    &--energia {
+        background:
+        color-mix(in srgb, #4FB08C 14%, white 86%);
+        color: #4FB08C;
+        border: 1px solid color-mix(in srgb, #4FB08C 32%, white 68%);
+    }
+
+    // &--cuerpo {
+    //     background: #E7EEF7;
+    //     color: #3A5F8A;
+    //     border-color: #d4e0ef;
+    // }
+
+    // &--mente {
+    //     background: #EFE8F7;
+    //     color: #6A4DA3;
+    //     border-color: #e3d7f1;
+    // }
+
+    // &--conciencia {
+    //     background: #EAF1FB;
+    //     color: #5C7FAE;
+    //     border-color: #dce8f7;
+    // }
+
+    // &--energia {
+    //     background: #E9F4EF;
+    //     color: #4E997C;
+    //     border-color: #d1e2d6;
+    // }
+}
+
+.no-data {
+    font-size: 12px;
+    color: $text-tertiary;
+    font-style: italic;
+}
+
+.helper {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: $bw-muted;
+}

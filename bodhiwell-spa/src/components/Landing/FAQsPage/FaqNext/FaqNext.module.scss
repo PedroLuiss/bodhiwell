@@ -1,0 +1,75 @@
+@import '../../../../assets/styles/variables';
+
+.faq-next {
+    display: grid;
+    // grid-template-columns: minmax(0, 760px) auto;
+    align-items: start;
+    gap: 28px 40px;
+    padding: 40px 0 0;
+    margin-top: 14px;
+    border-top: 1px solid $border-soft;
+
+    @media (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+
+   
+
+    &__actions {
+        margin-top: 24px;
+        display: flex;
+        gap: 24px;
+        justify-content: end;
+        padding: 0 clamp(44px, 6vw, 104px) 0 0;
+    }
+
+    &__eyebrow {
+        margin: 0 0 12px;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: $color-primary;
+    }
+
+    &__title {
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: -0.045em;
+        color: $text-main;
+        margin: 0;
+        max-width: none;
+        white-space: nowrap;
+
+        @media (max-width: 720px) {
+            font-size: 30px;
+        }
+    }
+
+    &__copy {
+        margin: 18px 0 0;
+        max-width: 58ch;
+        color: $text-secondary;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    &__btn {
+        appearance: none;
+        border: none;
+        min-height: 48px;
+        padding: 0 22px;
+        border-radius: 20px;
+        background: $color-primary;
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: $color-primary-hover;
+            transform: translateY(-1px);
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@import '../../assets/styles/variables';
+
+.consultations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filters-card {
+  background: $color-surface;
+  border: $color-border;
+  box-shadow: $shadow-card;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 8px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    width: 100%;
+  }
+}
+
+.consultationsListError {
+  background-color: #FEF2F2;
+  color: #C95C5C;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid rgba(201, 92, 92, 0.1);
+}

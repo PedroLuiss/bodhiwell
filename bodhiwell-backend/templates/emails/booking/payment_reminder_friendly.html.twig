@@ -1,0 +1,22 @@
+{# Variables esperadas:
+   - booking (App\Entity\Booking)
+   - recipient (App\Entity\User)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+
+{% set patientName = booking.patientUser ? (booking.patientUser.firstName ~ ' ' ~ booking.patientUser.lastName) : '—' %}
+{% set startAt     = booking.dateBookingStart ? booking.dateBookingStart|date('Y-m-d H:i') : '—' %}
+
+{% block title %}Recordatorio de Pago{% endblock %}
+
+{% block content %}
+    <h2>¡No pierdas tu horario!</h2>
+    <p>Hola <strong>{{ patientName }}</strong>,</p>
+    <p>Tu reserva para el <strong>{{ startAt }}</strong> está pendiente de pago.</p>
+    <p>Por favor, completa el pago para confirmar tu cita.</p>
+    
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="color: #ffffff !important;">Pagar Reserva</a>
+    </p>
+{% endblock %}

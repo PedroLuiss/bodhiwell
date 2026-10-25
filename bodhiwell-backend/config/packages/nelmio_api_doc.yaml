@@ -1,0 +1,22 @@
+nelmio_api_doc:
+    html_config:
+        assets_mode: offline
+    areas:
+        default:
+            path_patterns:
+                - ^/api(?!/doc$)
+                - ^/professionals
+                - ^/profile
+    documentation:
+        info:
+            title: Bodhiwell API
+            description: Documentación de la API para el proyecto Bodhiwell.
+            version: 1.0.0
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        security:
+            - Bearer: []

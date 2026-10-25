@@ -1,0 +1,22 @@
+{# Variables esperadas:
+   - booking (App\Entity\Booking)
+   - recipient (App\Entity\User)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+
+{% set patientName = booking.patientUser ? (booking.patientUser.firstName ~ ' ' ~ booking.patientUser.lastName) : '—' %}
+{% set startAt     = booking.dateBookingStart ? booking.dateBookingStart|date('Y-m-d H:i') : '—' %}
+
+{% block title %}URGENTE: Reserva por expirar{% endblock %}
+
+{% block content %}
+    <h2 style="color: #DC2626;">¡Último Aviso!</h2>
+    <p>Hola <strong>{{ patientName }}</strong>,</p>
+    <p>Tu reserva para el <strong>{{ startAt }}</strong> está a punto de ser cancelada por falta de pago.</p>
+    <p>Solo tienes unos minutos para realizar el pago.</p>
+    
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="background-color: #DC2626; color: #ffffff !important;">Pagar Ahora</a>
+    </p>
+{% endblock %}

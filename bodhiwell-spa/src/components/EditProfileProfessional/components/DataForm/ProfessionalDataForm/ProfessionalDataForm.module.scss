@@ -1,0 +1,90 @@
+@import '../../../../../assets/styles/variables';
+
+$bw-surface: $color-surface;
+$bw-border-soft: rgba(16, 25, 21, 0.05);
+$bw-border-box: rgba(21, 36, 30, 0.10);
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+
+.data-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    font-family: $font-main;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &__section {
+        background: $bw-surface;
+        border: 1px solid $bw-border-soft;
+        border-radius: 24px;
+        box-shadow: $shadow-card;
+        padding: 24px;
+    }
+
+    &__title {
+        margin: 0 0 14px;
+        font-size: 26px;
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        font-weight: 700;
+        color: #13231D;
+    }
+
+    &__editor-box {
+        min-height: 190px;
+        border-radius: 18px;
+        background: #FFFFFF;
+        border: 1px solid $bw-border-box;
+        overflow: hidden;
+    }
+
+    &__content {
+        padding: 14px 16px 20px;
+        font-size: 14px;
+        line-height: 1.72;
+        color: $bw-muted;
+        background: #FFFFFF;
+    }
+
+    &__editor-container {
+        :global {
+            .quill {
+                border: none !important;
+            }
+            .ql-toolbar {
+                border: none !important;
+                border-bottom: 1px solid #{$bw-border-box} !important;
+                background: #FFFFFF;
+                padding: 8px 16px !important;
+            }
+            .ql-container {
+                border: none !important;
+                font-family: "Sora", sans-serif !important;
+            }
+            .ql-editor {
+                padding: 14px 16px 20px !important;
+                font-size: 14px !important;
+                line-height: 1.72 !important;
+                color: #{$bw-muted};
+                min-height: 150px;
+
+                &.ql-blank::before {
+                    left: 16px !important;
+                    font-style: normal;
+                    color: rgba(19, 35, 29, 0.4);
+                }
+            }
+        }
+    }
+
+    &__error {
+        padding: 8px 16px;
+        color: $color-error;
+        font-size: 12px;
+        font-weight: 700;
+        display: block;
+        background: rgba($color-error, 0.05);
+    }
+}

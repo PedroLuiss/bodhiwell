@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bodhiwell — Perfil profesional</title>
+<style>
+:root{
+  --bw-bg:#EFF0EC; --bw-surface:#F7F5F1; --bw-surface-2:#F8F6F2; --bw-text:#13231d;
+  --bw-muted:rgba(19,35,29,.68); --bw-border:rgba(16,25,21,.08); --bw-primary:#82B194;
+  --bw-primary-hover:#739F84; --bw-shadow:0 10px 30px rgba(0,0,0,.03); --bw-radius-lg:24px; --bw-muted-solid:#65756E;
+}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:"Sora",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bw-bg);color:var(--bw-text)}
+.utility-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.back{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 14px;border-radius:14px;border:1px solid rgba(16,25,21,.10);background:var(--bw-surface-card-strong, rgba(247,245,241,.92));box-shadow:0 10px 22px rgba(0,0,0,.03);text-decoration:none;color:var(--bw-text);font-size:14px;font-weight:800}.back:hover{background:var(--bw-card-surface, #F7F5F1)}.utility-links{display:flex;gap:10px;flex-wrap:wrap}.utility-links a{display:inline-flex;align-items:center;min-height:38px;padding:0 12px;border-radius:12px;border:1px solid rgba(130,177,148,.35);background:var(--bw-card-surface);text-decoration:none;color:var(--bw-muted);font-size:12px;font-weight:800}.utility-links a:hover{background:rgba(130,177,148,.10);color:var(--bw-text)}
+p,h1,h2,h3,div,span,button,a{font-style:normal}
+.wrap{max-width:1320px;margin:0 auto;padding:32px 22px 84px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 376px;gap:32px;align-items:start}
+.stack{display:grid;gap:20px}
+.card{background:var(--bw-surface);border:1px solid rgba(12,36,28,.08);border-radius:var(--bw-radius-lg);box-shadow:var(--bw-shadow)}
+.media-card{overflow:hidden;padding:0}
+.hero{position:relative;aspect-ratio:16/7;background:url('../assets/img/examples/profile-photo.jpg') center 38%/cover no-repeat}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(19,35,29,.06), rgba(19,35,29,.18))}
+.play{position:absolute;inset:0;display:grid;place-items:center;z-index:1}
+.play button{width:58px;height:58px;border-radius:999px;border:2px solid rgba(255,255,255,.92);background:rgba(255,255,255,.10);backdrop-filter:blur(4px);color:white;font-size:22px;cursor:pointer}
+.profile-card{padding:28px 30px}
+.profile-head{display:flex;justify-content:space-between;gap:16px;align-items:start}
+.profile-name{margin:0;font-size:44px;line-height:.98;letter-spacing:-.04em;font-weight:800}
+.profile-role{margin:10px 0 0;font-size:21px;font-weight:800;color:var(--bw-muted-solid)}
+.share{font-size:12px;color:var(--bw-muted);font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.specialties-row{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.specialties-label{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--bw-muted-solid);white-space:nowrap}
+.icon-tag{width:20px;height:20px;display:inline-block;object-fit:contain;opacity:.72}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:0 11px;border-radius:999px;border:1px solid rgba(16,25,21,.10);background:var(--bw-surface-2);font-size:11px;font-weight:800}
+.tag-cuerpo{background:#E7EEF7;color:#3A5F8A;border-color:#d4e0ef}
+.tag-mente{background:#EFE8F7;color:#6A4DA3;border-color:#e3d7f1}
+.tag-conciencia{background:#EAF1FB;color:#5C7FAE;border-color:#dce8f7}
+.meta-line{margin-top:14px;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--bw-muted-solid);font-weight:700}
+.icon-check{width:14px;height:14px;display:inline-block;position:relative;flex:0 0 auto}
+.icon-check:before{content:"";position:absolute;left:1px;top:3px;width:5px;height:9px;border-right:3px solid #39a84b;border-bottom:3px solid #39a84b;transform:rotate(40deg)}
+
+.section-card{padding:28px 30px}
+.profile-section-title{margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.12}
+.section-card p{margin:0;color:var(--bw-muted-solid);line-height:1.75;font-size:15px}
+.section-card p + p{margin-top:14px}
+
+.tabs-card{padding:0;overflow:hidden}
+.tabs{display:flex;border-bottom:1px solid var(--bw-border)}
+.tab{flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--bw-muted);background:transparent;border:0;cursor:pointer;transition:color .18s ease, background .18s ease, box-shadow .18s ease}
+.tab:hover{background:rgba(130,177,148,.10)}
+.tab.active{color:var(--bw-primary);box-shadow:inset 0 -2px 0 var(--bw-primary);background:rgba(255,255,255,.24)}
+.tab-panel{display:grid;grid-template-columns:82px 1fr;gap:18px;padding:26px}
+.icon-box{width:88px;height:88px;border-radius:22px;background:var(--bw-surface-2);border:1px solid rgba(12,36,28,.08);display:grid;place-items:center;color:#56666d;overflow:hidden}
+.icon-box svg{width:34px;height:34px;stroke:#6f7d75;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.icon-box img{width:72px;height:72px;object-fit:contain;display:block;opacity:.92}
+.tab-panel h3{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.12}
+.tab-panel p{margin:0;color:var(--bw-muted-solid);line-height:1.72;font-size:15px}
+.tab-panel p + p{margin-top:14px}
+
+.booking{padding:20px 18px}
+.booking h3{margin:0 0 12px;font-size:20px;line-height:1.08;letter-spacing:-.02em;text-align:center}
+.legend{display:flex;gap:16px;align-items:center;justify-content:center;margin:0 0 18px;font-size:11px;color:var(--bw-muted);font-weight:700}
+.dot{width:12px;height:12px;border-radius:999px;border:2px solid var(--bw-primary);display:inline-block;margin-right:6px;vertical-align:-2px;background:white}
+.dot.selected{border-color:var(--bw-primary);background:var(--bw-primary)}
+.calendar-card,.field-card,.split-card,.price-card{background:var(--bw-surface-2);border:1px solid rgba(12,36,28,.08);border-radius:18px;box-shadow:0 8px 22px rgba(0,0,0,.02)}
+.calendar-card{padding:16px 16px 14px}
+.calendar-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.month{font-size:13px;font-weight:700;color:var(--bw-text)}
+.navs{display:flex;gap:10px;color:var(--bw-muted);font-weight:800}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center}
+.dow{gap:9px}
+.days{gap:10px}
+.dow span{font-size:10px;color:var(--bw-muted);font-weight:700;padding:4px 0}
+.day{height:30px;display:grid;place-items:center;font-size:12px;font-weight:600;color:#55655d;border-radius:999px}
+.day.available{box-shadow:inset 0 0 0 2px var(--bw-primary);background:#EAF2EC}
+.day.selected{background:var(--bw-primary);color:white;font-weight:700}
+.field-card{margin-top:12px;padding:12px 14px;font-size:12px;color:rgba(19,35,29,.48);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.field-card svg{width:20px;height:20px;stroke:#6b7c73;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.helper{margin:12px 0 10px;text-align:center;font-size:11px;font-weight:700;color:var(--bw-muted)}
+.split-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.split-card button{min-height:52px;background:transparent;border:0;font-family:inherit;font-size:15px;font-weight:800;color:var(--bw-text);display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:background .18s ease, color .18s ease, box-shadow .18s ease}
+.split-card button:hover{background:rgba(130,177,148,.10)}
+.split-card button:active{transform:translateY(1px)}
+.split-card button.is-active{background:rgba(130,177,148,.16);box-shadow:inset 0 0 0 1px rgba(130,177,148,.42)}
+.split-card button img{width:48px;height:48px;object-fit:contain;opacity:.82}
+.split-card button+button{border-left:1px solid var(--bw-border)}
+.price-card{margin-top:12px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:16px 14px}
+.price-label{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;color:var(--bw-text);white-space:nowrap;line-height:1.2}
+.price-value{font-size:28px;font-weight:800;letter-spacing:-.03em;color:#4b4b4b;white-space:nowrap;line-height:1}
+.cta{margin-top:16px;width:100%;min-height:48px;border-radius:16px;border:0;background:var(--bw-primary);color:white;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 10px 22px rgba(130,177,148,.25)}
+
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,42,34,.08)}
+@media (max-width:1080px){.wrap{padding:28px 18px 72px}.layout{grid-template-columns:1fr;gap:20px}.profile-card,.section-card{padding-left:24px;padding-right:24px}.booking h3{text-align:left}.legend{justify-content:flex-start}}
+body,body *{font-family:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-style:normal}input,button,textarea,select{font:inherit}code,pre{font-style:normal}</style>
+<link rel="stylesheet" href="../assets/css/coherence.css">
+<link rel="stylesheet" href="../assets/css/examples-typography.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="utility-bar"><a class="back" href="../start-here.html">← Volver al índice</a><div class="utility-links"><a href="./04-buscador.html">Buscador</a><a href="./06-landing-professionals-slice.html">Carrusel</a><a href="./06-professionals-grid.html">Grid</a><a href="./07-professional-profile.html">Perfil</a><a href="./08-booking-calendar.html">Calendario</a><a href="./09-dashboard.html">Dashboard</a><a href="./10-header.html">Header</a><a href="./11-footer.html">Footer</a><a href="./12-profile-creation.html">Alta perfil</a></div></div>
+  
+  <div class="layout">
+    <main class="stack">
+      <section class="card media-card"><div class="hero"><div class="play"><button aria-label="Reproducir">▶</button></div></div></section>
+      <section class="card profile-card">
+        <div class="profile-head">
+          <div>
+            <h1 class="profile-name">Claudia Zubelzú</h1>
+            <p class="profile-role">Médica Integrativa</p>
+          </div>
+          <div class="share">Compartir perfil ↗</div>
+        </div>
+        <div class="specialties-row">
+          <div class="specialties-label"><img class="icon-tag" src="../patterns/search/assets/tag.png" alt=""><span>Especialidades</span></div>
+          <div class="chip-row">
+            <span class="tag tag-cuerpo">Homeopatía</span>
+            <span class="tag tag-mente">Biodecodificación</span>
+            <span class="tag tag-conciencia">Psych-K</span>
+          </div>
+        </div>
+        <div class="meta-line"><span class="icon-check"></span><span>Registro MSP verificado</span></div>
+      </section>
+      <section class="card section-card">
+        <h2 class="profile-section-title">Mi propósito y enfoque</h2>
+        <p>Comparto qué te inspira en tu práctica, cuál es tu mirada sobre la salud y cómo acompañás a las personas desde tu disciplina.</p>
+        <p>El foco está puesto en una mirada integral de la salud, donde cuerpo y mente están profundamente conectados. En mi práctica acompaño a cada persona respetando su proceso, integrando herramientas clínicas con una escucha atenta y personalizada.</p>
+      </section>
+      <section class="card tabs-card">
+        <div class="tabs">
+          <button class="tab active" data-icon="../assets/img/examples/icono-estudios.png" data-title="Formación y experiencia" data-text1="Detallá tu formación académica, certificaciones, experiencia y áreas de especialización." data-text2="Es Médica egresada de la Universidad de la República. Formación en Medicina Integrativa y actualización continua en abordajes complementarios. Más de 12 años de experiencia clínica en acompañamiento de enfermedades crónicas y promoción del bienestar.">Presentación</button>
+          <button class="tab" data-icon="../assets/img/examples/icono-estudios.png" data-title="Estudios y certificaciones" data-text1="Ordená aquí la base académica y las instancias de actualización con una lectura clara y profesional." data-text2="Formación médica de base, posgrados, cursos de medicina integrativa, herramientas complementarias y educación continua vinculada al acompañamiento clínico.">Estudios</button>
+          <button class="tab" data-icon="../assets/img/examples/icono-estudios.png" data-title="Perfil profesional" data-text1="Este tab resume el recorrido profesional y el tipo de acompañamiento que la persona puede esperar." data-text2="Más de 12 años de experiencia en consulta, mirada interdisciplinaria y trabajo orientado a un acompañamiento humano, gradual y basado en la escucha.">Perfil profesional</button>
+        </div>
+        <div class="tab-panel">
+          <div class="icon-box" aria-hidden="true"><img id="tabIcon" src="../assets/img/examples/icono-estudios.png" alt=""></div>
+          <div>
+            <h3 id="tabTitle">Formación y experiencia</h3>
+            <p id="tabText1">Detallá tu formación académica, certificaciones, experiencia y áreas de especialización.</p>
+            <p id="tabText2">Es Médica egresada de la Universidad de la República. Formación en Medicina Integrativa y actualización continua en abordajes complementarios. Más de 12 años de experiencia clínica en acompañamiento de enfermedades crónicas y promoción del bienestar.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <aside class="card booking">
+      <h3>Disponibilidad</h3>
+      <div class="legend">
+        <span><span class="dot"></span>Día disponible</span>
+        <span><span class="dot selected"></span>Día seleccionado</span>
+      </div>
+      <div class="calendar-card">
+        <div class="calendar-top"><div class="month">febrero 2026</div><div class="navs">‹ ›</div></div>
+        <div class="dow"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+        <div class="days">
+          <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day">1</div>
+          <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div>
+          <div class="day available">9</div><div class="day">10</div><div class="day available">11</div><div class="day available">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div>
+          <div class="day selected">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div>
+          <div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day"></div>
+        </div>
+      </div>
+      <div class="field-card"><span>Selecciona un horario</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v5l3 2"></path></svg></div>
+      <div class="helper">Selecciona la modalidad de la consulta</div>
+      <div class="split-card">
+        <button class="is-active" data-mode="virtual"><img src="../patterns/search/assets/virtual.png" alt=""><span>Virtual</span></button>
+        <button data-mode="presencial"><img src="../patterns/search/assets/presencial.png" alt=""><span>Presencial</span></button>
+      </div>
+      <div class="price-card"><div class="price-label">Valor de la consulta</div><div class="price-value">$U 3500</div></div>
+      <button class="cta">Reservar consulta</button>
+    </aside>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.split-card').forEach((group) => {
+    const buttons = [...group.querySelectorAll('button')];
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      });
+    });
+  });
+
+  const tabs = [...document.querySelectorAll('.tab')];
+  const title = document.getElementById('tabTitle');
+  const text1 = document.getElementById('tabText1');
+  const text2 = document.getElementById('tabText2');
+  const icon = document.getElementById('tabIcon');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      title.textContent = tab.dataset.title;
+      text1.textContent = tab.dataset.text1;
+      text2.textContent = tab.dataset.text2;
+      icon.src = tab.dataset.icon;
+    });
+  });
+</script>
+</body>
+</html>

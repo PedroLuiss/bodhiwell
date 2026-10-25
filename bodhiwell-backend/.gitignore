@@ -1,0 +1,67 @@
+.env.dev
+symfony.lock
+yarn.lock
+
+###> symfony/framework-bundle ###
+.env
+.env.production
+.env.local
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+/config/secrets/**/*
+/var/logs/
+/var/cache/
+/var/sessions/
+/vendor/
+composer.lock
+.DS_Store
+Thumbs.db
+.idea/
+/.vscode/
+
+# ====================
+# Ignorar ficheros subidos por usuarios
+# ====================
+/public/uploads/
+
+
+# Ignorar archivos de certificados
+/certs/*.crt
+/certs/*.key
+
+*.crt
+*.key
+*.pem
+*.p12
+*.jks
+*.der
+*.cer
+*.pfx
+*.asc
+*.gpg
+*.ovpn
+*.csr
+*.csr.pem
+*.key.pem
+*.cert.pem
+*.pem.key
+*.pem.crt
+*.p12.pem
+*.jks.pem
+*.der.pem
+*.cer.pem
+*.pfx.pem
+*.asc.pem
+*.gpg.pem
+*.ovpn.pem

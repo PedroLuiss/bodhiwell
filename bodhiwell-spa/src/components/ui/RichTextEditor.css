@@ -1,0 +1,12 @@
+.tiptap-editor .ProseMirror:focus,
+.tiptap-editor .ProseMirror:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+
+.tiptap-editor button:focus,
+.tiptap-editor button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}

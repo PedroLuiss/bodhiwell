@@ -1,0 +1,77 @@
+@import '../../../assets/styles/variables';
+
+$bw-surface: $color-surface;
+$bw-surface-soft: $color-surface-soft;
+$bw-border: $border-soft;
+$bw-radius: $radius-card;
+$bw-shadow: $shadow-soft;
+
+.advanced-filters {
+  background: $color-surface;
+  border: 1px solid $bw-border;
+  border-radius: $bw-radius;
+  box-shadow: $bw-shadow;
+  padding: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+  font-family: "Sora", sans-serif;
+
+  @media (max-width: 1024px) {
+    padding: 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.2fr;
+    gap: 24px;
+    align-items: flex-start;
+
+    @media (max-width: 1350px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    width: 100%;
+
+    &--dates {
+      @media (min-width: 1351px) {
+        grid-column: span 1;
+      }
+      @media (max-width: 1350px) {
+        grid-column: span 2;
+      }
+      @media (max-width: 860px) {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  &__date-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @media (max-width: 860px) {
+        gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+}

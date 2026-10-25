@@ -1,0 +1,9 @@
+{
+  "event": "payment.captured",
+  "paymentId": "SIMULATED-PLEXO-ID-1234",
+  "status": "CAPTURED",
+  "amount": 12000,
+  "currency": "USD",
+  "bookingUid": "BOOK-xyz789",
+  "timestamp": "2025-10-20T18:00:00Z"
+}

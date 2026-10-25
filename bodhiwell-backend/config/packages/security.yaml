@@ -1,0 +1,110 @@
+security:
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+
+    firewalls:
+        plexo_webhook:
+            pattern: ^/api/webhooks/plexo$
+            security: false
+
+        availabilities_public:
+            pattern: ^/api/professionals/[0-9a-fA-F\-]+/availabilities$
+            security: false
+
+        dimensions_public:
+            pattern: ^/api/dimensions
+            security: false
+
+        tags_public:
+            pattern: ^/api/tags
+            security: false
+
+        api_login:
+            pattern: ^/api/auth/jwt-login
+            stateless: true
+            provider: app_user_provider
+
+        profile_api:
+            pattern: ^/api/profile
+            stateless: true
+            provider: app_user_provider
+            jwt: ~
+
+        api_doc:
+            pattern: ^/api/doc($|\.)
+            security: false
+
+        api:
+            pattern: ^/api
+            stateless: true
+            provider: app_user_provider
+            jwt: ~
+
+        profile_public:
+            pattern: ^/profile/[0-9a-fA-F\-]+$
+            security: false
+
+        profile_certificates_public:
+            pattern: '^/profile/[0-9A-Fa-f\-]+/certificates$'
+            security: false
+
+        profile_professions_public:
+            pattern: '^/profile/[0-9A-Fa-f\-]+/professions$'
+            security: false
+
+        profile_studies_public:
+            pattern: '^/profile/[0-9A-Fa-f\-]+/studies$'
+            security: false
+
+        users_api:
+            pattern: ^/users$
+            security: false
+
+        main:
+            lazy: true
+            provider: app_user_provider
+            form_login:
+                login_path: /login
+                check_path: /login
+                default_target_path: /admin
+            logout:
+                path: /logout
+
+    access_control:
+        - { path: ^/api/doc, roles: PUBLIC_ACCESS }
+        - { path: ^/api/webhooks/plexo$, roles: PUBLIC_ACCESS }
+        - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_OWNER] }
+        - { path: ^/api/auth/register, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/jwt-login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/firebase-login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/forgot-password, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/validate-token, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/reset-password, roles: PUBLIC_ACCESS }
+        - { path: ^/api/token-debug, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth-debug, roles: PUBLIC_ACCESS }
+        - { path: ^/api/me$, roles: IS_AUTHENTICATED_FULLY }
+        - {
+              path: ^/api/profile/my-availabilities,
+              roles: IS_AUTHENTICATED_FULLY,
+          }
+        - { path: ^/api/profile, roles: ROLE_USER }
+        - { path: ^/api, roles: [ROLE_USER, ROLE_ADMIN, ROLE_OWNER] }
+
+when@test:
+    security:
+        password_hashers:
+            # By default, password hashers are resource intensive and take time. This is
+            # important to generate secure password hashes. In tests however, secure hashes
+            # are not important, waste resources and increase test times. The following
+            # reduces the work factor to the lowest possible values.
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Lowest possible value for bcrypt
+                time_cost: 3 # Lowest possible value for argon
+                memory_cost: 10 # Lowest possible value for argon

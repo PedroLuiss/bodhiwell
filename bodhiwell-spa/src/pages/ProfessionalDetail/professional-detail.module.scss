@@ -1,0 +1,597 @@
+@import '../../assets/styles/variables';
+
+body {
+    font-family: $font-main;
+}
+
+.professional-detail {
+    position: relative;
+    margin-top: 24px;
+    margin-bottom: 20px;
+
+    &__content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 376px;
+        gap: 32px;
+        align-items: start;
+
+        @media (max-width: 990px) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        &__booking {
+            position: sticky;
+            top: 100px; 
+            align-self: start;
+
+            @media (max-width: 990px) {
+                position: static;
+            }
+        }
+    }
+
+    &__main {
+        padding-right: 35px;
+
+        @media (max-width: 990px) {
+            padding-right: 0;
+        }
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        font-family: inherit;
+    }
+
+    .price-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .price-label {
+        font-size: 0.95rem;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .price-value {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #2e7d32;
+        letter-spacing: 0.5px;
+    }
+
+
+    &__image {
+        max-width: 100%;
+        width: 100%;
+        border-radius: $border-radius;
+        overflow: hidden;
+    }
+
+    &__card {
+        margin-top: 20px;
+        border: 1px solid $color-primary;
+        border-radius: $border-radius;
+    }
+
+    &__card-header {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 768px) {
+            align-items: flex-start;
+        }
+    }
+
+    &__title {
+        font-size: 38px;
+        color: $color-primary;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+            font-size: 28px;
+        }
+    }
+
+    &__subtitle {
+        font-size: 20px;
+        color: $color-primary;
+        margin-bottom: 15px;
+    }
+
+    &__card-content {
+        padding: 20px;
+        border-top: 1px solid $color-primary;
+    }
+
+    &__description {
+        font-size: 16px;
+        color: $color-primary;
+        font-family: $font-main;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: pre-wrap;
+        max-width: 100%;
+    }
+
+    &__btn {
+        font-size: 16px;
+        text-decoration: none;
+        color: $color-error;
+        border: none;
+        background: transparent;
+    }
+
+    &__sticky-panel {
+        position: sticky;
+        top: 23px;
+        z-index: 2;
+        margin-bottom: 40px;
+    }
+
+    &__calendar {
+        text-align: center;
+        max-width: 24rem;
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+
+        @media (max-width: 768px) {
+            width: 23rem;
+        }
+
+        @media (max-width: 500px) {
+            width: 100%;
+        }
+    }
+
+    &__calendar-title {
+        font-size: 29px;
+        color: #445867;
+        font-weight: 700;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    &__calendar-legend {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin: 16px 0;
+        padding: 10px;
+        // background-color: #f8f9fa;
+        border-radius: 8px;
+        flex-wrap: nowrap;
+
+        @media (max-width: 500px) {
+            gap: 10px;
+            padding: 8px;
+        }
+    }
+
+    &__legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: $color-primary;
+        white-space: nowrap;
+
+        @media (max-width: 768px) {
+            font-size: 10px;
+        }
+    }
+
+    &__legend-indicator {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+
+        &--available {
+            border: 2px solid #7A9E7E;
+            background-color: transparent;
+        }
+
+        &--selected {
+            background-color: $color-error;
+        }
+    }
+
+    &__calendar-button {
+        width: 100%;
+        font-family: $font-main;
+        border: none;
+        border-radius: $border-radius;
+        background-color: $color-error;
+        padding: 12px;
+        color: $color-bg;
+        font-size: 21px;
+        font-weight: bold;
+        margin: 0;
+        cursor: pointer;
+        transition: transform 0.2s, background-color 0.2s;
+
+        &:hover {
+            background-color: darken($color-error, 5%);
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+
+        &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    }
+
+    &__social {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    &__social-title {
+        font-size: 15px;
+        font-weight: bold;
+        margin: 0;
+        color: #708ca1;
+    }
+
+    &__social-icons {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__social-wrapper {
+        margin-top: 16px;
+    }
+
+    &__back-button-container {
+       margin-bottom: 19px;
+    }
+
+    &__back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 0 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(16, 25, 21, .10);
+        background: rgba(248, 244, 240, .92);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .03);
+        text-decoration: none;
+        color: #13231d;
+        font-size: 14px;
+        font-weight: 800;
+
+        &:hover {
+            background: #fff;
+        }
+    }
+
+
+    &__modality-container {
+        margin-bottom: 20px;
+        // padding: 12px;
+        // border-radius: 9px;
+        // background-color: #f8fbff;
+        // border: 1px solid #e1ecf5;
+        font-family: $font-main;
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    &__modality-text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: $color-primary;
+
+        &--presencial {
+            svg {
+                color: $color-primary;
+            }
+        }
+
+        &--virtual {
+            svg {
+                color: $color-error;
+            }
+        }
+    }
+
+    &__modality-selection {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__modality-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #445867;
+        margin-bottom: 10px;
+    }
+
+    &__radio-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+
+        &--open {
+           background-color: #f8fbff;
+           border-radius: 9px;
+           border: 1px solid #e1ecf5;
+        }
+
+        @media (max-width: 400px) {
+            flex-direction: column;
+        }
+
+        label {
+            margin: 0;
+            flex: 1;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 5px 10px;
+            transition: all 0.2s ease;
+            background: white;
+            display: flow-root;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background-color: #f9f9f9;
+                border-color: #d0d0d0;
+            }
+
+            &.active-radio {
+                border: 2px solid #445867;
+                background-color: white;
+
+                span {
+                    font-weight: 700;
+                    color: #445867;
+                }
+            }
+
+            :global(.MuiTypography-root) {
+                font-size: 14px;
+                font-weight: 500;
+                color: #666;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 100%;
+
+                svg {
+                    font-size: 32px;
+                }
+            }
+
+            .MuiRadio-root {
+                display: none;
+            }
+        }
+    }
+
+    &__consult-value {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 20px;
+        border: 1px solid #E0E0E0;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        margin-bottom: 25px;
+
+        &-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+
+            span {
+                font-size: 16px;
+            }
+
+            svg {
+                color: #555;
+                font-size: 32px;
+            }
+        }
+
+        &-right {
+            font-size: 21px;
+            font-weight: 800;
+            color: #445867;
+        }
+    }
+
+
+
+
+    .view-verified-icon {
+        color: $color-error;
+        font-size: 0.7em !important;
+        margin-left: 5px;
+    }
+
+    .view-meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #fafafa;
+        border-radius: 12px;
+        border: 1px solid #f0f0f0;
+    }
+
+    .view-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .meta-icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: lighten($color-primary, 45%);
+        color: $color-primary;
+        flex-shrink: 0;
+
+        &.accent {
+            background-color: rgba($color-error, 0.1);
+            color: $color-error;
+        }
+
+        &.green {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+    }
+
+    .meta-content {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .meta-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: lighten($color-primary, 40%);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .meta-value {
+        font-size: 0.95rem;
+        color: $color-primary;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .view-tags-section {
+        margin-top: 20px;
+
+        .tags-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .tags-label {
+            font-size: 0.9rem;
+            color: lighten($color-primary, 20%);
+            font-weight: 600;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-badge {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            background-color: #f0f2f5;
+            border-radius: 16px;
+            color: #445867;
+            border: 1px solid #e0e0e0;
+            font-weight: 500;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tabs {
+    margin: 0px 0 40px 0;
+    border: 1px solid #E1E8ED;
+    border-radius: $border-radius;
+
+    &__content {
+        display: flex;
+        gap: 20px;
+        color: $color-primary;
+        padding: 30px 20px;
+    }
+
+    &__title {
+        font-size: 24px;
+        color: #445867;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    &__image {
+        padding-right: 20px;
+
+        @media (max-width: 768px) {
+            padding-right: 0;
+            padding-bottom: 20px;
+        }
+    }
+
+    &__description {
+        font-size: 16px;
+        color: $color-primary;
+        font-family: $font-main;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: pre-wrap;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &__empty-state {
+        padding: 40px 20px;
+        text-align: center;
+        color: #8898aa;
+        font-size: 15px;
+        font-weight: 500;
+    }
+}

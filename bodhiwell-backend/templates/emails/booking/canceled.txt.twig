@@ -1,0 +1,8 @@
+Reserva cancelada
+
+Consultante: {{ booking.patientUser ? booking.patientUser.firstName ~ ' ' ~ booking.patientUser.lastName : '—' }}
+Profesional: {{ booking.professionalUser ? booking.professionalUser.firstName ~ ' ' ~ booking.professionalUser.lastName : '—' }}
+Fecha y hora (original): {{ booking.dateBookingStart ? booking.dateBookingStart|date('Y-m-d H:i') : '—' }}
+Tipo: {{ booking.type is defined ? booking.type|capitalize : '—' }}
+
+Puedes volver a agendar: {{ portalUrl }}

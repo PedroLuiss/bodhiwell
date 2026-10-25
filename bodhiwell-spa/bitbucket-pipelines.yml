@@ -1,0 +1,9 @@
+image: atlassian/default-image:3
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: 'Deploy to Development'
+          script:
+            - ssh root@135.181.199.25 "export PATH=/root/.nvm/versions/node/v22.15.0/bin:$PATH &&  cd /var/www/projects/bodhiwell/bodhiwell-spa && git pull && yarn install && yarn build && pm2 restart spa-dev-bodhiwell"

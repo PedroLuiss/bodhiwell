@@ -1,0 +1,24 @@
+{# Variables esperadas:
+   - booking (App\Entity\Booking)
+   - recipient (App\Entity\User)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+
+{% set patientName = booking.patientUser ? (booking.patientUser.firstName ~ ' ' ~ booking.patientUser.lastName) : '—' %}
+{% set startAt     = booking.dateBookingStart ? booking.dateBookingStart|date('Y-m-d H:i') : '—' %}
+
+{% block title %}Pago Pendiente{% endblock %}
+
+{% block content %}
+    <h2>Pago Iniciado: Pendiente de Confirmación</h2>
+    <p>Hola <strong>{{ patientName }}</strong>,</p>
+    <p>Hemos detectado que iniciaste un pago para tu cita del <strong>{{ startAt }}</strong>.</p>
+    <p>El estado actual es <strong>PENDIENTE</strong>. Te notificaremos en cuanto el pago se complete.</p>
+
+    <p>Si tuviste algún problema, puedes intentar pagar nuevamente desde la plataforma:</p>
+    
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="color: #ffffff !important;">Ver detalles de reserva</a>
+    </p>
+{% endblock %}

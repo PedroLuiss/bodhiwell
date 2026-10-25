@@ -1,0 +1,21 @@
+.my-consultations-page {
+  background: #fff;
+  min-height: 80dvh;
+  border-radius: 8px;
+      padding: 18px;
+  border: 1px solid #e0e0e0;
+
+  @media (max-width: 375px) {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+}

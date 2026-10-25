@@ -1,0 +1,412 @@
+users:
+  title: "Users"
+  add_button: "Add User"
+  edit_button: "Edit User"
+  delete_button: "Delete"
+  email: "Email"
+  username: "Username"
+  first_name: "First Name"
+  last_name: "Last Name"
+  roles: "Roles"
+  roles_labels:
+    user: "User"
+    admin: "Admin"
+  password: "Password"
+  password_help: "Must be secure"
+  tab_basic: "Basic Info"
+  tab_certificates: "Certificates"
+  tab_professions: "Professions"
+  tab_studies: "Studies"
+  certificates: "User Certificates"
+  professions: "Professions"
+  studies: "Studies"
+  professional: "Professional"
+  professional_singular: "Professional"
+  patient: "Consultant"
+  patient_singular: "Consultant"
+  patient_plural: "Consultants"
+  professional_plural: "Professionals"
+  full_name: "Full Name"
+  dni: "DNI"
+  phone_number: "Phone"
+  consult_time: "Consultation Duration"
+  personal_info: "Personal Information"
+  extra_info: "Extra Information"
+  account_number: "Account Number"
+  holder_name: "Name associated with the account"
+  bank_name: "Bank Name"
+  date_birth: "Date of Birth"
+  prefix: "Prefix"
+  base_profession: "Base Profession"
+  consult_type: "Consultation Type"
+  specialties: "Specialties"
+  about: "Share your experience and feelings with us"
+  titulations: "Qualifications"
+  other_professions: "Other Professions"
+  gender: "Gender"
+  gender_female: "Female"
+  gender_male: "Male"
+  gender_other: "Other"
+  country: "Country"
+  city: "City"
+  address: "Address"
+  zipcode: "Zip Code"
+  status_active: "Active"
+  status_pending_completion: "Incomplet profile"
+  status_pending_approval: "Pending approval"
+  status_rejected: "Rejected"
+  actions:
+    view_consultations: "View Consultations"
+    view_bookings: "View Bookings"
+    details: "Details"
+    delete: "Delete"
+    approve: "Approve"
+    reject: "Reject"
+    reject_title: "Reject Professional"
+    reject_reason_label: "Rejection Reason"
+    reject_reason_placeholder: "Enter the reason for rejecting the profile..."
+    reject_confirm: "Confirm Rejection"
+    reject_cancel: "Cancel"
+  flash:
+    profile_approved: "User approved successfully."
+    profile_rejected: "User rejected successfully."
+
+  specialty: "Specialty"
+  status: "Status"
+  patients_attended: "Consultants Attended"
+  consultations_completed: "Completed Consultations"
+
+  blocked: "Blocked"
+  under_review: "Under Review"
+
+profession:
+  label_singular: "Profession"
+  label_plural: "Professions"
+  title: "List of Professions"
+  new: "Add Profession"
+  edit: "Edit Profession"
+  tab:
+    general: "General Information"
+  fields:
+    name: "Name"
+    status: "Status"
+    institute: "Institute"
+    institute_help: "Maximum 1000 characters"
+    created_at: "Created At"
+    updated_at: "Last Updated"
+  status:
+    underReview: "Under Review"
+    active: "Active"
+    inactive: "Inactive"
+specialty:
+  label_singular: "Specialty"
+  label_plural: "Specialties"
+  title: "List of Specialties"
+  new: "Add Specialty"
+  edit: "Edit Specialty"
+  batch_upload: "Mass Upload"
+  tab:
+    general: "General Information"
+  fields:
+    name: "Name"
+    slug: "Slug"
+    dimension: "Dimension"
+    legal_framework: "Legal Framework"
+    clinical_level: "Clinical Level"
+    required_base_study: "Required Base Study"
+    msp_required: "Requires MSP"
+    is_base_profession: "Is Base Profession"
+    public_title_male: "Public Title (Male)"
+    public_title_female: "Public Title (Female)"
+    public_title_neutral: "Public Title (Neutral)"
+    description: "Description"
+    created_at: "Created At"
+    updated_at: "Last Updated"
+  actions:
+    batch_upload: "Mass Upload"
+  batch_upload_title: "Specialties Mass Upload"
+  batch_upload_help: "Upload an Excel (.xlsx) or CSV file with the specialties catalog."
+  import_success: "Import completed: %created% created, %updated% updated."
+  import_error: "Error during import: %error%"
+
+studies:
+  singular: "Study"
+  plural: "Studies"
+  professional: "Professional"
+  fields:
+    name: "Name"
+    institute: "Institute"
+    status: "Status"
+    type: "Type"
+    date_start: "Start Date"
+    date_end: "End Date"
+    is_validated: "Validated?"
+
+certificates:
+  fields:
+    name: "Certificate Name"
+    status: "Status"
+    institute: "Institute"
+    urlFile: "File URL"
+  status:
+    pending: "Pending"
+    approved: "Approved"
+    rejected: "Rejected"
+
+agenda:
+  section: "Agenda"
+
+community:
+  section: "Community"
+
+transactions:
+  section: "Transactions"
+
+availability:
+  label_plural: "Availabilities"
+  label_singular: "Availability"
+  new: "New availability"
+  edit: "Edit availability"
+  fields:
+    day_of_week: "Day"
+    professional: "Professional"
+    date_availability: "Date"
+    slots: "Time Slots"
+    slots_label: "Schedule blocks"
+    slot_entry: "Time block"
+    slot_start: "Start"
+    slot_end: "End"
+    next_dates: "Next available dates"
+    days_summary: "Schedule blocks summary"
+  no_future_dates: "No future dates"
+  days_active_blocks: "%d days with active blocks"
+  actions:
+    view_grouped: "View grouped"
+    view_availabilities: "View availabilities"
+
+booking:
+  label_plural: "Bookings"
+  new: "New booking"
+  edit: "Edit booking"
+  create: "Create Booking"
+  additional_details: "Additional Details"
+  associated_consultation: "Associated Consultation"
+  flash:
+    created: "Booking created successfully."
+    updated: "Booking updated."
+  error:
+    no_id: "ID not received."
+    not_found: "Booking not found."
+  fields:
+    date_start: "Start Date"
+    date_end: "End Date"
+    status: "Status"
+    notes: "Notes"
+    created_at: "Created"
+    updated_at: "Updated"
+    type: "Booking Type"
+    reserve_reason: "Reserve reason"
+    quote_for_invited: "Quote for invited"
+  status:
+    waiting_payment: "Waiting for payment"
+    processing: "Processing"
+    pending_provider: "Pending provider"
+    confirmed: "Confirmed"
+    cancelled: "Cancelled"
+    completed: "Completed"
+    pending: "Pending"
+  admin_notes:
+    waiting_payment: "Waiting for Payment"
+    processing: "Waiting for Provider"
+    pending_provider: "Waiting for Provider"
+    confirmed: "Payment Confirmed"
+    cancelled: "Cancelled"
+    completed: "Completed - Consultation Done"
+    pending: "Pending"
+  type:
+    virtual: "Virtual"
+    presential: "Presential"
+  metadata: "Metadata"
+  actions:
+    summary: "Summary"
+    full_detail: "Full detail"
+    edit_notes: "Edit notes"
+    back: "Back"
+
+consultation:
+  label_plural: "Consultations"
+  new: "New consultation"
+  edit: "Edit consultation"
+  details_label: "Consultation details"
+  detail_title: "Consultation Detail"
+  booking_info: "Booking Information"
+  report: "Report"
+  fields:
+    type: "Type"
+    notes: "Notes"
+    created_at: "Created"
+    updated_at: "Updated"
+    first_detail: "Consultation detail"
+    reserve_reason: "Reserve reason"
+    quote_for_invited: "Quote for invited"
+    observations: "Observations"
+  status:
+    pending: "Pending"
+    completed: "Completed"
+    confirmed: "Confirmed"
+    cancelled: "Cancelled"
+
+consultation_detail:
+  key: "Key"
+  value: "Value"
+  fields:
+    detail_key: "Type"
+    detail_value: "Description"
+    consultation: "Consultation"
+    meetingLink: "Meeting link"
+    address: "Address"
+    observations: "Observations"
+    notes: "Notes"
+    reasonConsultation: "Reason for consultation"
+
+weekday.SUNDAY: Sunday
+weekday.MONDAY: Monday
+weekday.TUESDAY: Tuesday
+weekday.WEDNESDAY: Wednesday
+weekday.THURSDAY: Thursday
+weekday.FRIDAY: Friday
+weekday.SATURDAY: Saturday
+
+payment:
+  label_singular: "Payment"
+  label_plural: "Payments"
+  fields:
+    amount: "Amount"
+    currency: "Currency"
+    status: "Status"
+    booking: "Booking"
+    created_at: "Created At"
+    updated_at: "Updated At"
+  status:
+    initiated: "Initiated"
+    processing: "Processing"
+    pending_provider: "Pending provider"
+    approved: "Approved"
+    rejected: "Rejected"
+    pending: "Pending"
+
+transaction:
+  label_singular: "Transaction"
+  label_plural: "Transactions"
+  fields:
+    type: "Type"
+    created_at: "Created At"
+
+professional_wallet:
+  label_singular: "Professional Wallet"
+  label_plural: "Professional Wallets"
+
+wallet_ledger:
+  label_singular: "Wallet Ledger"
+  label_plural: "Wallet Ledger"
+
+action:
+  back: "Back"
+  back_to_list: "Back to list"
+withdrawal:
+  label_singular: "Payout to Professionals"
+  label_plural: "Payout to Professionals"
+  new: "New Payout to Professionals"
+  edit: "Edit Payout to Professionals"
+  bank_info_title: "Professional Bank Information"
+  fields:
+    amount: "Amount"
+    status: "Status"
+    professional: "User"
+  status:
+    pending: "Pending"
+    approved: "Approved"
+    rejected: "Rejected"
+    in_process: "In Process"
+  action:
+    mark_processed: "Process withdrawal"
+    mark_rejected: "Reject withdrawal"
+  confirm:
+    process: "Do you want to process this withdrawal?"
+    reject: "Do you want to reject this withdrawal?"
+  flash:
+    not_found: "Withdrawal not found"
+    only_pending_allowed: "Only pending withdrawals can be processed"
+    marked_processed: "Withdrawal marked as processed"
+    error_processing: "Error processing the withdrawal"
+  messages:
+    invalid_entity: "Invalid entity to process"
+    cannot_process_non_pending: "Only pending withdrawals can be marked as processed"
+    processed_success: "Withdrawal marked as processed."
+    processed_failed: "Error marking the withdrawal as processed."
+    cannot_reject_non_pending: "Only pending withdrawals can be marked as rejected."
+    rejected_success: "Withdrawal marked as rejected."
+    rejected_failed: "Error marking the withdrawal as rejected."
+    invalid_amount: "Amount must be greater than zero."
+    invalid_professional: "Invalid professional for withdrawal."
+    access_denied: "Access denied."
+
+refund:
+  label_singular: "Refund"
+  label_plural: "Refund"
+  fields:
+    patient: "Consultant"
+    professional: "Professional"
+    reason: "Reason"
+    booking: "Booking"
+    amount: "Amount"
+    status: "Status"
+    admin_note: "Admin Note"
+    created_at: "Created At"
+  status:
+    review: "In Review"
+    approved: "Approved"
+    rejected: "Rejected"
+    completed: "Completed"
+  metrics:
+    title: "Refund Metrics"
+  actions:
+    new: "Create Refund"
+    approve: "Approve"
+    reject: "Reject"
+  placeholders:
+    select_booking: "Select a booking"
+    no_date: "No date"
+  notes:
+    approved_admin: "Approved from Admin Panel"
+    rejected_admin: "Rejected from Admin Panel"
+  flash:
+    approved_success: "Refund approved and funds deducted successfully."
+    rejected_success: "Refund rejected and funds released."
+    error_prefix: "Error: "
+  messages:
+    approved_success: "Refund approved."
+    rejected_success: "Refund rejected."
+    invalid_entity: "Invalid refund entity."
+  errors:
+    invalid_transition_review: "Only allowed transitions are: review -> approved|rejected|completed."
+    invalid_transition_approved: "Only allowed transitions are: approved -> completed."
+    cannot_edit_final: "Cannot edit a refund that is rejected or completed."
+    validation_booking_mismatch: "Validation Error: The selected booking does not belong to the selected consultant. (Booking of: %booking_email%, Selected consultant: %patient_email%)"
+    creation_failed: "Error creating refund: "
+wallet:
+  status:
+    active: "Active"
+    blocked: "Blocked"
+    pending: "Pending"
+  fields:
+    status: "Status"
+    available_balance: "Available Balance"
+    frozen_balance: "Frozen Balance"
+    total_balance: "Total Balance"
+    updated_at: "Updated At"
+  section: "Wallets"
+
+flash_messages:
+  user_approved: "User approved successfully."
+  user_rejected: "User rejected successfully."

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhiwell — Base oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/base-oficial.css" />
+<link rel="stylesheet" href="../assets/css/examples-typography.css">
+</head>
+<body class="preview-body">
+
+<header class="header" id="mainHeader">
+  <div class="header-inner">
+    <a class="logo" href="../start-here.html" aria-label="Bodhiwell">
+      <img src="../assets/img/brand/logo-bodhiwell-color.png" alt="Bodhiwell">
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#acerca">Acerca de</a>
+      <a href="#como-funciona">¿Cómo funciona?</a>
+      <a href="#profesionales">Comunidad</a>
+      <a href="#blog">Blog</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="actions">
+      <button class="lang-switch" type="button" aria-label="Idioma actual: Español">
+        <img src="../assets/img/brand/mundo.png" alt="" aria-hidden="true">
+        <span>ES</span>
+      </button>
+      <a class="login-link" href="#">Acceder</a>
+      <a class="btn btn-outline header-btn btn-green" href="#contacto">Crear mi cuenta</a>
+    </div>
+  </div>
+</header>
+
+<main class="preview-main">
+  <div class="preview-container">
+    <section class="preview-hero">
+      <p class="preview-eyebrow">Base oficial</p>
+      <h1 class="preview-title">Header y footer unificados como sistema base.</h1>
+      <p class="preview-copy">
+        Esta pantalla existe solo para validar la estructura madre: header oficial arriba,
+        body neutro rellenable en el centro y footer oficial abajo. Si este bloque queda
+        aprobado, pasa a ser la base legítima para landing, blog y artículo.
+      </p>
+
+      <div class="preview-grid">
+        <article class="preview-card">
+          <span class="preview-label">Header oficial</span>
+          <h2>Mismo componente para todas las páginas</h2>
+          <p>
+            La navegación, la posición del logo, los links y el CTA derecho quedan
+            congelados y dejan de reinterpretarse por pantalla.
+          </p>
+        </article>
+
+        <article class="preview-card">
+          <span class="preview-label">Body rellenable</span>
+          <h2>Área central variable</h2>
+          <p>
+            Hero, tarjetas, sidebars, grillas y contenido editorial pueden variar
+            sin tocar la estructura madre.
+          </p>
+        </article>
+
+        <article class="preview-card">
+          <span class="preview-label">Footer oficial</span>
+          <h2>Estructura constante</h2>
+          <p>
+            El texto bajo la marca es opcional y variable, pero la columna, la grilla
+            y la alineación no cambian.
+          </p>
+        </article>
+      </div>
+
+      <p class="preview-component-note">
+        Referencia visual: landing v5. Esta base elimina el prefooter por ahora
+        y deja solo los dos componentes obligatorios del sistema.
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer class="footer" id="contacto">
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../assets/img/brand/logo-bodhiwell-color.png" alt="Bodhiwell">
+        <p>
+          Texto editorial opcional. Esta línea puede adaptarse al contexto de la página
+          o desaparecer sin alterar la estructura del componente.
+        </p>
+      </div>
+
+      <div class="footer-aside">
+        <div class="footer-links">
+          <h3>Enlaces rápidos</h3>
+          <a href="#acerca">Acerca de</a>
+          <a href="#como-funciona">¿Cómo funciona?</a>
+          <a href="#profesionales">Comunidad</a>
+          <a href="#blog">Blog</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+
+        <div class="footer-social">
+          <h3>Seguinos</h3>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div><a href="#">Términos y condiciones</a></div>
+      <div class="footer-contact">hola@bodhiwell.com</div>
+      <div class="footer-copy">© 2026 Bodhiwell. Todos los derechos reservados.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("mainHeader");
+    if (!header) return;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block main %}
+    <div class="container my-4">
+        <h1 class="h3 mb-4">{{ 'booking.detail'|trans }}</h1>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-header">
+                        <strong>{{ summary.professional }}</strong>
+                        {% if summary.main_profession %}
+                            <span class="text-muted">&middot; {{ summary.main_profession }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-1"><strong>{{ 'users.patient'|trans }}:</strong> {{ summary.patient }}</p>
+                        <p class="mb-1"><strong>{{ 'booking.fields.date_start'|trans }} / {{ 'booking.fields.date_end'|trans }}:</strong> {{ summary.date_start }} &mdash; {{ summary.date_end }}</p>
+                        <p class="mb-1"><strong>{{ 'booking.fields.type'|trans }}:</strong>
+                            <span class="badge bg-info text-dark">{{ ('booking.type.' ~ summary.type)|trans }}</span>
+                        </p>
+                        <p class="mb-1"><strong>{{ 'booking.fields.status'|trans }}:</strong>
+                            <span class="badge bg-secondary">{{ ('booking.status.' ~ summary.status|lower)|trans }}</span>
+                        </p>
+                        {% if summary.reserve_reason %}
+                            <p class="mt-2"><strong>{{ 'booking.fields.reserve_reason'|trans }}:</strong> {{ summary.reserve_reason }}</p>
+                        {% endif %}
+                        {% if summary.notes %}
+                            <p class="mt-2"><strong>{{ 'booking.fields.notes'|trans }}:</strong><br>{{ summary.notes|nl2br }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if summary.details is not empty %}
+                    <div class="card mb-3">
+                        <div class="card-header">{{ 'booking.additional_details'|trans }}</div>
+                        <div class="card-body">
+                            <ul class="mb-0">
+                                {% for d in summary.details %}
+                                    <li><strong>{{ ('consultation_detail.fields.' ~ d.key)|trans }}:</strong> {{ d.value }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if summary.consultation %}
+                    <div class="card mb-3">
+                        <div class="card-header">{{ 'booking.associated_consultation'|trans }}</div>
+                        <div class="card-body">
+                            <p class="mb-1"><strong>{{ 'booking.fields.status'|trans }}:</strong> {{ ('consultation.status.' ~ summary.consultation.status|lower)|trans }}</p>
+                            {% if summary.consultation.notes %}
+                                <p class="mb-1"><strong>{{ 'booking.fields.notes'|trans }}:</strong><br>{{ summary.consultation.notes|nl2br }}</p>
+                            {% endif %}
+                            {% if summary.consultation.observations %}
+                                <p class="mb-0"><strong>{{ 'consultation.fields.observations'|trans }}:</strong><br>{{ summary.consultation.observations|nl2br }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">{{ 'booking.metadata'|trans }}</div>
+                    <div class="card-body">
+                        <p class="mb-1"><strong>UID:</strong> {{ summary.uid }}</p>
+                        <p class="mb-1"><strong>{{ 'booking.fields.created_at'|trans }}:</strong> {{ booking.createdAt ? booking.createdAt|date('d/m/Y H:i') : '-' }}</p>
+                        <p class="mb-1"><strong>{{ 'booking.fields.updated_at'|trans }}:</strong> {{ booking.updatedAt ? booking.updatedAt|date('d/m/Y H:i') : '-' }}</p>
+                    </div>
+                </div>
+
+                <a href="{{ ea_url().setAction('detail').setEntityId(booking.id) }}" class="btn btn-outline-secondary w-100 mb-2">{{ 'booking.actions.full_detail'|trans }}</a>
+                <a href="{{ ea_url().setAction('edit').setEntityId(booking.id) }}" class="btn btn-primary w-100">{{ 'booking.actions.edit_notes'|trans }}</a>
+            </div>
+        </div>
+
+        <div class="mt-4">
+             <a href="{{ ea_url().setAction('index').unset('entityId') }}" class="btn btn-secondary">
+                <i class="fa fa-arrow-left"></i> {{ 'booking.actions.back'|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}

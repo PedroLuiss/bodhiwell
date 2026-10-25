@@ -1,0 +1,270 @@
+@import '../../assets/styles/variables';
+
+.contact {
+    background-image: url('../../assets/images/img_contato.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    padding: 60px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: $font-main;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(19, 35, 29, 0.72); 
+        backdrop-filter: blur(2px);
+    }
+
+    &__wrapper {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        width: 100%;
+        max-width: 1100px;
+        gap: 40px;
+        align-items: center;
+
+        @media (max-width: $breakpoint-lg) {
+            grid-template-columns: 1fr;
+            max-width: 600px;
+        }
+    }
+
+    &__info {
+        color: #fff;
+        padding-right: 40px;
+
+        @media (max-width: $breakpoint-lg) {
+            padding-right: 0;
+            text-align: center;
+        }
+    }
+
+    &__eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: $color-primary;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -.04em;
+        margin: 0 0 20px;
+        color: #fff;
+
+        @media (max-width: $breakpoint-sm) {
+            font-size: 36px;
+        }
+    }
+
+    &__description {
+        font-size: 18px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 480px;
+
+        @media (max-width: $breakpoint-lg) {
+            margin: 0 auto;
+        }
+    }
+
+    &__separator {
+        width: 60px;
+        height: 2px;
+        background-color: $color-primary;
+        margin: 32px 0;
+
+        @media (max-width: $breakpoint-lg) {
+            margin: 32px auto;
+        }
+    }
+
+    &__footer-text {
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    &__link {
+        color: $color-primary;
+        text-decoration: none;
+        font-weight: 700;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+    }
+
+    &__card {
+        background: rgba(247, 244, 239, 0.94);
+        border: 1px solid rgba(19, 35, 29, 0.1);
+        border-radius: 24px;
+        box-shadow: 0 18px 48px rgba(19, 35, 29, 0.14);
+        backdrop-filter: blur(12px);
+        padding: 24px 20px;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+
+        @media (max-width: $breakpoint-sm) {
+            padding: 24px 20px;
+            background: rgba(247, 244, 239, 0.98);
+        }
+    }
+}
+
+// Sub-bloque Formulario
+.form {
+    display: grid;
+    gap: 10px;
+
+    &__copy {
+        margin: 0 0 8px;
+        color: rgba(19, 35, 29, 0.78);
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    &__field-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 14px;
+        border: 1px solid rgba(19, 35, 29, 0.12);
+        background: #fff;
+        padding: 0 14px;
+        color: #13231d;
+        font-size: 14px;
+        line-height: 1.4;
+        transition: all 0.2s ease;
+        outline: none;
+
+        &::placeholder {
+            color: rgba(19, 35, 29, 0.44);
+        }
+
+        &:focus {
+            border-color: $color-primary;
+            box-shadow: 0 0 0 4px rgba(130, 177, 148, 0.16);
+        }
+
+        &--textarea {
+            padding-top: 14px;
+            resize: none;
+            min-height: 100px;
+        }
+
+        &--error {
+            border-color: $color-error !important;
+            background-color: rgba($color-error, 0.02);
+
+            &:focus {
+                box-shadow: 0 0 0 4px rgba(201, 92, 92, 0.12) !important;
+            }
+        }
+
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+            -webkit-text-fill-color: #13231d !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        &:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px #e6ebe4 inset !important;
+            -webkit-text-fill-color: #13231d !important;
+        }
+    }
+
+    &__error-text {
+        color: $color-error;
+        font-size: 11px;
+        margin-top: 4px;
+        margin-left: 4px;
+        font-weight: 700;
+        text-align: left;
+        animation: fadeIn 0.2s ease-in-out;
+    }
+
+    &__button {
+        width: 100%;
+        margin-top: 10px;
+        min-height: 48px;
+        padding: 0 24px;
+        border-radius: 16px;
+        font-weight: 750;
+        border: 1px solid transparent;
+        background: $color-primary;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+        font-size: 15px;
+
+        &:hover:not(:disabled) {
+            background: $color-primary-hover;
+            transform: translateY(-1px);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    &__message--error {
+        color: $color-error;
+        font-size: 13px;
+        margin-top: 5px;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+
+.success {
+    text-align: center;
+    padding: 20px 0;
+
+    &__icon {
+        color: $color-primary;
+        margin-bottom: 16px;
+        svg { font-size: 64px; }
+    }
+
+    &__title {
+        font-size: 28px;
+        font-weight: 800;
+        color: $text-main;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 1.6;
+        color: $text-secondary;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

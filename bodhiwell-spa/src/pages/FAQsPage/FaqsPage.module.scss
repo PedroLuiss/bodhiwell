@@ -1,0 +1,33 @@
+@import '../../assets/styles/variables';
+
+.faq-page {
+    background-color: $color-bg;
+    padding: 18px 0 72px;
+    font-family: $font-main;
+
+    &__container {
+        width: min(100%, 1280px);
+        margin: 0 auto;
+        padding: 0 40px;
+        display: grid;
+        gap: 24px;
+
+        @media (max-width: 760px) {
+            padding: 0 20px;
+        }
+    }
+
+    &__loading {
+        text-align: center;
+        padding: 40px;
+        font-size: 1.1rem;
+        color: $color-primary;
+    }
+
+    &__error {
+        text-align: center;
+        padding: 40px;
+        font-size: 1.1rem;
+        color: $color-error;
+    }
+}

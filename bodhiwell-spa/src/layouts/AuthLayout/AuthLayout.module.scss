@@ -1,0 +1,30 @@
+@import "../../assets/styles/variables.scss";
+
+.auth-page {
+    min-height: 100dvh;
+    background-color: $color-bg;
+    font-family: $font-main;
+    padding: 16px 20px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__header {
+        max-width: 1320px;
+        text-align: center;
+        margin: 8px auto 20px;
+    }
+
+    &__logo {
+        height: 71px;
+        cursor: pointer;
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+    }
+}

@@ -1,0 +1,172 @@
+@import '../../../assets/styles/variables';
+
+.how-it-works-section {
+  background-color: #F7F7FF;
+  padding: 67px 20px;
+
+  &__container {
+    max-width: 1267px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__eyebrow {
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-family: "Lato", sans-serif;
+    color: #2D2D2F;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+  }
+
+  &__heading {
+    font-size: $font-size-section-subtitles;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 0.3rem 0;
+  }
+
+  &__description {
+    font-size: $font-size-section-descripcion;
+    color: #2D2D2F;
+    line-height: 1;
+    width: 800px;
+  }
+
+  &__steps-list {
+    list-style: none;
+    padding: 0px 149px;
+    margin: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__step {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  &__step-icon-wrapper {
+    color: #333;
+    font-size: 26px;
+    margin-top: 2px;
+  }
+
+  //   &__step-content {}
+
+  &__step-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+  }
+
+  &__step-description {
+    font-size: 1.3rem;
+    color: #2D2D2F;
+    line-height: 1;
+    margin: 0;
+  }
+
+  &__info-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    color: #2D2D2F;
+    width: 800px;
+    margin: 35px auto;
+    margin-top: 94px;
+  }
+
+  &__info-note-icon {
+    color: #E8A838;
+    font-size: 1.2rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 35px;
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  &__button {
+    padding: 8px 39px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #485967;
+
+    &--primary {
+      background-color: #ffffff;
+      color: #333;
+
+      &:hover {
+        background-color: #333;
+        color: #ffffff;
+        border-color: #333;
+      }
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: #333;
+
+      &:hover {
+        background-color: #e0e0e0;
+        border-color: #555;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 67px 20.1875px;
+    &__container {
+      align-items: center;
+      text-align: center;
+    }
+
+    &__step {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+    &__actions {
+      flex-direction: column;
+      width: 100%;
+      gap: 18px;
+      margin-top: 0px;
+      max-width: unset;
+    }
+
+
+    &__button {
+      width: 100%;
+    }
+
+    &__steps-list {
+      padding: 0px 8px;
+      margin: 6px 0 0 0;
+      gap: 5px;
+    }
+
+    &__description {
+      width: auto;
+    }
+
+    &__info-note {
+      margin-top: 50px;
+      width: auto;
+    }
+  }
+}

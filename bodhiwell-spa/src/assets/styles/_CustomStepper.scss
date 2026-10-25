@@ -1,0 +1,108 @@
+$stepper-blue-completed: #3F78B0;
+$stepper-dark-active: #475F77;
+$stepper-grey-inactive: #e5e7eb;
+$stepper-text-dark: #374151;
+$stepper-text-light: #9ca3af;
+$white-color: #ffffff;
+$breakpoint-xs: 900px; 
+$breakpoint-md: 1260px;
+
+.custom-stepper {
+  padding: 3.5rem 16rem 0rem 16rem;
+
+  .MuiStepConnector-line {
+    border-top-width: 0px; 
+    border-color: $stepper-grey-inactive;
+    border-style: dashed; 
+  }
+
+  .Mui-active .MuiStepConnector-line,
+  .Mui-completed .MuiStepConnector-line {
+    border-color: $stepper-blue-completed;
+    border-style: solid;
+  }
+
+  .MuiStepLabel-label {
+    margin-top: 0;
+    font-weight: 500;
+    color: $stepper-text-light;
+
+    &.Mui-active,
+    &.Mui-completed {
+      color: #1F4997;
+    }
+  }
+
+  .custom-step-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    
+    background-color: $stepper-grey-inactive;
+    color: $stepper-text-light;
+
+    &--active {
+      background-color: $stepper-dark-active;
+      color: $white-color;
+    }
+    
+    &--completed {
+      background-color: $stepper-blue-completed;
+      color: $white-color;
+
+      .MuiSvgIcon-root {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) { 
+    padding: 2.5rem 5rem 0rem 5rem;
+  }
+
+  @media (max-width: 990px) { 
+    padding: 2.5rem 0rem 0rem 0rem;
+     .MuiStepLabel-label {
+      font-size: 0.8rem;
+     }
+  }
+
+   @media (max-width: 1445px) { 
+    padding: 2.5rem 8rem 0rem 8rem
+  }
+
+   @media (max-width: 1198px) { 
+    padding: 2.5rem 5rem 0rem 5rem
+  }
+
+  @media (max-width: $breakpoint-xs) { 
+    padding: 0;
+    
+    .MuiStepper-vertical {
+      .MuiStepConnector-line {
+        border-left-width: 1px;
+        min-height: 40px;
+      }
+
+      .MuiStep-root {
+        padding: 0.5rem 0rem 0.5rem 0rem;
+        border-bottom: 1px solid #3f78b02b;
+      }
+
+      .MuiStepLabel-label {
+        text-align: left;
+      }
+    }
+
+    .css-1afu6qk-MuiStepConnector-root{
+      display: none !important;
+    }
+  }
+  
+}

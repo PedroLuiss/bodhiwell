@@ -1,0 +1,430 @@
+@import '../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-primary-hover: $color-primary-hover;
+$bw-primary-active: $color-primary-active;
+$bw-text: $text-main;
+$bw-muted: $text-muted;
+$bw-border: $color-border;
+$bw-surface: $color-surface;
+$bw-surface-soft: $color-surface-soft;
+$bw-gold: $color-gold;
+$bw-radius-xl: $radius-xl;
+$bw-radius-lg: $radius-lg;
+$bw-shadow: $shadow-card;
+
+.notifications {
+  width: 100%;
+  font-family: "Sora", sans-serif;
+  color: $bw-text;
+  padding-bottom: 40px;
+
+  &__card {
+    background: $bw-surface;
+    border: 1px solid $bw-border;
+    border-radius: $bw-radius-xl;
+    box-shadow: $bw-shadow;
+    padding: 40px;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+      padding: 24px 20px;
+      min-height: auto;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  &__title-group {
+    text-align: left;
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $bw-primary;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media (max-width: 576px) {
+        font-size: 28px;
+    }
+  }
+
+  &__count-badge {
+    font-size: 13px;
+    background: $bw-primary;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(130, 177, 148, 0.3);
+  }
+
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  &__search-wrapper {
+    flex: 1;
+    max-width: 450px;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 0 12px;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__status-box {
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+
+    h3 { margin: 0; font-size: 20px; font-weight: 800; color: $bw-muted; }
+    p { margin: 0; font-size: 15px; color: $bw-muted; opacity: 0.7; }
+  }
+
+  &__footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid $bw-border;
+  }
+}
+
+.notification-item {
+  background: #ffffff;
+  border: 1px solid $bw-border;
+  border-radius: $bw-radius-lg;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border-color: rgba($bw-primary, 0.2);
+  }
+
+  &--unread {
+    background: $bw-surface-soft;
+    border-left: 4px solid $bw-primary;
+    
+    .notification-item__title {
+        color: $bw-primary;
+    }
+  }
+
+  &__icon-box {
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border: 1px solid $bw-border;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    color: $bw-muted;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+
+    svg { font-size: 22px; }
+  }
+
+  &__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: $bw-text;
+    line-height: 1.2;
+  }
+
+  &__time {
+    font-size: 11px;
+    font-weight: 700;
+    color: $bw-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+
+  &__msg {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: $bw-muted;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__type-tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    background: #F1F5F9;
+    border-radius: 8px;
+    color: #64748B;
+    text-transform: uppercase;
+  }
+
+  &__unread-dot {
+    width: 10px;
+    height: 10px;
+    background: $bw-gold;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba($bw-gold, 0.1);
+  }
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 1024px) {
+  .notifications {
+    &__title { font-size: 32px; }
+  }
+}
+
+@media (max-width: 768px) {
+  .notifications {
+    &__title { font-size: 26px; }
+    &__header { margin-bottom: 24px; gap: 20px; }
+    &__card { padding: 24px 16px; border-radius: 20px; }
+  }
+
+  .notification-item {
+    padding: 16px;
+    gap: 12px;
+
+    &__icon-box { 
+        width: 40px; 
+        height: 40px; 
+        border-radius: 12px;
+        svg { font-size: 18px; }
+    }
+
+    &__title { font-size: 14px; }
+    &__msg { font-size: 13px; margin-bottom: 12px; }
+  }
+
+  .back-btn { font-size: 13px; min-height: 40px; padding: 0 12px; }
+}
+
+@media (max-width: 480px) {
+    .notifications {
+        &__title { font-size: 22px; gap: 10px; }
+        &__count-badge { font-size: 11px; padding: 2px 10px; }
+    }
+
+    .notification-item {
+        &__top { 
+            flex-direction: column-reverse; 
+            align-items: flex-start;
+            gap: 4px;
+        }
+        &__time { font-size: 10px; }
+        &__footer { flex-wrap: wrap; gap: 10px; }
+    }
+
+    .pagination {
+        &__numbers { display: none; }
+        &__nav { width: 44px; height: 44px; }
+    }
+}
+
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 20px;
+  border-radius: 16px; 
+  font-family: $font-main;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  background: transparent;
+  border-color: rgba(130, 177, 148, .58);
+  color: #32453b;
+  border: 1px solid rgba(16, 25, 21, .12);
+
+  &:hover { 
+    background: rgba(130, 177, 148, .12);
+    color: $bw-text; 
+    transform: translateY(-1px);
+  }
+
+  &--active {
+    background: $bw-primary;
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba($bw-primary, 0.15);
+
+    &:hover {
+      background: $bw-primary-hover;
+      color: #fff;
+    }
+
+    &:active {
+      background: $bw-primary-active;
+    }
+  }
+}
+
+.utility-bar {
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 16px; // Radio oficial (LOCK)
+  border: 1px solid rgba(16, 25, 21, 0.1);
+  background: rgba(248, 244, 240, 0.92);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.03);
+  color: $bw-text;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover { 
+    background: #ffffff; 
+    transform: translateX(-4px); 
+    box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  &__nav {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid $bw-border;
+    background: #fff;
+    color: $bw-muted;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover:not(:disabled) {
+        background: $bw-primary;
+        color: #fff;
+        border-color: transparent;
+    }
+
+    &:disabled { opacity: 0.3; cursor: not-allowed; }
+  }
+
+  &__numbers {
+    display: flex;
+    gap: 6px;
+    background: #fff;
+    padding: 4px;
+    border-radius: 14px;
+    border: 1px solid $bw-border;
+  }
+
+  &__num {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 700;
+    color: $bw-muted;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover:not(.pagination__num--active) {
+        background: rgba($bw-primary, 0.1);
+    }
+
+    &--active {
+        background: $bw-primary;
+        color: #fff;
+    }
+  }
+
+  &__dots {
+    color: $bw-muted;
+    font-weight: 800;
+    padding: 0 4px;
+  }
+}

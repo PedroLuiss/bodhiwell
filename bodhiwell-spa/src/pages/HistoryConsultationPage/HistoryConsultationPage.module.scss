@@ -1,0 +1,42 @@
+@import '../../assets/styles/variables';
+
+$bw-surface: #F8F4F0;
+$bw-border: rgba(16, 25, 21, 0.08);
+$bw-primary: #82B194;
+$bw-text: #13231D;
+$bw-muted: rgba(19, 35, 29, 0.68);
+
+.history-page {
+  width: 100%;
+  font-family: "Sora", sans-serif;
+  &__empty-card {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.52), rgba(241, 246, 242, 0.92));
+    border: 1px solid $bw-border;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(16, 25, 21, 0.1);
+    background: rgba(248, 244, 240, 0.92);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.03);
+    color: $bw-text;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #fff;
+      transform: translateX(-4px);
+    }
+  }
+}
+

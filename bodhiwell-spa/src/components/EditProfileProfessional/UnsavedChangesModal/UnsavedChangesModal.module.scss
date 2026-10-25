@@ -1,0 +1,98 @@
+@import '../../../assets/styles/variables';
+
+$bw-surface: $color-surface;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-primary: $color-primary;
+$bw-border: rgba(16, 25, 21, 0.08);
+
+.unsaved-modal {
+    background-color: $bw-surface !important;
+    border: 1px solid $bw-border !important;
+    border-radius: 24px !important;
+    box-shadow: 0 18px 40px rgba(18, 34, 28, 0.14) !important;
+    padding: 24px !important;
+    width: min(100%, 560px) !important;
+    margin: 24px !important;
+    font-family: $font-main !important;
+
+    &__backdrop {
+        background: rgba(19, 35, 29, 0.16) !important;
+        backdrop-filter: blur(2px);
+    }
+
+    &__title {
+        margin: 0 0 8px;
+        font-size: 22px;
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+        font-weight: 800;
+        color: $bw-text;
+    }
+
+    &__description {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: $bw-muted;
+    }
+
+    &__actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        @media (max-width: 600px) {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+
+    &__btn {
+        outline: 0;
+        cursor: pointer;
+        font-family: inherit;
+        display: inline-flex;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px;
+        font-size: 13px !important;
+        font-weight: 800 !important;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        min-height: 42px !important;
+        padding: 0 18px !important;
+        border-radius: 14px !important;
+        font-size: 13px !important;
+        font-weight: 800 !important;
+        font-family: inherit !important;
+        cursor: pointer !important;
+        white-space: nowrap;
+        line-height: 1;
+
+        &--secondary {
+            background: transparent !important;
+            border: 1px solid rgba(130, 177, 148, 0.40) !important;
+            color: $bw-text !important;
+
+            &:hover {
+                background: rgba(130, 177, 148, 0.05) !important;
+            }
+        }
+
+        &--save {
+            background: $bw-primary !important;
+            color: #fff !important;
+            min-width: 148px;
+
+            &:hover {
+                background: $color-primary-hover !important;
+                box-shadow: 0 10px 20px rgba(130, 177, 148, 0.22);
+            }
+        }
+    }
+}

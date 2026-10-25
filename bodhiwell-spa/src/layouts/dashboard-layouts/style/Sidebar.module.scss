@@ -1,0 +1,247 @@
+@import '../../../assets/styles/variables';
+
+$bw-surface-glass: rgba(255, 255, 255, 0.58);
+$bw-border: rgba(12, 36, 28, 0.08);
+$bw-primary-soft: rgba(130, 177, 148, 0.12);
+$bw-primary-border: rgba(130, 177, 148, 0.42);
+$bw-shadow: $shadow-card;
+
+.sidebar {
+    background: $color-surface;
+    border: 1px solid $bw-border;
+    border-radius: 24px;
+    box-shadow: $bw-shadow;
+    padding: 18px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - 40px);
+    position: sticky;
+    top: 20px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    z-index: 1001; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .03);
+
+    @media (max-width: 1024px) {
+        position: fixed !important;
+        left: -280px;
+        top: 0 !important;
+        height: 100vh !important;
+        width: 260px !important;
+        border-radius: 0 !important;
+        z-index: 2000 !important;
+        background: $color-surface !important; 
+        transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        padding-top: 24px;
+        box-shadow: 20px 0 50px rgba(0,0,0,0.1);
+
+        &:not(.sidebar-closed) {
+            left: 0 !important;
+        }
+
+        &.sidebar-closed {
+            left: -280px !important;
+            width: 260px !important; 
+        }
+    }
+
+    &.sidebar-closed {
+        width: 60px;
+        padding: 10px 6px 13px;
+        .sidebar__label, .sidebar__group-title, .sidebar__user-info, .sidebar__brand-text {
+            display: none;
+        }
+        .sidebar__brand { justify-content: center; padding: 4px 0; }
+        .sidebar__menu-item { justify-content: center; padding: 10px 0; }
+        .sidebar__logout { justify-content: center; }
+
+        @media (max-width: 1024px) {
+        }
+    }
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+        padding: 4px 6px;
+        text-decoration: none;
+    }
+
+    &__brand-mark {
+        width: 28px;
+        height: 28px;
+        background-image: url('../../../assets/images/Search/flor.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        flex: 0 0 28px;
+    }
+
+    &__brand-text {
+        font-size: 12px;
+        font-weight: 800;
+        color: $text-main;
+    }
+
+    &__group-title {
+        color: #13231dad;
+        margin: 8px 8px 2px 8px;
+        height: max-content;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+    }
+
+    &__divider {
+        height: 1px;
+        background: rgba(16, 25, 21, 0.08); 
+        margin: 8px 8px;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 4px;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar { width: 4px; }
+        &::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.05); border-radius: 10px; }
+    }
+
+    &__menu-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        color: #334239;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        text-decoration: none;
+        height: max-content;
+
+        &:hover {
+            background: rgba(130, 177, 148, 0.1);
+        }
+
+        &--active {
+            background: $bw-primary-soft !important;
+            border: 1px solid $bw-primary-border !important;
+            color: $text-main !important;
+            font-weight: 800 !important;
+        }
+
+        &--disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+            font-weight: 400 !important;
+            color: #596860 !important;  
+        }
+    }
+
+    &__item-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__icon {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 22px;
+        color: inherit;
+
+        svg {
+            font-size: 20px !important;
+        }
+    }
+
+    &__label {
+        white-space: normal;
+    }
+
+    &__alert-dot {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        background: rgba(214, 166, 64, 0.18);
+        color: #7a5710;
+        font-size: 10px;
+        font-weight: 900;
+        display: grid;
+        place-items: center;
+    }
+
+    &__footer {
+        margin-top: auto;
+        padding-top: 10px;
+    }
+
+    &__user-info {
+        margin: 10px 8px 12px;
+        font-size: 12px;
+        color: $text-secondary;
+        font-weight: 500;
+    }
+
+    &__logout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        min-height: 42px;
+        border-radius: 12px;
+        border: 1px solid rgba(16, 25, 21, 0.1);
+        background: rgba($color-surface, 0.68);
+        font-weight: 700;
+        color: $text-main;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    &__toggle-container {
+        position: absolute;
+        right: -12px;
+        top: 60px;
+        z-index: 10;
+        display: none;
+
+        @media (max-width: 1024px) {
+            display: block;
+        }
+    }
+
+    &__toggle-btn {
+        width: 24px;
+        height: 24px;
+        background: #fff;
+        border: 1px solid $bw-border;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: $bw-shadow;
+        transition: transform 0.3s;
+        
+        &.is-open { transform: rotate(0deg); }
+        &.is-closed { transform: rotate(180deg); }
+    }
+    &__logout-icon {
+        font-weight: 400;
+    }
+}

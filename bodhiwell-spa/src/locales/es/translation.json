@@ -1,0 +1,2404 @@
+{
+  "landing": {
+    "SelectionTypeAccount": {
+      "welcomeTitle": "¡Bienvenido! <br /> Queremos conocerte mejor.",
+      "platformQuestion": "¿Cómo quieres usar nuestra plataforma?",
+      "healthProfessional": "Soy un profesional de la salud",
+      "healthProfessionalDescription": "Quiero ofrecer mis servicios y gestionar mi agenda.",
+      "improveWellness": "Busco mejorar mi bienestar",
+      "improveWellnessDescription": "Busco profesionales y quiero gestionar mis consultas.",
+      "processing": "Procesando...",
+      "continue": "Continuar",
+      "selectSpecialization": "Selecciona tu área de especialización:",
+      "selectProfessionPlaceholder": "Selecciona una profesión...",
+      "updating": "Actualizando...",
+      "back": "Volver",
+      "selectProfessionError": "Por favor, selecciona una profesión.",
+      "updateError": "Error al actualizar",
+      "genericError": "Ocurrió un error. Inténtalo de nuevo."
+    },
+    
+    "team": {
+      "eyebrow": "SINERGIA",
+      "title1": "¿Te gustaría ser parte",
+      "title2": "del equipo?",
+      "description": "Sumate a una comunidad que integra saberes y acompaña desde lo humano. Desde la medicina convencional hasta la complementaria y ancestral, trabajamos juntos para brindar una atención más consciente y colaborativa.",
+      "cta": "Quiero ser parte del equipo"
+    },
+    "news": {
+      "eyebrow": "Novedades",
+      "title": "Blog",
+      "readMore": "Leer artículo",
+      "tag": "Lectura",
+      "readingTime": "Lectura",
+      "categories": {
+        "vision": "Visión Bodhiwell",
+        "cuerpo": "Cuerpo",
+        "mente": "Mente",
+        "energia": "Energía",
+        "conciencia": "Conciencia"
+      }
+    },
+    "actionIntro": {
+      "eyebrow": "Acción",
+      "title1": "Empezá hoy a cuidar tu salud",
+      "title2": "de una forma distinta",
+      "copy": "Explorá profesionales, descubrí contenidos o simplemente empezá por una primera conversación. Este es un lugar en construcción constante, como cada proceso de bienestar."
+    },
+    "manifesto": {
+      "title": "Para quienes sienten que tiene que haber otra forma",
+      "para1": "Un espacio para repensar cómo cuidarnos. Este es un espacio para quienes buscan un nuevo camino en su salud. Si sentís que la medicina convencional no fue suficiente, si querés tomar un rol más activo, si valorás el respeto entre saberes y el acompañamiento humano... acá podés empezar algo distinto.",
+      "para2": "Creemos en sumar, no excluir. En tejer nuevas formas de acompañarnos. Este lugar crece con cada persona que decide acercarse.",
+      "imageAlt": "Mujer sonriendo"
+    },
+    "evolutionary": {
+      "title1": "Medicina",
+      "title2": "evolutiva",
+      "kicker": "Una nueva forma de comprender la salud",
+      "para1": "En un mundo donde la salud suele fragmentarse entre diagnósticos, tratamientos y especialidades, muchas personas se sienten solas, desorientadas o desconectadas de su propio proceso de bienestar.",
+      "para2": "Bodhiwell nace para ofrecer otra posibilidad: ser un puente entre vos y una red de profesionales que trabajan con una mirada integrativa, respetuosa y consciente.",
+      "emphasis": "No se trata solo de encontrar bienestar. Se trata de evolucionar en la forma de comprender, cuidar y habitar tu salud.",
+      "para3": "Facilitamos encuentros, herramientas y orientación para que puedas recorrer ese camino con mayor claridad."
+    },
+    "newsSection": {
+      "title": "Novedades",
+      "viewMore": "Ver más",
+      "loading": "Cargando novedades...",
+      "noNews": "No hay novedades por el momento."
+    },
+    "header": {
+      "howItWorks": "¿Cómo funciona?",
+      "about": "Acerca de",
+      "community": "Comunidad",
+      "blog": "Blog",
+      "contact": "Contacto",
+      "login": "Acceder",
+      "register": "Crear mi cuenta",
+      "myProfile": "Mi perfil",
+      "logout": "Cerrar sesión",
+      "menu": "Menú",
+      "language": "Idioma",
+      "spanish": "Español",
+      "english": "English",
+      "myDashboard": "Ir a mi panel",
+      "notifications": "Notificaciones",
+      "viewMore": "Ver más"
+    },
+    "layoutAuth": {
+      "title": "BodhiWell",
+      "login": "Iniciar sesión",
+      "register": "Crear cuenta",
+      "back": "Volver al inicio",
+      "backArialLabel": "Regresar a la página anterior",
+      "terms": "Términos de servicio",
+      "privacy": "Política de privacidad",
+      "textRegisterPolicy": "Al registrarte, aceptas nuestros",
+      "textContinuePolicy": "Al continuar, aceptas nuestros",
+      "and": "y"
+    },
+    "login": {
+      "title": "Iniciá sesión",
+      "emailLabel": "Correo electrónico",
+      "passwordLabel": "Contraseña",
+      "subtitle": "Ingresá tus credenciales para acceder a tu cuenta.",
+      "emailPlaceholder": "Correo electrónico",
+      "passwordPlaceholder": "Contraseña",
+      "login": "Iniciar sesión",
+      "register": "Crear cuenta",
+      "forgotPassword": "Olvidé mi contraseña",
+      "orContinueWith": "O continuar con",
+      "google": "Google",
+      "rememberMe": "Recordarme",
+      "loading": "Cargando..."
+    },
+    "register": {
+      "title": "Creá tu cuenta",
+      "subtitle": "Unite a la comunidad Bodhiwell y gestioná tu bienestar de forma integral.",
+      "namePlaceholder": "Nombre",
+      "nameLabel": "Nombre",
+      "lastNamePlaceholder": "Apellido",
+      "lastNameLabel": "Apellido",
+      "emailPlaceholder": "Correo electrónico",
+      "emailLabel": "Correo electrónico",
+      "passwordPlaceholder": "Contraseña",
+      "passwordLabel": "Contraseña",
+      "register": "Crear cuenta",
+      "forgotPassword": "Olvidé mi contraseña",
+      "orContinueWith": "O continuar con",
+      "google": "Google",
+      "loading": "Cargando...",
+      "professional": "Registrarme como profesional",
+      "patient": "Soy Paciente",
+      "inspirationalWellnessContent": "Quiero recibir contenido que inspire y fortalezca mi bienestar.",
+      "placeholderSelectProfession": "Selecciona tu profesión",
+      "helperTextProfession": "¿No consigues tu profesión? contacta con",
+      "confirmPasswordPlaceholder": "Confirmar contraseña",
+      "acceptTerms": "He leído y acepto los <0>Términos y condiciones</0> y la <1>Política de privacidad</1>.",
+      "acceptTermsStart": "He leído y acepto los",
+      "terms": "Términos y condiciones",
+      "and": "y la",
+      "privacy": "Política de privacidad",
+      "acceptTermsError": "Debes aceptar los términos y condiciones",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden"
+    },
+    "ResetPasswordPage": {
+      "minChars": "Mínimo 6 caracteres",
+      "specialCharRequired": "Debe incluir al menos un carácter especial",
+      "numberRequired": "Debe incluir al menos un número",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden",
+      "updateButton": "Actualizar contraseña",
+      "loadingBtn": "Actualizando...",
+      "validating": "Validando enlace de seguridad...",
+      "newPasswordTitle": "Nueva contraseña",
+      "newPasswordSubtitle": "Crea una contraseña segura con números y caracteres especiales.",
+      "passwordPlaceholder": "Contraseña",
+      "strength": "Seguridad de la contraseña",
+      "strengthVeryWeak": "Muy débil",
+      "strengthMedium": "Media",
+      "strengthStrong": "Fuerte",
+      "strengthVeryStrong": "Muy segura",
+      "resetSuccess": "Contraseña restablecida exitosamente",
+      "confirmPasswordPlaceholder": "Confirmar contraseña",
+      "unknownError": "Error desconocido, por favor intenta de nuevo"
+    },
+    "ForgotPasswordPage": {
+      "title": "Recuperar contraseña",
+      "description": "Introduce tu correo y te enviaremos un enlace para restablecer tu cuenta.",
+      "sendButton": "Enviar enlace",
+      "backToLogin": "Volver al inicio de sesión",
+      "emailLabel": "Correo electrónico",
+      "emailRequired": "El correo es requerido",
+      "emailPlaceholder": "Correo electrónico",
+      "emailSentSuccess": "Correo enviado exitosamente",
+      "unknownError": "Error desconocido, por favor intenta de nuevo",
+      "loadingBtn": "Enviando...",
+      "errors": {
+        "required": "El correo es obligatorio",
+        "invalid": "Ingresa un correo electrónico válido"
+      }
+    },
+    "validation": {
+      "emailRequired": "El correo es requerido",
+      "emailInvalid": "Correo inválido",
+      "minChars": "Mínimo 6 caracteres",
+      "passwordRequired": "La contraseña es requerida",
+      "firstNameRequired": "El nombre es requerido",
+      "lastNameRequired": "El apellido es requerido",
+      "confirmPasswordRequired": "Confirmar contraseña es requerido",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden",
+      "professionRequired": "La profesión es requerida",
+      "loginError": "Credenciales incorrectas o error desconocido",
+      "registerError": "Error al registrar",
+      "unknownError": "Error desconocido"
+    },
+    "heroSection": {
+      "titleLine1": "Hay otra forma de",
+      "titleLine2": "cuidar tu salud.",
+      "subheading": "Más allá del diagnóstico, hay un camino hacia el bienestar.",
+      "ctaButton": "Crear mi cuenta",
+      "ctaText": "Registrate ahora, solo te llevara unos segundos.",
+      "scrollIndicator": "Ir al buscador",
+      "goDashboard": "Ir a mi panel",
+      "noteLine1": "Creá tu cuenta sin costo y empezá a explorar",
+      "noteLine2": "profesionales y recursos."
+    },
+    "searchSection": {
+      "heading": "Inicia ahora tu camino hacia el bienestar",
+      "category": "Categoría",
+      "specialty": "Especialidad",
+      "button": "Buscar"
+    },
+    "approachSection": {
+      "title": "Medicina evolutiva",
+      "heading": "Un nuevo enfoque para cuidar tu salud",
+      "text": "En un mundo donde la salud se fragmenta entre diagnósticos, tratamientos y especialidades, muchas personas se sienten solas, desorientadas o desilusionadas. Esta plataforma nace para ofrecer otra posibilidad: ser el puente entre vos y una red de profesionales de la salud que trabajan con una mirada integrativa, respetuosa y consciente. Facilitamos encuentros, herramientas y orientación para que puedas elegir tu camino hacia el bienestar.",
+      "aboutus": {
+        "title": "No somos una clínica.",
+        "text": "Somos una red que acompaña procesos, no solo síntomas.",
+        "text2": "Una propuesta que une saberes para cuidar desde lo humano.",
+        "details": {
+          "list1": "Profesionales de diversas disciplinas con enfoque integrador",
+          "list2": "Contenido claro y accesible para decidir con confianza",
+          "list3": "Actividades, recursos y experiencias para tu bienestar",
+          "list4": "Un lugar donde la salud se aborda desde lo humano y lo relacional",
+          "list5": "Espacios de intercambio, escucha y crecimiento"
+        }
+      }
+    },
+    "professionalsSection": {
+      "eyebrow": "VOCACIÓN",
+      "titleLine1": "Profesionales que acompañan",
+      "titleLine2": "con propósito",
+      "description": "Cada profesional en esta plataforma comparte una mirada integradora, con formación sólida y compromiso humano. Podés explorar sus perfiles y descubrir quién puede acompañarte en este momento de tu camino.",
+      "cta": "Conocer a los profesionales",
+      "breadcrumds": "Simpleza",
+      "heading": "¿Te gustaría ser parte del equipo?",
+      "text2": "Sumate a una comunidad que integra saberes y acompaña desde lo humano. Desde la medicina convencional hasta la complementaria y ancestral, trabajamos juntos para brindar una atención más consciente y colaborativa.",
+      "ctaButton": "Quiero ser parte del equipo",
+      "noProfessionalsTitle": "Aún no hay profesionales disponibles",
+      "noProfessionalsDesc": "Estamos trabajando para sumar a los mejores expertos. Vuelve pronto.",
+      "viewProfile": "Ver perfil"
+    },
+    "reserveNow": {
+      "flexibility": "MODALIDAD DE ATENCIÓN",
+      "title": "Consultas presenciales y online",
+      "text": "El cuidado también necesita flexibilidad. Nuestra red de profesionales ofrece consultas presenciales u online según el área, la especialidad y tu necesidad. Para que puedas acceder al acompañamiento que buscás, estés donde estés.",
+      "cta": "Reservar consulta",
+      "alt": "Consulta online con profesional"
+    },
+    "stepsProcessSection": {
+      "step1": {
+        "title": "Registrate gratis",
+        "text": "Solo necesitás tus datos reales para crear una cuenta."
+      },
+      "step2": {
+        "title": "Explorá y elegí",
+        "text": "Accedé a los perfiles de profesionales, agendas disponibles y contenido personalizado."
+      },
+      "step3": {
+        "title": "Reservá tu consulta",
+        "text": "Consultas online o presenciales, según el profesional y tu necesidad. Todo desde un mismo lugar."
+      },
+      "breadcrumb": "Simpleza",
+      "eyebrow": "PROCESO",
+      "title": "¿Cómo funciona?",
+      "subtitle": "En Bodhiwell queremos que conectarte con profesionales sea",
+      "subtitleBold": "simple, seguro y claro.",
+      "footerCopy": "Tu cuenta registra tu historial de consultas para que cualquier profesional que te atienda pueda acompañarte mejor.",
+      "ctaRegister": "Registrarme ahora",
+      "ctaLearnMore": "Ver preguntas frecuentes"
+    },
+    "whySection": {
+      "title": "Para quienes sienten que tiene que haber otra forma",
+      "text": "Un espacio para repensar cómo cuidarnos. Este es un espacio para quienes buscan un nuevo camino en su salud. Si sentís que la medicina convencional no fue suficiente, si querés tomar un rol más activo, si valorás el respeto entre saberes y el acompañamiento humano... acá podés empezar algo distinto.",
+      "text2": "Creemos en sumar, no excluir. En tejer nuevas formas de acompañarnos. Este lugar crece con cada persona que decide acercarse."
+    },
+    "actionIntroSection": {
+      "breadcrumb": "Acción",
+      "title": "Empezá hoy a cuidar tu salud de una forma distinta",
+      "text": "Explorá profesionales, descubre contenidos o simplemente empezá por una primera conversación. Este es un lugar en construcción constante, como cada proceso de bienestar."
+    },
+    "newsletterSubscription": {
+      "title": "TE MANTENEMOS INFORMADO!",
+      "description": "Dejanos tus datos e intereses para acercarte profesionales, contenidos y nuevas formas de comprender tu bienestar.",
+      "placeholder": "Ingresa correo electrónico aquí...",
+      "buttonLoading": "ENVIANDO...",
+      "buttonText": "Quiero empezar",
+      "name": "Tu nombre",
+      "phone": "Teléfono",
+      "email": "tunombre@email.com",
+      "interest": "Ej. medicina integrativa, bienestar, comunidad",
+      "errors": {
+        "interestsRequired": "Tus intereses son requeridos"
+      }
+    },
+    "footer": {
+      "quickLinksTitle": "Enlaces rápidos",
+      "description": "Bodhiwell integra salud, conciencia y comunidad para acompañar una nueva forma de comprender y buscar el bienestar humano.",
+      "quickLinks": {
+        "home": "Inicio",
+        "about": "Acerca de",
+        "services": "Servicios",
+        "blog": "Blog",
+        "reservations": "Mis Reservas",
+        "consultations": "Mis Consultas",
+        "payments": "Mis Pagos",
+        "wallet": "Mi Billetera",
+        "withdrawals": "Mis Retiros",
+        "profile": "Mi Perfil",
+        "profileMenu": {
+          "personalInfo": "Mi Información",
+          "availability": "Mi Disponibilidad"
+        }
+      },
+      "termsAndConditions": "Términos y condiciones",
+      "privacyPolicy": "Política de Privacidad",
+      "followUsTitle": "Seguinos",
+      "followUs": {
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram"
+      },
+      "copyright": " Todos los derechos reservados"
+    },
+    "CookiesConsentModal": {
+      "title": "Tu bienestar, es nuestra prioridad",
+      "closeAriaLabel": "Cerrar",
+      "text": "En Bodhiwell usamos cookies para que tu experiencia al reservar citas sea sencilla, segura y personalizada. Estas herramientas nos ayudan a que todo funcione correctamente y, con tu consentimiento, también a ofrecerte recomendaciones que se adapten mejor a tus necesidades. Puedes aceptar, rechazar o ajustar tus preferencias cuando lo desees, siempre con la tranquilidad de que tu acceso a nuestros servicios está garantizado.",
+      "cookiesPolicyLink": "Políticas de Cookies",
+      "rejectButton": "Rechazar",
+      "acceptButton": "Aceptar"
+    },
+    "CookiesPolicyPage": {
+      "title": "Políticas de Cookies",
+      "subtitle": "En Bodhiwell utilizamos cookies y tecnologías similares para garantizar el funcionamiento adecuado de la plataforma, mejorar tu experiencia como usuario y analizar el uso del servicio.",
+      "lastUpdate": "Última actualización",
+      "navTitle": "Índice",
+      "navItems": {
+        "intro": "1. ¿Qué son?",
+        "purpose": "2. ¿Por qué las usamos?",
+        "types": "3. Tipos de cookies",
+        "thirdParty": "4. Terceros",
+        "management": "5. Gestión",
+        "data": "6. Datos recolectados",
+        "retention": "7. Conservación",
+        "updates": "8. Actualizaciones",
+        "contact": "9. Contacto"
+      },
+      "sections": {
+        "intro": {
+          "title": "¿Qué son las cookies?",
+          "text1": "Las cookies son pequeños archivos que se almacenan en tu dispositivo (computadora, tablet o teléfono) cuando visitás nuestro sitio. Permiten recordar ciertas acciones o preferencias, facilitar la navegación y contribuir al funcionamiento técnico de la plataforma.",
+          "text2": "También podemos emplear tecnologías similares como local storage, pixels o beacons, con fines comparables."
+        },
+        "purpose": {
+          "title": "¿Por qué usamos cookies?",
+          "intro": "En Bodhiwell utilizamos cookies para:",
+          "cards": {
+            "functionality": "Garantizar el funcionamiento correcto",
+            "preferences": "Recordar tus preferencias y ajustes",
+            "security": "Mantener la seguridad de la sesión",
+            "analytics": "Analizar y mejorar nuestros servicios"
+          }
+        },
+        "types": {
+          "title": "Tipos de cookies que utilizamos",
+          "necessary": {
+            "title": "a) Estrictamente necesarias",
+            "text": "Permiten que la plataforma funcione: acceso seguro, inicio de sesión, navegación interna, formularios, reservas y funcionalidades esenciales. <strong>No pueden desactivarse.</strong>"
+          },
+          "performance": {
+            "title": "b) De rendimiento o analíticas",
+            "text": "Nos ayudan a comprender cómo se utiliza la plataforma (páginas más visitadas, tiempos de uso, etc.). Suelen provenir de servicios como Google Analytics."
+          },
+          "functionality": {
+            "title": "c) De funcionalidad",
+            "text": "Permiten recordar tus ajustes —como idioma, preferencias del perfil o configuraciones— para brindarte una experiencia más fluida."
+          },
+          "marketing": {
+            "title": "d) De personalización y marketing",
+            "text": "Se utilizan para mostrar contenido relevante, medir la efectividad de nuestras comunicaciones o permitir integraciones con redes sociales."
+          }
+        },
+        "thirdParty": {
+          "title": "Cookies de terceros",
+          "intro": "Algunas funcionalidades dependen de servicios externos que pueden instalar sus propias cookies, como:",
+          "items": [
+            "Google Analytics u otras herramientas de análisis.",
+            "Meta (Facebook/Instagram) para campañas publicitarias.",
+            "Plataformas de video o formularios externos.",
+            "Herramientas de chat, soporte o autenticación."
+          ],
+          "note": "Estos terceros gestionan sus cookies conforme a sus propias políticas."
+        },
+        "management": {
+          "title": "¿Cómo podés gestionar las cookies?",
+          "intro": "Podés configurar o desactivar cookies desde:",
+          "items": [
+            "<strong>Banner de gestión:</strong> Aparece en tu primera visita o al borrar cookies.",
+            "<strong>Configuración del navegador:</strong> La mayoría permite bloquear, eliminar o ver cookies instaladas."
+          ],
+          "warning": {
+            "title": "Advertencia",
+            "text": "Si desactivás cookies esenciales, es posible que partes de la plataforma (reservas, acceso a cuenta, historial) no funcionen correctamente."
+          }
+        },
+        "data": {
+          "title": "Datos recolectados",
+          "intro": "La información recogida puede incluir:",
+          "items": [
+            "Identificadores técnicos (ID de sesión, dispositivo, navegador).",
+            "Páginas visitadas, tiempos, clics y patrones de navegación.",
+            "Preferencias de configuración.",
+            "Datos de acceso necesarios para mantener la sesión activa."
+          ],
+          "note": "Nunca utilizamos cookies para acceder a información personal de tu dispositivo."
+        },
+        "retention": {
+          "title": "Período de conservación",
+          "items": [
+            "<strong>De sesión:</strong> Se eliminan al cerrar el navegador.",
+            "<strong>Persistentes:</strong> Permanecen por un período limitado razonable para permitir reconocimientos futuros."
+          ]
+        },
+        "updates": {
+          "title": "Actualizaciones de esta política",
+          "text": "Bodhiwell puede actualizar esta Política de Cookies para reflejar cambios legales o mejoras en el servicio. Cualquier modificación será publicada en esta página y entrará en vigencia al momento de su actualización."
+        },
+        "contact": {
+          "title": "Contacto",
+          "text": "Si tenés dudas sobre el uso de cookies o querés ejercer tus derechos, podés escribirnos a:",
+          "email": "legal@bodhiwell.com"
+        }
+      }
+    },
+    "PrivacyPolicyPage": {
+      "title": "Políticas de Privacidad",
+      "subtitle": "Tu confianza es fundamental para nosotros. Conoce cómo protegemos y gestionamos tu información.",
+      "lastUpdate": "Última actualización",
+      "navTitle": "Contenido",
+      "navItems": {
+        "commitment": "1. Compromiso",
+        "dataCollection": "2. Datos recolectados",
+        "purpose": "3. Finalidad",
+        "security": "4. Seguridad",
+        "sharing": "5. Compartir datos",
+        "rights": "6. Tus derechos",
+        "retention": "7. Conservación",
+        "payments": "8. Pagos y Cancelaciones",
+        "subscriptions": "9. Suscripciones"
+      },
+      "sections": {
+        "commitment": {
+          "title": "Compromiso con tu privacidad",
+          "text": "En nuestra plataforma, la privacidad y seguridad de tus datos es una prioridad absoluta. Trabajamos bajo estrictos principios de confidencialidad, transparencia y respeto, alineados con la <strong>Ley 18.331 de Protección de Datos Personales (Uruguay)</strong> y las mejores prácticas internacionales en salud digital."
+        },
+        "dataCollection": {
+          "title": "Datos que recolectamos",
+          "intro": "Al registrarte o utilizar nuestros servicios, podríamos solicitarte:",
+          "items": [
+            "<strong>Datos personales:</strong> Nombre completo, correo electrónico, edad, número de teléfono.",
+            "<strong>Datos de salud:</strong> Información proporcionada por ti o generada durante tus consultas médicas.",
+            "<strong>Datos de uso:</strong> Preferencias, registros de acceso y actividad dentro de la plataforma para mejorar tu experiencia."
+          ]
+        },
+        "purpose": {
+          "title": "Finalidad del tratamiento",
+          "intro": "Utilizamos tu información exclusivamente para:",
+          "items": [
+            "Crear y administrar tu cuenta personal de forma segura.",
+            "Facilitar la conexión ágil con profesionales de la salud.",
+            "Generar un historial clínico unificado para un acompañamiento integral.",
+            "Optimizar nuestros servicios y personalizar tu experiencia de usuario.",
+            "Enviar notificaciones relevantes sobre tus citas o salud (siempre con tu consentimiento)."
+          ]
+        },
+        "security": {
+          "title": "Seguridad y acceso",
+          "intro": "Implementamos medidas de seguridad de nivel bancario para proteger tu información:",
+          "cards": {
+            "encryption": {
+              "title": "Encriptación",
+              "text": "De toda la información sensible en tránsito y reposo."
+            },
+            "access": {
+              "title": "Acceso Restringido",
+              "text": "Solo profesionales vinculados a tu caso pueden ver tus datos."
+            },
+            "backups": {
+              "title": "Backups",
+              "text": "Copias de seguridad diarias y monitoreo 24/7."
+            }
+          }
+        },
+        "sharing": {
+          "title": "Compartir datos",
+          "intro": "Tus datos <strong>nunca se venden</strong>. Solo se comparten en situaciones estrictamente necesarias:",
+          "items": [
+            "Con los profesionales de salud que tú elijas para tu atención.",
+            "Con proveedores tecnológicos esenciales (servidores, pagos) bajo estrictos acuerdos de confidencialidad.",
+            "Cuando exista una obligación legal expresa."
+          ]
+        },
+        "rights": {
+          "title": "Tus derechos como usuario",
+          "intro": "Tienes el control total sobre tus datos. En cualquier momento puedes:",
+          "items": [
+            "Acceder a toda la información que tenemos sobre ti.",
+            "Solicitar la corrección de datos erróneos o la eliminación de tu cuenta.",
+            "Oponerte al tratamiento de tus datos o limitar su uso.",
+            "Revocar consentimientos previamente otorgados."
+          ],
+          "contact": "Para ejercer estos derechos, contáctanos en: <a href='mailto:privacidad@plataforma.com'>privacidad@plataforma.com</a>"
+        },
+        "retention": {
+          "title": "Plazo de conservación",
+          "text": "Mantendremos tus datos mientras tu cuenta esté activa o sea necesario para brindarte el servicio. Si decides irte, tus datos serán eliminados de forma segura o anonimizados para fines estadísticos, salvo que la ley exija su conservación."
+        },
+        "payments": {
+          "title": "Política de reservas y cancelaciones",
+          "intro": "Las reservas se confirman únicamente tras el pago. Entendemos que pueden surgir imprevistos:",
+          "items": [
+            "<strong>Cancelación con +24h de antelación:</strong> Puedes optar por el reembolso (menos cargos de pasarela) o mantener el saldo a favor para futuras citas.",
+            "<strong>Cancelación con -24h de antelación:</strong> Lamentablemente, no podremos realizar devoluciones debido a la reserva del tiempo del profesional."
+          ]
+        },
+        "subscriptions": {
+          "title": "Suscripciones",
+          "text": "Para planes mensuales o anuales, el cobro es automático. Si un pago falla, tendrás <strong>7 días corridos</strong> para regularizarlo antes de que se suspendan los beneficios."
+        },
+        "changes": {
+          "title": "Cambios en la política",
+          "text": "Podemos actualizar esta política para reflejar mejoras o cambios legales. Siempre te notificaremos sobre cambios importantes a través de la plataforma."
+        },
+        "acceptance": {
+          "title": "Aceptación",
+          "text": "Al utilizar nuestros servicios, aceptas estas condiciones. Te recomendamos leerlas con calma y consultarnos cualquier duda. Estamos aquí para cuidarte."
+        }
+      }
+    },
+    "TermsConditionsPage": {
+      "title": "Términos y Condiciones de Uso",
+      "subtitle": "Por favor, lee atentamente estos términos antes de utilizar nuestros servicios. Tu uso de la plataforma implica la aceptación de estas condiciones.",
+      "lastUpdate": "Última actualización",
+      "navTitle": "Índice",
+      "navItems": {
+        "acceptance": "1. Aceptación",
+        "description": "2. Servicio",
+        "registration": "3. Registro",
+        "usage": "4. Uso Permitido",
+        "professionals": "5. Profesionales",
+        "payments": "6. Pagos",
+        "modifications": "7. Modificaciones",
+        "liability": "8. Responsabilidad",
+        "intellectual": "9. Propiedad Intelectual",
+        "suspension": "10. Suspensión",
+        "law": "11. Legislación"
+      },
+      "sections": {
+        "acceptance": {
+          "title": "Aceptación de los términos",
+          "text": "Al registrarte y utilizar esta plataforma, aceptás cumplir con estos Términos y Condiciones. Te recomendamos leerlos atentamente antes de acceder o utilizar nuestros servicios."
+        },
+        "description": {
+          "title": "Descripción del servicio",
+          "text1": "Esta plataforma digital actúa como un nexo entre usuarios y profesionales de la salud, promoviendo un enfoque integrador. <strong>No somos una clínica ni brindamos servicios de diagnóstico directo.</strong>",
+          "text2": "Los usuarios pueden acceder a perfiles profesionales, reservar consultas, mantener un historial de salud compartido y elegir diferentes planes de suscripción."
+        },
+        "registration": {
+          "title": "Registro y veracidad de los datos",
+          "text": "Para acceder a nuestros servicios, es necesario registrarse proporcionando información personal veraz, actual y completa. Cada usuario es responsable de mantener sus datos actualizados y de proteger sus credenciales de acceso."
+        },
+        "usage": {
+          "title": "Uso permitido",
+          "intro": "Está estrictamente prohibido:",
+          "items": [
+            "Utilizar la plataforma con fines ilegales o no autorizados.",
+            "Interferir con el funcionamiento del sistema o intentar acceder a datos de otros usuarios.",
+            "Realizar actividades que puedan dañar, desactivar o sobrecargar la infraestructura."
+          ],
+          "alert": "Nos reservamos el derecho de suspender o cancelar cuentas que infrinjan estos términos."
+        },
+        "professionals": {
+          "title": "Rol de los profesionales",
+          "text": "Cada profesional registrado es responsable por los servicios que brinda y por la información publicada en su perfil. La plataforma no garantiza resultados ni se responsabiliza por el contenido o calidad de las consultas médicas."
+        },
+        "payments": {
+          "title": "Reservas, pagos y cancelaciones",
+          "text": "Las condiciones para reservar consultas, realizar pagos y cancelar turnos se detallan en la <strong>Política de Privacidad</strong>. Al aceptar estos términos, también aceptás dichas políticas operativas."
+        },
+        "modifications": {
+          "title": "Modificaciones del servicio",
+          "text": "Podemos actualizar funcionalidades, modificar planes, precios o condiciones de uso. Toda modificación sustancial será informada previamente a través de la plataforma para tu conocimiento."
+        },
+        "liability": {
+          "title": "Limitación de responsabilidad",
+          "intro": "La plataforma no es responsable por:",
+          "items": [
+            "Fallas técnicas, interrupciones temporales o errores de sistema.",
+            "Decisiones que los usuarios tomen a partir de la información obtenida.",
+            "La relación entre usuarios y profesionales, que es directa y personal."
+          ]
+        },
+        "intellectual": {
+          "title": "Propiedad intelectual",
+          "text": "Todos los contenidos, marcas, logos, diseños y herramientas son propiedad exclusiva de la plataforma o se utilizan bajo licencia. No está permitido copiarlos, distribuirlos o modificarlos sin autorización expresa por escrito."
+        },
+        "suspension": {
+          "title": "Suspensión y cancelación de cuentas",
+          "text": "Podemos suspender o cancelar cuentas que incumplan estos términos, afecten negativamente a otros usuarios o generen riesgos para la seguridad y el funcionamiento del sistema."
+        },
+        "law": {
+          "title": "Legislación aplicable",
+          "text": "Estos Términos se rigen por las leyes de la <strong>República Oriental del Uruguay</strong>. Ante cualquier conflicto legal, las partes se someterán a los tribunales competentes de dicho país."
+        },
+        "final": {
+          "title": "Acuerdo Total",
+          "text": "Al continuar usando la plataforma, aceptás estos Términos y Condiciones en su totalidad."
+        }
+      }
+    },
+    "professionalsList": {
+      "title": "Conoce nuestros profesionales",
+      "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "button": "Contact Us",
+      "noProfessionals": "No se encontraron profesionales con los filtros seleccionados",
+      "clearFilters": "Limpiar filtros",
+      "showing": "Mostrando todos los profesionales",
+      "back": "Volver al inicio",
+      "eyebrow": "PROFESIONALES",
+      "titleLine1": "Conocé nuestros",
+      "titleLine2": "profesionales",
+      "copy": "Una grilla clara y escaneable para explorar perfiles, comparar enfoques y acceder rápidamente a cada profesional, manteniendo la coherencia visual con la card de la landing.",
+      "noProfessionalsCopy": "Probá ajustando los filtros o explorando otras especialidades.",
+      "viewAll": "Ver todos los profesionales",
+      "viewProfile": "Ver perfil"
+    },
+    "professionalsDetail": {
+      "back": "← Volver al índice",
+      "errorBooking": "Ocurrió un error inesperado al procesar la reserva.",
+      "loading": "Cargando profesional…",
+      "error": "Hubo un error al cargar los datos del profesional.",
+      "bookingPanel": {
+        "title": "Reservar",
+        "availabilityTitle": "Disponibilidad",
+        "noTimeAvailable": "No hay horarios disponibles",
+        "selectDate": "Seleccione una fecha primero",
+        "btnReserveNow": "Reservar ahora",
+        "timeError": "Por favor, seleccione una hora válida.",
+        "selectTime": "Seleccione una hora",
+        "selectTimePlaceholder": "Selecciona un horario",
+        "consultValue": "Valor de la consulta",
+        "errorBooking": "Tu sesión ha expirado. Por favor, inicia sesión de nuevo.",
+        "January": "enero",
+        "February": "febrero",
+        "March": "marzo",
+        "April": "abril",
+        "May": "mayo",
+        "June": "junio",
+        "July": "julio",
+        "August": "agosto",
+        "September": "septiembre",
+        "October": "octubre",
+        "November": "noviembre",
+        "December": "diciembre",
+        "selectModalityToContinue": "Seleccione una modalidad para continuar",
+        "appointmentWillBePresential": "Esta cita será realizada de forma",
+        "presential": "Presencial",
+        "appointmentWillBeVirtual": "Esta cita será realizada de forma",
+        "virtual": "Virtual",
+        "selectAppointmentModality": "Seleccione la modalidad de su cita:",
+        "appointmentModality": "Modalidad de la consulta",
+        "Reserved": "Reservado",
+        "legend": {
+          "availableDay": "Día disponible",
+          "selectedDay": "Día seleccionado",
+          "unavailableDay": "Día no disponible"
+        },
+        "tooltipSelectDay": "Debe seleccionar un día",
+        "tooltipSelectTime": "Seleccione un horario",
+        "tooltipSelectDayFirst": "Seleccione un día disponible",
+        "tooltipSelectModality": "Debe seleccionar una modalidad",
+        "completeProfileFirst": "Por favor, selecciona si eres paciente o profesional para continuar."
+      },
+      "SocialShare": {
+        "title": "Comparte con un amigo:",
+        "shareDescription": "¡Mira el perfil de este profesional a través de Bodhiwell, está muy interesante!",
+        "whatsapp": "Enviar por WhatsApp",
+        "share": "Compartir",
+        "copyLink": "Copiar enlace",
+        "linkCopied": "¡Enlace copiado al portapapeles!"
+      }
+    },
+    "professionalInfo": {
+      "readLess": "Leer menos",
+      "readMore": "Leer más",
+      "shareProfile": "Compartir perfil",
+      "purposeTitle": "Mi propósito y enfoque",
+      "specialties": "Especialidades",
+      "aboutRaw": "Descripción no disponible.",
+      "mspVerified": "Registro MSP verificado",
+      "mspNotVerified": "Registro MSP no verificado",
+      "noProfession": "Sin profesión"
+    },
+    "TabsComponent": {
+      "viewCertificate": "Ver certificado",
+      "professionalInfo": "Presentación",
+      "studies": "Estudios",
+      "professionalProfile": "Perfil Profesional",
+      "trainingAndExperience": "Formación y experiencia",
+      "certificates": "Certificados",
+      "professions": "Profesiones",
+      "noProfessionalInfo": "No hay información profesional disponible.",
+      "noStudies": "No hay estudios disponibles.",
+      "noCertificates": "No hay certificados disponibles.",
+      "noProfessions": "No hay profesiones disponibles.",
+      "mspTitle": "Registro profesional (MSP)",
+      "mspQuestion": "¿Estás registrado como profesional en el MSP?",
+      "mspNumberLabel": "N° MSP",
+      "noProfession": "Sin profesión",
+      "noSpecialties": "Sin especialidades",
+      "reservationsTable": {
+        "dateTimeColumn": "Fecha y hora",
+        "reasonColumn": "Motivo de consulta",
+        "actionColumn": "Acción",
+        "patientColumn": "Consultante",
+        "professionalColumn": "Profesional",
+        "viewReservationButton": "Ver reserva",
+        "viewReportButton": "Ver consulta",
+        "createReportButton": "Crear Informe"
+      },
+      "myConsultationsPage": {
+        "title": "Mis Consultas",
+        "titlePage": "Listado de Consultas Atendidas"
+      },
+      "consultationsList": {
+        "nameColumnHeaderProfessional": "Consultante",
+        "nameColumnHeaderPatient": "Profesional",
+        "dateColumnHeader": "Fecha de Consulta",
+        "diagnosisColumnHeader": "Diagnóstico Principal",
+        "actionColumnHeader": "Acción",
+        "viewReportButton": "Ver Informe",
+        "filterSectionTitle": "Datos de Consulta",
+        "datePickerLabel": "Fecha de consulta",
+        "reasonPickerLabel": "Motivo de consulta (Resumen)",
+        "emptyText": "No se encontraron consultas que coincidan con los filtros.",
+        "errorText": "Ocurrió un error al cargar tus consultas.",
+        "datePickerPlaceholder": "Filtrar por fecha",
+        "reasonPickerPlaceholder": "Filtrar por motivo de consulta",
+        "loading": "Cargando consultas...",
+        "error": "Error al cargar consultas"
+      },
+      "paymentListPage": {
+        "titlePage": "Listado de Pagos"
+      },
+      "ListPayment": {
+        "title": "Listado de Pagos",
+        "columns": {
+          "amount": "Monto",
+          "date": "Fecha",
+          "status": "Estado",
+          "reservation": "Reserva Asociada"
+        },
+        "loading": "Cargando pagos...",
+        "error": "Error al cargar pagos",
+        "filterDateFrom": "Fecha desde",
+        "filterDateTo": "Fecha hasta",
+        "filterStatus": "Estado",
+        "filterStatusAll": "Todos",
+        "filterButton": "Filtrar",
+        "resetButton": "Limpiar",
+        "textEmpty": "No se encontraron pagos que coincidan con los filtros.",
+        "filterError": "Por favor, seleccione al menos un criterio de búsqueda.",
+        "filterError1": "Para filtrar por fecha, debe seleccionar un rango completo (Desde y Hasta).",
+        "filterError2": "La fecha \"Hasta\" no puede ser anterior a la fecha \"Desde\".",
+        "statusOptions": {
+          "pending": "Pendiente",
+          "authorized": "Autorizado",
+          "captured": "Capturado (Exitoso)",
+          "partially_captured": "Parcialmente Capturado",
+          "rejected": "Rechazado",
+          "refunded": "Reembolsado",
+          "partially_refunded": "Parcialmente Reembolsado",
+          "canceled": "Cancelado",
+          "failed": "Fallido",
+          "approved": "Aprobado"
+        }
+      },
+      "walletPage": {
+        "title": "Mi Billetera"
+      },
+      "walletSummary": {
+        "totalBalance": "Saldo Total",
+        "availableBalance": "Saldo Disponible",
+        "frozenBalance": "Saldo Retenido"
+      },
+      "walletMovements": {
+        "title": "Historial de Movimientos",
+        "type": "Tipo",
+        "reference": "Concepto",
+        "description": "Descripción",
+        "date": "Fecha",
+        "amount": "Monto",
+        "textempty": "No se encontraron movimientos."
+      },
+      "withdrawalListPage": {
+        "title": "Mis Retiros"
+      },
+      "ListWithdrawal": {
+        "title": "Mis Retiros",
+        "amount": "Monto",
+        "cutOffDate": "Fecha de Corte",
+        "statusText": "Estado",
+        "textempty": "No se encontraron retiros que coincidan con los filtros.",
+        "loading": "Cargando retiros...",
+        "status": {
+          "pending": "Pendiente",
+          "processed": "Procesado",
+          "rejected": "Rechazado"
+        }
+      },
+      "profilePage": {
+        "title": "Por favor, inicia sesión para ver tu perfil"
+      },
+      "EditProfileProfessional": {
+        "loading": "Cargando tu perfil...."
+      },
+      "EditProfessionalInfo": {
+        "title": "Información Profesional",
+        "dni": "Número de Identificación",
+        "numberAccount": "Número de Cuenta Bancaria",
+        "phoneNumber": "Número de Teléfono",
+        "dateBirth": "Fecha de Nacimiento",
+        "aboutText": "Descripción no disponible.",
+        "changeImage": "Cambiar Imagen",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "firstNameRequired": "Nombre es requerido",
+        "lastNameRequired": "Apellido es requerido",
+        "studyNameRequired": "Nombre de estudio es requerido",
+        "studyInstituteRequired": "Instituto de estudio es requerido",
+        "studyStatusRequired": "Estado de estudio es requerido",
+        "studyTypeRequired": "Tipo de estudio es requerido",
+        "studyDateStartRequired": "Fecha de inicio de estudio es requerida",
+        "studyDateEndRequired": "Fecha de fin de estudio es requerida",
+        "certificateNameRequired": "Nombre de certificado es requerido",
+        "certificateInstituteRequired": "Instituto de certificado es requerido",
+        "certificateDateRequired": "Fecha de certificado es requerida",
+        "professionRequired": "Profesión es requerida",
+        "prefixProfessionalRequired": "Prefijo de profesión es requerido",
+        "mainProfessionRequired": "Profesión principal es requerida",
+        "bannerImageRequired": "Imagen de banner es requerida",
+        "readLess": "Leer menos",
+        "readMore": "Leer más",
+        "editProfile": "Editar perfil",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "aboutMe": "Acerca de mí",
+        "aboutMePlaceholder": "Comparte aquello que te inspira y motiva en tu labor. ¿Cuál es el motor que te impulsa a acompañar a otros en su búsqueda de bienestar? Este es tu espacio para expresar tu propósito y visión personal.",
+        "studyName": "Nombre de estudio",
+        "studyInstitute": "Instituto de estudio",
+        "studyStatus": "Estado de estudio",
+        "studyType": "Tipo de estudio",
+        "studyDateStart": "Fecha de inicio de estudio",
+        "studyDateEnd": "Fecha de fin de estudio",
+        "certificateName": "Nombre de certificado",
+        "certificateInstitute": "Instituto de certificado",
+        "certificateDate": "Fecha de certificado",
+        "profession": "Profesión",
+        "prefixProfessional": "Prefijo de profesión",
+        "mainProfession": "Profesión principal",
+        "bannerImage": "Imagen de banner",
+        "noPrefix": "Sin prefijo",
+        "selectProfession": "Seleccionar profesión"
+      },
+      "EditTabsComponent": {
+        "professionalInfo": "Presentación",
+        "studies": "Estudios",
+        "certificates": "Certificados",
+        "professions": "Profesiones",
+        "noProfessionalInfo": "No hay información profesional disponible.",
+        "noStudies": "No hay estudios disponibles.",
+        "addStudy": "Añadir estudio",
+        "titleStudy": "Título del estudio",
+        "titleStudyPlaceholder": "Título del estudio",
+        "institute": "Instituto/Docente",
+        "institutePlaceholder": "Instituto Nacional de Salud",
+        "selectStatus": "Seleccione el estado",
+        "status": "Estado",
+        "type": "Tipo",
+        "selectType": "Seleccione el tipo",
+        "dateStart": "Fecha de inicio",
+        "dateEnd": "Fecha de culminación",
+        "noCertificates": "No hay certificados disponibles.",
+        "viewCertificate": "Ver Certificado",
+        "nameCertificate": "Nombre del certificado",
+        "instituteCertificate": "Instituto del certificado",
+        "fileCertificate": "Archivo del certificado",
+        "uploadFileCertificate": "Subir certificado",
+        "viewCertificateCargado": "Ver certificado cargado",
+        "deleteCertificate": "Eliminar certificado",
+        "noProfessions": "No hay profesiones disponibles.",
+        "mspTitle": "Registro profesional (MSP)",
+        "mspQuestion": "¿Estás registrado como profesional en el MSP?",
+        "mspNumberLabel": "N° MSP",
+        "noProfession": "Sin profesión",
+        "noSpecialties": "Sin especialidades",
+        "professionsSelect": "Profesiones",
+        "professionalInfoPlaceholder": "Cuéntanos sobre tu recorrido profesional, los desafíos que has transitado y el saber que has cultivado en el camino. Este espacio es para que otros comprendan tu experiencia y el valor único de tu acompañamiento.",
+        "deleteStudy": "Eliminar estudio",
+        "addCertificate": "Añadir certificado",
+        "confirmDeleteTitle": "¿Eliminar estudio?",
+        "confirmDeleteDescription": "¿Estás seguro de que deseas eliminar este estudio? Al hacerlo, la información se borrará de forma permanente y no podrá recuperarse.",
+        "professionalProfile": "Perfil Profesional",
+        "mainProfessionTabTitle": "Ahora elegí tu profesión principal para aparecer en Bodhiwell.",
+        "mainProfessionTabSubtitle": "Esto define tu identidad pública.",
+        "choose": "Elegir"
+      },
+      "BookingPanel": {
+        "editAvailability": "Editar disponibilidad",
+        "title": "Disponibilidad"
+      },
+      "AvailabilityProfessionalPage": {
+        "loadingAvailability": "Cargando tu disponibilidad...",
+        "errorLoadingAvailability": "Error al cargar la disponibilidad. Por favor, intenta de nuevo.",
+        "back": "Volver",
+        "discardChangesTitle": "¿Descartar cambios?",
+        "discardChangesMessage": "Estás a punto de salir. Si continúas, los cambios que has realizado en tu disponibilidad no se guardarán.",
+        "confirmExit": "Sí, salir",
+        "cancel": "Cancelar"
+      },
+      "AvailabilityCalendar": {
+        "notAvailable": "No Disponible",
+        "available": "Disponible",
+        "overlapError": "La nueva disponibilidad se solapa con un bloque existente.",
+        "pastTimeRangeError": "No puedes seleccionar un rango de tiempo que ya ha pasado.",
+        "pastDateMoveError": "No puedes mover la disponibilidad a una fecha pasada.",
+        "pastTimeMoveError": "No puedes mover la disponibilidad a una hora que ya ha pasado.",
+        "moveOverlapError": "El cambio se solapa con otro bloque de disponibilidad.",
+        "pastTimeAddError": "No puedes agregar disponibilidad en una hora que ya ha pasado.",
+        "buttonText": {
+          "today": "Hoy",
+          "month": "Mes",
+          "week": "Semana",
+          "day": "Día",
+          "prev": "<",
+          "next": ">",
+          "prevYear": "<",
+          "nextYear": ">"
+        },
+        "buttonHints": {
+          "prev": "Anterior",
+          "next": "Siguiente",
+          "today": "Hoy",
+          "prevYear": "Año anterior",
+          "nextYear": "Año siguiente",
+          "week": "Ver semanas",
+          "month": "Ver mes"
+        }
+      },
+      "AvailabilityTable": {
+        "title": "Disponibilidad",
+        "pastTimeAddError": "No puedes agregar disponibilidad en una hora que ya ha pasado.",
+        "invalidTimeRange": "La hora \"Desde\" debe ser anterior a la hora \"Hasta\".",
+        "overlapBlockError": "El nuevo bloque de tiempo se superpone con uno ya existente.",
+        "noDatesSelectedError": "Debes seleccionar al menos una fecha para guardar.",
+        "noHoursAssignedError": "El día {{date}} no tiene horas asignadas. Agrega un bloque o márcalo como \"No disponible\".",
+        "clearedDatesMessage": "Se ha limpiado el listado de dias.",
+        "selectedDaysTitle": "Días seleccionados",
+        "clearButton": "Limpiar",
+        "selectDaysMessage": "Selecciona días en el calendario.",
+        "removeButtonTitle": "Quitar",
+        "markNotAvailable": "Marcar no disponible",
+        "markAvailable": "Marcar disponible",
+        "notAvailableLabel": "No disponible",
+        "fromLabel": "Desde",
+        "toLabel": "Hasta",
+        "addAvailability": "Agregar disponibilidad",
+        "notAvailableMessage": "Este día está marcado como no disponible.",
+        "blockLabel": "Horario agregado:",
+        "removeBlockTitle": "Eliminar bloque",
+        "backButton": "Volver",
+        "saveButton": "Guardar cambios",
+        "savingButton": "Guardando...",
+        "saveButtonTitleNoDates": "Selecciona al menos una fecha para guardar",
+        "saveButtonTitle": "Guardar disponibilidad",
+        "titleCarReservation": "Citas Agendadas"
+      },
+      "BookingDetailsPage": {
+        "title": "Detalles de la Reserva",
+        "loadingBookingDetails": "Cargando detalle de la Reserva..."
+      },
+      "BookingDetailsContent": {
+        "title": "Detalles de la Reserva",
+        "subtitle": "{{professional}} atenderá a {{patient}}",
+        "viewProfile": "Ver perfil",
+        "noSpecialty": "Sin especialidad",
+        "patient": "Consultante",
+        "name": "Nombre",
+        "consultationReason": "Motivo de consulta",
+        "viewMore": "Ver más",
+        "viewLess": "Ver menos",
+        "details": "Detalles",
+        "date": "Fecha",
+        "note": "Nota",
+        "status": "Estado"
+      },
+      "PaymentStatusModal": {
+        "verifyingPayment": "Verificando Pago...",
+        "initiatingPaymentMessage": "Estamos iniciando la comunicación con la pasarela de pagos.",
+        "paymentPending": "Pago pendiente",
+        "paymentPendingMessage": "Estamos confirmando tu pago. Esto suele tardar solo unos segundos. Por favor, mantén esta ventana abierta para ver el resultado.",
+        "paymentSuccessful": "¡Pago Exitoso!",
+        "paymentSuccessfulMessage": "Su pago fue verificado con éxito, la reserva ha sido agendada.",
+        "paymentRejected": "Pago Rechazado",
+        "paymentRejectedMessage": "Lo sentimos, su pago fue rechazado, puede volver a intentarlo.",
+        "paymentCancelled": "Pago Cancelado",
+        "paymentCancelledMessage": "El proceso de pago fue cancelado. Puedes intentarlo de nuevo cuando quieras.",
+        "paymentError": "Ocurrió un Error",
+        "paymentErrorMessage": "No pudimos procesar tu pago en este momento. Por favor, intenta de nuevo más tarde.",
+        "unknownStatus": "Estado Desconocido",
+        "unknownStatusMessage": "Ha ocurrido algo inesperado.",
+        "retryPayment": "Intentar de Nuevo",
+        "viewBookingDetails": "Ver Detalle de Reserva",
+        "continueExploring": "Seguir Explorando"
+      },
+      "CreateReservationReportPage": {
+        "title": "Crear Reporte de Reserva",
+        "reservationIdentificationError": "Error: No se pudo identificar la reserva.",
+        "reservationIdNotFoundError": "Error: Identificador de reserva no encontrado.",
+        "backButton": "Volver"
+      },
+      "CreateReservationReportForm": {
+        "reasonLabel": "Motivo",
+        "reasonPlaceholder": "Escribe el motivo",
+        "observationsLabel": "Observaciones y Recomendaciones",
+        "observationsPlaceholder": "Escribe las observaciones y recomendaciones",
+        "additionalNotesLabel": "Notas adicionales (opcional)",
+        "additionalNotesPlaceholder": "Escribe las notas adicionales",
+        "savingButton": "Guardando...",
+        "createReportButton": "Crear Informe"
+      },
+      "ViewReservationReportPage": {
+        "backButton": "Volver",
+        "loadingReport": "Cargando informe..."
+      },
+      "ReservationReportDetails": {
+        "title": "Detalles de la consulta",
+        "consultationDetails": "Detalles de la consulta",
+        "printConsultation": "Imprimir consulta",
+        "professional": "Profesional:",
+        "reservationDate": "Fecha de la Reserva:",
+        "consultationReason": "Motivo de consulta:",
+        "observations": "Observaciones:",
+        "additionalNotes": "Notas adicionales:"
+      },
+      "HistoryConsultationPage": {
+        "title": "Historial de Consultas",
+        "errorTitle": "Error",
+        "patientIdNotProvided": "No se ha proporcionado el identificador del consultante.",
+        "backButton": "Volver"
+      },
+      "PatientProfilePage": {
+        "title": "Perfil del Consultante",
+        "loadingProfile": "Cargando perfil del consultante...",
+        "patientNotFound": "No se encontró el consultante."
+      },
+      "PatientProfileDetails": {
+        "male": "Masculino",
+        "female": "Femenino",
+        "birthDate": "Fecha de nacimiento",
+        "gender": "Género",
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "notSpecified": "No especificado",
+        "consultationHistory": "Histórico de Consultas",
+        "address": "Dirección",
+        "country": "País",
+        "city": "Ciudad",
+        "zipCode": "Código ZIP",
+        "medicalConditionTitle": "Compártenos tu experiencia y tu sentir:",
+        "noMedicalInfoAvailable": "No hay información disponible."
+      },
+      "EditPatientInfo": {
+        "loadingProfile": "Cargando perfil....",
+        "editProfile": "Editar perfil",
+        "cancel": "Cancelar",
+        "uploadPhoto": "Subir foto",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "firstNameRequired": "Nombre requerido",
+        "lastNameRequired": "Apellido requerido",
+        "birthDateRequired": "Fecha de nacimiento requerida",
+        "genderRequired": "Género requerido",
+        "phoneRequired": "Teléfono requerido",
+        "countryRequired": "País requerido",
+        "cityRequired": "Ciudad requerida",
+        "addressRequired": "Dirección requerida",
+        "completeRequiredFields": "Por favor completa todos los campos obligatorios",
+        "formError": "Error en el formulario. Verifique.",
+        "birthDate": "Fecha de nacimiento",
+        "gender": "Genero",
+        "selectGender": "Seleccione su genero",
+        "email": "Correo Electronico",
+        "phone": "Número de teléfono",
+        "country": "Pais",
+        "addressLabel": "Dirección:",
+        "countryLabel": "País",
+        "selectCountry": "Seleccione su País",
+        "city": "Ciudad",
+        "address": "Dirección",
+        "zipCode": "Codigo ZIP",
+        "medicalConditionTitle": "Compártenos tu experiencia y tu sentir:",
+        "noContentAvailable": "No hay contenido disponible",
+        "medicalConditionPlaceholder": "Cuéntanos tu historia, lo que vives y sientes cada día…",
+        "save": "Guardar",
+        "noDataToShow": "No hay datos a mostrar"
+      }
+    },
+    "HolisticSearch": {
+      "title": "Tu evolución empieza aquí.",
+      "subtitle": "Descubre quién puede acompañarte en tu camino de sanación y evolución.",
+      "searchPlaceholder": "Busca por síntoma, terapia, profesional o categoría (ej. Estrés, Nutrición, Acupuntura, Propósito)",
+      "advancedFilters": "Filtros Avanzados",
+      "noOptionsForCategory": "No hay opciones disponibles para esta categoría.",
+      "selectCategoryToSeeOptions": "Selecciona una categoría para ver opciones específicas.",
+      "clearFilters": "Limpiar Filtros",
+      "search": "Buscar"
+    },
+    "createServerDay": {
+      "notAvailable": "No disponible",
+      "availableSlots": "Horarios disponibles:"
+    },
+    "ActiveFilters": {
+      "activeFilters": "Filtros activos:",
+      "clearAll": "Limpiar todos",
+      "tag": "Etiqueta"
+    },
+    "ConfirmationModal": {
+      "title": "¡Reserva confirmada!",
+      "subtitle": "Haz tu pago ahora para finalizar el proceso",
+      "payNow": "Pagar ahora"
+    },
+    "BookingModal": {
+      "errorReadingUserData": "Error al leer los datos del usuario desde localStorage",
+      "processingRequest": "Procesando tu solicitud...",
+      "name": "Nombre",
+      "number": "Número",
+      "email": "Correo electrónico",
+      "consultationReason": "Motivo de la consulta",
+      "consultationReasonPlaceholder": "Describe brevemente el motivo de tu visita...",
+      "appointmentForGuest": "¿Cita para un invitado?",
+      "uploadPhotoOptional": "Subir foto (Opcional)",
+      "loading": "Cargando...",
+      "confirmAppointment": "Confirmar Cita",
+      "uploadFileLabel": "Puedes subir estudios para la reserva, en formato jpg, png, pdf",
+      "consultationValue": "Valor"
+    },
+    "FileDropzone": {
+      "dropFileHere": "¡Suelta el archivo aquí!",
+      "file": "Archivo:",
+      "clickToUpload": "Click para subir",
+      "orDragHere": "o arrastra hasta aquí",
+      "maxFileSize": "(Max. File size: {size} MB)"
+    },
+    "NotificationDropdown": {
+      "navigatingToNotification": "Navegando a la notificación:",
+      "notifications": "Notificaciones",
+      "marking": "Marcando...",
+      "markAllAsRead": "Marcar todo como leído",
+      "loading": "Cargando...",
+      "errorLoading": "Error al cargar",
+      "noNotifications": "No tienes notificaciones",
+      "viewAllNotifications": "Ver todas las notificaciones"
+    },
+    "NotificationList": {
+      "types": {
+        "booking": "Reserva",
+        "reminder": "Recordatorio",
+        "payment": "Boletín",
+        "system": "Novedades",
+        "all": "Todas",
+        "general": "General"
+      },
+      "click": "Click",
+      "delete": "Delete",
+      "title": "Notificaciones",
+      "new": "nuevas",
+      "searchPlaceholder": "Buscar...",
+      "marking": "Marcando...",
+      "markAllRead": "Marcar todo leído",
+      "showingResults": "Mostrando {{current}} de {{total}} resultados",
+      "loading": "Cargando...",
+      "error": "Error",
+      "markAsRead": "Marcar leído",
+      "deleteNotification": "Eliminar",
+      "noResults": "Sin resultados",
+      "noNotificationsMessage": "No hay notificaciones que coincidan con tu búsqueda.",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "eyebrow": "Centro de actividad"
+    }
+  },
+  "appAdmin": {
+    "UnsavedChangesModal": {
+      "title": "Cambios sin guardar",
+      "description": "Si salís ahora, los cambios realizados en tu perfil se van a perder.",
+      "continueEditing": "Seguir editando",
+      "exitWithoutSaving": "Salir sin guardar",
+      "saveAndExit": "Guardar y salir"
+    },
+    "PageContentLayout": {
+      "back": "Volver"
+    },
+    "table": {
+      "noDataFound": "No se encontraron registros.",
+      "showingPage": "Mostrando página {{currentPage}} de {{totalPages}}"
+    },
+    "NotificationPage": {
+      "title": "Notificaciones"
+    },
+    "Sidebar": {
+      "brand": "Panel Profesional",
+      "brandPatient": "Panel Consultante",
+      "userType": {
+        "professional": "Profesional",
+        "patient": "Consultante"
+      },
+      "groups": {
+        "registration": "Registro",
+        "admin": "Administración"
+      }
+    },
+    "dataSaved": "Datos guardados correctamente",
+    "dataSaveProfile": "Perfil actualizado correctamente",
+    "dashboard": {
+      "home": "Inicio",
+      "reservations": "Mis Reservas",
+      "consultations": "Mis Consultas",
+      "payments": "Mis Pagos",
+      "wallet": "Mi Billetera",
+      "withdrawals": "Mis Retiros",
+      "profile": "Perfil Público",
+      "dashboardTitle": "Dashboard",
+      "logout": "Cerrar sesión",
+      "blog": "Mis artículos",
+      "profileMenu": {
+        "personalInfo": "Datos Personales",
+        "availability": "Disponibilidad"
+      }
+    },
+    "blog": {
+      "breadcrumb": "Blog",
+      "comingSoon": "Próximamente... el blog de Bodhiwell.",
+      "title": "Artículos",
+      "fieldTitle": "Título",
+      "fieldStatus": "Estado",
+      "fieldDate": "Fecha de publicación",
+      "viewInBlog": "Ver en Blog",
+      "headerTitle": {
+        "title": "Mis artículos",
+        "status": "Estado",
+        "date": "Fecha de publicación",
+        "actions": "Acciones"
+      },
+      "errorLoading": "Error al cargar los artículos",
+      "deleteSuccess": "Artículo eliminado correctamente",
+      "deleteError": "Error al eliminar el artículo",
+      "emptyText": "No se encontraron artículos.",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "loading": "Cargando...",
+      "deleteConfirmationTitle": "¿Eliminar este artículo?",
+      "deleteConfirmation": "¿Estás seguro de que quieres eliminar este artículo? Esta acción no se puede deshacer.",
+      "cancel": "Cancelar",
+      "confirmDelete": "Eliminar",
+      "titleHeader": "Crear artículo",
+      "create": {
+        "fieldTitle": "Título del artículo",
+        "description": "Descripción corta (Excerpt)",
+        "subtitle": "Subtítulo",
+        "fieldStatus": "Estado",
+        "submit": "+ Crear Artículo",
+        "errorEmptyFields": "Por favor, completa el título y el contenido.",
+        "success": "Artículo creado correctamente",
+        "errorGeneric": "Hubo un error al crear el artículo.",
+        "title": "Crear nuevo artículo",
+        "titlePlaceholder": "Escribe un título impactante...",
+        "descriptionPlaceholder": "Escribe una breve descripción para el listado...",
+        "subtitlePlaceholder": "Un subtítulo que complemente el título...",
+        "status": {
+          "published": "Publicado",
+          "draft": "Borrador"
+        },
+        "fieldImage": "Imagen destacada",
+        "fieldContent": "Contenido del artículo",
+        "contentPlaceholder": "Escribe tu artículo aquí...",
+        "glossary": {
+          "sectionTitle": "Glosario",
+          "title": "Título del glosario",
+          "intro": "Introducción",
+          "itemTerm": "Término",
+          "itemDescription": "Descripción",
+          "add": "+ Añadir Término",
+          "remove": "Quitar"
+        },
+        "sources": {
+          "sectionTitle": "Fuentes",
+          "title": "Título de fuentes",
+          "intro": "Introducción",
+          "itemLabel": "Etiqueta/Nombre",
+          "itemContent": "Contenido/Link",
+          "add": "+ Añadir Fuente",
+          "remove": "Quitar"
+        },
+        "cancel": "Cancelar",
+        "save": "Publicar artículo"
+      },
+      "editBlog": {
+        "title": "Editar artículo",
+        "errorEmptyFields": "Por favor, completa el título y el contenido.",
+        "success": "Artículo actualizado correctamente",
+        "errorGeneric": "Hubo un error al actualizar el artículo.",
+        "loading": "Cargando...",
+        "currentImage": "Imagen actual:",
+        "save": "Guardar"
+      }
+    },
+    "header": {
+      "myProfile": "Mi perfil",
+      "logout": "Cerrar sesión",
+      "goToLanding": "Ir al sitio web"
+    },
+    "reservationsPage": {
+      "title": "Listado de Reservas",
+      "titleMobile": "Mis Reservas",
+      "loading": "Cargando reservas...",
+      "error": "Error al cargar reservas",
+      "alertTitle": "¡Informe pendiente!",
+      "alertMessage": "Tienes un informe pendiente por generar. Haz click en ver reserva para completarlo.",
+      "alertEyebrow": "Acción requerida"
+    },
+    "reservationsTable": {
+      "dateTimeColumn": "Fecha y hora",
+      "reasonColumn": "Motivo de consulta",
+      "statusColumn": "Estado",
+      "resultText": "Resultados",
+      "actionColumn": "Acción",
+      "patientColumn": "Consultante",
+      "professionalColumn": "Profesional",
+      "viewReservationButton": "Ver reserva",
+      "viewReportButton": "Ver consulta",
+      "createReportButton": "Crear Informe",
+      "ShowingPage": "Mostrando página",
+      "reminderTitle": "¡Informe Pendiente!",
+      "reminderMessage": "El informe pendiente es clave: complétalo ahora y tu pago quedará acreditado."
+    },
+    "myConsultationsPage": {
+      "title": "Mis Consultas",
+      "titlePage": "Listado de Consultas Atendidas",
+      "titlePageMobile": "Mis Consultas"
+    },
+    "consultationsList": {
+      "nameColumnHeaderProfessional": "Consultante",
+      "nameColumnHeaderPatient": "Profesional",
+      "dateColumnHeader": "Fecha de Consulta",
+      "diagnosisColumnHeader": "Diagnóstico Principal",
+      "actionColumnHeader": "Acción",
+      "viewReportButton": "Ver Informe",
+      "filterSectionTitle": "Datos de Consulta",
+      "datePickerLabel": "Fecha de consulta",
+      "reasonPickerLabel": "Motivo de consulta (Resumen)",
+      "emptyText": "No se encontraron consultas que coincidan con los filtros.",
+      "errorText": "Ocurrió un error al cargar tus consultas.",
+      "datePickerPlaceholder": "Filtrar por fecha",
+      "reasonPickerPlaceholder": "Filtrar por motivo de consulta"
+    },
+    "paymentListPage": {
+      "titlePage": "Listado de Pagos"
+    },
+    "ListPayment": {
+      "walletTitle": "Mi Billetera Profesional",
+      "walletSubtitle": "Consulta tu saldo disponible.",
+      "goToWallet": "Ver mi Saldo",
+      "title": "Listado de Pagos",
+      "columns": {
+        "amount": "Monto",
+        "date": "Fecha",
+        "status": "Estado",
+        "reservation": "Reserva Asociada"
+      },
+      "loading": "Cargando pagos...",
+      "error": "Error al cargar pagos",
+      "filterDateFrom": "Fecha desde",
+      "filterDateTo": "Fecha hasta",
+      "filterStatus": "Estado",
+      "filterStatusAll": "Todos",
+      "filterButton": "Filtrar",
+      "resetButton": "Limpiar",
+      "textEmpty": "No se encontraron pagos que coincidan con los filtros.",
+      "filterError": "Por favor, seleccione al menos un criterio de búsqueda.",
+      "filterError1": "Para filtrar por fecha, debe seleccionar un rango completo (Desde y Hasta).",
+      "filterError2": "La fecha \"Hasta\" no puede ser anterior a la fecha \"Desde\".",
+      "statusOptions": {
+        "pending": "Pendiente",
+        "processing": "Procesando",
+        "pending_provider": "Pendiente de Proveedor",
+        "authorized": "Autorizado",
+        "captured": "Capturado (Exitoso)",
+        "partially_captured": "Parcialmente Capturado",
+        "rejected": "Rechazado",
+        "refunded": "Reembolsado",
+        "partially_refunded": "Parcialmente Reembolsado",
+        "canceled": "Cancelado",
+        "failed": "Fallido",
+        "approved": "Aprobado",
+        "initiated": "Iniciado"
+      },
+      "viewDetails": "Ver Detalles",
+      "patient": "Consultante",
+      "professional": "Profesional",
+      "viewReservation": "Ver Reserva"
+    },
+    "walletPage": {
+      "title": "Mi Billetera",
+      "errorTitle": "No pudimos cargar la billetera",
+      "loading": "Cargando datos de la billetera..."
+    },
+    "common": {
+      "retry": "Reintentar",
+      "errorTitle": "Algo salió mal"
+    },
+    "walletSummary": {
+      "totalBalance": "Saldo Total",
+      "availableBalance": "Saldo Disponible",
+      "frozenBalance": "Saldo Retenido",
+      "frozenBalanceTooltip": "Saldo pendiente de acreditación. Se liberará automáticamente al generar el informe de la cita correspondiente."
+    },
+    "walletMovements": {
+      "title": "Historial de Movimientos",
+      "type": "Tipo",
+      "reference": "Concepto",
+      "description": "Descripción",
+      "date": "Fecha",
+      "amount": "Monto",
+      "textempty": "No se encontraron movimientos.",
+      "viewsReservation": "Ver Reserva",
+      "typeIn": "Entrada",
+      "typeOut": "Salida"
+    },
+    "withdrawalListPage": {
+      "title": "Mis Retiros"
+    },
+    "ListWithdrawal": {
+      "title": "Mis Retiros",
+      "amount": "Monto",
+      "cutOffDate": "Fecha de Corte",
+      "statusText": "Estado",
+      "textempty": "No se encontraron retiros que coincidan con los filtros.",
+      "loading": "Cargando retiros...",
+      "status": {
+        "pending": "Pendiente",
+        "processed": "Procesado",
+        "rejected": "Rechazado"
+      }
+    },
+    "AdvancedFilters": {
+      "search": "Palabra clave",
+      "searchPlaceholder": "Buscar...",
+      "period": "Periodo",
+      "startDate": "Desde",
+      "endDate": "Hasta",
+      "periods": {
+        "all": "Todos",
+        "lastWeek": "Última semana",
+        "lastMonth": "Último mes",
+        "last3Months": "Últimos 3 meses",
+        "lastYear": "Último año"
+      }
+    },
+    "profilePage": {
+      "title": "Por favor, inicia sesión para ver tu perfil"
+    },
+    "EditProfileProfessional": {
+      "loading": "Cargando tu perfil...."
+    },
+    "EditPersonalInfo": {
+      "personalData": "Datos Personales",
+      "editProfile": "Editar Perfil",
+      "validation": {
+        "dniRequired": "El DNI es requerido",
+        "phoneRequired": "El teléfono es requerido",
+        "dateBirthRequired": "La fecha de nacimiento es requerida",
+        "genderRequired": "El género es requerido",
+        "countryRequired": "El país es requerido",
+        "cityRequired": "La ciudad es requerida",
+        "addressRequired": "La dirección es requerida",
+        "zipcodeRequired": "El código postal es requerido",
+        "bankNameRequired": "El banco es requerido",
+        "accountNumberRequired": "El número de cuenta es requerido",
+        "holderNameRequired": "El nombre del titular es requerido"
+      },
+      "title": "Editar Informacion Personal",
+      "Keep": "Guardar",
+      "Clean": "Limpiar",
+      "dni": "DNI / Identificación",
+      "numberAccount": "Número de cuenta",
+      "phoneNumber": "Teléfono",
+      "dateBirth": "Fecha de Nacimiento",
+      "gender": "Género",
+      "selectGender": "Seleccionar género",
+      "male": "Masculino",
+      "female": "Femenino",
+      "other": "Otro",
+      "country": "País",
+      "selectCountry": "Seleccionar país",
+      "city": "Ciudad",
+      "address": "Dirección",
+      "loadingProfile": "Cargando tu información...",
+      "bankName": "Banco",
+      "zipcode": "Código Postal",
+      "recommendedSizeLabel": "Dimensiones Recomendadas",
+      "recommendedSize": "Dimenciones Recomendadas 320 x 400",
+      "profileImageNote": "La foto de perfil se reflejará en el listado de profesionales",
+      "holderName": "Nombre asociado a la cuenta",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "profileImage": "Foto de perfil",
+      "paymentInfo": "Información de Cobro",
+      "profilePhoto": "Foto de perfil",
+      "photoNote": "320 × 400 px recomendados. Mantiene la misma proporción, crop y escala que usamos en las tarjetas de profesionales.",
+      "changesSaved": "Cambios guardados",
+      "profileUpdated": "Perfil actualizado",
+      "saveSubtitle": "Guardalos para actualizar la información visible en tu perfil.",
+      "unsavedChanges": "Tenés cambios sin guardar",
+      "saveToUpdate": "Guardalos para actualizar la información visible en tu perfil.",
+      "salir": "Salir"
+    },
+    "EditProfessionalInfo": {
+      "mediaTitle": "Portada del perfil",
+      "exit": "Salir",
+      "publicInfoTitle": "Información pública",
+      "publicInfoDesc": "Datos visibles en tu perfil y resultados derivados de la información académica cargada.",
+      "changesSaved": "Cambios guardados",
+      "profileUpdated": "Perfil actualizado",
+      "saveSubtitle": "Guardalos para actualizar la información visible en tu perfil.",
+      "videoHelper": "Pegá el enlace de tu video para mostrarlo en tu perfil.",
+      "mediaDesc": "La imagen se gestiona directamente sobre la portada. El video se carga aparte, como un enlace.",
+      "mediaDesc2": "Recomendación de imagen: 1200 × 500 px.",
+      "videoUrlLabel": "Video de presentación",
+      "noProfession": "Sin profesión",
+      "preview": "Previsualizar",
+      "title": "Mi Información",
+      "ProfileTitle": "Información Profesional",
+      "aboutText": "Descripción no disponible.",
+      "changeImage": "Cambiar Imagen",
+      "recommendedSizeLabel": "Dimensiones Recomendadas",
+      "savePrompt": "Tenés cambios sin guardar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "firstNameRequired": "Nombre es requerido",
+      "lastNameRequired": "Apellido es requerido",
+      "studyNameRequired": "Nombre de estudio es requerido",
+      "studyInstituteRequired": "Instituto de estudio es requerido",
+      "studyStatusRequired": "Estado de estudio es requerido",
+      "studyTypeRequired": "Tipo de estudio es requerido",
+      "studyDateStartRequired": "Fecha de inicio de estudio es requerida",
+      "studyDateEndRequired": "Fecha de fin de estudio es requerida",
+      "certificateNameRequired": "Nombre de certificado es requerido",
+      "certificateInstituteRequired": "Instituto de certificado es requerido",
+      "certificateDateRequired": "Fecha de certificado es requerida",
+      "professionRequired": "Profesión es requerida",
+      "prefixProfessionalRequired": "Prefijo de profesión es requerido",
+      "mainProfessionRequired": "Profesión principal es requerida",
+      "bannerImageRequired": "Imagen o video de banner es requerida",
+      "readLess": "Leer menos",
+      "readMore": "Leer más",
+      "editProfile": "Editar perfil",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "aboutMe": "Mi propósito y enfoque",
+      "aboutMePlaceholder": "Acerca de mí",
+      "studyName": "Nombre de estudio",
+      "studyInstitute": "Instituto de estudio",
+      "studyStatus": "Estado de estudio",
+      "studyType": "Tipo de estudio",
+      "studyDateStart": "Fecha de inicio de estudio",
+      "studyDateEnd": "Fecha de fin de estudio",
+      "certificateName": "Nombre de certificado",
+      "certificateInstitute": "Instituto de certificado",
+      "certificateDate": "Fecha de certificado",
+      "profession": "Profesión",
+      "prefixProfessional": "Prefijo de profesión",
+      "mainProfession": "Profesión principal",
+      "bannerImage": "Imagen de banner",
+      "noPrefix": "Sin prefijo",
+      "selectProfession": "Seleccionar profesión",
+      "prefix": "Prefijo",
+      "selectModality": "Seleccione modalidad",
+      "loading": "Cargando...",
+      "specialtiesTags": "Especialidades",
+      "errorLoadingTags": "Error cargando tags",
+      "noEligibleProfessions": "Asegúrate de agregar una especialidad principal en la pestaña de Estudios.",
+      "modality": "Modalidad de atención",
+      "specialtiesTooltip": "Suma tus especialidades para optimizar tu presencia en el buscador.",
+      "helperTextProfession": "¿No consigues tu profesión? contacta con",
+      "validationFromStudies": "Estos datos se derivan de la información académica cargada en tu perfil.",
+      "consultationPrice": "Precio de consulta",
+      "image": "Imagen",
+      "video": "Video",
+      "requiredFields": "Campos obligatorios por favor completa los campos",
+      "videoUrlRequired": "URL de video es requerida",
+      "invalidVideoUrl": "URL de video inválida",
+      "prefixRequired": "Prefijo es requerido",
+      "modalityRequired": "Modalidad es requerida",
+      "specialtyTagsRequired": "Especialidades son requeridas",
+      "consultPriceRequired": "Precio de consulta es requerido",
+      "invalidPrice": "Precio inválido",
+      "aboutRequired": "Acerca de mí es requerido",
+      "professionalInfoRequired": "Información profesional es requerida",
+      "studiesRequired": "Estudios son requeridos",
+      "professionsRequired": "Profesiones son requeridas",
+      "certificatesRequired": "Certificados son requeridos",
+      "requiredFieldsDetailed": "Completa la información faltante para completar tu perfil ({{fields}}).",
+      "imageOrVideoRequired": "Se requiere una imagen de perfil o un video.",
+      "otherProfessions": "Otras profesiones",
+      "otherProfessionsRequired": "Otras profesiones son requeridas",
+      "otherProfessionsHelper": "Si no encuentras tu profesión, puedes agregarla aquí.",
+      "mspNumberRequiredForSpecialty": "El N° MSP es requerido:",
+      "noSpecialties": "Sin especialidades",
+      "fieldName": {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "mainProfession": "Profesión principal",
+        "modality": "Modalidad",
+        "specialtyTags": "Especialidades",
+        "aboutMe": "Biografía",
+        "professionalInfo": "Información profesional",
+        "prefix": "Prefijo",
+        "consultPrice": "Precio de consulta",
+        "bannerImage": "Foto de perfil",
+        "videoUrl": "URL de video",
+        "studies": "Estudios",
+        "professions": "Profesiones",
+        "professionsDescription": "Descripción de la profesión",
+        "professionsName": "Nombre de la profesión",
+        "studies_name": "Titulo del estudio",
+        "studiesInstitute": "Instituto del estudio",
+        "studiesStatus": "Estado del estudio",
+        "studiesType": "Tipo del estudio",
+        "studiesDateStart": "Fecha de inicio del estudio",
+        "studiesDateEnd": "Fecha de fin del estudio",
+        "studiesDate": "Fecha del estudio",
+        "bannerImageOrVideo": "Imagen de perfil o video"
+      }
+    },
+    "EditTabsComponent": {
+      "presentationHelper": "Detallá tu formación académica, certificaciones, experiencia y áreas de especialización.",
+      "professionalProfile": "Perfil Profesional",
+      "otherType": "Especifique el tipo",
+      "backToSelection": "Regresar al selector",
+      "presentation": "Formación y experiencia",
+      "mainProfessionTabTitle": "Ahora elegí tu profesión principal para aparecer en Bodhiwell.",
+      "mainProfessionTabSubtitle": "Esto define tu identidad pública.",
+      "choose": "Elegir",
+      "professionalInfo": "Presentación",
+      "studies": "Estudios",
+      "certificates": "Certificados",
+      "professions": "Profesiones",
+      "noProfessionalInfo": "No hay información profesional disponible.",
+      "noStudies": "No hay estudios disponibles.",
+      "addStudy": "Añadir estudio",
+      "titleStudy": "Título del estudio",
+      "titleStudyPlaceholder": "Título del estudio",
+      "institute": "Instituto/Docente",
+      "institutePlaceholder": "Instituto Nacional de Salud",
+      "selectStatus": "Seleccione el estado",
+      "status": "Estado",
+      "type": "Tipo",
+      "selectType": "Seleccione el tipo",
+      "dateStart": "Fecha de inicio",
+      "dateEnd": "Fecha de culminación",
+      "noCertificates": "No hay certificados disponibles.",
+      "viewCertificate": "Ver Certificado",
+      "nameCertificate": "Nombre del certificado",
+      "instituteCertificate": "Instituto del certificado",
+      "fileCertificate": "Archivo del certificado",
+      "uploadFileCertificate": "Subir certificado",
+      "viewCertificateCargado": "Ver certificado cargado",
+      "deleteCertificate": "Eliminar certificado",
+      "confirmDeleteCertificateTitle": "¿Eliminar certificado?",
+      "confirmDeleteCertificateDescription": "¿Estás seguro de que deseas eliminar este certificado?",
+      "noProfessions": "No hay profesiones disponibles.",
+      "mspValidationInfo": "Para validar tu especialidad, utilizaremos tus datos personales. Por favor, asegúrate de haber completado tu Nombre, Apellido y Documento de Identidad en la pestaña 'Datos Personales'.",
+      "importantTitle": "Validación de Especialidad", 
+      "noProfession": "Sin profesión",
+      "noSpecialties": "Sin especialidades",
+      "professionsSelect": "Profesiones",
+      "professionalInfoPlaceholder": "Compártenos tu experiencia y tu sentir...",
+      "deleteStudy": "Eliminar estudio",
+      "addCertificate": "Añadir certificado",
+      "mainProfession": "Profesión principal",
+
+      "confirmDeleteTitle": "Eliminar estudio?",
+      "confirmDeleteDescription": "¿Estás seguro de que deseas eliminar este estudio? Al hacerlo, la información se eliminará permanentemente y no se podrá recuperar.",
+      "deleteConfirm": "Eliminar",
+      "changeFile": "Cambiar archivo",
+      "uploadFile": "Subir archivo",
+      "mainProfessionNote": "Solo podés elegir entre las profesiones validadas por tus estudios cargados."
+    },
+    "BookingPanel": {
+      "editAvailability": "Editar disponibilidad",
+      "title": "Disponibilidad",
+      "previousMonth": "Mes anterior",
+      "nextMonth": "Mes siguiente",
+      "subtitle": "Visualizá y gestioná tus turnos disponibles."
+    },
+    "AvailabilityProfessionalPage": {
+      "salir":"Salir",
+      "save":"Guardar",
+      "saving":"Guardando...",
+      "changesSaved": "Cambios guardados",
+      "unsavedChanges": "Tenés cambios sin guardar.",
+      "saveToUpdate": "Guardalos para actualizar la información visible en tu disponibilidad.",
+      "availabilityUpdated": "Tu disponibilidad está actualizada.",
+      "incompleteProfileTitle": "¡Un paso más para comenzar!",
+      "pendingApprovalTitle": "Tu perfil está en proceso de revisión",
+      "pendingApprovalDescription": "¡Gracias por completar tu información! Nuestro equipo está validando tus datos para asegurar la mejor experiencia. Recibirás una notificación en cuanto tu perfil sea aprobado.",
+      "incompleteProfileDescription": "Para poder gestionar tu disponibilidad, es necesario que completes tu información personal. Esto ayuda a generar confianza y asegura una mejor experiencia para todos.",
+      "completeProfileButton": "Completar mi perfil",
+      "loadingAvailability": "Cargando tu disponibilidad...",
+      "errorLoadingAvailability": "Error al cargar la disponibilidad. Por favor, intenta de nuevo.",
+      "back": "Volver",
+      "undoChanges": "Deshacer cambios",
+      "discardChangesTitle": "¿Descartar cambios?",
+      "discardChangesMessage": "Estás a punto de salir. Si continúas, los cambios que has realizado en tu disponibilidad no se guardarán.",
+      "confirmExit": "Sí, salir",
+      "cancel": "Cancelar",
+      "goHomeButton": "Ir a inicio",
+      "loading": "Cargando perfil..."
+    },
+    "AvailabilityCalendar": {
+      "title": "Disponibilidad",
+      "notAvailable": "No Disponible",
+      "available": "Disponible",
+      "loadedSchedule": "Horario cargado",
+      "loadedSchedules": "Horarios cargados",
+      "overlapError": "La nueva disponibilidad se solapa con un bloque existente.",
+      "pastTimeRangeError": "No puedes seleccionar un rango de tiempo que ya ha pasado.",
+      "pastDateMoveError": "No puedes mover la disponibilidad a una fecha pasada.",
+      "pastTimeMoveError": "No puedes mover la disponibilidad a una hora que ya ha pasado.",
+      "moveOverlapError": "El cambio se solapa con otro bloque de disponibilidad.",
+      "pastTimeAddError": "No puedes agregar disponibilidad en una hora que ya ha pasado.",
+      "reservedDays": "Días Reservados",
+      "dayReserved": "Día con reservas",
+      "buttonText": {
+        "today": "Hoy",
+        "month": "Mes",
+        "week": "Semana",
+        "day": "Día",
+        "prev": "",
+        "next": "",
+        "prevYear": "<",
+        "nextYear": ">"
+      },
+      "buttonHints": {
+        "prev": "Anterior",
+        "next": "Siguiente",
+        "today": "Hoy",
+        "prevYear": "Año anterior",
+        "nextYear": "Año siguiente",
+        "week": "Ver semanas",
+        "month": "Ver mes"
+      }
+    },
+    "AvailabilityTable": {
+      "title": "Disponibilidad",
+      "noSchedulesMessage": "Todavía no agregaste horarios.",
+      "addedSchedules": "Horarios Agregados",
+      "moreSchedulesNote": "Podés agregar más franjas horarias para este día",
+      "pastTimeAddError": "No puedes agregar disponibilidad en una hora que ya ha pasado.",
+      "invalidTimeRange": "La hora \"Desde\" debe ser anterior a la hora \"Hasta\".",
+      "overlapBlockError": "El nuevo bloque de tiempo se superpone con uno ya existente.",
+      "removeDateWithReservationsError": "No puedes eliminar un día que ya tiene reservas.",
+      "noDatesSelectedError": "Debes seleccionar al menos una fecha para guardar.",
+      "noHoursAssignedError": "El día {{date}} no tiene horas asignadas. Agrega un bloque o márcalo como \"No disponible\".",
+      "clearedDatesMessage": "Se ha limpiado el listado de dias.",
+      "selectedDaysTitle": "Días seleccionados",
+      "clearButton": "Limpiar",
+      "selectDaysMessage": "Selecciona días en el calendario.",
+      "removeButtonTitle": "Quitar",
+      "markNotAvailable": "Marcar no disponible",
+      "markAvailable": "Marcar disponible",
+      "notAvailableLabel": "No disponible",
+      "fromLabel": "Desde",
+      "toLabel": "Hasta",
+      "addAvailability": "Agregar disponibilidad",
+      "notAvailableMessage": "Este día está marcado como no disponible.",
+      "blockLabel": "Horario agregado:",
+      "removeBlockTitle": "Eliminar bloque",
+      "backButton": "Volver",
+      "saveButton": "Guardar cambios",
+      "savingButton": "Guardando...",
+      "saveButtonTitleNoDates": "Selecciona al menos una fecha para guardar",
+      "saveButtonTitle": "Guardar disponibilidad",
+      "titleCarReservation": "Citas Agendadas",
+      "noHoursAssignedErrorGeneric": "Debe asignar al menos un horario o marcar el día como no disponible."
+    },
+    "BookingDetailsPage": {
+      "title": "Detalles de la Reserva",
+      "loadingBookingDetails": "Cargando detalle de la Reserva...",
+      "statusUpdated": "Estado actualizado correctamente",
+      "statusUpdateError": "Error al actualizar el estado"
+    },
+    "BookingDetailsContent": {
+      "generateLink": "Generar enlace",
+      "title": "Detalles de la Reserva",
+      "subtitle": "{{professional}} atenderá a {{patient}}",
+      "viewProfile": "Ver perfil",
+      "noSpecialty": "Sin especialidad",
+      "patient": "Consultante",
+      "name": "Consultante",
+      "modality": "Modalidad",
+      "duration": "Duración",
+      "consultationReason": "Motivo de consulta",
+      "viewMore": "Ver más",
+      "viewLess": "Ver menos",
+      "details": "Detalles",
+      "date": "Fecha",
+      "time": "Hora",
+      "hour": "hora",
+      "hours": "horas",
+      "minute": "minuto",
+      "minutes": "minutos",
+      "note": "Nota",
+      "status": "Estado",
+      "retryPayment": "Reintentar pago",
+      "retryPaymentLoading": "Procesando...",
+      "editNote": "Editar nota",
+      "noNotes": "Sin notas",
+      "notePlaceholder": "Escribe una nota para la reserva (visible para el paciente)...",
+      "savingNote": "Guardando...",
+      "saveNote": "Guardar nota",
+      "cancel": "Cancelar",
+      "waitingVirtualLink": "La conexión es el primer paso hacia tu salud. El profesional compartirá pronto el enlace de la reunión en este espacio; también te notificaremos por correo.",
+      "waitingAddress": "Tu bienestar merece un lugar adecuado. Pronto verás aquí la dirección detallada de la sesión para que puedas planificar tu llegada con tranquilidad.",
+      "missingLink": "La sanación comienza con una buena conexión. Por favor, proporcione el enlace de la sesión para que su consultante sepa dónde encontrarse con usted.",
+      "missingAddress": "Falta la ubicación. Por favor, indique la dirección de la sesión para informar debidamente a su consultante."
+    },
+    "PaymentStatusModal": {
+      "verifyingPayment": "Verificando Pago...",
+      "initiatingPaymentMessage": "Estamos iniciando la comunicación con la pasarela de pagos.",
+      "paymentPending": "Pago pendiente",
+      "paymentPendingMessage": "Estamos confirmando tu pago. Esto suele tardar solo unos segundos. Por favor, mantén esta ventana abierta para ver el resultado.",
+      "paymentSuccessful": "¡Pago Exitoso!",
+      "paymentSuccessfulMessage": "Su pago fue verificado con éxito, la reserva ha sido agendada.",
+      "paymentRejected": "Pago Rechazado",
+      "paymentRejectedMessage": "Lo sentimos, su pago fue rechazado, puede volver a intentarlo.",
+      "paymentCancelled": "Pago Cancelado",
+      "paymentCancelledMessage": "El proceso de pago fue cancelado. Puedes intentarlo de nuevo cuando quieras.",
+      "paymentError": "Ocurrió un Error",
+      "paymentErrorMessage": "No pudimos procesar tu pago en este momento. Por favor, intenta de nuevo más tarde.",
+      "unknownStatus": "Estado Desconocido",
+      "unknownStatusMessage": "Ha ocurrido algo inesperado.",
+      "retryPayment": "Reintentar pago",
+      "viewBookingDetails": "Ver Detalle de Reserva",
+      "continueExploring": "Seguir Explorando"
+    },
+    "CreateReservationReportPage": {
+      "title": "Generar Informe",
+      "reservationIdentificationError": "Error: No se pudo identificar la reserva.",
+      "reservationIdNotFoundError": "Error: Identificador de reserva no encontrado.",
+      "backButton": "Volver"
+    },
+    "CreateReservationReportForm": {
+      "reasonLabel": "Motivo",
+      "reasonPlaceholder": "Escribe el motivo",
+      "observationsLabel": "Observaciones y Recomendaciones",
+      "observationsPlaceholder": "Escribe las observaciones y recomendaciones",
+      "additionalNotesLabel": "Notas adicionales (opcional)",
+      "additionalNotesPlaceholder": "Escribe las notas adicionales",
+      "savingButton": "Guardando...",
+      "createReportButton": "Crear Informe"
+    },
+    "ViewReservationReportPage": {
+      "backButton": "Volver",
+      "loadingReport": "Cargando informe..."
+    },
+    "ReservationReportDetails": {
+      "title": "Detalles de la consulta",
+      "consultationDetails": "Detalles de la consulta",
+      "printConsultation": "Imprimir consulta",
+      "professional": "Profesional:",
+      "reservationDate": "Fecha de la Reserva:",
+      "consultationReason": "Motivo de consulta:",
+      "observations": "Observaciones:",
+      "additionalNotes": "Notas adicionales:",
+      "consultant": "Consultante:",
+      "viewProfile": "Ver perfil",
+      "viewReservation": "Ver reserva"
+    },
+    "HistoryConsultationPage": {
+      "title": "Historial de Consultas",
+      "errorTitle": "Error",
+      "patientIdNotProvided": "No se ha proporcionado el identificador del consultante.",
+      "backButton": "Volver"
+    },
+    "PatientProfilePage": {
+      "title": "Perfil del Consultante",
+      "loadingProfile": "Cargando perfil del consultante...",
+      "patientNotFound": "No se encontró el consultante."
+    },
+    "PatientProfileDetails": {
+      "male": "Masculino",
+      "female": "Femenino",
+      "other": "Otro",
+      "birthDate": "Fecha de nacimiento",
+      "gender": "Género",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "notSpecified": "No especificado",
+      "consultationHistory": "Histórico de Consultas",
+      "address": "Dirección",
+      "country": "País",
+      "city": "Ciudad",
+      "zipCode": "Código ZIP",
+      "medicalConditionTitle": "Compártenos tu experiencia y tu sentir:",
+      "noMedicalInfoAvailable": "No hay información disponible."
+    },
+    "EditPatientInfo": {
+      "photoTitle": "Foto de perfil",
+      "titleEdit": "Editar Perfil",
+      "titleView": "Mi Perfil",
+      "personalInfoTitle": "Información Personal",
+      "loadingProfile": "Cargando perfil....",
+      "editProfile": "Editar perfil",
+      "cancel": "Salir",
+      "uploadPhoto": "Subir foto",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "firstNameRequired": "Nombre requerido",
+      "lastNameRequired": "Apellido requerido",
+      "birthDateRequired": "Fecha de nacimiento requerida",
+      "genderRequired": "Género requerido",
+      "phoneRequired": "Teléfono requerido",
+      "countryRequired": "País requerido",
+      "cityRequired": "Ciudad requerida",
+      "addressRequired": "Dirección requerida",
+      "completeRequiredFields": "Por favor completa todos los campos obligatorios",
+      "formError": "Error en el formulario. Verifique.",
+      "birthDate": "Fecha de nacimiento",
+      "gender": "Género",
+      "selectGender": "Seleccione su género",
+      "email": "Correo Electronico",
+      "phone": "Número de teléfono",
+      "country": "País",
+      "addressLabel": "Dirección:",
+      "countryLabel": "País",
+      "selectCountry": "Seleccione su País",
+      "city": "Ciudad",
+      "address": "Dirección",
+      "zipCode": "Codigo ZIP",
+      "medicalConditionTitle": "Compártenos tu experiencia y tu sentir:",
+      "noContentAvailable": "No hay contenido disponible",
+      "medicalConditionPlaceholder": "Cuéntanos tu historia, lo que vives y sientes cada día…",
+      "save": "Guardar",
+      "noDataToShow": "No hay datos a mostrar",
+      "photoDesc": "Proporción cuadrada recomendada para la imagen del consultante. Mantiene la misma lógica visual del perfil profesional, adaptada a este formato.",
+      "unsavedChanges": "Tenés cambios sin guardar",
+      "saveToUpdate": "Guardalos para actualizar la información visible en tu perfil."
+    },
+    "DashboardPatient": {
+      "title": "Dashboard",
+      "loading": "Cargando...",
+      "error": "Error:",
+      "dashboardTitle": "Panel de Control",
+      "welcome": "Bienvenid@,",
+      "upcomingAppointments": "PRÓXIMAS CONSULTAS",
+      "noAppointments": "Ninguna cita",
+      "details": "Detalles",
+      "totalAppointments": "TOTAL CITAS",
+      "pendingToday": "Pendientes hoy:",
+      "occupancyRate": "tasa de ocupacion:",
+      "myWallet": "MI BILLETERA",
+      "AvailableBalance": "Saldo Disponible:",
+      "monthlyIncome": "ingreso del mes",
+      "busy": "ocupado",
+      "available": "libre",
+      "statistics": "Estadísticas",
+      "finances": "Finanzas",
+      "manageFunds": "Gestionar fondos",
+      "schedule": "Cronograma",
+      "noUpcomingAppointmentsTitle": "Sin citas próximas",
+      "noUpcomingAppointmentsSubtitle": "Por el momento no tienes citas programadas. Cuando un consultante realice una reserva, aparecerá aquí.",
+      "noUpcomingAppointmentsSubtitlePatient": "Por el momento no tienes citas programadas. Explora nuestros profesionales y comienza tu camino hacia el bienestar."
+    },
+    "RedPagosAlert": {
+      "title": "¡Todo listo! Completa tu pago en RedPagos",
+      "message": "Para finalizar, acércate a cualquier local de RedPagos y muéstrale al cajero el código de barras que aparece en el siguiente enlace. Puedes mostrarlo directamente desde tu celular.",
+      "actionButton": "Ver Código de Pago",
+      "copyButtonTitle": "Copiar código"
+    }
+  },
+  "Notifications": {
+    "title": "Notificaciones",
+    "new": "Nuevas",
+    "Showing": "Mostrando",
+    "of": "de",
+    "results": "resultados",
+    "All": "Todas",
+    "Booking": "Reserva",
+    "Reminder": "Recordatorio",
+    "Newsletter": "Boletín",
+    "loading": "Cargando...",
+    "error": "Error",
+    "markAsRead": "Marcar leído",
+    "noResults": "Sin resultados",
+    "noResultsMessage": "No hay notificaciones que coincidan con tu búsqueda.",
+    "delete": "Eliminar",
+    "empty": "No hay notificaciones",
+    "viewAll": "Ver todas las notificaciones"
+  },
+  "TimePickerUi": {
+    "hour": "Hora",
+    "minute": "Min",
+    "cancel": "Cancelar",
+    "ok": "OK"
+  },
+  "useAvailabilitySave": {
+    "loadError": "No se pudieron cargar las disponibilidades correctamente.",
+    "missingDataError": "Error: Faltan cargar las disponibilidades.",
+    "noChangesToSave": "No hay cambios nuevos para guardar.",
+    "successMessage": "Disponibilidad actualizada con éxito",
+    "unexpectedError": "Ocurrió un error inesperado."
+  },
+  "contactPage": {
+    "info": {
+      "title": "Conecta con Nosotros",
+      "text": "Tu opinión es importante. Usa el formulario para enviarnos tus dudas o sugerencias y te responderemos a la brevedad.",
+      "subtext": "También puedes visitar nuestra sección de <1>Preguntas Frecuentes</1> para obtener respuestas inmediatas.",
+      "eyebrow": "Contacto"
+    },
+    "nameLabel": "Nombre completo",
+    "emailLabel": "Correo electrónico",
+    "messageLabel": "Mensaje",
+    "namePlaceholder": "Escribe tu nombre",
+    "emailPlaceholder": "ejemplo@correo.com",
+    "messagePlaceholder": "¿Cómo podemos ayudarte?",
+    "buttonText": "Enviar Mensaje",
+    "buttonLoading": "Enviando...",
+    "successMessage": "¡Mensaje enviado con éxito!",
+    "successTitle": "¡Gracias por contactarnos!",
+    "successText": "Hemos recibido tu mensaje y te responderemos lo antes posible.",
+    "errors": {
+      "nameRequired": "El nombre es requerido",
+      "emailRequired": "El correo es requerido",
+      "emailInvalid": "Ingresa un correo electrónico válido",
+      "messageRequired": "El mensaje es requerido"
+    }
+  },
+  "UserStatusToast": {
+    "pendingCompletion": {
+      "title": "¡Completa tu perfil!",
+      "message": "Para aparecer en el listado de profesionales, necesitamos que llenes todos tus datos (incluyendo foto y especialidad).",
+      "action": "Editar Perfil"
+    },
+    "pendingApproval": {
+      "title": "En Revisión",
+      "message": "Tu perfil está siendo revisado por un administrador. Cuando sea aprobado, vas a poder configurar tu disponibilidad."
+    },
+    "rejected": {
+      "title": "Perfil Rechazado",
+      "message": "Tu perfil no cumple con los requisitos. Por favor, contacta a soporte."
+    },
+    "completePersonalInfo": "Datos Personales",
+    "profileDoneButPersonalIncomplete": "Tu perfil público está completo, pero falta información en tus [Datos Personales] para finalizar.",
+    "personalDoneButProfileIncomplete": "Tus datos personales están guardados. Ahora, completa tu [Perfil Público] para ser visible a los pacientes.",
+    "linkTextPersonalInfo": "Datos Personales",
+    "linkTextProfile": "Perfil Público"
+  },
+  "statusBadge": {
+    "confirmed": "Confirmado",
+    "cancelled": "Cancelado",
+    "pending": "Pendiente",
+    "completed": "Completado",
+    "waitingPayment": "Esperando pago",
+    "processing": "Procesando",
+    "publish": "Publicado",
+    "draft": "Borrador",
+    "trash": "Papelera"
+  },
+  "bookingStatus": {
+    "patient": {
+      "waitingPayment": {
+        "badge": "⏳ Esperando confirmación",
+        "message": "Tu espacio está reservado momentáneamente. Por favor, completa el pago para asegurar tu cita.",
+        "action": "Realizar Pago"
+      },
+      "pendingProvider": {
+        "badge": "🏦 Verificando con el banco",
+        "message": "Estamos validando tu aporte con tu entidad bancaria. Esto puede tomar unos instantes.",
+        "action": "Actualizar estado"
+      },
+      "processing": {
+        "badge": "🏦 Verificando con el banco",
+        "message": "Estamos validando tu aporte con tu entidad bancaria. Esto puede tomar unos instantes.",
+        "action": "Actualizar estado"
+      },
+      "confirmed": {
+        "badge": "✔️ Cita Confirmada",
+        "message": "¡Todo listo! Tu aporte ha sido validado. Te esperamos con alegría el {{date}} a las {{time}} para tu sesión."
+      },
+      "cancelled": {
+        "badge": "❌ Reserva Expirada",
+        "message": "El tiempo de reserva ha finalizado. Si deseas retomar tu proceso de bienestar, por favor selecciona un nuevo horario."
+      },
+      "completed": {
+        "badge": "✅ Sesión Finalizada",
+        "message": "Gracias por confiar en nosotros. Tu sesión ha concluido.",
+        "action": "Ver informe"
+      }
+    },
+    "professional": {
+      "waitingPayment": {
+        "badge": "⏳ Por confirmar",
+        "message": "El consultante ha iniciado la reserva, esperando pago."
+      },
+      "pendingProvider": {
+        "badge": "🏦 Verificando Pago",
+        "message": "La pasarela está procesando la transacción."
+      },
+      "processing": {
+        "badge": "🏦 Verificando Pago",
+        "message": "La pasarela está procesando la transacción."
+      },
+      "confirmed": {
+        "badge": "✔️ Confirmada",
+        "message": "Pago exitoso. Cita agendada en calendario.",
+        "action": "Generar Informe"
+      },
+      "completed": {
+        "badge": "✅ Finalizada",
+        "message": "Consulta realizada e informe generado.",
+        "action": "Ver informe"
+      }
+    },
+    "loading": "Cargando..."
+  },
+  "redPagosAlert": {
+    "title": "All set! Complete your payment at RedPagos",
+    "message": "To finalize, go to any RedPagos location and show the cashier the barcode from the following link. You can show it directly from your phone.",
+    "actionButton": "View Payment Code"
+  },
+  "accessDenied": {
+    "pageTitle": "Acceso Denegado",
+    "title": "Acceso Restringido",
+    "message": "Para acceder a esta sección, primero debes completar tu perfil de profesional. Esto es necesario para asegurar una experiencia confiable para todos nuestros usuarios.",
+    "action": {
+      "completeProfile": "Completar Perfil",
+      "goToDashboard": "Ir al Inicio"
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "Lo sentimos, la página que buscas no existe o fue movida a otra ubicación.",
+    "actionButton": "Volver al Inicio"
+  },
+  "MenuItemWarningIcon": {
+    "title": "Completa tu información para terminar la configuración."
+  },
+  "dashboard": {
+    "steps": {
+      "title": "Tu viaje en Bodhiwell",
+      "subtitle": "Estamos felices de que estés aquí. Completa estos pasos para comenzar a transformar vidas.",
+      "professional": {
+        "completeProfile": "Cuéntanos sobre ti",
+        "adminValidation": "Activación de tu espacio",
+        "addAvailability": "Comparte tu tiempo",
+        "ready": "¡Todo listo para brillar!"
+      },
+      "patient": {
+        "completeProfile": "Personaliza tu experiencia",
+        "searchProfessionals": "Encuentra tu guía",
+        "ready": "¡Empieza tu camino de bienestar!"
+      },
+      "status": {
+        "pending": "Próximamente",
+        "inProgress": "En espera",
+        "completed": "¡Listo!",
+        "waiting": "Estamos preparando tu cuenta"
+      },
+      "action": {
+        "complete": "Comenzar",
+        "view": "Ver detalles",
+        "add": "Definir horarios",
+        "search": "Explorar"
+      }
+    }
+  },
+  "HolisticSearch": {
+    "title": "Encontrá lo",
+    "title_part2": "que necesitás",
+    "subtitle": "Explorá profesionales y enfoques según tu momento,",
+    "subtitle_part2": "tu búsqueda o la forma en que preferís acompañar tu bienestar.",
+    "inputPlaceholder": "Busca por nombre, profesión o síntoma",
+    "inputPlaceholderDim": "Escribí dentro de {{label}}…",
+    "noMatch": "Probá con otra palabra (síntoma, emoción, profesional o lo que querés lograr).",
+    "defaultStageSub": "Elegí una dimensión para empezar o escribí tu búsqueda. Podés explorar desde Cuerpo, Mente, Energía y Conciencia.",
+    "suggestion": "Sugerencia",
+    "suggestions": "Sugerencias",
+    "and": "y",
+    "viewProfessionalsIn": "Ver profesionales en",
+    "dimensions": {
+      "conciencia": {
+        "label": "Conciencia",
+        "phrase": "Desarrollo interior y expansión de la conciencia."
+      },
+      "cuerpo": {
+        "label": "Cuerpo",
+        "phrase": "Movimiento, salud física y recuperación del cuerpo."
+      },
+      "energia": {
+        "label": "Energía",
+        "phrase": "Vitalidad, armonía y regulación. Descubrí prácticas orientadas a favorecer el equilibrio energético."
+      },
+      "energía": {
+        "label": "Energía",
+        "phrase": "Vitalidad, armonía y regulación. Descubrí prácticas orientadas a favorecer el equilibrio energético."
+      },
+      "mente": {
+        "label": "Mente",
+        "phrase": "Emociones, pensamientos y equilibrio mental."
+      }
+    }
+  },
+  "countries": {
+    "AR": "Argentina",
+    "BZ": "Belice",
+    "BO": "Bolivia",
+    "BR": "Brasil",
+    "CL": "Chile",
+    "CO": "Colombia",
+    "CR": "Costa Rica",
+    "CU": "Cuba",
+    "EC": "Ecuador",
+    "SV": "El Salvador",
+    "GT": "Guatemala",
+    "GY": "Guyana",
+    "HT": "Haití",
+    "HN": "Honduras",
+    "JM": "Jamaica",
+    "MX": "México",
+    "NI": "Nicaragua",
+    "PA": "Panamá",
+    "PY": "Paraguay",
+    "PE": "Perú",
+    "PR": "Puerto Rico",
+    "DO": "República Dominicana",
+    "SR": "Surinam",
+    "UY": "Uruguay",
+    "VE": "Venezuela"
+  },
+  "ProfessionalPreview": {
+    "noData": "No hay datos para previsualizar",
+    "goBack": "Volver"
+  },
+  "verifyEmail": {
+    "verifying": "Verificando tu correo...",
+    "successTitle": "¡Correo Verificado!",
+    "success": "Tu correo electrónico ha sido verificado con éxito. Ya puedes iniciar sesión.",
+    "errorTitle": "Error de Verificación",
+    "error": "Hubo un problema al verificar tu correo electrónico. Es posible que el enlace haya expirado.",
+    "invalidToken": "Token de verificación no encontrado o inválido.",
+    "goToLogin": "Ir al Inicio de Sesión",
+    "backToLogin": "Ir al Inicio",
+    "errorResending": "Error al reenviar el código",
+    "codeResent": "Código reenviado con éxito",
+    "loadingButton": "Cargando...",
+    "verifyButton": "Verificar código",
+    "resendButton": "Reenviar código",
+    "wait": "Espera",
+    "title": "Verifica tu correo",
+    "instructionText": "Hemos enviado un código a tu correo, por favor ingrésalo para completar tu registro."
+  },
+  "VerifyEmailAlert": {
+    "title": "Verifica tu correo electrónico",
+    "actionButton": "Verificar correo electrónico",
+    "resendButton": "Reenviar código",
+    "sending": "Enviando...",
+    "emailTarget": "Te enviaremos un código de verificación a:",
+    "text": "Tu seguridad es nuestra prioridad. Por favor, verifica tu correo electrónico para acceder a todas las funciones de Bodhiwell.",
+    "verifyButton": "Verificar correo electrónico",
+    "eyebrow": "Seguridad"
+  },
+  "faqs": {
+    "loading": "Cargando preguntas frecuentes...",
+    "hero": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Respuestas simples para orientarte mejor",
+      "copy": "Encontrá las dudas más comunes sobre Bodhiwell y su funcionamiento en un formato claro, cercano y fácil de recorrer.",
+      "cta": "Explorar preguntas"
+    },
+    "nav": {
+      "title": "Categorías"
+    },
+    "groups": {
+      "about": {
+        "title": "Sobre Bodhiwell",
+        "intro": "Un primer bloque para entender qué es la plataforma, qué propone y desde qué mirada acompaña."
+      },
+      "registration": {
+        "title": "Registro y acceso",
+        "intro": "Preguntas vinculadas al ingreso a la plataforma, la creación de cuenta y el uso de datos reales."
+      },
+      "bookings": {
+        "title": "Consultas y reservas",
+        "intro": "Un bloque orientado a explicar el proceso de reserva y la dinámica de acompañamiento dentro de la plataforma."
+      },
+      "plans": {
+        "title": "Planes y suscripciones",
+        "intro": "Respuestas breves sobre los distintos tipos de planes y la lógica general de suscripción."
+      },
+      "privacy": {
+        "title": "Privacidad y uso de datos",
+        "intro": "Un área destinada a responder dudas frecuentes sobre resguardo, tratamiento y acceso a la información."
+      },
+      "professionals": {
+        "title": "Profesionales de la salud",
+        "intro": "Un cierre enfocado en la comunidad profesional y en la lógica colaborativa que propone Bodhiwell."
+      }
+    },
+    "q1": "¿Qué es Bodhiwell?",
+    "a1": "Bodhiwell es una plataforma y una comunidad que conecta consultantes y profesionales de la salud desde una mirada integradora, humana y consciente.",
+    "q2": "¿Bodhiwell es una clínica?",
+    "a2": "No. Bodhiwell no funciona como una clínica, sino como un espacio que facilita el encuentro entre personas y profesionales de distintas áreas de la salud.",
+    "q3": "¿Qué propone Bodhiwell de forma diferente?",
+    "a3": "Bodhiwell busca tender puentes entre enfoques, promover el intercambio y acercar contenido de valor, favoreciendo una comprensión menos fragmentada de la salud.",
+    "q4": "¿Qué tipo de profesionales participan en Bodhiwell?",
+    "a4": "Pueden formar parte profesionales provenientes de la medicina convencional, integrativa, complementaria y otras disciplinas vinculadas al bienestar y al acompañamiento de la salud humana.",
+    "q5": "¿Cuál es la mirada de Bodhiwell sobre la salud?",
+    "a5": "Bodhiwell entiende la salud de manera amplia e integradora, reconociendo que distintas miradas pueden convivir y complementarse en favor del bienestar.",
+    "q6": "¿Necesito registrarme para usar Bodhiwell?",
+    "a6": "Para acceder a determinadas funciones, como reservar una consulta o gestionar tu perfil, sí.",
+    "q7": "¿Por qué es importante registrarse con datos reales?",
+    "a7": "Porque ayuda a construir una experiencia más confiable, ordenada y segura para todos los actores que forman parte de la plataforma.",
+    "q8": "¿Puedo acceder sin contratar un plan?",
+    "a8": "Sí, según la modalidad disponible. Algunas funciones pueden estar sujetas al tipo de cuenta o plan activo.",
+    "q9": "¿Cómo funciona la reserva de consultas?",
+    "a9": "La reserva se realiza a través de la plataforma y queda confirmada cuando se completa correctamente el proceso correspondiente.",
+    "q10": "¿Cuándo queda confirmada una reserva?",
+    "a10": "La reserva queda validada una vez procesado el pago a través de los medios aceptados por la plataforma.",
+    "q11": "¿Las consultas son presenciales o virtuales?",
+    "a11": "Depende de la modalidad ofrecida por cada profesional. Dentro de la plataforma pueden existir ambas opciones.",
+    "q12": "¿Puedo atenderme con más de un profesional?",
+    "a12": "Sí. Parte de la propuesta de Bodhiwell es facilitar un acompañamiento más amplio, donde distintas miradas puedan complementarse cuando eso aporte valor al proceso de cada persona.",
+    "q13": "¿Puedo cancelar una consulta?",
+    "a13": "Sí. Las cancelaciones podrán realizarse dentro del plazo definido por la plataforma y estarán sujetas a las condiciones vigentes al momento de la reserva.",
+    "q14": "¿Bodhiwell ofrece planes o suscripciones?",
+    "a14": "Sí. La plataforma contempla distintos tipos de planes, pensados para acompañar diferentes necesidades de uso.",
+    "q15": "¿La suscripción se renueva automáticamente?",
+    "a15": "Sí, salvo que se indique lo contrario en las condiciones del plan contratado.",
+    "q16": "¿Qué sucede si hay una dificultad con el pago?",
+    "a16": "Puede existir un período de gracia antes de la cancelación, según las condiciones activas de la suscripción.",
+    "q17": "¿Puedo cambiar de plan más adelante?",
+    "a17": "Sí, sujeto a las condiciones operativas y comerciales de la plataforma.",
+    "q18": "¿Cómo se protege mi información personal?",
+    "a18": "La gestión de datos personales se realiza bajo criterios de privacidad, resguardo y uso responsable, de acuerdo con las políticas de la plataforma.",
+    "q19": "¿Mi información se comparte con profesionales?",
+    "a19": "Solo dentro del marco necesario para el correcto funcionamiento de la experiencia y del acompañamiento brindado a través de la plataforma.",
+    "q20": "¿Dónde puedo leer los términos y la política de privacidad?",
+    "a20": "En las secciones legales correspondientes, disponibles dentro del sitio.",
+    "q21": "¿Puedo formar parte de Bodhiwell como profesional?",
+    "a21": "Sí. Bodhiwell también está pensado como una comunidad para profesionales interesados en una mirada colaborativa e integradora de la salud.",
+    "q22": "¿Cómo puedo postularme como profesional?",
+    "a22": "A través de los canales o formularios habilitados por la plataforma para ese fin.",
+    "q23": "¿Qué busca Bodhiwell en los profesionales que se suman?",
+    "a23": "Una disposición a acompañar desde el profesionalismo, el respeto, la apertura al intercambio y una visión amplia del bienestar.",
+    "q24": "¿Bodhiwell promueve el trabajo entre distintas disciplinas?",
+    "a24": "Sí. La plataforma nace justamente de la necesidad de generar más diálogo, sinergia y colaboración entre enfoques que muchas veces funcionan por separado.",
+    "next": {
+      "eyebrow": "Siguiente paso",
+      "title": "¿Cuál es tu próximo paso?",
+      "copy": "Si ya resolviste tus dudas, podés explorar los profesionales disponibles en Bodhiwell y seguir avanzando en el acompañamiento que estás buscando.",
+      "cta": "Conocer profesionales"
+    }
+  },
+  "DetailPage": {
+    "StudyCard": {
+      "dateRange": "{{start}} - {{end}}"
+    }
+  },
+  "auth": {
+    "tabs": {
+      "login": "Iniciar sesión",
+      "register": "Crear tu cuenta",
+      "verify": "Verificar correo"
+    },
+    "goHome": "Ir al inicio",
+    "legalNote": "Al continuar, aceptas nuestros",
+    "terms": "Términos de servicio",
+    "and": "y",
+    "privacy": "Política de privacidad"
+  }
+}

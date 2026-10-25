@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Bodhiwell — Manual de Diseño (Opción B)</title>
+  <style>
+    :root{
+      /* ---- COLOR (COMPONENT PALETTE) ---- */
+      --bw-bg: #EFF0EC;
+      --bw-surface: #FFFFFF;
+      --bw-border: rgba(16,25,21,.12);
+
+      --bw-text-primary: rgba(16,25,21,.92);
+      --bw-text-secondary: rgba(16,25,21,.68);
+      --bw-text-placeholder: rgba(16,25,21,.45);
+
+      --bw-primary: #82B194;
+      --bw-primary-hover: #739F84;
+      --bw-primary-active: #5C826C;
+
+      --bw-semantic-error: #E5484D;
+
+      /* ---- DIMENSIONS (FLOR) ---- */
+      --bw-dim-cuerpo: #304E8F;
+      --bw-dim-mente: #5C9DD6;
+      --bw-dim-energia: #4FB08C;
+      --bw-dim-conciencia: #695EA6;
+
+      /* ---- SPACING (8px system) ---- */
+      --bw-space-1: 4px;
+      --bw-space-2: 8px;
+      --bw-space-3: 16px;
+      --bw-space-4: 24px;
+      --bw-space-5: 32px;
+      --bw-space-6: 48px;
+      --bw-space-7: 64px;
+
+      /* ---- RADIUS ---- */
+      --bw-radius-sm: 8px;
+      --bw-radius-md: 16px;   /* Buttons (LOCK) */
+      --bw-radius-lg: 16px;   /* Cards */
+      --bw-radius-xl: 22px;   /* Containers */
+
+      /* ---- SHADOWS ---- */
+      --bw-shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+      --bw-shadow-md: 0 8px 20px rgba(0,0,0,0.06);
+      --bw-shadow-lg: 0 18px 50px rgba(15,23,42,0.08);
+
+      --bw-max: 1200px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: "Sora", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bw-bg);
+      color: var(--bw-text-primary);
+    }
+
+    .layout{
+      display:block;min-height:100vh;
+    }
+
+    /* Left rail nav */
+    .rail{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:8px;padding:14px 22px;border-bottom:1px solid var(--bw-card-surface);background:rgba(243,242,239,.86);backdrop-filter: blur(10px);justify-content:center}
+
+    .rail a{display:inline-flex;align-items:center;justify-content:center;height:40px;margin:0;min-width:40px;padding:0 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 900;
+      color: rgba(16,25,21,.72);
+      border: 1px solid transparent;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .rail a:hover{
+      background: rgba(255,255,255,.55);
+      border-color: rgba(16,25,21,.08);
+    }
+    .rail a:active{ transform: translateY(1px); }
+
+    /* Main */
+    main{max-width: 1280px;padding:28px 22px 90px;margin:0 auto;width:100%}
+
+    .page-title{display:grid;grid-template-columns:1.2fr auto;align-items:end;gap:16px;margin-bottom:12px;padding:26px 28px;border:1px solid rgba(247,245,241,.92);background:linear-gradient(180deg, rgba(255,255,255,.66), rgba(255,255,255,.36));border-radius:28px;box-shadow:0 14px 30px rgba(0,0,0,.04)}
+    .page-title h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+    .page-title p{
+      margin:6px 0 0;
+      color: var(--bw-text-secondary);
+      max-width: 92ch;
+      line-height: 1.55;
+    }
+    .badge{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:28px; padding:0 10px; border-radius:999px;
+      border:1px solid rgba(12,36,28,.08); background:rgba(255,255,255,.65);
+      font-weight:900; font-size:12px; color:rgba(16,25,21,.72)
+    }
+
+
+    .manual-links-panel{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;align-items:center;margin:18px 0 28px;padding:20px 22px;border:1px solid rgba(247,245,241,.92);background:linear-gradient(180deg, rgba(255,255,255,.56), rgba(255,255,255,.34));border-radius:24px;box-shadow:0 14px 30px rgba(0,0,0,.04)}
+    .manual-links-kicker{margin:0 0 6px;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(16,25,21,.55)}
+    .manual-links-panel h2{margin:0;font-size:22px;letter-spacing:-.02em}
+    .manual-links-panel p{margin:8px 0 0;color:var(--bw-text-secondary);line-height:1.6}
+    .manual-links-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start}
+    .manual-links-grid a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:14px;text-decoration:none;font-weight:900;font-size:13px;color:var(--bw-text-primary);background:var(--bw-card-surface);border:1px solid rgba(130,177,148,.34);box-shadow:0 8px 18px rgba(0,0,0,.03)}
+    .manual-links-grid a:hover{background:rgba(130,177,148,.10)}
+
+    /* Section template */
+    section{ scroll-margin-top: 18px; margin-top: 34px; }
+    .sg-section-header{
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+      margin-bottom: 16px;
+    }
+    .sg-number{
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(16,25,21,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 950;
+      color: rgba(16,25,21,.74);
+      box-shadow: 0 10px 18px rgba(0,0,0,.04);
+      flex: 0 0 auto;
+    }
+    .sg-kicker{
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(16,25,21,.55);
+    }
+    .sg-section-title{
+      margin:0 0 8px;
+      font-size: 34px;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+    .sg-section-desc{
+      margin:0;
+      color: var(--bw-text-secondary);
+      line-height: 1.6;
+      max-width: 92ch;
+    }
+
+    .sg-block{background:rgba(255,255,255,.48);
+      border: 1px solid rgba(255,255,255,.75);
+      background: rgba(255,255,255,.35);
+      border-radius: var(--bw-radius-xl);
+      padding: 18px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.04);
+      margin-top: 14px;
+    }
+    .sg-block-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .sg-block-title{
+      margin:0;
+      font-size: 16px;
+      font-weight: 950;
+      letter-spacing: -0.01em;
+    }
+    .sg-block-desc{
+      margin:6px 0 0;
+      color: var(--bw-text-secondary);
+      line-height: 1.6;
+      max-width: 92ch;
+      font-size: 14px;
+    }
+
+    .callout{
+      border-radius: var(--bw-radius-lg);
+      border: 1px solid rgba(16,25,21,.10);
+      background: rgba(247,245,241,.92);
+      padding: 14px 14px;
+      margin-top: 12px;
+    }
+    .callout--rule{ background: rgba(255,255,255,.86); }
+    .callout--note{ background: rgba(130,177,148,.08); border-color: rgba(130,177,148,.22); }
+
+    .callout b{ font-weight: 950; }
+    .callout ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      line-height: 1.75;
+      color: rgba(16,25,21,.78);
+      font-size: 14px;
+    }
+
+    /* Swatches */
+    .swatches{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .swatch{
+      border: 1px solid rgba(16,25,21,.10);
+      border-radius: 16px;
+      overflow:hidden;
+      background:var(--bw-card-surface, #F7F5F1);
+    }
+    .swatch .bar{ height: 50px; }
+    .swatch .info{ padding: 10px 12px; }
+    .swatch .info .name{ font-weight: 950; }
+    .swatch .info .code{ font-size: 12px; color: rgba(16,25,21,.62); margin-top: 2px; }
+
+    /* Buttons (radius locked to 16) */
+    .btn{
+      appearance:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: var(--bw-radius-md);
+      font-weight: 900;
+      font-size: 14px;
+      text-decoration:none;
+      cursor:pointer;
+      border: 1px solid rgba(16,25,21,.14);
+      color: rgba(16,25,21,.84);
+      background: #fff;
+      transition: background .15s ease, transform .15s ease, border-color .15s ease, color .15s ease, filter .15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ background: rgba(16,25,21,.03); }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn--primary{
+      background: var(--bw-primary);
+      color: #fff;
+      border-color: transparent;
+    }
+    .btn--primary:hover{ background: var(--bw-primary-hover); }
+    .btn--primary:active{ background: var(--bw-primary-active); }
+
+    .btn--secondary{
+      background: transparent;
+      border-color: rgba(130,177,148,.55);
+      color: rgba(16,25,21,.84);
+    }
+    .btn--secondary:hover{
+      background: rgba(130,177,148,.10);
+      border-color: rgba(130,177,148,.70);
+    }
+
+    .btn--ghost{
+      background: transparent;
+      border-color: rgba(16,25,21,.10);
+      color: rgba(16,25,21,.70);
+    }
+    .btn--ghost:hover{ background: rgba(16,25,21,.04); }
+
+    .btn[disabled], .btn.is-disabled{
+      opacity:.55;
+      cursor:not-allowed;
+      transform:none !important;
+      filter:none !important;
+    }
+
+    .example-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+    .example-row .meta{
+      max-width: 80ch;
+      color: rgba(16,25,21,.68);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    /* Chips */
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(16,25,21,.12);
+      background: rgba(255,255,255,.85);
+      color: rgba(16,25,21,.78);
+    }
+    .chip--cuerpo{ background: color-mix(in srgb, var(--bw-dim-cuerpo) 12%, white); border-color: color-mix(in srgb, var(--bw-dim-cuerpo) 25%, white); color: rgba(16,25,21,.82); }
+    .chip--mente{ background: color-mix(in srgb, var(--bw-dim-mente) 12%, white); border-color: color-mix(in srgb, var(--bw-dim-mente) 25%, white); color: rgba(16,25,21,.82); }
+    .chip--energia{ background: color-mix(in srgb, var(--bw-dim-energia) 12%, white); border-color: color-mix(in srgb, var(--bw-dim-energia) 25%, white); color: rgba(16,25,21,.82); }
+    .chip--conciencia{ background: color-mix(in srgb, var(--bw-dim-conciencia) 12%, white); border-color: color-mix(in srgb, var(--bw-dim-conciencia) 25%, white); color: rgba(16,25,21,.82); }
+
+    /* Typography (LOCKED scale) */
+    .typo-sample{
+      padding:14px;
+      border-radius: var(--bw-radius-lg);
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(16,25,21,.10);
+    }
+    .t-eyebrow{ font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color: rgba(16,25,21,.55); margin:0 0 8px; }
+    .t-h1{ font-size:64px; line-height:1.0; font-weight:700; letter-spacing:-.045em; margin:0 0 12px; }
+    .t-h2{ font-size:48px; line-height:1.04; font-weight:800; letter-spacing:-.035em; margin:0 0 10px; }
+    .t-h3{ font-size:24px; line-height:1.28; font-weight:600; letter-spacing:-.015em; margin:0 0 8px; }
+    .t-body{ font-size:18px; line-height:28px; font-weight:400; margin:0 0 8px; color: rgba(16,25,21,.78); }
+    .t-small{ font-size:15px; line-height:22px; font-weight:400; color: rgba(16,25,21,.68); margin:0; }
+    .t-caption{ font-size:13px; line-height:18px; font-weight:400; color: rgba(16,25,21,.60); margin:0; }
+    .t-label{ font-size:13px; font-weight:700; color: rgba(16,25,21,.84); margin:0 0 6px; }
+    .t-helper{ font-size:13px; line-height:18px; color: rgba(16,25,21,.62); margin:6px 0 0; }
+
+    .grid{ display:grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 12px; }
+    .col-6{ grid-column: span 6; }
+    .col-12{ grid-column: span 12; }
+
+    .table{
+      width:100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow:hidden;
+      border-radius: var(--bw-radius-lg);
+      border: 1px solid rgba(16,25,21,.10);
+      background: rgba(255,255,255,.86);
+      margin-top: 12px;
+    }
+    .table th, .table td{
+      padding: 12px 12px;
+      text-align:left;
+      border-bottom: 1px solid rgba(16,25,21,.08);
+      vertical-align: top;
+    }
+    .table th{
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(16,25,21,.60);
+      font-weight: 950;
+      background: rgba(16,25,21,.02);
+    }
+    .table tr:last-child td{ border-bottom:0; }
+    .mono{ font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size: 12px; color: rgba(16,25,21,.70); }
+
+    .token-table{
+      width:100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .token-table td{
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(16,25,21,.08);
+      vertical-align: top;
+    }
+    .token-table td:first-child{ width: 40%; }
+    .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 4px 10px; border-radius: 999px;
+      font-size: 12px; font-weight: 900;
+      border: 1px solid rgba(16,25,21,.10);
+      background: rgba(255,255,255,.75);
+      color: rgba(16,25,21,.72);
+    }
+    /* Inputs */
+    .field{ display:flex; flex-direction:column; gap:6px; }
+    .field label{
+      font-size: 13px;
+      font-weight: 900;
+      color: rgba(16,25,21,.84);
+    }
+    .input{
+      height: 44px;
+      padding: 0 12px;
+      border-radius: var(--bw-radius-sm);
+      border: 1px solid rgba(16,25,21,.12);
+      background: rgba(255,255,255,.92);
+      color: rgba(16,25,21,.88);
+      outline: none;
+      transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+      font-size: 15px;
+    }
+    .input::placeholder{ color: rgba(16,25,21,.45); }
+    .input.is-focus{
+      border-color: var(--bw-primary);
+      box-shadow: 0 0 0 3px rgba(130,177,148,.18);
+      background: #fff;
+    }
+    .input.is-error{
+      border-color: var(--bw-semantic-error);
+      box-shadow: 0 0 0 3px rgba(229,72,77,.16);
+      background: #fff;
+    }
+    .input:disabled, .input.is-disabled{
+      opacity: .6;
+      cursor: not-allowed;
+      background: rgba(255,255,255,.70);
+    }
+    .helper{
+      font-size: 13px;
+      line-height: 18px;
+      color: rgba(16,25,21,.62);
+      margin-top: 2px;
+    }
+    .helper.is-error{ color: var(--bw-semantic-error); font-weight: 900; }
+    .mini-swatch{
+      width: 44px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,25,21,.10);
+      display:inline-block;
+      vertical-align: middle;
+      box-shadow: 0 6px 14px rgba(0,0,0,.05);
+    }
+    .swatch-cell{ width: 70px; }
+
+
+
+
+    @media (max-width: 860px){
+      .layout{ grid-template-columns: 1fr; }
+      .rail{
+      width:74px;
+        position:static;
+        height:auto;
+        display:flex;
+        gap: 10px;
+        border-right:0;
+        border-bottom:1px solid rgba(255,255,255,.65);
+        padding: 12px 14px;
+        overflow:auto;
+      }
+      .rail a{ margin:0; flex: 0 0 auto; width: 54px; }
+      main{ padding-top: 18px; }
+      .col-6{ grid-column: span 12; }
+      .t-h1{ font-size: 48px; line-height: 1.04; }
+      .t-h2{ font-size: 36px; line-height: 1.08; }
+    }
+  body,body *{font-family:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-style:normal}input,button,textarea,select{font:inherit}code,pre{font-style:normal}</style>
+<link rel="stylesheet" href="../assets/css/coherence.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="rail" aria-label="Índice">
+      <a href="#intro">00</a>
+      <a href="#foundations">01</a>
+      <a href="#tokens">02</a>
+      <a href="#components">03</a>
+      <a href="#patterns">04</a>
+      <a href="#crm">05</a>
+      <a href="#marketplace">06</a>
+    </nav>
+
+    <main>
+      <div class="page-title">
+        <div>
+          <h1>Manual de Diseño — Bodhiwell / Opción B</h1>
+          <p>
+            Base (reglas, tokens, decisiones). Inline: tokens/typography/components simples. Externo: pantallas completas.
+          </p>
+        </div>
+        <span class="badge">Base · v10</span>
+      </div>
+
+
+      <section id="intro">
+        <header class="sg-section-header">
+          <div class="sg-number">00</div>
+          <div>
+            <p class="sg-kicker">Introducción</p>
+            <h2 class="sg-section-title">Portada y concepto del sistema</h2>
+            <p class="sg-section-desc">La pantalla 00 queda incorporada al manual como apertura conceptual y referencia para desarrollo.</p>
+          </div>
+        </header>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">00.1 Portada integrada</h3>
+              <p class="sg-block-desc">Esta portada resume el propósito del sistema y convive dentro del flujo general del manual.</p>
+            </div>
+            <a class="badge" href="00-introduccion.html" style="text-decoration:none">Abrir 00</a>
+          </div>
+          <div style="border-radius:22px;overflow:hidden;border:1px solid rgba(12,36,28,.08);background:var(--bw-card-surface, #F7F5F1)">
+            <iframe src="00-introduccion.html" title="Introducción Bodhiwell" style="display:block;width:100%;height:940px;border:0;background:var(--bw-card-surface, #F7F5F1)" loading="lazy"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01 -->
+      <section id="foundations">
+        <header class="sg-section-header">
+          <div class="sg-number">01</div>
+          <div>
+            <p class="sg-kicker">Foundations</p>
+            <h2 class="sg-section-title">Identidad del sistema</h2>
+            <p class="sg-section-desc">Color, spacing, radius y sombras definen el “ritmo” visual de Bodhiwell.</p>
+          </div>
+        </header>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">01.1 Spacing (8px system)</h3>
+              <p class="sg-block-desc">Usar la escala. Evitar valores arbitrarios.</p>
+            </div>
+          </div>
+          <table class="token-table">
+            <tr><td><span class="pill">--bw-space-1</span></td><td>4px · micro</td></tr>
+            <tr><td><span class="pill">--bw-space-2</span></td><td>8px · mínimo</td></tr>
+            <tr><td><span class="pill">--bw-space-3</span></td><td>16px · estándar</td></tr>
+            <tr><td><span class="pill">--bw-space-4</span></td><td>24px · bloques</td></tr>
+            <tr><td><span class="pill">--bw-space-5</span></td><td>32px · secciones</td></tr>
+            <tr><td><span class="pill">--bw-space-6</span></td><td>48px · bloques grandes</td></tr>
+            <tr><td><span class="pill">--bw-space-7</span></td><td>64px · hero</td></tr>
+          </table>
+          <div class="callout callout--rule" style="margin-top:12px">
+            <b>Regla (estados)</b>
+            <ul>
+              <li>Hover / Active nunca se definen “a ojo”.</li>
+              <li>Primary: <span class="mono">--bw-primary</span> (#82B194) → <span class="mono">--bw-primary-hover</span> (#739F84) → <span class="mono">--bw-primary-active</span> (#5C826C).</li>
+              <li>Disabled: solo opacidad (sin cambiar el color base).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">01.2 Radius</h3>
+              <p class="sg-block-desc">Bordes suaves (calma). Botones fijados a 16px.</p>
+            </div>
+          </div>
+          <table class="token-table">
+            <tr><td><span class="pill">--bw-radius-sm</span></td><td>8px · inputs</td></tr>
+            <tr><td><span class="pill">--bw-radius-md</span></td><td>16px · buttons (LOCK)</td></tr>
+            <tr><td><span class="pill">--bw-radius-lg</span></td><td>16px · cards</td></tr>
+            <tr><td><span class="pill">--bw-radius-xl</span></td><td>22px · containers</td></tr>
+          </table>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">01.3 Shadows</h3>
+              <p class="sg-block-desc">Sombras suaves, sin dramatismo.</p>
+            </div>
+          </div>
+          <table class="token-table">
+            <tr><td><span class="pill">--bw-shadow-sm</span></td><td>inputs / hover leve</td></tr>
+            <tr><td><span class="pill">--bw-shadow-md</span></td><td>cards</td></tr>
+            <tr><td><span class="pill">--bw-shadow-lg</span></td><td>containers</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section id="tokens">
+        <header class="sg-section-header">
+          <div class="sg-number">02</div>
+          <div>
+            <p class="sg-kicker">Design Tokens</p>
+            <h2 class="sg-section-title">Colores para componentes</h2>
+            <p class="sg-section-desc">Estos tokens gobiernan botones, inputs, textos y estados.</p>
+          </div>
+        </header>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">02.1 Component Palette</h3>
+              <p class="sg-block-desc">Core + texto + acción + semántico.</p>
+            </div>
+          </div>
+
+          <div class="swatches">
+            <div class="swatch">
+              <div class="bar" style="background: var(--bw-primary);"></div>
+              <div class="info"><div class="name">Primary</div><div class="code">--bw-primary · #82B194</div></div>
+            </div>
+            <div class="swatch">
+              <div class="bar" style="background: var(--bw-bg);"></div>
+              <div class="info"><div class="name">Background</div><div class="code">--bw-bg · #EFF0EC</div></div>
+            </div>
+            <div class="swatch">
+              <div class="bar" style="background: rgba(16,25,21,.08);"></div>
+              <div class="info"><div class="name">Border neutral</div><div class="code">--bw-border · rgba(16,25,21,.12)</div></div>
+            </div>
+            <div class="swatch">
+              <div class="bar" style="background: var(--bw-semantic-error);"></div>
+              <div class="info"><div class="name">Error</div><div class="code">--bw-semantic-error · #E5484D</div></div>
+            </div>
+          </div>
+
+          <table class="table" aria-label="Interaction state tokens" style="margin-top:14px">
+            <thead>
+              <tr><th>Estado</th><th>Muestra</th><th>Token</th><th>Valor</th><th>Uso</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Primary / Default</b></td><td class="swatch-cell"><span class="mini-swatch" style="background:#82B194"></span></td><td class="mono">--bw-primary</td><td class="mono">#82B194</td><td>CTA principal</td></tr>
+              <tr><td><b>Primary / Hover</b></td><td class="swatch-cell"><span class="mini-swatch" style="background:#739F84"></span></td><td class="mono">--bw-primary-hover</td><td class="mono">#739F84</td><td>Hover CTA</td></tr>
+              <tr><td><b>Primary / Active</b></td><td class="swatch-cell"><span class="mini-swatch" style="background:#5C826C"></span></td><td class="mono">--bw-primary-active</td><td class="mono">#5C826C</td><td>Active CTA</td></tr>
+              <tr><td><b>Border neutral</b></td><td class="swatch-cell"><span class="mini-swatch" style="background:rgba(16,25,21,.12)"></span></td><td class="mono">--bw-border</td><td class="mono">rgba(16,25,21,.12)</td><td>Bordes / divisores</td></tr>
+              <tr><td><b>Error</b></td><td class="swatch-cell"><span class="mini-swatch" style="background:#E5484D"></span></td><td class="mono">--bw-semantic-error</td><td class="mono">#E5484D</td><td>Validación / error</td></tr>
+            </tbody>
+          </table>
+          <div class="callout callout--rule" style="margin-top:12px">
+            <b>Secondary & Ghost (tintes)</b>
+            <ul>
+              <li><b>Secondary hover</b>: <span class="mono">rgba(130,177,148,.10)</span> <span class="mini-swatch" style="background:rgba(130,177,148,.10)"></span></li>
+              <li><b>Secondary active</b>: <span class="mono">rgba(130,177,148,.18)</span> <span class="mini-swatch" style="background:rgba(130,177,148,.18)"></span></li>
+              <li><b>Ghost hover</b>: <span class="mono">rgba(16,25,21,.04)</span> <span class="mini-swatch" style="background:rgba(16,25,21,.04)"></span></li>
+              <li><b>Ghost active</b>: <span class="mono">rgba(16,25,21,.08)</span> <span class="mini-swatch" style="background:rgba(16,25,21,.08)"></span></li>
+            </ul>
+          </div>
+
+          <table class="token-table">
+            <tr><td><span class="pill">--bw-text-primary</span></td><td>Texto principal</td></tr>
+            <tr><td><span class="pill">--bw-text-secondary</span></td><td>Texto secundario / descripciones</td></tr>
+            <tr><td><span class="pill">--bw-text-placeholder</span></td><td>Placeholder</td></tr>
+            <tr><td><span class="pill">--bw-primary-hover</span></td><td>Hover del primary</td></tr>
+            <tr><td><span class="pill">--bw-primary-active</span></td><td>Active del primary</td></tr>
+          </table>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">02.2 Dimensiones (Flor)</h3>
+              <p class="sg-block-desc">Uso: solo contexto (chips/etiquetas). No CTA.</p>
+            </div>
+          </div>
+
+          <div class="swatches">
+            <div class="swatch">
+              <div class="bar" style="background: var(--bw-dim-cuerpo);"></div>
+              <div class="info"><div class="name">Cuerpo</div><div class="code">--bw-dim-cuerpo · #304E8F</div></div>
+            </div>
+            <div class="swatch">
+              <div class="bar" style="background: var(--bw-dim-mente);"></div>
+              <div class="info"><div class="name">Mente</div><div class="code">--bw-dim-mente · #5C9DD6</div></div>
+            </div>
+            <div class="swatch">
+              <div class="bar" style="background: var(--bw-dim-energia);"></div>
+              <div class="info"><div class="name">Energía</div><div class="code">--bw-dim-energia · #4FB08C</div></div>
+            </div>
+            <div class="swatch">
+              <div class="bar" style="background: var(--bw-dim-conciencia);"></div>
+              <div class="info"><div class="name">Conciencia</div><div class="code">--bw-dim-conciencia · #695EA6</div></div>
+            </div>
+          </div>
+
+          <div class="callout callout--note">
+            <b>Ejemplo (inline)</b>
+            <ul>
+              <li><span class="chip chip--cuerpo">Cuerpo</span> <span class="chip chip--mente">Mente</span> <span class="chip chip--energia">Energía</span> <span class="chip chip--conciencia">Conciencia</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section id="components">
+        <header class="sg-section-header">
+          <div class="sg-number">03</div>
+          <div>
+            <p class="sg-kicker">Components</p>
+            <h2 class="sg-section-title">Componentes</h2>
+            <p class="sg-section-desc">Botones, chips y tipografía (LOCKED).</p>
+          </div>
+        </header>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">03.1 Botones — (inline)</h3>
+              <p class="sg-block-desc">Regla: máximo 1 Primary por pantalla.</p>
+            </div>
+          </div>
+          <div class="callout callout--note">
+            <b>Ejemplo (inline)</b>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+              <button class="btn btn--primary" type="button">Primary</button>
+              <button class="btn btn--secondary" type="button">Secondary</button>
+              <button class="btn btn--ghost" type="button">Ghost</button>
+              <button class="btn btn--primary" disabled type="button">Primary disabled</button>
+            </div>
+            <p class="t-caption" style="margin-top:10px">Radio de botón: <b>16px</b> (LOCK).</p>
+
+            <div class="callout callout--rule" style="margin-top:12px">
+              <b>Estados obligatorios (no libre decisión)</b>
+              <ul>
+                <li><b>Primary</b>: Default <span class="mono">--bw-primary</span> · Hover <span class="mono">--bw-primary-hover</span> · Active <span class="mono">--bw-primary-active</span> · Disabled: opacity.</li>
+                <li><b>Secondary</b> (outline): Hover/Active por tinte (background) — no crear un “primary 2”.</li>
+                <li><b>Ghost</b>: Hover/Active con neutros suaves.</li>
+              </ul>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+              <button class="btn btn--primary" type="button" style="background:var(--bw-primary-hover)">Primary hover</button>
+              <button class="btn btn--primary" type="button" style="background:var(--bw-primary-active)">Primary active</button>
+              <button class="btn btn--secondary" type="button" style="background:rgba(130,177,148,.10); border-color: rgba(130,177,148,.70)">Secondary hover</button>
+              <button class="btn btn--secondary" type="button" style="background:rgba(130,177,148,.18); border-color: rgba(130,177,148,.70)">Secondary active</button>
+              <button class="btn btn--ghost" type="button" style="background:rgba(16,25,21,.04)">Ghost hover</button>
+              <button class="btn btn--ghost" type="button" style="background:rgba(16,25,21,.08)">Ghost active</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">03.2 Tipografía — (LOCKED)</h3>
+              <p class="sg-block-desc">Sora + escala H1/H2/H3/Body/Small/Caption.</p>
+            </div>
+          </div>
+
+          <div class="callout callout--note">
+            <div class="grid">
+              <div class="col-6">
+                <div class="typo-sample">
+                  <p class="t-eyebrow">Vocación</p>
+                  <div class="t-h1">Profesionales que acompañan con propósito</div>
+                  <p class="t-body">Cada profesional comparte una mirada integradora, con formación sólida y compromiso humano.</p>
+                  <p class="t-small">Texto secundario (Small)</p>
+                  <p class="t-caption" style="margin-top:8px">Caption / helper</p>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="typo-sample">
+                  <div class="t-h2">Título de bloque (H2)</div>
+                  <div class="t-h3">Subtítulo (H3)</div>
+                  <p class="t-label">Label</p>
+                  <p class="t-body" style="margin-top:-2px">Claudia Zubelzú</p>
+                  <p class="t-helper">Helper / apoyo (caption)</p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <table class="table" aria-label="Escala tipográfica">
+                  <thead>
+                    <tr><th>Estilo</th><th>Especificación</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><b>H1</b></td><td class="mono">64px / 1.0 / 700</td></tr>
+                    <tr><td><b>H2</b></td><td class="mono">48px / 1.04 / 800</td></tr>
+                    <tr><td><b>H3</b></td><td class="mono">24px / 1.28 / 600</td></tr>
+                    <tr><td><b>Body</b></td><td class="mono">18px / 1.58 / 400</td></tr>
+                    <tr><td><b>Small</b></td><td class="mono">15px / 22px / 400</td></tr>
+                    <tr><td><b>Caption</b></td><td class="mono">13px / 1.35 / 400</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">03.3 Inputs — (inline)</h3>
+              <p class="sg-block-desc">Estados y anatomía para formularios (Label → Field → Helper/Error).</p>
+            </div>
+          </div>
+
+          <div class="callout callout--note">
+            <b>Ejemplo (inline)</b>
+            <div class="grid" style="margin-top:12px">
+              <div class="col-6">
+                <div class="field">
+                  <label>Default</label>
+                  <input class="input" type="text" placeholder="Escribí aquí…">
+                  <div class="helper">Helper text (opcional)</div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="field">
+                  <label>Focus</label>
+                  <input class="input is-focus" type="text" value="En foco (simulado)">
+                  <div class="helper">Focus ring usa <span class="mono">--bw-primary</span></div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="field" style="margin-top:12px">
+                  <label>Error</label>
+                  <input class="input is-error" type="text" value="Valor inválido">
+                  <div class="helper is-error">Mensaje de validación (Error)</div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="field" style="margin-top:12px">
+                  <label>Disabled</label>
+                  <input class="input" type="text" value="No editable" disabled>
+                  <div class="helper">Disabled sin interacción</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout callout--rule" style="margin-top:12px">
+              <b>Reglas</b>
+              <ul>
+                <li>Default: borde neutral.</li>
+                <li>Focus: borde <span class="mono">--bw-primary</span> + ring (3px).</li>
+                <li>Error: borde <span class="mono">--bw-semantic-error</span> + mensaje visible.</li>
+                <li>Disabled: opacidad (no inventar colores nuevos).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 04 -->
+      <section id="patterns">
+        <header class="sg-section-header">
+          <div class="sg-number">04</div>
+          <div>
+            <p class="sg-kicker">Patterns</p>
+            <h2 class="sg-section-title">Patrones</h2>
+            <p class="sg-section-desc">Pantallas complejas se validan afuera.</p>
+          </div>
+        </header>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div>
+              <h3 class="sg-block-title">04.1 Buscador — ejemplo externo</h3>
+              <p class="sg-block-desc">Validar ancho 1200px, scroll y estados.</p>
+            </div>
+          </div>
+          <div class="callout callout--note">
+            <div class="example-row">
+              <div><b>Ejemplo</b><div class="meta">Buscador real en ventana dedicada.</div></div>
+              <a class="btn btn--secondary" href="../examples/04-buscador.html" target="_blank" rel="noopener">Abrir ejemplo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section id="crm">
+        <header class="sg-section-header">
+          <div class="sg-number">05</div>
+          <div>
+            <p class="sg-kicker">CRM</p>
+            <h2 class="sg-section-title">Aplicación</h2>
+            <p class="sg-section-desc">Dashboard y calendario se validan como pantallas reales.</p>
+          </div>
+        </header>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div><h3 class="sg-block-title">05.1 Dashboard — ejemplo externo</h3></div>
+          </div>
+          <div class="callout callout--note">
+            <div class="example-row">
+              <div><b>Ejemplo</b><div class="meta">CRM completo.</div></div>
+              <a class="btn btn--secondary" href="../examples/05-crm-view.html" target="_blank" rel="noopener">Abrir ejemplo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section id="marketplace">
+        <header class="sg-section-header">
+          <div class="sg-number">06</div>
+          <div>
+            <p class="sg-kicker">Marketplace</p>
+            <h2 class="sg-section-title">Profesionales</h2>
+            <p class="sg-section-desc">Coherencia entre Landing y página dedicada.</p>
+          </div>
+        </header>
+
+        <div class="sg-block">
+          <div class="sg-block-head">
+            <div><h3 class="sg-block-title">06.1 Cards — ejemplo externo</h3></div>
+          </div>
+          <div class="callout callout--rule">
+            <b>Reglas</b>
+            <ul>
+              <li>Sin prefijos en nombre.</li>
+              <li>Orden: Nombre → Profesión/Enfoque → MSP.</li>
+              <li>Dimensión como chip (contexto), no CTA.</li>
+            </ul>
+          </div>
+          <div class="callout callout--note">
+            <div class="example-row">
+              <div><b>Landing slice</b><div class="meta">Carrusel.</div></div>
+              <a class="btn btn--secondary" href="../examples/06-landing-professionals-slice.html" target="_blank" rel="noopener">Abrir ejemplo</a>
+            </div>
+          </div>
+          <div class="callout callout--note">
+            <div class="example-row">
+              <div><b>Página grilla</b><div class="meta">Listado / evaluation.</div></div>
+              <a class="btn btn--secondary" href="../examples/06-professionals-grid.html" target="_blank" rel="noopener">Abrir ejemplo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

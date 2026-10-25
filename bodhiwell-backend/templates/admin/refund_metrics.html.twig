@@ -1,0 +1,12 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block main %}
+    <h2>Métricas de Reembolsos</h2>
+    <ul>
+        <li>Total solicitudes: <strong>{{ total }}</strong></li>
+        <li>En revisión: <strong>{{ review }}</strong></li>
+        <li>Aprobados: <strong>{{ approved }}</strong></li>
+        <li>Rechazados: <strong>{{ rejected }}</strong></li>
+        <li>Completados: <strong>{{ completed }}</strong></li>
+    </ul>
+{% endblock %}

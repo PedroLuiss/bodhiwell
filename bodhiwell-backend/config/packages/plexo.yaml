@@ -1,0 +1,25 @@
+parameters:
+  plexo.auth_url:        '%env(resolve:PLEXO_AUTH_URL)%'
+  plexo.api_url:         '%env(resolve:PLEXO_API_URL)%'
+  plexo.api_key:         '%env(resolve:PLEXO_API_KEY)%'
+  plexo.client_name:     '%env(resolve:PLEXO_CLIENT_NAME)%'
+  plexo.fingerprint:     '%env(resolve:PLEXO_FINGERPRINT)%'
+  plexo.pfx_path:        '%env(resolve:PLEXO_PFX_PATH)%'
+  plexo.pfx_password:    '%env(resolve:PLEXO_PFX_PASSWORD)%'
+  plexo.timeout_seconds: '%env(int:PLEXO_TIMEOUT_SECONDS)%'
+  plexo.max_retries:     '%env(int:PLEXO_MAX_RETRIES)%'
+
+services:
+  App\Services\PlexoClient:
+    arguments:
+      $client:          '@http_client'
+      $logger:          '@monolog.logger.plexo'
+      $authUrl:         '%plexo.auth_url%'
+      $apiUrl:          '%plexo.api_url%'
+      $apiKey:          '%plexo.api_key%'
+      $timeoutSeconds:  '%plexo.timeout_seconds%'
+      $maxRetries:      '%plexo.max_retries%'
+      $clientName:      '%plexo.client_name%'
+      $fingerprint:     '%plexo.fingerprint%'    
+      $pfxPath:         '%plexo.pfx_path%'
+      $pfxPassword:     '%plexo.pfx_password%'

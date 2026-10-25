@@ -1,0 +1,33 @@
+$primary-color: #ccc;
+$text-color: #ccc;
+
+form-checkbox {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    color: $text-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.root-MuiNativeSelect {
+  display: none;
+}
+
+.Switch__Profesion {
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}

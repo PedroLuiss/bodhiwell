@@ -1,0 +1,107 @@
+@import '../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-error: $color-error;
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; 
+    width: 100%;
+    max-width: 800px;
+    font-family: $font-main;
+    background: #F8F4F0;
+    border: 1px solid rgba(16, 25, 21, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__label {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #6B8277; 
+    }
+
+    &__textarea {
+        width: 100%;
+        padding: 16px;
+        border-radius: 16px; 
+        border: 1px solid $bw-border;
+        background-color: #ffffff;
+        font-family: inherit;
+        font-size: 15px;
+        color: $bw-text;
+        line-height: 1.6;
+        resize: vertical;
+        outline: none;
+        transition: all 0.2s ease;
+
+        &::placeholder {
+            color: rgba(19, 35, 29, 0.4);
+        }
+
+        &:focus {
+            border-color: $bw-primary;
+            box-shadow: 0 0 0 4px rgba(130, 177, 148, 0.14);
+        }
+    }
+
+    &__editor-wrapper {
+        :global(.quill) {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid $bw-border;
+            transition: border-color 0.2s;
+
+            &:focus-within {
+                border-color: $bw-primary;
+                box-shadow: 0 0 0 4px rgba(130, 177, 148, 0.14);
+            }
+        }
+
+        :global(.ql-toolbar) {
+            border: none !important;
+            border-bottom: 1px solid rgba(16, 25, 21, 0.05) !important;
+            background-color: #FBF8F5; 
+        }
+
+        :global(.ql-container) {
+            border: none !important;
+            min-height: 250px;
+            font-family: "Sora", sans-serif;
+            font-size: 15px;
+        }
+    }
+
+    &__error {
+        color: $bw-error;
+        font-size: 12px;
+        font-weight: 700;
+        margin-top: 4px;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 8px;
+    }
+
+    &__submit-btn {
+        min-width: 240px;
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+    }
+}

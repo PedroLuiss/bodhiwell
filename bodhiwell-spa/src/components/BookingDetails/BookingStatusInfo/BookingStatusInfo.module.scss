@@ -1,0 +1,83 @@
+@import '../../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-gold: $color-gold;
+$bw-error: $color-error;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-surface: $color-surface;
+$bw-radius: $radius-md;
+
+.status-info {
+    padding: 24px;
+    background-color: $bw-surface;
+    border: 1px solid $bw-border;
+    border-radius: $bw-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    font-family: "Sora", sans-serif;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 30px;
+        padding: 0 14px;
+        border-radius: 999px; 
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 1px solid transparent;
+
+        &--confirmed, &--completed {
+            background-color: rgba($bw-primary, 0.1);
+            color: #166534;
+            border-color: rgba($bw-primary, 0.2);
+        }
+
+        &--waiting, &--processing {
+            background-color: rgba($bw-gold, 0.1);
+            color: #8a6516;
+            border-color: rgba($bw-gold, 0.2);
+        }
+
+        &--cancelled {
+            background-color: rgba($bw-error, 0.1);
+            color: #991b1b;
+            border-color: rgba($bw-error, 0.2);
+        }
+    }
+
+    &__message {
+        font-size: 14px;
+        line-height: 1.6;
+        color: $bw-muted;
+        margin: 0;
+        text-align: center;
+        max-width: 480px;
+        font-weight: 500;
+    }
+
+    &__action {
+        width: 100%;
+        max-width: 280px;
+        margin-top: 4px;
+    }
+}

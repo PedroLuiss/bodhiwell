@@ -1,0 +1,111 @@
+@import '../../assets/styles/variables';
+
+$bw-bg: $color-bg;
+$bw-surface: #ffffff;
+$bw-primary: $color-primary;
+$bw-gold: $color-gold;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-radius-xl: $border-radius;
+$bw-shadow: $shadow-card;
+
+.access-denied {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 85vh;
+    padding: 24px;
+    background-color: $bw-bg;
+    font-family: "Sora", sans-serif;
+
+    &__card {
+        background-color: $bw-surface;
+        border: 1px solid $bw-border;
+        border-radius: $bw-radius-xl;
+        padding: 60px 40px;
+        max-width: 640px;
+        width: 100%;
+        text-align: center;
+        box-shadow: $bw-shadow;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fadeIn 0.5s ease-out;
+
+        @media (max-width: 576px) {
+            padding: 40px 24px;
+        }
+    }
+
+    &__icon-box {
+        width: 80px;
+        height: 80px;
+        background: rgba($bw-gold, 0.1);
+        color: $bw-gold;
+        border-radius: 22px; 
+        display: grid;
+        place-items: center;
+        margin-bottom: 24px;
+        border: 1px solid rgba($bw-gold, 0.2);
+    }
+
+    &__header {
+        margin-bottom: 16px;
+    }
+
+    &__eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: $bw-primary;
+        margin-bottom: 10px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: $bw-text;
+        line-height: 1.1;
+
+        @media (max-width: 576px) {
+            font-size: 28px;
+        }
+    }
+
+    &__message {
+        font-size: 16px;
+        line-height: 1.65;
+        color: $bw-muted;
+        margin-bottom: 32px;
+        max-width: 520px;
+        font-weight: 500;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+        }
+    }
+
+    &__btn {
+        min-width: 200px;
+        @media (max-width: 480px) {
+            width: 100%;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}

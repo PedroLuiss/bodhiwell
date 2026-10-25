@@ -1,0 +1,20 @@
+{% extends '@!EasyAdmin/layout.html.twig' %}
+
+{% block header_logo %}
+    <a class="logo" href="{{ path('admin') }}">
+        <img class="logo-dark-theme" src="/images/logo/Logo-bodhiwell-color_3_1.webp" alt="Bodhiwell" style="max-height: 34px; width: auto;">
+        <img class="logo-light-theme" src="/images/logo/Logo-bodhiwell-color_1.webp" alt="Bodhiwell" style="max-height: 34px; width: auto;">
+    </a>
+{% endblock header_logo %}
+
+{% block responsive_header_logo %}
+    <a class="responsive-logo" href="{{ path('admin') }}">
+        <img class="logo-dark-theme" src="/images/logo/Logo-bodhiwell-color_3_1.webp" alt="Bodhiwell" style="max-height: 34px; width: auto;">
+        <img class="logo-light-theme" src="/images/logo/Logo-bodhiwell-color_1.webp" alt="Bodhiwell" style="max-height: 34px; width: auto;">
+    </a>
+{% endblock responsive_header_logo %}
+
+{% block configured_javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admin-sidebar-scroll-fix.js') }}"></script>
+{% endblock %}

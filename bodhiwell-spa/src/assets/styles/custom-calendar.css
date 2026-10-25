@@ -1,0 +1,111 @@
+
+:root {
+  --cal-border-color: #e0eaf3; 
+  --cal-text-dark: #445867;   
+  --cal-text-light: #a0b0bb;  
+  --cal-selected-day-border: #8db0d2; 
+  --cal-hover-bg: #e8eef5;    
+}
+
+.custom-calendar {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.custom-calendar .MuiPickersCalendarHeader-root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 4px;
+  
+}
+
+.custom-calendar .MuiPickersCalendarHeader-label {
+  color: var(--cal-text-dark);
+  font-weight: 600;
+  font-size: 1rem;
+  
+}
+
+.custom-calendar .MuiIconButton-root {
+  color: var(--cal-text-light);
+  
+}
+
+.custom-calendar .MuiDayCalendar-weekDayLabel,
+.custom-calendar .MuiPickersDay-root {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.9rem;
+  
+}
+
+.custom-calendar .MuiDayCalendar-weekDayLabel {
+  color: var(--cal-text-light);
+  font-weight: 600;
+  text-transform: capitalize;
+  border: 1px solid var(--cal-border-color) !important;
+  border-right-width: 0;
+  border-top-width: 0;
+  
+  
+}
+
+.custom-calendar .MuiDayCalendar-weekDayLabel:last-of-type {
+  border-right-width: 1px;
+  
+}
+
+.custom-calendar .MuiDayCalendar-slideTransition {
+  min-height: 240px;
+  
+}
+
+.custom-calendar .MuiPickersDay-root {
+  border-radius: 0; 
+  color: var(--cal-text-dark);
+  background-color: transparent;
+  border: 1px solid var(--cal-border-color);
+  border-top-width: 0;
+  border-right-width: 0;
+  
+  
+}
+
+.custom-calendar .MuiPickersDay-root:hover {
+  background-color: var(--cal-hover-bg);
+}
+
+.custom-calendar .MuiPickersDay-root.MuiPickersDay-today {
+  border: 1px solid var(--cal-border-color) !important;
+  
+}
+
+.custom-calendar .MuiPickersDay-root.Mui-selected {
+  background-color: transparent !important; 
+  color: var(--cal-text-dark) !important;
+  border: 1.5px solid var(--cal-selected-day-border) !important;
+  border-radius: 0; 
+
+}
+
+.custom-calendar .MuiPickersDay-root.MuiPickersDay-dayOutsideMonth {
+  color: var(--cal-text-light);
+  
+}
+
+.custom-calendar .MuiDayCalendar-weekContainer .MuiPickersDay-root{
+  border: 1px solid var(--cal-border-color);
+}
+
+.MuiDayCalendar-weekContainer{
+    margin: 0 !important;
+}

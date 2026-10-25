@@ -1,0 +1,127 @@
+@import '../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+
+.consultations {
+  width: 100%;
+  font-family: "Sora", sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $bw-primary;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    color: $bw-text;
+    letter-spacing: -0.03em;
+  }
+
+  &__filters {
+    margin-bottom: 0px;
+  }
+
+  &__table-container {
+      width: 100%;
+  }
+}
+
+
+.text-name {
+    font-weight: 700;
+    color: $bw-text;
+    font-size: 15px;
+}
+
+.text-date {
+    font-size: 14px;
+    color: $bw-muted;
+    font-weight: 600;
+}
+
+.text-diagnosis {
+    font-size: 14px;
+    color: $bw-text;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+.consultations-error {
+  background-color: #FEF2F2;
+  color: #C95C5C;
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: 700;
+  border: 1px solid rgba(201, 92, 92, 0.1);
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .consultations {
+    &__title {
+        font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .consultations {
+    &__title {
+        font-size: 24px;
+    }
+    &__header {
+        margin-bottom: 20px;
+    }
+    &__filters {
+        margin-bottom: 4px;
+    }
+  }
+
+  .text-name, .text-date, .text-diagnosis {
+      display: block;
+      text-align: right;
+      max-width: 60%;
+  }
+
+  .text-name {
+      font-size: 11px;
+  }
+
+  .text-date {
+      font-size: 11px;
+  }
+
+  .text-diagnosis {
+      font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+    .consultations {
+        &__title {
+            font-size: 20px;
+        }
+    }
+
+    .text-name, .text-date, .text-diagnosis {
+        max-width: 100%;
+    }
+}

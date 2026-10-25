@@ -1,0 +1,160 @@
+@import '../../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-gold: $color-gold;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $border-soft;
+$bw-radius-xl: $radius-card-sm;
+$bw-shadow-toast: $shadow-soft;
+
+.report-toast {
+    position: relative;
+    background-color: $color-surface;
+    border: 1px solid rgba(19, 35, 29, 0.08);
+    border-radius: $radius-card-sm;
+    box-shadow: 0 24px 54px rgba(18, 34, 29, 0.12);
+    padding: 24px;
+    width: 380px;
+    font-family: $font-main;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+    animation: toastIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &__close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: rgba(19, 35, 29, 0.04);
+        border: none;
+        color: $text-secondary;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        &:hover { 
+            background: rgba(19, 35, 29, 0.08); 
+            color: $text-main;
+            transform: scale(1.05);
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__icon-box {
+        width: 52px;
+        height: 52px;
+        background: $color-gold-soft;
+        color: $color-gold;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        border: 1px solid rgba($color-gold, 0.12);
+        box-shadow: 0 4px 12px rgba($color-gold, 0.08);
+    }
+
+    &__title-group {
+        text-align: left;
+    }
+
+    &__eyebrow {
+        display: block;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: $color-primary;
+        margin-bottom: 2px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 800;
+        color: $text-main;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+    &__body {
+        text-align: left;
+    }
+
+    &__message {
+        margin: 0 0 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: $text-secondary;
+        font-weight: 600;
+    }
+
+    &__reservation-box {
+        background-color: $color-surface-soft;
+        padding: 14px 18px;
+        border-radius: 16px;
+        border: 1px solid rgba(19, 35, 29, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        position: relative;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 14px;
+            bottom: 14px;
+            width: 4px;
+            background: $color-gold;
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    &__patient {
+        font-size: 14px;
+        font-weight: 800;
+        color: $text-main;
+        margin-left: 4px;
+    }
+
+    &__date {
+        font-size: 12px;
+        color: $text-muted;
+        font-weight: 700;
+        margin-left: 4px;
+    }
+
+    &__footer {
+        width: 100%;
+        margin-top: 4px;
+    }
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .report-toast {
+        width: calc(100vw - 32px);
+        margin: 0 16px;
+    }
+}

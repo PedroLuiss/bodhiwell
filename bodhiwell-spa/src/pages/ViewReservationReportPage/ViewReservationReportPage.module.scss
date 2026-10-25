@@ -1,0 +1,32 @@
+@import '../../assets/styles/variables';
+
+.view-report-page {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid #E4E4E7;
+  min-height: 80dvh;
+
+  &__back-button {
+    background: none;
+    border: none;
+    color: $color-primary;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__error {
+    background-color: $color-error;
+    color: #721c24;
+    padding: 1rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+  }
+}

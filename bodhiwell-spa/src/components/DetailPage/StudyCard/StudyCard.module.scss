@@ -1,0 +1,183 @@
+@import '../../../assets/styles/variables';
+
+$bw-primary: #82B194;
+$bw-text: #13231d;
+$bw-muted-solid: #65756E;
+$bw-border: rgba(16, 25, 21, 0.08);
+
+.study-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: #f7f7f700;
+    border: 1px solid $bw-border;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    &:hover {
+        border-color: rgba($bw-primary, 0.4);
+        box-shadow: 0 10px 30px rgba(19, 35, 29, 0.05);
+
+        
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 800;
+        color: $bw-text;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+    }
+
+    &__institute {
+        margin: 4px 0 0;
+        font-size: 15px;
+        font-weight: 600;
+        color: $bw-muted-solid;
+    }
+
+    &__date-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 6px;
+    }
+
+    &__date-dot {
+        width: 6px;
+        height: 6px;
+        background-color: rgba($bw-primary, 0.4);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    &__date {
+        font-size: 12px;
+        font-weight: 700;
+        color: rgba(19, 35, 29, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__type-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        background: rgba($bw-primary, 0.06);
+        padding: 6px 12px;
+        border-radius: 10px;
+        width: fit-content;
+        border: 1px solid rgba($bw-primary, 0.12);
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background: rgba($bw-primary, 0.1);
+        }
+    }
+
+    &__type-icon {
+        color: $bw-primary;
+        font-size: 16px !important;
+    }
+
+    &__type-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: $bw-text;
+        line-height: 1;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px dashed rgba(19, 35, 29, 0.08);
+        gap: 12px;
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 26px;
+        padding: 0 12px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        background: $bw-border;
+        color: $bw-muted-solid;
+        border: 1px solid rgba(16, 25, 21, 0.1);
+
+        &--cuerpo {
+            background:
+                color-mix(in srgb, #304e8f 14%, white 86%);
+            color: #304e8f;
+            border: 1px solid color-mix(in srgb, #304e8f 32%, white 68%);
+        }
+
+        &--conciencia {
+            background:
+                color-mix(in srgb, #5C9DD6 14%, white 86%);
+            color: #5C9DD6;
+            border: 1px solid  color-mix(in srgb, #5C9DD6 32%, white 68%);
+        }
+
+        &--mente {
+            background:
+                color-mix(in srgb, #695EA6 14%, white 86%);
+            color: #695EA6;
+            border: 1px solid color-mix(in srgb, #695EA6 32%, white 68%);
+        }
+
+        &--energia {
+            background:
+                color-mix(in srgb, #4FB08C 14%, white 86%);
+            color: #4FB08C;
+            border: 1px solid color-mix(in srgb, #4FB08C 32%, white 68%);
+        }
+    }
+
+    &__action {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: transparent;
+        border: none;
+        padding: 0;
+        color: $bw-primary;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+        font-family: "Sora", sans-serif;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: darken($bw-primary, 15%);
+            text-decoration: underline;
+        }
+    }
+
+    &__arrow {
+        transition: transform 0.2s ease;
+        display: inline-block;
+    }
+}

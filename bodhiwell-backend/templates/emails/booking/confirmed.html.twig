@@ -1,0 +1,48 @@
+{# Variables esperadas:
+   - booking (App\Entity\Booking)
+   - recipient (App\Entity\User)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+
+{% set patientName = booking.patientUser ? (booking.patientUser.firstName ~ ' ' ~ booking.patientUser.lastName) : '—' %}
+{% set proName     = booking.professionalUser ? (booking.professionalUser.firstName ~ ' ' ~ booking.professionalUser.lastName) : '—' %}
+{% set startAt     = booking.dateBookingStart ? booking.dateBookingStart|date('Y-m-d H:i') : '—' %}
+{% if isProfessional is not defined %}
+    {% set isProfessional = (booking.professionalUser and recipient.email == booking.professionalUser.email) %}
+{% endif %}
+
+{% block title %}Reserva Confirmada{% endblock %}
+
+{% block content %}
+    {% if isProfessional %}
+        <h2>Reserva confirmada en tu agenda</h2>
+        <p>El pago ha sido procesado y la cita está confirmada.</p>
+    {% else %}
+        <h2>¡Tu reserva ha sido confirmada!</h2>
+        <p>El pago se ha procesado correctamente y tu cita está asegurada.</p>
+    {% endif %}
+
+    <div style="margin: 10px 0 16px; line-height: 1.6;">
+        <strong>Consultante:</strong> {{ patientName }}<br>
+        <strong>Profesional:</strong> {{ proName }}<br>
+        <strong>Fecha y hora:</strong> {{ startAt }}<br>
+        <strong>Tipo:</strong> {{ booking.type ? ('booking.type.' ~ booking.type.value)|trans : '—' }}
+    </div>
+
+    <p>
+        Puedes ver el detalle en la plataforma:
+    </p>
+
+    <p style="text-align: center; margin-top: 20px;">
+        {% if isProfessional %}
+            <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="color: #ffffff !important;">Ver Detalles de Reserva</a>
+        {% else %}
+            <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="color: #ffffff !important;">Ver Detalles de Reserva</a>
+        {% endif %}
+    </p>
+
+    <p style="color:#666; font-size: 12px; margin-top:14px;">
+        Si tienes dudas, contáctanos.
+    </p>
+{% endblock %}

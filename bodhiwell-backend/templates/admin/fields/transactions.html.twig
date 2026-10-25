@@ -1,0 +1,38 @@
+{% set items = field.value ?? [] %}
+<div class="ea-field-transactions">
+  {% if items is empty %}
+    <em>No hay transacciones</em>
+  {% else %}
+    <table class="table table-sm table-striped align-middle">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>UID</th>
+          <th>Tipo</th>
+          <th>Idempotency Key</th>
+          <th>Payload</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for tx in items %}
+        <tr>
+          <td>{{ tx.createdAt ? tx.createdAt|date('Y-m-d H:i') : '-' }}</td>
+          <td>{{ tx.uid ?? '-' }}</td>
+          <td>{{ tx.typeLabel ?? '-' }}</td>
+          <td>{{ tx.idempotencyKey ?? '-' }}</td>
+          <td>
+            {% if tx.payload is iterable %}
+              <details>
+                <summary>ver</summary>
+                <pre class="mb-0">{{ tx.payload|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+              </details>
+            {% else %}
+              -
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>

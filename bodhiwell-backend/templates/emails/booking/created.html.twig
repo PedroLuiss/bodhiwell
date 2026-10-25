@@ -1,0 +1,52 @@
+{# Variables esperadas:
+   - booking (App\Entity\Booking)
+   - recipient (App\Entity\User)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+
+{% set patientName = booking.patientUser ? (booking.patientUser.firstName ~ ' ' ~ booking.patientUser.lastName) : '—' %}
+{% set proName     = booking.professionalUser ? (booking.professionalUser.firstName ~ ' ' ~ booking.professionalUser.lastName) : '—' %}
+{% set startAt     = booking.dateBookingStart ? booking.dateBookingStart|date('Y-m-d H:i') : '—' %}
+{% if isProfessional is not defined %}
+    {% set isProfessional = (booking.professionalUser and recipient.email == booking.professionalUser.email) %}
+{% endif %}
+
+{% block title %}Reserva creada{% endblock %}
+
+{% block content %}
+    {% if isProfessional %}
+        <h2>Nueva reserva creada contigo</h2>
+        <p>Se ha creado una nueva reserva en tu agenda.</p>
+    {% else %}
+        <h2>Tu reserva fue creada</h2>
+        <p>Tu reserva ha sido creada exitosamente.</p>
+    {% endif %}
+
+    <div style="margin: 10px 0 16px; line-height: 1.6;">
+        <strong>Consultante:</strong> {{ patientName }}<br>
+        <strong>Profesional:</strong> {{ proName }}<br>
+        <strong>Fecha y hora:</strong> {{ startAt }}<br>
+        <strong>Tipo:</strong> {{ booking.type ? ('booking.type.' ~ booking.type.value)|trans : '—' }}
+    </div>
+
+    <p>
+        Puedes ver el detalle y gestionar tu cita desde la plataforma:
+    </p>
+
+    <p style="text-align: center; margin-top: 20px;">
+        {% if isProfessional %}
+            <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="color: #ffffff !important;">Ver detalles de reserva</a>
+        {% else %}
+            <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="color: #ffffff !important;">Ver detalles de reserva</a>
+        {% endif %}
+    </p>
+
+    {% if booking.notes %}
+        <p style="color:#666; font-size: 12px; margin-top:14px;"><strong>Notas:</strong> {{ booking.notes }}</p>
+    {% endif %}
+
+    <p style="color:#666; font-size: 12px; margin-top:14px;">
+        Si no esperabas este correo, puedes ignorarlo.
+    </p>
+{% endblock %}

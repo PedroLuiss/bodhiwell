@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhiwell — Editar información personal ejemplo 03</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bw-bg:#EFF0EC;
+      --bw-card:#F7F5F1;
+      --bw-surface:#F7F5F1;
+      --bw-input:#FFFFFF;
+      --bw-text:#13231D;
+      --bw-muted:rgba(19,35,29,.68);
+      --bw-muted-2:rgba(19,35,29,.46);
+      --bw-border-soft:rgba(16,25,21,.05);
+      --bw-primary:#82B194;
+      --bw-primary-soft:rgba(130,177,148,.08);
+      --bw-primary-soft-2:rgba(130,177,148,.12);
+      --bw-primary-border:rgba(130,177,148,.16);
+      --bw-shadow:0 10px 30px rgba(0,0,0,.03);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Sora",system-ui,-apple-system,"Segoe UI",sans-serif;
+      background:var(--bw-bg);
+      color:var(--bw-text);
+    }
+    .page-shell{
+      width:min(calc(100vw - 24px), 1416px);
+      margin:12px auto;
+      display:grid;
+      grid-template-columns:216px minmax(0,1fr);
+      gap:22px;
+    }
+    .sidebar{
+      background:#F7F5F1;
+      border:1px solid rgba(16,25,21,.05);
+      border-radius:24px;
+      padding:18px 14px 16px;
+      min-height:760px;
+      display:flex;
+      flex-direction:column;
+      position:sticky;
+      top:12px;
+      align-self:start;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;margin:6px 4px 22px;}
+    .brand-mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#7f7cff,#7bc29b,#d6b06c);opacity:.9;}
+    .section-label{margin:14px 8px 10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--bw-muted-2);font-weight:800;}
+    .nav{display:grid;gap:8px}
+    .nav-item{
+      min-height:44px;border-radius:14px;padding:0 14px;
+      display:flex;align-items:center;gap:10px;color:var(--bw-muted);
+      font-weight:600;border:1px solid transparent;background:transparent;
+    }
+    .nav-item.active{color:var(--bw-text);background:rgba(130,177,148,.10);border-color:rgba(130,177,148,.28);font-weight:700;}
+    .nav-item.disabled{color:rgba(19,35,29,.28)}
+    .nav-spacer{flex:1 1 auto}
+    .user-mini{margin:8px 8px 14px;color:var(--bw-muted);font-size:12px;line-height:1.6;}
+    .logout{
+      min-height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(16,25,21,.10);background:rgba(255,255,255,.4);font-weight:700;margin:0 2px;
+    }
+
+    .main{min-width:0;padding-bottom:32px;}
+    .banner{
+      width:100%;min-height:72px;background:var(--bw-primary-soft);border:1px solid var(--bw-primary-border);
+      border-radius:22px;padding:14px 18px;display:flex;align-items:center;gap:14px;margin-bottom:22px;
+    }
+    .banner-icon{
+      width:40px;height:40px;border-radius:14px;background:var(--bw-primary-soft-2);
+      display:grid;place-items:center;color:#628D73;font-weight:800;flex:0 0 40px;font-size:18px;
+    }
+    .banner-title{margin:0 0 3px;font-size:14px;font-weight:800;line-height:1.2;}
+    .banner-copy{margin:0;font-size:13px;line-height:1.45;color:var(--bw-muted);}
+
+    .layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1.6fr) 300px;
+      gap:28px;
+      align-items:start;
+    }
+
+    .content-card{
+      background:#F7F5F1;
+      border:1px solid var(--bw-border-soft);
+      border-radius:28px;
+      box-shadow:var(--bw-shadow);
+      padding:28px 28px 32px;
+    }
+
+    .title-block h2{
+      margin:0 0 20px;
+      font-size:32px;
+      line-height:1.06;
+      letter-spacing:-.04em;
+      font-weight:800;
+    }
+
+    .section-block + .section-block{
+      margin-top:30px;
+      padding-top:30px;
+      border-top:1px solid rgba(16,25,21,.07);
+    }
+    .section-heading{
+      margin:0 0 22px;
+      font-size:16px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:800;
+    }
+
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px;}
+    .grid-address{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:24px 20px;}
+    .field{display:grid;gap:10px;min-width:0;}
+    .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6E897C;font-weight:800;}
+    .input,.select{
+      min-height:50px;border-radius:16px;background:var(--bw-input);border:1px solid rgba(21,36,30,.08);
+      padding:0 16px;display:flex;align-items:center;justify-content:space-between;font-size:14px;color:var(--bw-text);width:100%;
+    }
+
+    .side-photo{
+      padding-top:12px;
+      display:grid;
+      gap:16px;
+      align-content:start;
+      justify-items:start;
+      position:sticky;
+      top:96px;
+      align-self:start;
+    }
+    .photo-frame{
+      width:176px;
+      aspect-ratio:4 / 5;
+      border-radius:30px;
+      padding:6px;
+      background:#FFFFFF;
+      box-shadow:0 8px 20px rgba(18,34,28,.06);
+      position:relative;
+    }
+    .photo{
+      width:100%;height:100%;border-radius:24px;
+      background-size:cover;background-position:center;
+    }
+    .photo-edit{
+      position:absolute;right:-2px;bottom:-2px;width:34px;height:34px;border-radius:12px;
+      background:var(--bw-primary);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:800;
+      box-shadow:0 6px 14px rgba(18,34,28,.12);
+    }
+    .photo-meta h3{
+      margin:0 0 6px;
+      font-size:17px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:800;
+    }
+    .photo-meta p{
+      margin:0;
+      font-size:12px;
+      line-height:1.55;
+      color:var(--bw-muted);
+      max-width:28ch;
+    }
+
+    .actions{margin-top:32px;display:flex;gap:14px;align-items:center;}
+    .btn{
+      min-height:40px;padding:0 18px;border-radius:14px;border:1px solid transparent;
+      display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;white-space:nowrap;
+      background:#FFFFFF;color:var(--bw-text);
+    }
+    .btn-primary{background:var(--bw-primary);color:#fff;border-color:transparent;}
+    .btn-secondary{background:transparent;border-color:rgba(130,177,148,.40);color:var(--bw-text);}
+    .save-bar-wrap{
+      position:sticky;
+      bottom:20px;
+      z-index:8;
+      padding-top:12px;
+      margin-top:4px;
+    }
+    .save-pill{
+      min-height:74px;
+      border-radius:24px;
+      background:#F7F5F1;
+      border:1px solid var(--bw-border-soft);
+      box-shadow:0 10px 18px rgba(18,34,28,.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 12px 12px 16px;
+    }
+    .save-state{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-width:0;
+    }
+    .save-dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--bw-primary);
+      flex:0 0 10px;
+      margin-top:6px;
+    }
+    .save-copy{
+      font-size:13px;
+      font-weight:800;
+      color:var(--bw-text);
+      line-height:1.25;
+      margin-bottom:2px;
+    }
+    .save-sub{
+      font-size:12px;
+      color:var(--bw-muted);
+      line-height:1.35;
+    }
+    .save-cta{
+      min-width:148px;
+      min-height:42px;
+      border-radius:14px;
+      background:var(--bw-primary);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:800;
+      padding:0 18px;
+    }
+
+    @media (max-width:1100px){
+      .layout{grid-template-columns:1fr}
+      .side-photo{
+        grid-template-columns:176px 1fr;
+        display:grid;
+        align-items:center;
+        position:static;
+      }
+    }
+    @media (max-width:900px){
+      .page-shell{grid-template-columns:1fr}
+      .sidebar{display:none}
+      .grid-2,.grid-address{grid-template-columns:1fr}
+      .side-photo{grid-template-columns:1fr;display:grid}
+      .title-block h2{font-size:28px}
+    }
+  
+    button,
+    button.btn,
+    button.save-cta{
+      appearance:none !important;
+      -webkit-appearance:none !important;
+      -moz-appearance:none !important;
+      outline:0 !important;
+      font-family:inherit;
+      cursor:pointer;
+    }
+    button::-moz-focus-inner{
+      border:0 !important;
+      padding:0 !important;
+    }
+    button:focus,
+    button:focus-visible,
+    button:active,
+    button.btn:focus,
+    button.btn:focus-visible,
+    button.btn:active,
+    button.save-cta:focus,
+    button.save-cta:focus-visible,
+    button.save-cta:active{
+      outline:0 !important;
+      box-shadow:none !important;
+    }
+    button.btn.btn-secondary{
+      border:1px solid rgba(130,177,148,.40) !important;
+      background:transparent !important;
+      color:var(--bw-text) !important;
+    }
+    button.save-cta{
+      border:0 !important;
+    }
+    .save-cta.is-saved{
+      background:rgba(130,177,148,.18);
+      color:var(--bw-text);
+      border:1px solid rgba(130,177,148,.28) !important;
+    }
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(19,35,29,.16);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:50;
+      backdrop-filter:blur(2px);
+    }
+    .modal-backdrop.is-open{ display:flex; }
+    .modal{
+      width:min(100%, 560px);
+      background:#F7F5F1;
+      border:1px solid var(--bw-border-soft);
+      border-radius:24px;
+      box-shadow:0 18px 40px rgba(18,34,28,.14);
+      padding:24px;
+    }
+    .modal h4{
+      margin:0 0 8px;
+      font-size:22px;
+      line-height:1.12;
+      letter-spacing:-.03em;
+    }
+    .modal p{
+      margin:0;
+      font-size:14px;
+      line-height:1.6;
+      color:var(--bw-muted);
+      white-space:nowrap;
+    }
+    .modal-actions{
+      margin-top:20px;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      flex-wrap:nowrap;
+      align-items:center;
+    }
+
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark"></div><div>Panel Profesional</div></div>
+      <div class="section-label">Registro</div>
+      <nav class="nav">
+        <div class="nav-item">Inicio</div>
+        <div class="nav-item active">Datos Personales</div>
+        <div class="nav-item">Perfil Público</div>
+        <div class="nav-item disabled">Disponibilidad</div>
+      </nav>
+      <div class="section-label" style="margin-top:18px">Administración</div>
+      <nav class="nav">
+        <div class="nav-item disabled">Artículos</div>
+        <div class="nav-item disabled">Mis Reservas</div>
+        <div class="nav-item disabled">Mis Consultas</div>
+        <div class="nav-item disabled">Mis Pagos</div>
+        <div class="nav-item disabled">Mi Billetera</div>
+        <div class="nav-item">Notificaciones</div>
+      </nav>
+      <div class="nav-spacer"></div>
+      <div class="user-mini">Andrés Camarano •<br>Profesional</div>
+      <div class="logout">↪ Cerrar sesión</div>
+    </aside>
+
+    <section class="main">
+      <div class="banner">
+        <div class="banner-icon">✓</div>
+        <div>
+          <div class="banner-title">En revisión</div>
+          <p class="banner-copy">Tu perfil está siendo revisado por un administrador. Cuando sea aprobado, vas a poder configurar tu disponibilidad.</p>
+        </div>
+      </div>
+
+      <div class="layout">
+        <section class="content-card">
+          <div class="title-block">
+            <h2>Editar Información Personal</h2>
+          </div>
+
+          <section class="section-block" style="padding-top:0;">
+            <h3 class="section-heading">Datos personales</h3>
+
+            <div class="grid-2">
+              <div class="field"><div class="label">Nombre</div><div class="input">Andrés</div></div>
+              <div class="field"><div class="label">Apellido</div><div class="input">Camarano</div></div>
+              <div class="field"><div class="label">Fecha de nacimiento</div><div class="input"><span>11/01/1976</span><span>📅</span></div></div>
+              <div class="field"><div class="label">DNI / Identificación</div><div class="input">34609329</div></div>
+              <div class="field"><div class="label">Género</div><div class="select"><span>Masculino</span><span>▾</span></div></div>
+              <div class="field"><div class="label">Teléfono</div><div class="input">099295684</div></div>
+              <div class="field"><div class="label">País</div><div class="select"><span>Uruguay</span><span>▾</span></div></div>
+              <div class="field"><div class="label">Ciudad</div><div class="input">Ciudad de la Costa</div></div>
+            </div>
+
+            <div class="grid-address" style="margin-top:24px;">
+              <div class="field"><div class="label">Dirección</div><div class="input">Alelí 24</div></div>
+              <div class="field"><div class="label">Código postal</div><div class="input">15001</div></div>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <h3 class="section-heading">Información de cobro</h3>
+
+            <div class="grid-2">
+              <div class="field"><div class="label">Banco</div><div class="input">BBVA</div></div>
+              <div class="field"><div class="label">Número de cuenta</div><div class="input">23250801</div></div>
+            </div>
+
+            <div class="field" style="margin-top:24px;">
+              <div class="label">Nombre asociado a la cuenta</div>
+              <div class="input">Andrés Camarano</div>
+            </div>
+          </section>
+
+          <div class="save-bar-wrap">
+            <div class="save-pill">
+              <div class="save-state">
+                <div class="save-dot"></div>
+                <div>
+                  <div class="save-copy">Tenés cambios sin guardar</div>
+                  <div class="save-sub">Guardalos para actualizar la información visible en tu perfil.</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <button class="btn btn-secondary" id="btn-exit" type="button" style="min-width:108px; border-radius:14px;">Salir</button>
+                <button class="save-cta" id="btn-save" type="button" style="min-width:148px;">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-photo">
+          <div class="photo-frame">
+            <div class="photo"></div>
+            <div class="photo-edit">✎</div>
+          </div>
+          <div class="photo-meta">
+            <h3>Foto de perfil</h3>
+            <p>320 × 400 px recomendados. Mantiene la misma proporción, crop y escala que usamos en las tarjetas de profesionales.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="exit-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+      <h4 id="exit-modal-title">Cambios sin guardar</h4>
+      <p>Si salís ahora, los cambios realizados en tu perfil se van a perder.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="modal-continue" type="button">Seguir editando</button>
+        <button class="btn btn-secondary" id="modal-discard" type="button">Salir sin guardar</button>
+        <button class="save-cta" id="modal-save-exit" type="button" style="min-width:148px;">Guardar y salir</button>
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  
+  <script>
+    (() => {
+      const btnExit = document.getElementById('btn-exit');
+      const btnSave = document.getElementById('btn-save');
+      const modal = document.getElementById('exit-modal');
+      const btnContinue = document.getElementById('modal-continue');
+      const btnDiscard = document.getElementById('modal-discard');
+      const btnSaveExit = document.getElementById('modal-save-exit');
+      const saveCopy = document.querySelector('.save-copy');
+      const saveSub = document.querySelector('.save-sub');
+      const saveDot = document.querySelector('.save-dot');
+
+      function setSavedState(saved){
+        if(!saveCopy || !saveSub || !saveDot) return;
+        if(saved){
+          saveCopy.textContent = 'Cambios guardados';
+          saveSub.textContent = 'Tu perfil está actualizado.';
+          saveDot.style.background = 'rgba(19,35,29,.18)';
+        } else {
+          saveCopy.textContent = 'Tenés cambios sin guardar';
+          saveSub.textContent = 'Guardalos para actualizar la información visible en tu perfil.';
+          saveDot.style.background = 'var(--bw-primary)';
+        }
+      }
+
+      function pulseSaveButton(targetButton, text = 'Guardado'){
+        if(!targetButton) return;
+        const originalText = targetButton.dataset.originalText || targetButton.textContent.trim() || 'Guardar';
+        targetButton.dataset.originalText = originalText;
+        targetButton.textContent = text;
+        targetButton.classList.add('is-saved');
+        targetButton.disabled = true;
+        clearTimeout(targetButton.__timer);
+        targetButton.__timer = setTimeout(() => {
+          targetButton.textContent = originalText;
+          targetButton.classList.remove('is-saved');
+          targetButton.disabled = false;
+        }, 1800);
+      }
+
+      btnExit?.addEventListener('click', () => modal?.classList.add('is-open'));
+      btnContinue?.addEventListener('click', () => modal?.classList.remove('is-open'));
+      btnDiscard?.addEventListener('click', () => modal?.classList.remove('is-open'));
+
+      btnSaveExit?.addEventListener('click', () => {
+        setSavedState(true);
+        modal?.classList.remove('is-open');
+        pulseSaveButton(btnSave, 'Guardado');
+      });
+
+      btnSave?.addEventListener('click', () => {
+        setSavedState(true);
+        pulseSaveButton(btnSave, 'Guardado');
+      });
+
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('is-open');
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') modal?.classList.remove('is-open');
+      });
+
+      setSavedState(false);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

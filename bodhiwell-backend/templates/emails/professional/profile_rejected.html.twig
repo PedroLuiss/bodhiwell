@@ -1,0 +1,12 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block content %}
+<h2>Actualización sobre tu perfil profesional</h2>
+<p>Hola {{ user.firstName }},</p>
+<p>Hemos revisado tu perfil profesional y lamentablemente <strong>no ha sido aprobado</strong> en esta ocasión.</p>
+<p>Por favor, revisa que toda la información ingresada sea correcta y cumpla con nuestros requisitos.</p>
+<p>Si tienes dudas, puedes contactarnos respondiendo a este correo.</p>
+<p style="text-align: center; margin-top: 30px;">
+    <a href="{{ portalUrl }}/dashboard" class="button" style="color: #ffffff !important;">Revisar mi Perfil</a>
+</p>
+{% endblock %}

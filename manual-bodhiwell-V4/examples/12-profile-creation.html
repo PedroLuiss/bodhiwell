@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bodhiwell — Acceso de usuarios</title>
+<style>
+:root{
+  --bg:#EFF0EC;
+  --surface:#F7F5F1;
+  --surface-soft:#F8F6F2;
+  --surface-2:#FFFFFF;
+  --text:#13231D;
+  --muted:rgba(19,35,29,.68);
+  --border:rgba(16,25,21,.10);
+  --primary:#82B194;
+  --primary-soft:rgba(130,177,148,.12);
+  --focus:#F7F5F1;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+a{text-decoration:none;color:inherit}
+.utility-bar{padding:16px 18px 0}
+.back{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:999px;border:1px solid rgba(16,25,21,.12);color:rgba(19,35,29,.46);background:rgba(255,255,255,.45);font-size:16px}
+.page{min-height:calc(100vh - 42px);padding:16px 20px 48px}
+.header-block{max-width:1320px;margin:8px auto 20px;text-align:center}
+.logo{display:block;margin:0 auto 18px;height:56px}
+.eyebrow{margin:0 0 8px;font-size:11px;line-height:1.2;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+.header-block h1{margin:0;font-size:34px;line-height:1.04;letter-spacing:-.02em}
+.header-block p{margin:12px auto 0;max-width:720px;color:var(--muted);font-size:14px;line-height:1.6}
+.compare{max-width:1320px;margin:28px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+.auth-card{background:var(--surface);border:1px solid rgba(12,36,28,.08);border-radius:28px;padding:24px 22px 22px;box-shadow:0 14px 40px rgba(16,25,21,.04)}
+.case-label{display:inline-flex;align-items:center;min-height:24px;padding:0 10px;border-radius:999px;background:rgba(130,177,148,.14);border:1px solid rgba(130,177,148,.24);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5E806C}
+.auth-card h2{margin:14px 0 6px;font-size:28px;line-height:1.02;letter-spacing:-.03em}
+.auth-card .intro{margin:0 0 18px;color:var(--muted);font-size:13px;line-height:1.55}
+.tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(16,25,21,.12);margin-bottom:20px}
+.tab{padding:12px 0 13px;text-align:center;color:rgba(19,35,29,.68);font-size:13px}
+.tab.active{color:#3D4642;font-weight:700;border-bottom:2px solid var(--primary);margin-bottom:-1px}
+.fields{display:grid;gap:12px}
+.field,.switch-field{min-height:42px;border:1px solid rgba(12,36,28,.08);border-radius:14px;background:var(--surface-2);display:flex;align-items:center;padding:0 12px;font-size:14px;color:rgba(19,35,29,.46);box-shadow:0 1px 0 rgba(255,255,255,.5) inset}
+.field.filled{color:#26312D;border-color:rgba(130,177,148,.48);background:rgba(130,177,148,.14);box-shadow:0 0 0 3px rgba(130,177,148,.10)}
+.field .eye{margin-left:auto;color:rgba(19,35,29,.46)}
+.switch-field{justify-content:flex-start;gap:10px;color:#3D4642}
+.switch{width:24px;height:14px;border-radius:999px;background:#111;position:relative;flex:0 0 24px}
+.switch:after{content:"";position:absolute;left:2px;top:2px;width:10px;height:10px;border-radius:999px;background:var(--surface)}
+.checks{display:grid;gap:14px;margin-top:18px}
+.check{display:flex;align-items:flex-start;gap:10px;font-size:11px;line-height:1.45;color:rgba(19,35,29,.46)}
+.box{width:13px;height:13px;border:1px solid rgba(16,25,21,.18);background:#F6F7F5;flex:0 0 13px;margin-top:1px}
+.check a{color:#739F84}
+.primary,.secondary-action,.google{display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:14px;font-weight:800}
+.primary{margin-top:22px;background:var(--primary);color:#fff}
+.secondary-action{margin-top:22px;background:var(--surface-2);border:1px solid rgba(16,25,21,.12);color:#13231D;font-weight:700}
+.divider{display:flex;align-items:center;gap:10px;margin:18px 0 16px;color:#9AA39F;font-size:11px}
+.divider:before,.divider:after{content:"";height:1px;background:rgba(16,25,21,.12);flex:1}
+.google{gap:10px;min-height:42px;border:1px solid rgba(16,25,21,.12);background:var(--surface);font-weight:600;color:#13231D}
+.gmark{font-weight:900;font-size:18px;color:#4285F4}
+.helper-links{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-size:12px;color:#6A7A73}
+.helper-links a{color:#6A7A73}
+.auth-card.verify-card{display:flex;flex-direction:column}
+.verify-copy{margin:0 0 22px;color:var(--muted);font-size:13px;line-height:1.55;max-width:320px}
+.code-row{display:flex;align-items:center;gap:10px;justify-content:center;margin:8px 0 18px}
+.code-box,.code-sep{display:flex;align-items:center;justify-content:center}
+.code-box{width:46px;height:54px;border-radius:12px;border:1px solid rgba(16,25,21,.12);background:var(--surface-2);font-size:18px;font-weight:700;color:#2B3732;box-shadow:0 1px 0 rgba(255,255,255,.5) inset}
+.code-box.filled{border-color:rgba(130,177,148,.54);background:rgba(130,177,148,.10);box-shadow:0 0 0 3px rgba(130,177,148,.14)}
+.code-sep{width:10px;color:rgba(19,35,29,.32);font-weight:700}
+.verify-actions{display:grid;gap:12px;margin-top:auto}
+.tertiary-link{display:flex;justify-content:center;margin-top:4px;font-size:12px;font-weight:700;color:#739F84}
+.legal-note{margin:18px 0 0;text-align:center;font-size:11px;line-height:1.55;color:rgba(19,35,29,.46)}
+.legal-note a{color:#739F84}
+
+.top-links{position:fixed;right:18px;top:14px;display:flex;gap:10px;flex-wrap:wrap;max-width:760px;justify-content:flex-end}
+.top-links a{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:12px;border:1px solid rgba(16,25,21,.10);background:rgba(247,245,241,.92);font-size:12px;font-weight:800}
+body,body *{font-family:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-style:normal}
+input,button,textarea,select{font:inherit}
+code,pre{font-style:normal}
+@media(max-width:1180px){
+  .compare{grid-template-columns:repeat(2,minmax(0,1fr));max-width:980px}
+}
+@media(max-width:980px){
+  .compare{grid-template-columns:1fr;max-width:520px}
+  .header-block h1{font-size:28px}
+}
+@media(max-width:620px){
+  .top-links{position:static;padding:12px 18px 0;max-width:none;justify-content:flex-start}
+  .page{padding-top:8px}
+  .auth-card{padding:22px 18px 20px;border-radius:24px}
+}
+</style>
+<link rel="stylesheet" href="../assets/css/coherence.css">
+<link rel="stylesheet" href="../assets/css/examples-typography.css">
+</head>
+<body>
+<div class="utility-bar"><a class="back" href="../start-here.html">←</a></div>
+<div class="top-links"><a href="./04-buscador.html">Buscador</a><a href="./06-landing-professionals-slice.html">Carrusel</a><a href="./06-professionals-grid.html">Grid</a><a href="./07-professional-profile.html">Perfil</a><a href="./08-booking-calendar.html">Calendario</a><a href="./09-dashboard.html">Dashboard</a><a href="./10-header.html">Header</a><a href="./11-footer.html">Footer</a><a href="./12-profile-creation.html">Acceso usuarios</a></div>
+<div class="page">
+  <div class="header-block">
+    <img class="logo" src="../assets/img/brand/logo-bodhiwell-color.png" alt="Bodhiwell">
+    <p class="eyebrow">Ejemplo comparativo</p>
+    <h1>Acceso de usuarios</h1>
+    <p>Vista comparativa para documentar y revisar los tres estados principales de acceso: iniciar sesión, crear cuenta y verificación de correo. Se muestran como casos separados para implementación, validación visual y QA.</p>
+  </div>
+
+  <div class="compare">
+    <section class="auth-card">
+      <span class="case-label">Caso 1</span>
+      <h2>Iniciar sesión</h2>
+      <p class="intro">Acceso para usuarios ya registrados, con foco en ingreso rápido y recuperación de contraseña.</p>
+      <div class="tabs"><div class="tab active">Iniciar sesión</div><div class="tab">Crear tu cuenta</div></div>
+      <div class="fields">
+        <div class="field filled">zbclau79@gmail.com</div>
+        <div class="field filled">•••••• <span class="eye">◉</span></div>
+      </div>
+      <div class="helper-links"><a href="#">Recordarme</a><a href="#">Olvidé mi contraseña</a></div>
+      <a class="primary" href="#">Ingresar</a>
+      <div class="divider">O continuar con</div>
+      <a class="google" href="#"><span class="gmark">G</span> Google</a>
+      <a class="tertiary-link" href="#">Ir al inicio</a>
+      <p class="legal-note">Al continuar, aceptas nuestros<br><a href="#">Términos de servicio</a> y <a href="#">Política de privacidad</a></p>
+    </section>
+
+    <section class="auth-card">
+      <span class="case-label">Caso 2</span>
+      <h2>Crear cuenta</h2>
+      <p class="intro">Alta de usuario con validaciones iniciales, opción de perfil profesional y consentimiento de términos.</p>
+      <div class="tabs"><div class="tab">Iniciar sesión</div><div class="tab active">Crear tu cuenta</div></div>
+      <div class="fields">
+        <div class="field filled">Claudia</div>
+        <div class="field filled">Zabala</div>
+        <div class="field filled">zbclau79@gmail.com</div>
+        <div class="field filled">•••••• <span class="eye">◉</span></div>
+        <div class="field">Confirmar contraseña <span class="eye">◉</span></div>
+        <div class="switch-field"><span class="switch"></span> Registrarme como profesional</div>
+      </div>
+      <div class="checks">
+        <label class="check"><span class="box"></span><span>He leído y acepto los <a href="#">Términos y condiciones</a> y la <a href="#">Política de privacidad</a>.</span></label>
+        <label class="check"><span class="box"></span><span>Quiero recibir contenido que inspire y fortalezca mi bienestar.</span></label>
+      </div>
+      <a class="primary" href="#">Crear tu cuenta</a>
+      <div class="divider">O continuar con</div>
+      <a class="google" href="#"><span class="gmark">G</span> Google</a>
+      <a class="tertiary-link" href="#">Ir al inicio</a>
+      <p class="legal-note">Al continuar, aceptas nuestros<br><a href="#">Términos de servicio</a> y <a href="#">Política de privacidad</a></p>
+    </section>
+
+    <section class="auth-card verify-card">
+      <span class="case-label">Caso 3</span>
+      <h2>Verificar correo</h2>
+      <p class="verify-copy">Pantalla de confirmación posterior al registro. Cuando el código ya fue ingresado, los campos toman el verde del sistema en lugar de un celeste ajeno al lenguaje visual.</p>
+      <div class="tabs"><div class="tab">Crear tu cuenta</div><div class="tab active">Verificar correo</div></div>
+      <div class="fields" style="gap:0">
+        <div class="field" style="min-height:auto;padding:0;border:none;background:transparent;box-shadow:none;justify-content:center;text-align:center;color:var(--muted);">Hemos enviado un código a tu correo, por favor ingresalo para completar tu registro.</div>
+      </div>
+      <div class="code-row" aria-label="Código de verificación">
+        <div class="code-box filled">8</div><div class="code-sep">-</div>
+        <div class="code-box filled">5</div><div class="code-sep">-</div>
+        <div class="code-box filled">8</div><div class="code-sep">-</div>
+        <div class="code-box filled">3</div><div class="code-sep">-</div>
+        <div class="code-box filled">8</div><div class="code-sep">-</div>
+        <div class="code-box filled">1</div>
+      </div>
+      <div class="verify-actions">
+        <a class="primary" href="#">Verificar código</a>
+        <a class="secondary-action" href="#" style="color:#8E9894;background:var(--surface-soft);border-color:rgba(16,25,21,.08);">Reenviar código</a>
+      </div>
+      <a class="tertiary-link" href="#">Ir al inicio</a>
+      <p class="legal-note">Al continuar, aceptas nuestros<br><a href="#">Términos de servicio</a> y <a href="#">Política de privacidad</a></p>
+    </section>
+  </div>
+</div>
+</body>
+</html>

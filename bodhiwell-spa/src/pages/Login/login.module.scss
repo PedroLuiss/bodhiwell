@@ -1,0 +1,282 @@
+@import "../../assets/styles/variables.scss";
+
+.auth-card {
+    background: $color-surface; 
+    border: 1px solid rgba(12, 36, 28, 0.08);
+    border-radius: 28px;
+    padding: 24px 22px 22px;
+    box-shadow: 0 14px 40px rgba(16, 25, 21, 0.04);
+    width: 100%;
+    max-width: 420px;
+    font-family: $font-main;
+
+    &__form{
+        width: 100%;
+    }
+
+    &__case {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(130, 177, 148, 0.14);
+        border: 1px solid rgba(130, 177, 148, 0.24);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: $color-primary-hover;
+    }
+
+    &__title {
+        margin: 14px 0 6px;
+        font-size: 28px;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        font-weight: 800;
+        color: $text-main;
+    }
+
+    &__intro {
+        margin: 0 0 18px;
+        color: rgba(19, 35, 29, 0.68);
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    &__tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-bottom: 1px solid rgba(16, 25, 21, 0.12);
+        margin-bottom: 20px;
+    }
+
+    &__tab {
+        padding: 12px 0 13px;
+        text-align: center;
+        color: rgba(19, 35, 29, 0.68);
+        font-size: 13px;
+        text-decoration: none;
+
+        &--active {
+            color: #3D4642;
+            font-weight: 700;
+            border-bottom: 2px solid $color-primary;
+            margin-bottom: -1px;
+        }
+    }
+
+    &__fields {
+        display: grid;
+        gap: 12px;
+    }
+
+    &__field-group {
+        min-height: 42px;
+        border: 1px solid rgba(12, 36, 28, 0.08);
+        border-radius: 14px;
+        background: #FFFFFF;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+
+        :global(.MuiInputBase-root) {
+            width: 100%;
+            font-size: 14px;
+            font-weight: 500;
+            color: #26312D;
+            &::before, &::after { display: none; }
+
+            :global(.MuiInputBase-input) {
+                &::placeholder {
+                    color: rgba(19, 35, 29, 0.46) !important;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &:focus-within {
+            border-color: rgba(130, 177, 148, .48);
+            background: rgba(130, 177, 148, .14);
+            box-shadow: 0 0 0 3px rgba(130, 177, 148, .10);
+            
+            :global(.MuiInputBase-input) {
+                color: #26312D;
+            }
+        }
+
+        &--filled {
+            :global(.MuiInputBase-input) {
+                color: #26312D;
+            }
+        }
+
+        &--error {
+            border-color: $color-error !important;
+            box-shadow: 0 0 0 4px rgba(201, 92, 92, .12) !important;
+            background: rgba(201, 92, 92, 0.02);
+        }
+    }
+
+    &__eye {
+        color: rgba(19, 35, 29, 0.46) !important;
+    }
+
+    &__helper-links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 14px;
+        font-size: 12px;
+    }
+
+    &__remember {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #6A7A73;
+        cursor: pointer;
+    }
+
+    &__checkbox-box {
+        width: 13px;
+        height: 13px;
+        border: 1px solid rgba(16, 25, 21, 0.18);
+        background: #F6F7F5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+
+        &--active {
+            background-color: $color-primary;
+            border-color: $color-primary;
+            &::after {
+                content: "✓";
+                color: white;
+                font-size: 9px;
+            }
+        }
+    }
+
+    &__forgot {
+        color: #6A7A73;
+        text-decoration: none;
+    }
+
+    &__btn-primary {
+        margin-top: 22px;
+        width: 100%;
+        min-height: 44px;
+        border-radius: 14px;
+        background: $color-primary;
+        color: #fff;
+        border: none;
+        font-weight: 800;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: $color-primary-hover;
+        }
+    }
+
+    &__divider {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 18px 0 16px;
+        color: #9AA39F;
+        font-size: 11px;
+
+        &::before, &::after {
+            content: "";
+            height: 1px;
+            background: rgba(16, 25, 21, 0.12);
+            flex: 1;
+        }
+    }
+
+    &__btn-google {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 42px;
+        border-radius: 14px;
+        border: 1px solid rgba(16, 25, 21, 0.12);
+        background: $color-surface;
+        font-weight: 600;
+        color: $text-main;
+        cursor: pointer;
+    }
+
+    &__gmark {
+        font-weight: 900;
+        font-size: 18px;
+        color: #4285F4;
+    }
+
+    &__link-home {
+        display: flex;
+        justify-content: center;
+        margin-top: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #739F84;
+        text-decoration: none;
+    }
+
+    &__legal {
+        margin: 18px 0 0;
+        text-align: center;
+        font-size: 11px;
+        line-height: 1.55;
+        color: rgba(19, 35, 29, 0.46);
+
+        a {
+            color: #739F84;
+            text-decoration: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 20px 16px 18px;
+        border-radius: 24px;
+
+        &__title {
+            font-size: 24px;
+        }
+
+        &__tabs {
+            margin-bottom: 16px;
+        }
+
+        &__tab {
+            font-size: 12px;
+            padding: 10px 0;
+        }
+
+        &__fields {
+            gap: 10px;
+        }
+
+        &__field-group {
+            min-height: 40px;
+            border-radius: 12px;
+        }
+
+        &__btn-primary, &__btn-google {
+            min-height: 40px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+
+        &__helper-links {
+            font-size: 11px;
+            margin-top: 12px;
+        }
+    }
+}

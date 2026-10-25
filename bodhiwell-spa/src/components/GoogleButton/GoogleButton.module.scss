@@ -1,0 +1,25 @@
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 40px;
+    border-radius: 14px;
+    border: 1px solid rgba(16, 25, 21, .12);
+    background: #FFFFFF;
+    font-weight: 600;
+    color: #13231D;
+    width: 100%;
+    line-height: 1;
+}
+
+.google-btn__icon {
+    font-weight: 900;
+    font-size: 18px;
+    color: #4285F4;
+    line-height: 1;
+}
+
+.google-btn__text {
+  text-align: center;
+}

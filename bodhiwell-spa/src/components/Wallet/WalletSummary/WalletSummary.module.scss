@@ -1,0 +1,130 @@
+@import '../../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-surface: $color-surface;
+$bw-surface-soft: $color-surface-soft;
+$bw-radius-xl: $radius-xl;
+$bw-shadow: $shadow-card;
+
+.wallet-card {
+    background: $bw-surface;
+    border: 1px solid $bw-border;
+    border-radius: $bw-radius-xl;
+    box-shadow: $bw-shadow;
+    padding: 40px;
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto 32px;
+    text-align: center;
+    font-family: "Sora", sans-serif;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        padding: 32px 20px;
+    }
+
+    &__main {
+        margin-bottom: 24px;
+    }
+
+    &__eyebrow {
+        display: block;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: $bw-primary;
+        margin-bottom: 12px;
+    }
+
+    &__amount-large {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: -0.045em;
+        color: $bw-text;
+        line-height: 1;
+
+        @media (max-width: 768px) {
+            font-size: 36px;
+        }
+    }
+
+    &__divider {
+        height: 1px;
+        background-color: $bw-border;
+        width: 100%;
+        margin: 24px 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+    }
+}
+
+.wallet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    &__label-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__label {
+        font-size: 13px;
+        font-weight: 800;
+        color: #6B8277;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    &__amount {
+        font-size: 24px;
+        font-weight: 700;
+        color: $bw-text;
+        letter-spacing: -0.02em;
+
+        &--available {
+            color: $bw-primary;
+        }
+
+        &--frozen {
+            color: $bw-muted;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 20px;
+        }
+    }
+
+    &__help-btn {
+        color: $bw-muted !important;
+        padding: 4px !important;
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 1;
+            background: rgba(130, 177, 148, 0.1) !important;
+        }
+    }
+}

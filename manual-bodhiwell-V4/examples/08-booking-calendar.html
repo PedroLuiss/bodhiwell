@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bodhiwell — Calendario de reservas</title>
+  <style>
+    :root{
+      --bw-bg:#EFF0EC;
+      --bw-surface:#F7F5F1;
+      --bw-surface-2:#F8F6F2;
+      --bw-text:#13231d;
+      --bw-muted:rgba(19,35,29,.68);
+      --bw-border:rgba(16,25,21,.08);
+      --bw-primary:#82B194;
+      --bw-primary-hover:#739F84;
+      --bw-shadow:0 10px 30px rgba(0,0,0,.03);
+    }
+    *{box-sizing:border-box} html,body{margin:0}
+    body{font-family:"Sora",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bw-bg);color:var(--bw-text)}
+.utility-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.back{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 14px;border-radius:14px;border:1px solid rgba(16,25,21,.10);background:var(--bw-surface-card-strong, rgba(247,245,241,.92));box-shadow:0 10px 22px rgba(0,0,0,.03);text-decoration:none;color:var(--bw-text);font-size:14px;font-weight:800}.back:hover{background:var(--bw-card-surface, #F7F5F1)}.utility-links{display:flex;gap:10px;flex-wrap:wrap}.utility-links a{display:inline-flex;align-items:center;min-height:38px;padding:0 12px;border-radius:12px;border:1px solid rgba(130,177,148,.35);background:var(--bw-card-surface);text-decoration:none;color:var(--bw-muted);font-size:12px;font-weight:800}.utility-links a:hover{background:rgba(130,177,148,.10);color:var(--bw-text)}
+    .wrap{max-width:1140px;margin:0 auto;padding:56px 22px 80px}
+    .eyebrow{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#67a27f}
+    h1{margin:0;font-size:54px;line-height:1.02;letter-spacing:-.03em}
+    .copy{margin:18px 0 0;max-width:760px;font-size:16px;line-height:1.7;color:var(--bw-muted)}
+    .demo{margin-top:34px;display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:start}
+    .panel,.specs{background:var(--bw-surface);border:1px solid rgba(12,36,28,.08);border-radius:24px;box-shadow:var(--bw-shadow)}
+    .panel{padding:18px 16px}
+    .title{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:0 0 10px;text-align:center}
+    .legend{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:14px;font-size:11px;color:var(--bw-muted);font-weight:700}
+    .dot{width:12px;height:12px;border-radius:999px;border:2px solid var(--bw-primary);display:inline-block;margin-right:6px;background:white;vertical-align:-2px}
+    .dot.selected{border-color:var(--bw-primary);background:var(--bw-primary)}
+    .calendar-card,.field-card,.split-card,.price-card{background:var(--bw-surface-2);border:1px solid rgba(12,36,28,.08);border-radius:18px;box-shadow:0 8px 22px rgba(0,0,0,.02)}
+    .calendar-card{padding:14px 14px 10px}
+    .calendar-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .month{font-size:13px;font-weight:700}
+    .navs{display:flex;gap:10px;color:var(--bw-muted);font-weight:800}
+    .dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+    .dow span{font-size:10px;color:var(--bw-muted);font-weight:700;padding:4px 0}
+    .day{height:28px;display:grid;place-items:center;font-size:11px;font-weight:500;color:#55655d;border-radius:999px;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1,"lnum" 1}
+    .day.available{box-shadow:inset 0 0 0 2px var(--bw-primary);background:#EAF2EC}
+    .day.selected{background:var(--bw-primary);color:#fff}
+    .field-card{margin-top:10px;padding:12px 14px;font-size:12px;color:rgba(19,35,29,.48);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+    .field-card svg{width:20px;height:20px;stroke:#6f7d75;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .helper{margin:10px 0 8px;text-align:center;font-size:11px;font-weight:700;color:var(--bw-muted)}
+    .split-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+    .split-card button{min-height:52px;background:transparent;border:0;font-family:inherit;font-size:16px;font-weight:800;color:var(--bw-text);display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:background .18s ease, box-shadow .18s ease, transform .18s ease}
+    .split-card button:hover{background:rgba(130,177,148,.10)}
+    .split-card button:active{transform:translateY(1px)}
+    .split-card button.is-active{background:rgba(130,177,148,.16);box-shadow:inset 0 0 0 1px rgba(130,177,148,.42)}
+    .modality-icon{width:28px;height:28px;object-fit:contain;display:block;opacity:.95;flex:0 0 auto}
+    .split-card button+button{border-left:1px solid var(--bw-border)}
+    .price-card{margin-top:12px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:16px 14px}
+    .price-label{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;color:var(--bw-text);white-space:nowrap;line-height:1.2}
+    .price-value{font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--bw-text);white-space:nowrap;line-height:1}
+    .cta{margin-top:14px;width:100%;min-height:48px;border-radius:16px;border:0;background:var(--bw-primary);color:white;font-family:inherit;font-size:15px;font-weight:800}
+    .specs{padding:24px}
+    .specs h2{margin:0 0 14px;font-size:24px;letter-spacing:-.02em}
+    .specs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .spec{background:var(--bw-surface-2);border:1px solid rgba(12,36,28,.08);border-radius:18px;padding:16px}
+    .spec b{display:block;font-size:13px;margin-bottom:8px}
+    .spec p{margin:0;font-size:14px;line-height:1.6;color:var(--bw-muted);font-style:normal}
+    @media (max-width:900px){.demo{grid-template-columns:1fr}.specs-grid{grid-template-columns:1fr}h1{font-size:40px}}
+  body,body *{font-family:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-style:normal}input,button,textarea,select{font:inherit}code,pre{font-style:normal}</style>
+<link rel="stylesheet" href="../assets/css/coherence.css">
+<link rel="stylesheet" href="../assets/css/examples-typography.css">
+</head>
+<body>
+  <div class="wrap">
+  <div class="utility-bar"><a class="back" href="../start-here.html">← Volver al índice</a><div class="utility-links"><a href="./04-buscador.html">Buscador</a><a href="./06-landing-professionals-slice.html">Carrusel</a><a href="./06-professionals-grid.html">Grid</a><a href="./07-professional-profile.html">Perfil</a><a href="./08-booking-calendar.html">Calendario</a><a href="./09-dashboard.html">Dashboard</a><a href="./10-header.html">Header</a><a href="./11-footer.html">Footer</a><a href="./12-profile-creation.html">Alta perfil</a></div></div>
+    <p class="eyebrow">DISPONIBILIDAD</p>
+    <h1>Calendario de reservas</h1>
+    <p class="copy">Versión del componente aplicada al manual: estructura clara, contraste suave entre fondo y cards, estados del calendario legibles y CTA principal alineado con la identidad Bodhiwell.</p>
+
+    <section class="demo">
+      <div class="panel">
+        <div class="title">Disponibilidad</div>
+        <div class="legend">
+          <span><span class="dot"></span>Día disponible</span>
+          <span><span class="dot selected"></span>Día seleccionado</span>
+        </div>
+        <div class="calendar-card">
+          <div class="calendar-top"><div class="month">febrero 2026</div><div class="navs">‹ ›</div></div>
+          <div class="dow"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+          <div class="days">
+            <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day">1</div>
+            <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div>
+            <div class="day available">9</div><div class="day">10</div><div class="day available">11</div><div class="day available">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div>
+            <div class="day selected">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div>
+            <div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day"></div>
+          </div>
+        </div>
+        <div class="field-card">Selecciona un horario <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v5l3 2"></path></svg></div>
+        <div class="helper">Selecciona la modalidad de la consulta</div>
+        <div class="split-card"><button class="is-active" data-mode="virtual"><img src="../patterns/search/assets/virtual.png" class="modality-icon" alt="">Virtual</button><button data-mode="presencial"><img src="../patterns/search/assets/presencial.png" class="modality-icon" alt="">Presencial</button></div>
+        <div class="price-card"><div class="price-label">Valor de la consulta</div><div class="price-value">$U 3500</div></div>
+        <button class="cta">Reservar ahora</button>
+      </div>
+      <div class="specs">
+        <h2>Estados y reglas</h2>
+        <div class="specs-grid">
+          <div class="spec"><b>Día disponible</b><p>Anillo verde suave con relleno muy claro. Se detecta rápido sin competir con el día seleccionado.</p></div>
+          <div class="spec"><b>Día seleccionado</b><p>Estado primary, con número blanco para resaltar la acción actual dentro del flujo de reserva.</p></div>
+          <div class="spec"><b>Horario</b><p>Campo neutral y liviano, alineado a la semántica general de inputs del manual.</p></div>
+          <div class="spec"><b>Modalidad</b><p>Botones horizontales con íconos simples y la misma base visual que otros selectores del sistema.</p></div>
+          <div class="spec"><b>Valor de la consulta</b><p>Se presenta en una sola línea, sin desplazar el CTA principal ni recargar la tarjeta.</p></div>
+          <div class="spec"><b>CTA principal</b><p>Se resuelve con el verde principal del sistema para mantener consistencia con Bodhiwell.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script>
+  document.querySelectorAll('.split-card').forEach((group) => {
+    const buttons = [...group.querySelectorAll('button')];
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      });
+    });
+  });
+</script>
+</body>
+</html>

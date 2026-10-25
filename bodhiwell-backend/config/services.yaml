@@ -1,0 +1,173 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    booking.reminder_time_minutes: "%env(int:BOOKING_REMINDER_TIME_MINUTES)%"
+    frontend_url: "%env(FRONTEND_URL)%"
+    app.mail_from_address: "%env(MAIL_FROM_ADDRESS)%"
+    app.mail_from_name: "%env(MAIL_FROM_NAME)%"
+    app.platform_url: "%env(APP_URL)%"
+    availability.history_months: "%env(int:AVAILABILITY_HISTORY_MONTHS)%"
+    availability.max_daily_slots: "%env(int:AVAILABILITY_MAX_DAILY_SLOTS)%"
+    plexo.webhook_secret: "%env(PLEXO_WEBHOOK_SECRET)%"
+    plexo_webhook_secret: "%env(resolve:PLEXO_SECRET)%"
+    app.mailer_delay_ms: "%env(int:default:default_delay:MAILER_DELAY_MS)%"
+    default_delay: 500
+
+    payment_authorizer:
+        base_url: "%env(PLEXO_BRIDGE_BASE_URL)%"
+        authorize_path: "/authorize"
+        action: "%env(int:PLEXO_BRIDGE_AUTHORIZE_ACTION)%"
+        type: "%env(PLEXO_BRIDGE_AUTHORIZATION_TYPE)%"
+        commerce_id: "%env(int:PLEXO_BRIDGE_COMMERCE_ID)%"
+        redirect_base_uri: "%env(PLEXO_BRIDGE_REDIRECT_BASE)%"
+        fingerprint: "%env(PLEXO_BRIDGE_FINGERPRINT)%"
+        limit_issuers: "%env(csv:PLEXO_BRIDGE_LIMIT_ISSUERS)%"
+        do_not_use_callback: "%env(bool:PLEXO_BRIDGE_DO_NOT_USE_CALLBACK)%"
+        identification_type: "%env(PLEXO_BRIDGE_IDENTIFICATION_TYPE)%"
+        timeout: "%env(int:PLEXO_BRIDGE_TIMEOUT_SECONDS)%"
+    payment.skip_domain_policy: "%env(bool:PAYMENT_SKIP_DOMAIN_POLICY)%"
+    wordpress_url: "%env(WORDPRESS_URL)%"
+    bridge_secret: "%env(BODHIWELL_BRIDGE_SECRET)%"
+
+    app.uploads:
+        profile_images:
+            directory: "%kernel.project_dir%/public/uploads/profiles"
+            max_size: 10485760 # 10 MB
+            mime_types:
+                - "image/jpeg"
+                - "image/png"
+                - "image/webp"
+        profile_banners:
+            directory: "%kernel.project_dir%/public/uploads/banners"
+            max_size: 10485760 # 10 MB
+            mime_types:
+                - "image/jpeg"
+                - "image/png"
+                - "image/webp"
+        certificates:
+            directory: "%kernel.project_dir%/public/uploads/certificates"
+            max_size: 5242880 # 5 MB
+            mime_types:
+                - "application/pdf"
+                - "image/jpeg"
+                - "image/png"
+                - "image/webp"
+        documents:
+            directory: "%kernel.project_dir%/public/uploads/docs"
+            max_size: 2097152 # 2 MB
+            mime_types:
+                - "application/pdf"
+                - "application/msword"
+                - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+
+        booking_attachments:
+            directory: "%kernel.project_dir%/public/uploads/booking_attachments"
+            max_size: 5242880 # 5 MB
+            mime_types:
+                - "image/jpeg"
+                - "image/png"
+                - "image/webp"
+
+    firebase_credentials_path: "%kernel.project_dir%/config/firebase/firebase_credentials.json"
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    # App\Services\PaymentService will be defined explicitly later to override resource autoconfiguration
+
+    App\:
+        resource: "../src/"
+        exclude:
+            - "../src/DependencyInjection/"
+            - "../src/Entity/"
+            - "../src/Kernel.php"
+            - "../src/Services/PlexoClient.php"
+            - "../src/Command/SendBookingRemindersCommand.php"
+
+    App\Logging\CorrelationIdProcessor:
+        tags: ["monolog.processor"]
+
+    App\Utils\SafeRichText: ~
+    App\Services\Profile\PatientProfileUpdater: ~
+
+    App\Services\PasswordRecoveryService:
+        arguments:
+            $frontendUrl: "%frontend_url%"
+
+    App\Services\Notification\FirebaseAdapter:
+        arguments:
+            $firebaseCredentialsPath: "%env(resolve:FIREBASE_CREDENTIALS_PATH)%"
+
+    Kreait\Firebase\Factory:
+        factory: ['Kreait\Firebase\Factory', "fromServiceAccount"]
+        arguments:
+            - "%env(resolve:FIREBASE_CREDENTIALS_PATH)%"
+
+    Kreait\Firebase\Auth:
+        factory: ['@Kreait\Firebase\Factory', "createAuth"]
+
+    App\Utils\FileUploadUtil:
+        arguments:
+            $uploadsConfig: "%app.uploads%"
+
+    App\Mailer\UserMailer:
+        arguments:
+            $fromEmail: "%app.mail_from_address%"
+            $fromName: "%app.mail_from_name%"
+            $platformUrl: "%frontend_url%"
+            $backendUrl: "%app.platform_url%"
+            $projectDir: "%kernel.project_dir%"
+
+    App\MessageHandler\SendBookingEmailHandler:
+        arguments:
+            $fromEmail: "%app.mail_from_address%"
+            $fromName: "%app.mail_from_name%"
+            $platformUrl: "%frontend_url%"
+            $backendUrl: "%app.platform_url%"
+            $projectDir: "%kernel.project_dir%"
+
+    App\Validator\NoAvailabilityOverlapValidator:
+        arguments:
+            $maxDailySlots: "%availability.max_daily_slots%"
+
+    App\Services\AvailabilityService:
+        arguments:
+            $historyMonths: "%availability.history_months%"
+
+    App\Services\WebhookProcessor:
+        arguments:
+            $webhookSecret: "%plexo_webhook_secret%"
+
+    App\Command\SendBookingRemindersCommand:
+        arguments:
+            $reminderTimeMinutes: "%booking.reminder_time_minutes%"
+
+    App\Mailer\BookingMailer:
+        arguments:
+            $mailerDelayMs: "%app.mailer_delay_ms%"
+
+    App\Command\SendNewsletterCommand:
+        arguments:
+            $mailerDelayMs: "%app.mailer_delay_ms%"
+
+    # Explicit PaymentService definition (override auto-registered service)
+    App\Services\PaymentService:
+        autowire: true
+        autoconfigure: true
+        arguments:
+            $paymentAuthorizer: "%payment_authorizer%"
+            $skipDomainPolicy: "%payment.skip_domain_policy%"
+
+    App\Doctrine\Middleware\TimezoneMiddleware:
+        tags:
+            - { name: "doctrine.middleware" }
+
+    App\Services\WordPressService:
+        arguments:
+            $wordpressUrl: "%wordpress_url%"
+            $bridgeSecret: "%bridge_secret%"

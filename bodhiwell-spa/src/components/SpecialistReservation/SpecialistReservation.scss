@@ -1,0 +1,48 @@
+.specialist-reservation {
+  background: linear-gradient(180deg, #A143B2 0%, #546AAF 100%);
+  color: #fff;
+  padding: 64px 0 48px 0;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  }
+
+  &__subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  &__btn {
+    font-weight: 600;
+    border-radius: 17px;
+    padding: 0.75rem 2rem;
+    font-size: 16px;
+    background: #fff;
+    color: #000;
+    border: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: #f3eaff;
+      color: #5a3bbd;
+    }
+  }
+
+  .specialist-slider {
+    margin-top: 2.5rem;
+  }
+}

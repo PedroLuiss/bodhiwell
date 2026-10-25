@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+$font-family: 'Inter', sans-serif;
+
+$color-text-primary: #1e293b;
+$color-text-secondary: #64748b;
+$color-heading-main: #000000;
+$color-heading-subtitle: rgba($color-heading-main, 0.68);
+$color-doctor-name: #466079;
+$color-doctor-specialty: rgba($color-heading-main, 0.72);
+$color-item-value: rgba($color-heading-main, 0.82);
+$color-text-label-highlight: #62ABF4;
+
+$color-divider: #A4A4A4;
+$color-border: #e5e7eb;
+
+$color-button-gradient-start: #3D7EBE;
+$color-button-gradient-end: #495867;
+
+$color-status-confirmed-bg: #2EC114;
+$color-status-pending-bg: #c1be14;
+$color-status-confirmed-text: white;
+
+$breakpoint-xl: 980px;
+$breakpoint-md: 1200px;
+$breakpoint-xs: 767px;
+
+
+@mixin respond-to($breakpoint-name) {
+    @if $breakpoint-name ==tablet {
+        @media (max-width: $breakpoint-md) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint-name ==mobile {
+        @media (max-width: $breakpoint-xs) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint-name ==pc-xs {
+        @media (max-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li {
+    font-family: $font-family;
+}
+
+
+
+.booking-details-container {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: $font-family;
+
+    @include respond-to(mobile) {
+        padding: 2rem 0.3rem;
+    }
+}
+
+.booking-details {
+    width: 100%;
+
+    &__header {
+        text-align: left;
+        margin-bottom: 2rem;
+
+        @include respond-to(mobile) {
+            text-align: center;
+        }
+
+        @include respond-to(pc-xs) {
+            text-align: center;
+        }
+    }
+
+    &__title {
+        font-size: 2.25rem;
+        font-weight: 600;
+        color: $color-heading-main;
+        margin: 0 0 0.5rem 0;
+
+        @include respond-to(mobile) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: $color-heading-subtitle;
+        margin: 0;
+    }
+
+    &__divider {
+        border: 0;
+        height: 1px;
+        background-color: $color-divider;
+        margin: 2rem 0;
+
+        @include respond-to(mobile) {
+            display: none !important;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+
+        @include respond-to(mobile) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        @include respond-to(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to(pc-xs) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+    }
+}
+
+.doctor-card {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+
+    &__avatar {
+        width: 238px;
+        height: 238px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__info {
+        flex-grow: 1;
+    }
+
+    &__name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $color-doctor-name;
+        margin: 0;
+    }
+
+    &__specialty {
+        font-size: 1rem;
+        color: $color-doctor-specialty;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    &__button {
+        background: linear-gradient(to right, $color-button-gradient-start, $color-button-gradient-end);
+        color: white;
+        border: none;
+        padding: 0.6rem 2.6rem;
+        font-size: 0.9rem;
+        font-weight: 400;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        margin-top: 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(63, 120, 176, 0.3);
+        }
+    }
+
+    @include respond-to(mobile) {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+
+        &__avatar {
+            width: 160px;
+            height: 160px;
+        }
+
+        &__button {
+            width: 100%;
+            justify-content: center;
+            padding: 0.8rem;
+            margin-top: 1rem;
+        }
+    }
+
+    @include respond-to(pc-xs) {
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+
+        &__name {
+            font-size: 2.1rem;
+        }
+
+        &__specialty {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.detail-column {
+    &__title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #475E75;
+        margin: 0 0 1.5rem 0;
+    }
+
+    @include respond-to(mobile) {
+
+        &:nth-child(1),
+        &:nth-child(2) {
+            border-bottom: 1px solid $color-divider;
+        }
+
+        &__title {
+            margin: 0 0 0.8rem 0;
+        }
+    }
+}
+
+.detail-item {
+    margin-bottom: 1.5rem;
+
+    &__label {
+        display: block;
+        font-size: 0.9rem;
+        color: $color-text-label-highlight;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+    }
+
+    &__value {
+        font-size: 1rem;
+        color: $color-item-value;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    &__button-views-more {
+        background: none;
+        border: none;
+        padding: 0;
+        margin-top: 8px; 
+        color: #007bff; 
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.detail-item-status {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+
+    &__label {
+        display: block;
+        font-size: 0.9rem;
+        color: $color-text-label-highlight;
+        font-weight: 500;
+        margin-bottom: 0rem;
+    }
+
+    &__value {
+        font-size: 1rem;
+        color: $color-item-value;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    @include respond-to(mobile) {
+        margin-bottom: 2rem;
+    }
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.65rem 0.25rem 0.35rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 400;
+
+    &--confirmed {
+        background-color: $color-status-confirmed-bg;
+        color: $color-status-confirmed-text;
+
+        svg {
+            color: currentColor;
+        }
+    }
+
+    &--pending {
+        background-color: $color-status-pending-bg;
+        color: $color-status-confirmed-text;
+
+        svg {
+            color: currentColor;
+        }
+    }
+}
+
+.direction-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: $color-text-primary;
+
+    &__icon {
+        color: $color-text-secondary;
+    }
+
+    &__text {
+        font-size: 1rem;
+        color: $color-item-value;
+        margin: 0;
+        line-height: 1.5;
+    }
+}
+

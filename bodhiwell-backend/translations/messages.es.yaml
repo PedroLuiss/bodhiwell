@@ -1,0 +1,420 @@
+users:
+  title: "Usuarios"
+  add_button: "Agregar Usuario"
+  edit_button: "Editar Usuario"
+  delete_button: "Eliminar"
+  email: "Correo Electrónico"
+  username: "Nombre de Usuario"
+  first_name: "Nombre"
+  last_name: "Apellido"
+  roles: "Roles"
+  roles_labels:
+    user: "Usuario"
+    admin: "Administrador"
+  password: "Contraseña"
+  password_help: "Debe ser segura"
+  tab_basic: "Datos básicos"
+  tab_certificates: "Certificados"
+  tab_professions: "Profesiones"
+  tab_studies: "Estudios"
+  certificates: "Certificados de Usuario"
+  professions: "Profesiones"
+  studies: "Estudios"
+  professional: "Profesional"
+  professional_singular: "Profesional"
+  patient: "Consultante"
+  patient_singular: "Consultante"
+  patient_plural: "Consultantes"
+  professional_plural: "Profesionales"
+  full_name: "Nombre y Apellido"
+  dni: "DNI"
+  phone_number: "Teléfono"
+  consult_time: "Duración de consulta"
+  personal_info: "Información Personal"
+  media_profile: "Perfil Multimedia"
+  media_type: "Tipo de Medio"
+  video_url: "URL del Video"
+  media_image: "Imagen"
+  media_video: "Video"
+  extra_info: "Información Extra"
+  account_number: "Número de Cuenta"
+  holder_name: "Nombre Asociado a la Cuenta"
+  bank_name: "Banco"
+  date_birth: "Fecha de Nacimiento"
+  prefix: "Prefijo"
+  base_profession: "Profesión Base"
+  consult_type: "Modalidad de Atención"
+  specialties: "Especialidades"
+  about: "Compártenos tu experiencia y tu sentir"
+  titulations: "Titulaciones"
+  other_professions: "Otras Profesiones"
+  gender: "Género"
+  gender_female: "Femenino"
+  gender_male: "Masculino"
+  gender_other: "Otro"
+  country: "País"
+  city: "Ciudad"
+  address: "Dirección"
+  zipcode: "Código Postal"
+  status_active: "Activo"
+  status_pending_completion: "Perfil incompleto"
+  status_pending_approval: "En revisión"
+  status_rejected: "Rechazado"
+  actions:
+    view_consultations: "Ver Consultas"
+    view_bookings: "Ver Reservas"
+    details: "Detalles"
+    delete: "Borrar"
+    approve: "Aprobar"
+    reject: "Rechazar"
+    reject_title: "Rechazar Profesional"
+    reject_reason_label: "Razón del rechazo"
+    reject_reason_placeholder: "Ingrese la razón por la cual se rechaza el perfil..."
+    reject_confirm: "Confirmar Rechazo"
+    reject_cancel: "Cancelar"
+  flash:
+    profile_approved: "Usuario aprobado correctamente."
+    profile_rejected: "Usuario rechazado correctamente."
+
+  specialty: "Especialidad"
+  status: "Estado"
+  patients_attended: "Consultantes Atendidos"
+  consultations_completed: "Consultas Completadas"
+
+profession:
+  label_singular: "Profesión"
+  label_plural: "Profesiones"
+  title: "Listado de Profesiones"
+  new: "Agregar Profesión"
+  edit: "Editar Profesión"
+  tab:
+    general: "Información General"
+  fields:
+    name: "Nombre"
+    status: "Estado"
+    institute: "Instituto"
+    institute_help: "Máximo 1000 caracteres"
+    created_at: "Fecha de Creación"
+    updated_at: "Última Actualización"
+  status:
+    underReview: "En revisión"
+    blocked: "Bloqueado"
+    under_review: "En revisión"
+    active: "Activa"
+    inactive: "Inactiva"
+specialty:
+  label_singular: "Especialidad"
+  label_plural: "Especialidades"
+  title: "Listado de Especialidades"
+  new: "Agregar Especialidad"
+  edit: "Editar Especialidad"
+  batch_upload: "Carga Masiva"
+  tab:
+    general: "Información General"
+  fields:
+    name: "Nombre"
+    slug: "Slug"
+    dimension: "Dimensión"
+    legal_framework: "Marco Legal"
+    clinical_level: "Nivel Clínico"
+    required_base_study: "Estudio Base Requerido"
+    msp_required: "Requiere MSP"
+    is_base_profession: "Es Profesión Base"
+    public_title_male: "Título Público (Masculino)"
+    public_title_female: "Título Público (Femenino)"
+    public_title_neutral: "Título Público (Neutral)"
+    description: "Descripción"
+    created_at: "Fecha de Creación"
+    updated_at: "Última Actualización"
+  actions:
+    batch_upload: "Carga Masiva"
+  batch_upload_title: "Carga Masiva de Especialidades"
+  batch_upload_help: "Sube un archivo Excel (.xlsx) o CSV con el catálogo de especialidades."
+  import_success: "Importación completada: %created% creadas, %updated% actualizadas."
+  import_error: "Error durante la importación: %error%"
+
+
+studies:
+  singular: "Estudio"
+  plural: "Estudios"
+  professional: "Profesional"
+  fields:
+    name: "Nombre"
+    institute: "Instituto"
+    status: "Estado"
+    type: "Tipo de formación"
+    date_start: "Fecha de inicio"
+    date_end: "Fecha de finalización"
+    is_validated: "¿Validado?"
+
+certificates:
+  fields:
+    name: "Nombre del certificado"
+    status: "Estado"
+    institute: "Instituto"
+    urlFile: "URL del archivo"
+  status:
+    pending: "Pendiente"
+    approved: "Aprobado"
+    rejected: "Rechazado"
+
+agenda:
+  section: "Agenda"
+
+community:
+  section: "Comunidad"
+
+transactions:
+  section: "Transacciones"
+
+availability:
+  label_plural: "Disponibilidades"
+  label_singular: "Disponibilidad"
+  new: "Nueva disponibilidad"
+  edit: "Editar disponibilidad"
+  fields:
+    day_of_week: "Día"
+    professional: "Profesional"
+    date_availability: "Fecha"
+    slots: "Horarios"
+    slots_label: "Bloques de horario"
+    slot_entry: "Bloque de horas"
+    slot_start: "Inicio"
+    slot_end: "Fin"
+    next_dates: "Próximas fechas disponibles"
+    days_summary: "Resumen de bloques"
+  no_future_dates: "Sin fechas futuras"
+  days_active_blocks: "%d días con bloques activos"
+  actions:
+    view_grouped: "Ver agrupado"
+    view_availabilities: "Ver disponibilidades"
+
+booking:
+  label_plural: "Reservas"
+  new: "Nueva reserva"
+  edit: "Editar reserva"
+  create: "Crear Reserva"
+  detail: "Resumen de reserva"
+  additional_details: "Detalles adicionales"
+  associated_consultation: "Consulta asociada"
+  flash:
+    created: "Reserva creada correctamente."
+    updated: "Reserva actualizada."
+  error:
+    no_id: "No se recibió el ID."
+    not_found: "Reserva no encontrada."
+  actions:
+    summary: "Resumen"
+    full_detail: "Detalle completo"
+    edit_notes: "Editar notas"
+    back: "Volver"
+    back_to_list: "Volver al listado"
+  fields:
+    date_start: "Fecha inicio"
+    date_end: "Fecha fin"
+    status: "Estado"
+    notes: "Notas"
+    created_at: "Creado"
+    updated_at: "Modificado"
+    type: "Tipo de reserva"
+    reserve_reason: "Motivo de la reserva"
+    quote_for_invited: "Cotizar para invitados"
+  admin_notes:
+    waiting_payment: "Esperando Pago"
+    processing: "En Espera por Proveedor"
+    pending_provider: "En Espera por Proveedor"
+    confirmed: "Pago Confirmado"
+    cancelled: "Cancelada"
+    completed: "Finalizada - Consulta Realizada"
+    pending: "Pendiente"
+  status:
+    waiting_payment: "Esperando pago"
+    processing: "Procesando"
+    pending_provider: "Pendiente del proveedor"
+    confirmed: "Confirmada"
+    cancelled: "Cancelada"
+    completed: "Completada"
+    pending: "Pendiente"
+  type:
+    virtual: "Virtual"
+    presential: "Presencial"
+  metadata: "Metadatos"
+
+consultation:
+  label_plural: "Consultas"
+  new: "Nueva consulta"
+  edit: "Editar consulta"
+  details_label: "Detalle de la consulta"
+  detail_title: "Detalle de Consulta"
+  booking_info: "Información de la Reserva"
+  report: "Informe"
+  fields:
+    type: "Tipo"
+    notes: "Notas"
+    created_at: "Creado"
+    updated_at: "Actualizado"
+    first_detail: "Detalle de consulta"
+    reserve_reason: "Motivo de la reserva"
+    quote_for_invited: "Cotizar para invitados"
+    observations: "Observaciones"
+  status:
+    pending: "Pendiente"
+    completed: "Completada"
+    confirmed: "Confirmada"
+    cancelled: "Cancelada"
+
+consultation_detail:
+  key: "Clave"
+  value: "Valor"
+  fields:
+    detail_key: "Tipo"
+    detail_value: "Descripción"
+    consultation: "Consulta"
+    meetingLink: "Enlace de reunión"
+    address: "Dirección"
+    observations: "Observaciones"
+    notes: "Notas"
+    reasonConsultation: "Motivo de consulta"
+
+weekday.SUNDAY: Domingo
+weekday.MONDAY: Lunes
+weekday.TUESDAY: Martes
+weekday.WEDNESDAY: Miércoles
+weekday.THURSDAY: Jueves
+weekday.FRIDAY: Viernes
+weekday.SATURDAY: Sábado
+
+payment:
+  label_singular: "Pago"
+  label_plural: "Pagos"
+  fields:
+    amount: "Monto"
+    currency: "Moneda"
+    status: "Estado"
+    booking: "Reserva"
+    created_at: "Creado"
+    updated_at: "Actualizado"
+  status:
+    initiated: "Iniciado"
+    processing: "Procesando"
+    pending_provider: "Pendiente proveedor"
+    approved: "Aprobado"
+    rejected: "Rechazado"
+    pending: "Pendiente"
+
+transaction:
+  label_singular: "Transacción"
+  label_plural: "Transacciones"
+  fields:
+    type: "Tipo"
+    created_at: "Creado"
+
+professional_wallet:
+  label_singular: "Billetera de Profesional"
+  label_plural: "Billeteras de Profesionales"
+
+wallet_ledger:
+  label_singular: "Histórico de Billeteras"
+  label_plural: "Histórico de Billeteras"
+
+action:
+  back: "Volver"
+  back_to_list: "Volver al listado"
+
+withdrawal:
+  label_singular: "Pago a Profesionales"
+  label_plural: "Pago a Profesionales"
+  new: "Nuevo Pago a Profesionales"
+  edit: "Editar Pago a Profesionales"
+  bank_info_title: "Información Bancaria del Profesional"
+  fields:
+    amount: "Monto"
+    status: "Estado"
+    professional: "Usuario"
+  status:
+    pending: "Pendiente"
+    approved: "Aprobado"
+    rejected: "Rechazado"
+    in_process: "En proceso"
+  action:
+    mark_processed: "Procesar retiro"
+    mark_rejected: "Rechazar retiro"
+  confirm:
+    process: "¿Deseas procesar este retiro?"
+    reject: "¿Deseas rechazar este retiro?"
+  flash:
+    not_found: "Retiro no encontrado"
+    only_pending_allowed: "Solo se pueden procesar retiros en estado pendiente"
+    marked_processed: "Retiro marcado como procesado"
+    error_processing: "Error al marcar el retiro como procesado"
+  messages:
+    invalid_entity: "Entidad inválida para procesar"
+    cannot_process_non_pending: "Sólo retiros en estado pendiente pueden ser marcados como procesados"
+    processed_success: "Retiro marcado como procesado."
+    processed_failed: "Error al marcar el retiro como procesado."
+    cannot_reject_non_pending: "Sólo retiros en estado pendiente pueden ser marcados como rechazados."
+    rejected_success: "Retiro rechazado y fondos liberados."
+    rejected_failed: "Error al marcar el retiro como rechazado."
+    invalid_amount: "El monto debe ser mayor que cero."
+    invalid_professional: "Profesional inválido para el retiro."
+    access_denied: "Acceso denegado."
+
+refund:
+  label_singular: "Reembolso"
+  label_plural: "Reembolsos"
+  fields:
+    patient: "Consultante"
+    professional: "Profesional"
+    reason: "Motivo"
+    booking: "Reserva"
+    amount: "Monto"
+    status: "Estado"
+    admin_note: "Nota admin"
+    created_at: "Fecha creación"
+  status:
+    review: "En revisión"
+    approved: "Aprobado"
+    rejected: "Rechazado"
+    completed: "Completado"
+  metrics:
+    title: "Métricas de reembolsos"
+  actions:
+    new: "Generar Reembolso"
+    approve: "Aprobar"
+    reject: "Rechazar"
+  placeholders:
+    select_booking: "Seleccione una reserva"
+    no_date: "Sin fecha"
+  notes:
+    approved_admin: "Aprobado desde Panel Admin"
+    rejected_admin: "Rechazado desde Panel Admin"
+  flash:
+    approved_success: "Reembolso aprobado y fondos descontados correctamente."
+    rejected_success: "Reembolso rechazado y fondos liberados."
+    error_prefix: "Error: "
+  messages:
+    approved_success: "Reembolso aprobado."
+    rejected_success: "Reembolso rechazado."
+    invalid_entity: "Entidad de reembolso inválida."
+  errors:
+    invalid_transition_review: "Solo se puede cambiar de revisión a aprobado, rechazado o completado."
+    invalid_transition_approved: "Solo se puede cambiar de aprobado a completado."
+    cannot_edit_final: "No se puede editar un reembolso rechazado o completado."
+    validation_booking_mismatch: "Error de Validación: La reserva seleccionada no pertenece al consultante seleccionado. (Reserva de: %booking_email%, Consultante seleccionado: %patient_email%)"
+    creation_failed: "Error al crear reembolso: "
+wallet:
+  status:
+    active: "Activo"
+    blocked: "Bloqueado"
+    pending: "Pendiente"
+  fields:
+    status: "Estado"
+    available_balance: "Saldo Disponible"
+    frozen_balance: "Saldo Congelado"
+    total_balance: "Saldo Total"
+    updated_at: "Actualizado"
+  section: "Billeteras"
+
+flash_messages:
+  user_approved: "Usuario aprobado correctamente."
+  user_rejected: "Usuario rechazado correctamente."

@@ -1,0 +1,12 @@
+easy_admin:
+    entities:
+        - App\Entity\User # Aquí agregas las entidades que quieres gestionar
+    design:
+        brand_color: "#00A8A8"
+        logo:
+            text: "Bodhiwell"
+    dashboard:
+        title: "Backoffice"
+        logo:
+            text: "Bodhiwell"
+        favicon: "/favicon.png"

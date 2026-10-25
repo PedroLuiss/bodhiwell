@@ -1,0 +1,436 @@
+@import '../../../assets/styles/variables'; // Tu ruta puede variar
+
+.header {
+  /* Altura y disposición base */
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  /* Espaciado y estilo similar al Landing/Header */
+  padding: 14px 27px;
+  background-color: $color-surface;
+  border-bottom: 1px solid $header-border-color;
+  backdrop-filter: saturate(160%) blur(6px);
+  -webkit-backdrop-filter: saturate(160%) blur(6px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 12px 16px;
+  }
+
+  &__logo {
+    text-align: center;
+    flex-grow: 1;
+    cursor: pointer;
+    flex: 0.5;
+    filter: brightness(0) invert(0);
+    
+    &-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: $text-color-dark;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 0.2px;
+    flex: 2;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__profile {
+    color: $text-color-dark;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 0.5;
+
+    @media (max-width: 1040px) {
+      font-size: 16px;
+      text-wrap-mode: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+      text-wrap-mode: nowrap;
+    }
+
+    @media (max-width: 390px) {
+      font-size: 10px;
+      text-wrap-mode: nowrap;
+    }
+  }
+
+  &__mobile-menu-button {
+    opacity: 0;
+    background: transparent;
+    border: none;
+    color: $text-color-dark;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all $transition-speed ease;
+    transform: translateX(-100%);
+    display: none;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      display: inline-flex;
+      opacity: 1;
+      transform: translateX(0);
+      display: inline-flex !important;
+      margin-right: 8px;
+    }
+  }
+
+  &__icon {
+    color: $text-color-dark;
+    cursor: pointer;
+    transition: opacity $transition-speed ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__profile-container {
+    position: relative;
+    flex: 0.5;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__profile-button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+
+    color: $text-color-dark;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    text-wrap-mode: nowrap;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 1040px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+
+    @media (max-width: 390px) {
+      font-size: 10px;
+      white-space: nowrap;
+    }
+  }
+
+  &__profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eef0f2;
+    width: 180px;
+    padding: 8px 0;
+    z-index: 1010;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+    &--open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  &__landing-button {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-color-dark;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: #000;
+    }
+  }
+
+  &__notification-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__notification-button {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-color-dark;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: #000;
+    }
+  }
+
+  &__notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eef0f2;
+    width: 320px;
+    max-height: 400px;
+    padding: 0;
+    z-index: 1010;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+    &--open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  &__notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eef0f2;
+    background-color: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+
+    h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+
+  &__notification-mark-all-read {
+    background: none;
+    border: none;
+    color: #7a9e7e;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgb(122 158 126 / 13%);
+    }
+  }
+
+  &__notification-list {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  &__notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+
+    &--unread {
+      background-color: #f3f4f2;
+
+      &:hover {
+        background-color: #7a9e7e2e;
+      }
+    }
+  }
+
+  &__notification-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    color: #666;
+  }
+
+  &__notification-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__notification-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 4px;
+  }
+
+  &__notification-message {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  &__notification-time {
+    font-size: 11px;
+    color: #999;
+  }
+
+  &__notification-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #999;
+    text-align: center;
+
+    svg {
+      font-size: 48px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  &__notification-footer {
+    padding: 8px 16px;
+    border-top: 1px solid #eef0f2;
+    background-color: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+  }
+
+  &__notification-view-all {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #7a9e7e;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgb(122 158 126 / 13%);
+    }
+  }
+}
+
+
+.header .header__profile-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 15px;
+  text-decoration: none;
+  color: $text-color-dark;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 0 !important;
+
+  &:hover {
+    background-color: #f7f7f7;
+
+  }
+
+  .MuiSvgIcon-root {
+    color: #555;
+  }
+}
+
+.mobileOnlyLabel {
+  display: none;
+
+  @media (max-width: 992px) {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

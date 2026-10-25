@@ -1,0 +1,39 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+{% block content %}
+    <form method="post" class="py-5">
+        <h4>Gestión de permisos para {{ user.getEmail }}</h4>
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>Entidad</th>
+                    {% for permission in permissions %}
+                        <th>{{ permission.value }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><strong>{{ entity }}</strong></td>
+                        {% for permission in permissions %}
+                            {% if permission in permissionsByEntity[entity]|default([]) %}
+                                <td>
+                                    <div class="form-switch">
+                                        <input type="checkbox"
+                                            class="form-check-input"
+                                            name="permissions[{{ entity }}][]"
+                                            value="{{ permission.value }}"
+                                            {% if permission.value in user.permissions[entity]|default([]) %}checked{% endif %}>
+                                    </div>
+                                </td>
+                            {% else %}
+                                <td>--</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary mt-3">Guardar cambios</button>
+    </form>
+{% endblock %}

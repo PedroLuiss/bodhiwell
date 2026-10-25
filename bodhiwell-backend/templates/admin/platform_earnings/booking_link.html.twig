@@ -1,0 +1,5 @@
+{% if field.formattedValue is iterable and field.formattedValue.url is defined and field.formattedValue.uid is defined %}
+    Comisión Reserva <a href="{{ field.formattedValue.url }}" style="color: #4dabf7 !important; text-decoration: none;">#{{ field.formattedValue.uid }}</a>
+{% else %}
+    Comisión
+{% endif %}

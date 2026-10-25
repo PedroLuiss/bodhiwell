@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bodhiwell — Disponibilidad profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/bodhiwell_tokens.css">
+  <link rel="stylesheet" href="../assets/css/coherence.css">
+  <style>
+    :root{
+      --bw-bg: #EFF0EC;
+      --bw-card-surface: #F7F5F1;
+      --bw-primary: #82B194;
+      --bw-text-primary: #13231D;
+      --bw-text-secondary: #65716B;
+      --bw-text-tertiary: #7C8782;
+      --bw-font-family: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --bw-radius-xl: 28px;
+      --bw-radius-lg: 24px;
+      --bw-radius-md: 16px;
+      --bw-radius-nav: 16px;
+      --bw-radius-pill: 999px;
+      --bw-shadow-card: 0 12px 28px rgba(18,34,28,.06);
+      --page-max: 1440px;
+      --shell-gap: 22px;
+      --sidebar-width: 216px;
+      --calendar-grid-border: rgba(16,25,21,.09);
+      --calendar-cell-highlight: rgba(214,166,64,.24);
+      --calendar-selected-soft: rgba(130,177,148,.14);
+      --calendar-availability-soft: rgba(130,177,148,.12);
+      --calendar-dot: #D97A4C;
+      --control-surface: rgba(255,255,255,.62);
+      --control-surface-hover: rgba(130,177,148,.10);
+      --control-border: rgba(16,25,21,.10);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:var(--bw-font-family);
+      background:var(--bw-bg);
+      color:var(--bw-text-primary);
+      min-height:100vh;
+    }
+
+    .availability-layout,
+    main.availability-main{
+      flex:1 1 auto;
+      min-width:0;
+      background:transparent !important;
+      border:none !important;
+      box-shadow:none !important;
+      border-radius:0 !important;
+    }
+
+    .availability-layout{
+      width:min(calc(100vw - 24px), var(--page-max));
+      margin:12px auto;
+      display:flex;
+      gap:var(--shell-gap);
+      align-items:flex-start;
+    }
+
+    .sidebar{
+      flex:0 0 var(--sidebar-width);
+      background:#F7F5F1;
+      background-color:var(--bw-card-surface, #F7F5F1);
+      border:1px solid rgba(16,25,21,.05);
+      border-radius:var(--bw-radius-xl);
+      padding:18px 14px 14px;
+      min-height:760px;
+      display:flex;
+      flex-direction:column;
+      position:sticky;
+      top:12px;
+      align-self:start;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:6px 6px 18px;
+      font-size:14px;
+      font-weight:800;
+    }
+    .brand-mark{
+      width:28px;
+      height:28px;
+      background:url('../assets/img/brand/flor.png') center/contain no-repeat;
+      flex:0 0 28px;
+    }
+    .menu-scroll{
+      padding-right:8px;
+      margin-right:-6px;
+      max-height:calc(100vh - 230px);
+      overflow:auto;
+    }
+    .menu-scroll::-webkit-scrollbar{width:6px}
+    .menu-scroll::-webkit-scrollbar-thumb{background:rgba(19,35,29,.12);border-radius:999px}
+    .section-label{
+      margin:18px 8px 10px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--bw-text-tertiary);
+    }
+    .nav{display:grid;gap:8px}
+    .nav-item{
+      min-height:44px;
+      border-radius:var(--bw-radius-nav);
+      padding:0 14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:rgba(19,35,29,.78);
+      font-size:14px;
+      font-weight:600;
+      text-decoration:none;
+      border:1px solid transparent;
+    }
+    .nav-item.active{
+      background:rgba(130,177,148,.10);
+      border-color:rgba(130,177,148,.34);
+      color:var(--bw-text-primary);
+      font-weight:700;
+    }
+    .nav-item:hover{background:rgba(130,177,148,.06)}
+    .nav-icon{
+      width:20px;
+      height:20px;
+      display:grid;
+      place-items:center;
+      color:currentColor;
+      flex:0 0 20px;
+    }
+    .nav-icon svg,
+    .icon svg,
+    .mini-icon svg,
+    .time-icon svg,
+    .schedule-item-icon svg{
+      width:100%;
+      height:100%;
+      stroke:currentColor;
+      stroke-width:1.85;
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    .sidebar-spacer{flex:1 1 auto}
+    .user-mini{
+      margin:16px 8px 14px;
+      color:var(--bw-text-secondary);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .logout{
+      min-height:42px;
+      border-radius:var(--bw-radius-md);
+      border:1px solid rgba(16,25,21,.10);
+      background:rgba(255,255,255,.46);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-weight:700;
+      color:var(--bw-text-primary);
+      text-decoration:none;
+      margin:0 2px;
+    }
+
+    .availability-main{
+      background:transparent !important;
+      border:none !important;
+      border-radius:0 !important;
+      min-height:760px;
+      box-shadow:none !important;
+      padding:26px 0 34px;
+    }
+    .hero{
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      margin:0 0 24px;
+      padding:0;
+    }
+    .hero-mark{
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.48);
+      color:#6DA77C;
+      flex:0 0 42px;
+      box-shadow:0 10px 20px rgba(18,34,28,.04);
+    }
+    h1{
+      margin:0;
+      font-size:56px;
+      line-height:.96;
+      letter-spacing:-.055em;
+      font-weight:800;
+    }
+
+    .content-grid{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+    }
+    .calendar-zone{
+      flex:1 1 auto;
+      min-width:0;
+      padding:20px 20px 118px;
+      background:var(--bw-card-surface, #F7F5F1);
+      border:1px solid rgba(16,25,21,.08);
+      border-radius:30px;
+      box-shadow:var(--bw-shadow-card);
+      position:relative;
+    }
+    .toolbar{
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:start;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .toolbar-left,.toolbar-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btn,
+    .time-field,
+    .segment-option{
+      min-height:48px;
+      border-radius:var(--bw-radius-md);
+      font-family:inherit;
+      font-size:14px;
+      font-weight:700;
+      border:1px solid transparent;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:0 18px;
+      cursor:pointer;
+      text-decoration:none;
+      white-space:nowrap;
+      transition:background-color .2s ease,border-color .2s ease,color .2s ease, box-shadow .2s ease;
+    }
+    .btn-control{
+      background:transparent;
+      border-color:var(--control-border);
+      color:var(--bw-text-primary);
+      box-shadow:none;
+    }
+    .btn-control:hover{background:var(--control-surface-hover)}
+    .btn-icon{
+      width:48px;
+      padding:0;
+      background:transparent;
+      border-color:var(--control-border);
+      color:var(--bw-text-primary);
+      box-shadow:none;
+    }
+    .btn-primary{
+      background:var(--bw-primary);
+      border-color:var(--bw-primary);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(130,177,148,.16);
+    }
+    .btn-secondary{
+      background:transparent;
+      border-color:rgba(130,177,148,.78);
+      color:var(--bw-text-primary);
+    }
+    .btn-support{
+      background:rgba(130,177,148,.14);
+      border-color:rgba(130,177,148,.26);
+      color:var(--bw-text-primary);
+      box-shadow:none;
+    }
+    .btn-block{width:100%}
+    .month-wrap{
+      display:grid;
+      justify-items:center;
+      gap:4px;
+      align-self:start;
+      padding-top:2px;
+    }
+    .month-title{
+      font-size:23px;
+      line-height:1.1;
+      letter-spacing:-.04em;
+      font-weight:800;
+      text-align:center;
+    }
+    .legend{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--bw-text-secondary);
+      font-size:12px;
+      font-weight:500;
+    }
+    .legend-dot{
+      width:12px;
+      height:12px;
+      border-radius:999px;
+      background:var(--bw-primary);
+      box-shadow:0 0 0 4px rgba(130,177,148,.14) inset;
+    }
+    .segment{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      overflow:hidden;
+      border-radius:18px;
+      background:transparent;
+      border:1px solid rgba(16,25,21,.08);
+      box-shadow:none;
+    }
+    .segment-option{
+      min-width:70px;
+      padding:0 14px;
+      color:var(--bw-text-primary);
+      background:transparent;
+      border:none;
+      font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .segment-option + .segment-option{
+      border-left:1px solid rgba(16,25,21,.08);
+    }
+    .segment-option:hover{
+      background:transparent;
+    }
+    .segment-option.active{
+      background:rgba(130,177,148,.12);
+      color:var(--bw-text-primary);
+      box-shadow:inset 0 0 0 1px rgba(130,177,148,.42);
+    }
+
+    .calendar-board{
+      background:transparent;
+      border:none;
+      border-radius:0;
+      padding:0;
+      box-shadow:none;
+    }
+    .calendar-grid{
+      display:grid;
+      grid-template-columns:repeat(7,minmax(0,1fr));
+      border-left:1px solid var(--calendar-grid-border);
+      border-top:1px solid var(--calendar-grid-border);
+      border-right:1px solid var(--calendar-grid-border);
+      border-bottom:1px solid var(--calendar-grid-border);
+      border-radius:18px;
+      overflow:hidden;
+      background:transparent;
+    }
+    .weekday,
+    .day-cell{
+      border-right:1px solid var(--calendar-grid-border);
+      border-bottom:1px solid var(--calendar-grid-border);
+      background:transparent;
+    }
+    .weekday{
+      min-height:46px;
+      padding:8px 6px 6px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+    }
+    .weekday span{
+      display:block;
+      font-size:11px;
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:#23352D;
+    }
+    .weekday small{
+      display:block;
+      margin-top:4px;
+      font-size:11px;
+      line-height:1.1;
+      color:var(--bw-text-secondary);
+      font-weight:600;
+    }
+    .day-cell{
+      min-height:90px;
+      padding:10px 8px;
+      position:relative;
+    }
+    .day-num{
+      position:absolute;
+      top:10px;
+      right:12px;
+      font-size:12px;
+      color:rgba(19,35,29,.58);
+      font-weight:500;
+    }
+    .day-cell.is-muted .day-num{color:rgba(19,35,29,.42)}
+    .day-cell.is-highlight{background:var(--calendar-cell-highlight)}
+    .selected-day-badge{
+      position:absolute;
+      top:10px;
+      right:10px;
+      min-width:26px;
+      height:26px;
+      border-radius:999px;
+      padding:0 8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--bw-primary);
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+      box-shadow:0 8px 18px rgba(130,177,148,.12);
+    }
+    .selected-day-badge.secondary{
+      background:rgba(130,177,148,.08);
+      border:1px solid rgba(130,177,148,.52);
+      color:#648875;
+      box-shadow:none;
+    }
+    .availability-chip-calendar{
+      position:absolute;
+      left:8px;
+      bottom:18px;
+      display:inline-grid;
+      gap:1px;
+      padding:5px 6px;
+      border-radius:10px;
+      background:var(--calendar-availability-soft);
+      color:#2D5F4B;
+      font-size:9px;
+      line-height:1.15;
+      font-weight:700;
+    }
+
+    .selection-panel{
+      flex:0 0 378px;
+      width:378px;
+      background:var(--bw-card-surface, #F7F5F1);
+      border:1px solid rgba(16,25,21,.08);
+      border-radius:30px;
+      padding:32px 20px 20px;
+      box-shadow:var(--bw-shadow-card);
+      min-height:auto;
+      max-height:calc(100vh - 148px);
+      align-self:flex-start;
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+    }
+    .panel-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:14px;
+    }
+    .panel-title{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .panel-title h2{
+      margin:0;
+      font-size:18px;
+      line-height:1.15;
+      letter-spacing:-.03em;
+      font-weight:800;
+    }
+    .icon,
+    .mini-icon{
+      display:grid;
+      place-items:center;
+      color:var(--bw-text-primary);
+      flex:0 0 auto;
+    }
+    .icon{width:22px;height:22px}
+    .mini-icon{width:18px;height:18px}
+    .panel-link{
+      color:var(--bw-text-secondary);
+      font-size:14px;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .panel-link:hover{color:var(--bw-text-primary)}
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:20px;
+    }
+    .chip{
+      min-height:34px;
+      padding:0 13px;
+      border-radius:var(--bw-radius-pill);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      font-weight:600;
+      background:rgba(130,177,148,.08);
+      color:#567B69;
+      border:1px solid transparent;
+    }
+    .chip.active{
+      background:rgba(130,177,148,.18);
+      color:var(--bw-text-primary);
+      border-color:rgba(130,177,148,.22);
+      box-shadow:none;
+    }
+    .chip .close{font-size:18px;line-height:1;font-weight:400;color:var(--bw-text-secondary)}
+
+    .day-card{
+      position:relative;
+      background:#FEFEFD;
+      border:1px solid rgba(16,25,21,.08);
+      border-radius:var(--bw-radius-lg);
+      padding:18px 14px 16px;
+      display:grid;
+      gap:12px;
+      box-shadow:0 14px 30px rgba(18,34,28,.08);
+    }
+    .day-card + .day-card{margin-top:16px}
+    .day-card.active{
+      border-color:rgba(130,177,148,.58);
+      box-shadow:0 16px 34px rgba(18,34,28,.10);
+    }
+    .day-card.active::before{
+      content:"";
+      position:absolute;
+      top:12px;
+      bottom:12px;
+      left:-1px;
+      width:3px;
+      border-radius:999px;
+      background:var(--bw-primary);
+    }
+    .day-card-top{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "meta meta"
+        "from to";
+      gap:16px 10px;
+      align-items:start;
+    }
+    .day-meta{
+      grid-area:meta;
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      min-width:0;
+    }
+    .day-meta h2{
+      margin:0;
+      font-size:16px;
+      line-height:1.2;
+      letter-spacing:-.03em;
+      font-weight:800;
+      text-transform:none;
+      flex:0 1 auto;
+    }
+    .day-meta p{
+      margin:0;
+      font-size:12px;
+      color:var(--bw-text-secondary);
+      white-space:nowrap;
+      text-align:right;
+      flex:0 0 auto;
+    }
+    .time-col{
+      display:grid;
+      gap:6px;
+      align-content:start;
+      min-width:0;
+    }
+    .time-col:nth-of-type(2){grid-area:from}
+    .time-col:nth-of-type(3){grid-area:to}
+    .time-col-label{
+      font-size:10px;
+      line-height:1.2;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#6E897C;
+      font-weight:800;
+      padding-left:2px;
+    }
+    .time-field{
+      min-width:0;
+      width:100%;
+      padding:0 12px;
+      background:#fff;
+      border:1px solid rgba(16,25,21,.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      color:var(--bw-text-primary);
+      box-shadow:0 4px 14px rgba(0,0,0,.02);
+    }
+    .time-main{
+      font-size:13px;
+      font-weight:700;
+      line-height:1;
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+      white-space:nowrap;
+    }
+    .time-main .ampm{
+      font-size:13px;
+      line-height:1;
+      color:inherit;
+      font-weight:700;
+      letter-spacing:0;
+    }
+    .time-icon{
+      width:18px;
+      height:18px;
+      color:rgba(19,35,29,.52);
+      flex:0 0 18px;
+    }
+    .day-card-body{
+      display:grid;
+      gap:12px;
+      padding-top:2px;
+    }
+    .schedule-group{
+      display:grid;
+      gap:8px;
+      padding-top:8px;
+      border-top:1px solid rgba(16,25,21,.06);
+      margin-top:0;
+    }
+    .schedule-group-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding-top:2px;
+    }
+    .schedule-group-title{
+      font-size:12px;
+      line-height:1.2;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#6E897C;
+      font-weight:800;
+    }
+    .schedule-count{
+      min-height:22px;
+      padding:0 7px;
+      border-radius:999px;
+      background:rgba(130,177,148,.10);
+      color:#5F8972;
+      font-size:12px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .schedule-list{
+      display:grid;
+      gap:8px;
+    }
+    .schedule-item{
+      min-height:44px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(19,35,29,.04);
+      border:1px solid rgba(16,25,21,.06);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      color:var(--bw-text-primary);
+      font-size:13px;
+    }
+    .schedule-item-main{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+    }
+    .schedule-item-main strong{
+      font-weight:700;
+      color:var(--bw-primary);
+    }
+    .schedule-item-icon{
+      width:18px;
+      height:18px;
+      color:#6D9880;
+      flex:0 0 18px;
+    }
+    .schedule-item .remove{
+      color:var(--bw-text-secondary);
+      font-size:18px;
+      line-height:1;
+      font-weight:400;
+      flex:0 0 auto;
+    }
+    .schedule-empty{
+      color:var(--bw-text-secondary);
+    }
+    .schedule-note{
+      font-size:11px;
+      line-height:1.4;
+      color:var(--bw-text-secondary);
+      margin-top:0;
+    }
+
+    .days-scroll{
+      flex:1 1 auto;
+      min-height:0;
+      overflow-y:auto;
+      padding-top:8px;
+      padding-right:6px;
+      margin-right:-4px;
+    }
+    .days-scroll::-webkit-scrollbar{
+      width:6px;
+    }
+    .days-scroll::-webkit-scrollbar-thumb{
+      background:rgba(19,35,29,.12);
+      border-radius:999px;
+    }
+
+    .panel-actions{
+      display:none;
+    }
+    .save-bar-wrap{
+      padding-top:0;
+      margin-top:0;
+      width:100%;
+    }
+    .save-bar-wrap.is-floating{
+      position:fixed;
+      left:var(--savebar-left, 24px);
+      width:var(--savebar-width, 640px);
+      bottom:20px;
+      z-index:30;
+      pointer-events:none;
+    }
+    .save-bar-wrap.is-floating .save-pill{
+      pointer-events:auto;
+    }
+    .save-pill{
+      min-height:74px;
+      border-radius:24px;
+      background:var(--bw-card-surface);
+      border:1px solid rgba(16,25,21,.08);
+      box-shadow:0 10px 18px rgba(18,34,28,.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 12px 12px 16px;
+    }
+    .save-state{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-width:0;
+    }
+    .save-dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--bw-primary);
+      flex:0 0 10px;
+      margin-top:6px;
+    }
+    .save-copy{
+      font-size:13px;
+      font-weight:800;
+      color:var(--bw-text-primary);
+      line-height:1.25;
+      margin-bottom:2px;
+    }
+    .save-sub{
+      font-size:12px;
+      color:var(--bw-text-secondary);
+      line-height:1.35;
+    }
+    .save-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      flex:0 0 auto;
+    }
+    .save-cta{
+      min-width:148px;
+      min-height:42px;
+      border-radius:14px;
+      background:var(--bw-primary);
+      border:1px solid var(--bw-primary);
+      color:#fff;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:800;
+      padding:0 18px;
+      text-decoration:none;
+    }
+
+    .toolbar .btn,
+    .toolbar .segment-option{
+      min-height:44px;
+      font-size:13px;
+    }
+    .toolbar .btn-icon{
+      width:44px;
+    }
+    .toolbar .btn-control{
+      padding:0 16px;
+    }
+    .day-card .time-field{
+      min-height:44px;
+      padding:0 10px;
+    }
+    .day-card .time-main,
+    .day-card .time-main .ampm{
+      font-size:12px;
+    }
+    .day-card .btn-block{
+      min-height:44px;
+      padding:0 14px;
+    }
+
+    .btn-secondary-active{
+      background:rgba(130,177,148,.12);
+      border-color:rgba(130,177,148,.78);
+      color:var(--bw-text-primary);
+      box-shadow:none;
+    }
+    .btn-secondary-active:hover{
+      background:rgba(130,177,148,.16);
+    }
+    @media (max-width: 1180px){
+      .content-grid{flex-direction:column}
+      .selection-panel{
+        max-width:none;
+        width:auto;
+        flex:0 0 auto;
+        max-height:none;
+      }
+      .days-scroll{
+        overflow:visible;
+        padding-top:8px;
+        padding-right:0;
+        margin-right:0;
+      }
+    }
+    @media (max-width: 980px){
+      .availability-layout{flex-direction:column}
+      .sidebar{width:auto;position:relative;top:auto;min-height:auto}
+      .menu-scroll{max-height:none}
+    }
+    @media (max-width: 760px){
+      .availability-main{padding:22px 0 24px}
+      h1{font-size:40px}
+      .hero{margin-bottom:26px}
+      .toolbar{grid-template-columns:1fr;justify-items:start}
+      .month-wrap{justify-items:start}
+      .day-card-top{grid-template-columns:1fr;grid-template-areas:"meta" "from" "to";}
+      .day-meta{grid-column:auto; align-items:baseline;}
+      .calendar-zone{padding:18px 18px 116px}
+      .save-bar-wrap.is-floating{left:18px;right:18px;width:auto;bottom:14px}
+      .save-pill{align-items:stretch;flex-direction:column;padding:14px}
+      .save-actions{width:100%}
+      .save-actions .btn,.save-actions .save-cta{width:100%}
+      .calendar-grid{overflow-x:auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="availability-layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark"></span><span>Panel Profesional</span></div>
+      <div class="menu-scroll">
+        <div class="section-label">Registro</div>
+        <nav class="nav">
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V20h14V9.5"></path></svg></span><span>Inicio</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M4 20a8 8 0 0 1 16 0"></path></svg></span><span>Datos Personales</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M5 19.5c2.2-3.2 11.8-3.2 14 0"></path><path d="M4 4h16"></path></svg></span><span>Perfil Público</span></a>
+          <a class="nav-item active" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span><span>Disponibilidad</span></a>
+        </nav>
+        <div class="section-label">Administración</div>
+        <nav class="nav">
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M7 4h10"></path><path d="M7 8h10"></path><path d="M7 12h10"></path><path d="M7 16h6"></path><path d="M5 4v16h14V4"></path></svg></span><span>Artículos</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M7.5 3.5v4"></path><path d="M16.5 3.5v4"></path><path d="M3.5 9.5h17"></path></svg></span><span>Mis Reservas</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M5 6.5h14"></path><path d="M5 12h14"></path><path d="M5 17.5h10"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect></svg></span><span>Mis Consultas</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M7 14h4"></path></svg></span><span>Mis Pagos</span></a>
+        </nav>
+      </div>
+      <div class="sidebar-spacer"></div>
+      <div class="user-mini">Andrés Camarano •<br>Profesional</div>
+      <a class="logout" href="#"><span class="nav-icon" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M10 17l-5-5 5-5"></path><path d="M5 12h10"></path><path d="M14 5h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"></path></svg></span><span>Cerrar sesión</span></a>
+    </aside>
+
+    <main class="availability-main">
+      <div class="hero">
+        <div class="hero-mark">✦</div>
+        <h1>Disponibilidad</h1>
+      </div>
+
+      <div class="content-grid">
+        <section class="calendar-zone" id="calendar-zone">
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <button class="btn btn-icon" type="button" aria-label="Mes anterior">
+                <span class="mini-icon"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg></span>
+              </button>
+              <button class="btn btn-icon" type="button" aria-label="Mes siguiente">
+                <span class="mini-icon"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg></span>
+              </button>
+              <button class="btn btn-control" type="button">Hoy</button>
+            </div>
+            <div class="month-wrap">
+              <div class="month-title">Abril de 2026</div>
+              <div class="legend"><span class="legend-dot"></span><span>Días reservados</span></div>
+            </div>
+            <div class="toolbar-right">
+              <div class="segment" role="tablist" aria-label="Vista de calendario">
+                <button class="segment-option active" type="button" aria-selected="true">Mes</button>
+                <button class="segment-option" type="button" aria-selected="false">Semana</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="calendar-board">
+            <div class="calendar-grid">
+              <div class="weekday"><span>Dom.</span><small>4/1</small></div>
+              <div class="weekday"><span>Lun.</span><small>5/1</small></div>
+              <div class="weekday"><span>Mar.</span><small>6/1</small></div>
+              <div class="weekday"><span>Mié.</span><small>7/1</small></div>
+              <div class="weekday"><span>Jue.</span><small>8/1</small></div>
+              <div class="weekday"><span>Vie.</span><small>9/1</small></div>
+              <div class="weekday"><span>Sáb.</span><small>10/1</small></div>
+
+              <div class="day-cell is-muted"></div>
+              <div class="day-cell is-muted"></div>
+              <div class="day-cell is-muted"></div>
+              <div class="day-cell"><span class="day-num">1</span></div>
+              <div class="day-cell"><span class="day-num">2</span></div>
+              <div class="day-cell"><span class="day-num">3</span></div>
+              <div class="day-cell"><span class="day-num">4</span></div>
+
+              <div class="day-cell"><span class="day-num">5</span></div>
+              <div class="day-cell"><span class="day-num">6</span></div>
+              <div class="day-cell"><span class="day-num">7</span></div>
+              <div class="day-cell"><span class="day-num">8</span></div>
+              <div class="day-cell"><span class="day-num">9</span></div>
+              <div class="day-cell"><span class="day-num">10</span></div>
+              <div class="day-cell"><span class="day-num">11</span></div>
+
+              <div class="day-cell"><span class="day-num">12</span></div>
+              <div class="day-cell"><span class="day-num">13</span></div>
+              <div class="day-cell"><span class="day-num">14</span></div>
+              <div class="day-cell"><span class="day-num">15</span></div>
+              <div class="day-cell"><span class="day-num">16</span></div>
+              <div class="day-cell"><span class="day-num">17</span></div>
+              <div class="day-cell"><span class="day-num">18</span></div>
+
+              <div class="day-cell"><span class="day-num">19</span></div>
+              <div class="day-cell is-highlight"><span class="day-num">20</span></div>
+              <div class="day-cell"><span class="selected-day-badge">21</span><span class="availability-chip-calendar"><span>9:00 AM - 10:00 AM</span><span>Disponible</span></span></div>
+              <div class="day-cell"><span class="selected-day-badge secondary">22</span></div>
+              <div class="day-cell"><span class="day-num">23</span></div>
+              <div class="day-cell"><span class="day-num">24</span></div>
+              <div class="day-cell"><span class="day-num">25</span></div>
+
+              <div class="day-cell"><span class="day-num">26</span></div>
+              <div class="day-cell"><span class="day-num">27</span></div>
+              <div class="day-cell"><span class="day-num">28</span></div>
+              <div class="day-cell"><span class="day-num">29</span></div>
+              <div class="day-cell"><span class="day-num">30</span></div>
+              <div class="day-cell is-muted"></div>
+              <div class="day-cell is-muted"></div>
+            </div>
+          </div>
+
+          <div class="save-bar-wrap is-floating" id="save-bar-wrap">
+            <div class="save-pill">
+              <div class="save-state">
+                <div class="save-dot"></div>
+                <div>
+                  <div class="save-copy">Tenés cambios sin guardar</div>
+                  <div class="save-sub">Guardalos para actualizar la información visible en tu disponibilidad.</div>
+                </div>
+              </div>
+              <div class="save-actions">
+                <button class="btn btn-secondary" type="button" style="min-width:108px; border-radius:14px;">Salir</button>
+                <button class="save-cta" type="button">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="selection-panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="2"></rect><path d="M8 3.5v4"></path><path d="M16 3.5v4"></path><path d="M4 9.5h16"></path></svg></span>
+              <h2>Días seleccionados</h2>
+            </div>
+            <a class="panel-link" href="#">Limpiar</a>
+          </div>
+
+          <div class="chips">
+            <span class="chip active">mar, 21 abr <span class="close">×</span></span>
+            <span class="chip">mié, 22 abr <span class="close">×</span></span>
+          </div>
+
+          <div class="days-scroll">
+          <div class="day-card active">
+            <div class="day-card-top">
+              <div class="day-meta">
+                <h2>Martes</h2>
+                <p>21/4/2026</p>
+              </div>
+              <div class="time-col">
+                <div class="time-col-label">Desde</div>
+                <div class="time-field">
+                  <span class="time-main">09:00 <span class="ampm">AM</span></span>
+                  <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span>
+                </div>
+              </div>
+              <div class="time-col">
+                <div class="time-col-label">Hasta</div>
+                <div class="time-field">
+                  <span class="time-main">05:00 <span class="ampm">PM</span></span>
+                  <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span>
+                </div>
+              </div>
+            </div>
+            <div class="day-card-body">
+              <button class="btn btn-secondary btn-secondary-active btn-block" type="button">Agregar disponibilidad</button>
+              <div class="schedule-group">
+                <div class="schedule-group-head">
+                  <span class="schedule-group-title">Horarios agregados</span>
+                  <span class="schedule-count">1</span>
+                </div>
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <span class="schedule-item-main"><span class="schedule-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span><strong>09:00 AM - 10:00 AM</strong></span>
+                    <span class="remove">×</span>
+                  </div>
+                </div>
+                <div class="schedule-note">Podés agregar más franjas horarias para este día.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="day-card">
+            <div class="day-card-top">
+              <div class="day-meta">
+                <h2>Miércoles</h2>
+                <p>22/4/2026</p>
+              </div>
+              <div class="time-col">
+                <div class="time-col-label">Desde</div>
+                <div class="time-field">
+                  <span class="time-main">09:00 <span class="ampm">AM</span></span>
+                  <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span>
+                </div>
+              </div>
+              <div class="time-col">
+                <div class="time-col-label">Hasta</div>
+                <div class="time-field">
+                  <span class="time-main">05:00 <span class="ampm">PM</span></span>
+                  <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span>
+                </div>
+              </div>
+            </div>
+            <div class="day-card-body">
+              <button class="btn btn-secondary btn-secondary-active btn-block" type="button">Agregar disponibilidad</button>
+              <div class="schedule-group">
+                <div class="schedule-group-head">
+                  <span class="schedule-group-title">Horarios agregados</span>
+                  <span class="schedule-count">0</span>
+                </div>
+                <div class="schedule-list">
+                  <div class="schedule-item schedule-empty">
+                    <span class="schedule-item-main"><span class="schedule-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span><span>Todavía no agregaste horarios.</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </div>
+
+          <div class="panel-actions">
+            <button class="btn btn-secondary" type="button">Volver</button>
+            <button class="btn btn-primary" type="button">Guardar cambios</button>
+          </div>
+        </aside>
+      </div>
+
+    </main>
+  </div>
+<script>
+  (function(){
+    const zone = document.getElementById('calendar-zone');
+    const saveBar = document.getElementById('save-bar-wrap');
+    if(!zone || !saveBar) return;
+
+    function updateSaveBarPosition(){
+      const rect = zone.getBoundingClientRect();
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+      let left = rect.left;
+      let width = rect.width;
+
+      if (viewportWidth <= 760) {
+        saveBar.style.setProperty('--savebar-left', '18px');
+        saveBar.style.setProperty('--savebar-width', Math.max(0, viewportWidth - 36) + 'px');
+        return;
+      }
+
+      saveBar.style.setProperty('--savebar-left', Math.round(left) + 'px');
+      saveBar.style.setProperty('--savebar-width', Math.round(width) + 'px');
+    }
+
+    updateSaveBarPosition();
+    window.addEventListener('resize', updateSaveBarPosition);
+    window.addEventListener('load', updateSaveBarPosition);
+    window.addEventListener('orientationchange', updateSaveBarPosition);
+  })();
+</script>
+</body>
+</html>

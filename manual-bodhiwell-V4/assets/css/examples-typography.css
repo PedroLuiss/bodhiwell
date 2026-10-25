@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap");
+
+:root{
+  --examples-font:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --examples-primary:#82B194;
+  --examples-text:#13231D;
+  --examples-muted:rgba(19,35,29,.68);
+}
+
+html,
+body,
+body *,
+body *::before,
+body *::after{
+  font-family:var(--examples-font) !important;
+  font-style:normal !important;
+  font-variation-settings:"ital" 0;
+}
+
+code,
+pre,
+kbd,
+samp{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace !important;
+}
+
+.eyebrow,
+.preview-eyebrow{
+  display:inline-block;
+  margin:0 0 12px !important;
+  padding:0 !important;
+  font-size:12px !important;
+  line-height:1.2 !important;
+  font-weight:800 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+  color:var(--examples-primary) !important;
+  vertical-align:top;
+}
+
+.wrap > h1,
+.wrap > .title,
+.preview-title,
+.section-title,
+.profile-name{
+  color:var(--examples-text);
+  font-weight:800 !important;
+  letter-spacing:-.045em !important;
+}
+
+.wrap > h1,
+.wrap > .title,
+.preview-title,
+.section-title{
+  line-height:1.04 !important;
+}
+
+.wrap > h1,
+.section-title{
+  font-size:56px !important;
+}
+
+.preview-title{
+  font-size:56px !important;
+  max-width:12ch;
+}
+
+.profile-name{
+  line-height:1.05 !important;
+}
+
+.wrap > .copy,
+.wrap > p.copy{
+  max-width:760px;
+  font-size:18px !important;
+  line-height:1.72 !important;
+  color:var(--examples-muted) !important;
+}
+
+.panel h2,
+.specs h2,
+.preview-card h2,
+.profile-section-title,
+.step-title{
+  color:var(--examples-text);
+  font-weight:800 !important;
+  letter-spacing:-.03em !important;
+  line-height:1.08 !important;
+}
+
+.panel h2,
+.specs h2,
+.preview-card h2,
+.profile-section-title{
+  font-size:32px;
+}
+
+.step-title{
+  font-size:28px !important;
+}
+
+.panel h3,
+.specs h3,
+.preview-card h3,
+.related-card h3,
+.footer-links h3{
+  color:var(--examples-text);
+  font-weight:800 !important;
+  letter-spacing:-.02em !important;
+}
+
+@media (max-width: 860px){
+  .wrap > h1,
+  .wrap > .title,
+  .preview-title,
+  .section-title{
+    font-size:42px !important;
+  }
+
+  .panel h2,
+  .specs h2,
+  .preview-card h2,
+  .profile-section-title{
+    font-size:28px;
+  }
+}

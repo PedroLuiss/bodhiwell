@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhiwell — Preguntas frecuentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/base-oficial.css" />
+  <link rel="stylesheet" href="../assets/css/examples-typography.css">
+  <style>
+    .faq-page{
+      --faq-stack-eyebrow-title:12px;
+      --faq-stack-title-body:20px;
+      display:grid;
+      gap:24px;
+    }
+    .preview-main{
+      padding-top:0;
+      padding-bottom:72px;
+    }
+    .faq-hero{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(0, 1.62fr);
+      gap:0;
+      align-items:stretch;
+      background:var(--bg-surface);
+      border:1px solid var(--border-soft);
+      border-radius:var(--radius-card);
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .faq-hero__card{
+      background:var(--bg-surface);
+      padding:32px;
+      display:grid;
+      align-content:center;
+      min-height:360px;
+      border-right:1px solid var(--border-soft);
+    }
+
+    .faq-hero__title{
+      margin:0 0 var(--faq-stack-title-body);
+      max-width:10.5ch;
+      font-size:56px;
+      line-height:1.02;
+      letter-spacing:-.045em;
+      font-weight:800;
+      color:var(--text-main);
+    }
+
+    .faq-hero__copy{
+      margin:0;
+      max-width:38ch;
+      font-size:16px;
+      line-height:1.68;
+      color:var(--text-muted);
+    }
+
+    .faq-hero__actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .faq-hero__media{
+      position:relative;
+      min-height:360px;
+      overflow:hidden;
+      background:#E9EEE9;
+    }
+
+    .faq-hero__media img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:center center;
+    }
+
+    .faq-hero__media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, rgba(240,240,236,.08) 0%, rgba(240,240,236,0) 34%);
+      pointer-events:none;
+    }
+
+    .faq-hero__badge{
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      margin:0 0 16px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(130,177,148,.12);
+      color:var(--text-main);
+      font-size:13px;
+      line-height:1.3;
+      font-weight:600;
+    }
+
+    .faq-hero .btn-green,
+    .faq-next .btn-green{
+      color:#fff !important;
+    }
+
+    .header-btn.btn-green{
+      color:#82B194 !important;
+    }
+
+    .faq-layout{
+      display:grid;
+      grid-template-columns:290px minmax(0,1fr);
+      gap:24px;
+      align-items:start;
+    }
+
+    .faq-nav{
+      position:sticky;
+      top:108px;
+      background:var(--bg-surface);
+      border:1px solid var(--border-soft);
+      border-radius:var(--radius-card-sm);
+      padding:20px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:10px;
+    }
+
+    .faq-nav__title{
+      margin:0 0 6px;
+      font-size:14px;
+      line-height:1.3;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#6A6E67;
+    }
+
+    .faq-nav a{
+      display:block;
+      padding:12px 14px;
+      border-radius:16px;
+      color:var(--text-main);
+      font-size:14px;
+      line-height:1.45;
+      font-weight:600;
+      transition:background-color .2s ease, color .2s ease;
+    }
+
+    .faq-nav a:hover{
+      background:rgba(130,177,148,.12);
+      color:var(--text-main);
+    }
+
+    .faq-groups{
+      display:grid;
+      gap:18px;
+    }
+
+    .faq-group{
+      background:var(--bg-surface);
+      border:1px solid var(--border-soft);
+      border-radius:var(--radius-card);
+      padding:28px;
+      box-shadow:var(--shadow-soft);
+      scroll-margin-top:108px;
+    }
+
+    .faq-group__title,
+    .faq-next__title{
+      margin:0 0 20px;
+      font-size:36px;
+      line-height:1.08;
+      letter-spacing:-.045em;
+      color:var(--text-main);
+      font-weight:800;
+    }
+
+    .faq-group__intro{
+      margin:0 0 22px;
+      max-width:62ch;
+      color:var(--text-muted);
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    .faq-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .faq-item{
+      background:#FBFAF7;
+      border:1px solid var(--border-soft);
+      border-radius:22px;
+      overflow:hidden;
+      transition:border-color .2s ease, background-color .2s ease;
+    }
+
+    .faq-item[open]{
+      background:#FCFBF8;
+      border-color:rgba(130,177,148,.32);
+    }
+
+    .faq-item summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:18px 20px;
+    }
+
+    .faq-item summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .faq-item__q{
+      font-size:16px;
+      line-height:1.62;
+      font-weight:600;
+      color:var(--text-main);
+    }
+
+    .faq-item__icon{
+      width:30px;
+      height:30px;
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      background:rgba(130,177,148,.14);
+      color:var(--text-main);
+      font-size:18px;
+      font-weight:500;
+      transition:transform .2s ease, background-color .2s ease;
+    }
+
+    .faq-item[open] .faq-item__icon{
+      transform:rotate(45deg);
+      background:rgba(130,177,148,.22);
+    }
+
+    .faq-item__a{
+      padding:0 20px 20px;
+    }
+
+    .faq-item__a p{
+      margin:0;
+      color:var(--text-muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .faq-next{
+      display:grid;
+      grid-template-columns:minmax(0, 760px) auto;
+      grid-template-rows:auto auto;
+      align-items:start;
+      gap:28px 40px;
+      padding:0;
+      margin-top:14px;
+      border-top:1px solid var(--border-soft);
+    }
+
+    .faq-next__content{
+      grid-column:1;
+      grid-row:1;
+      min-width:0;
+      max-width:760px;
+    }
+
+    .faq-next__content > .preview-eyebrow{
+      margin:0 0 12px !important;
+    }
+
+    .faq-next__title{
+      max-width:none;
+      white-space:nowrap;
+    }
+
+    .faq-next__copy{
+      margin:18px 0 0;
+      max-width:58ch;
+      color:var(--text-muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .faq-next__actions{
+      grid-column:2;
+      grid-row:2;
+      display:flex;
+      justify-content:flex-end;
+      align-items:flex-end;
+      align-self:start;
+      flex-wrap:wrap;
+      gap:14px;
+      margin:0;
+      padding:0 clamp(44px, 6vw, 104px) 0 0;
+      border:0;
+    }
+
+    @media (max-width: 1080px){
+      .faq-hero,
+      .faq-layout{
+        grid-template-columns:1fr;
+      }
+
+      .faq-hero__card,
+      .faq-hero__media{
+        min-height:auto;
+      }
+
+      .faq-hero__card{
+        border-right:none;
+        border-bottom:1px solid var(--border-soft);
+      }
+
+      .faq-hero__title,
+      .faq-next__title{
+        max-width:none;
+      }
+
+      .faq-nav{
+        position:static;
+      }
+
+      .faq-next{
+        grid-template-columns:1fr;
+        grid-template-rows:auto auto;
+        gap:18px;
+      }
+
+      .faq-next__title{
+        white-space:normal;
+      }
+
+      .faq-next__content,
+      .faq-next__actions{
+        grid-column:1;
+        grid-row:auto;
+      }
+
+      .faq-next__actions{
+        justify-content:flex-start;
+        padding:0;
+      }
+    }
+
+    @media (max-width: 720px){
+      .preview-main{
+        padding:8px 0 36px;
+      }
+
+      .preview-container{
+        padding-left:var(--gutter-mobile);
+        padding-right:var(--gutter-mobile);
+      }
+
+      .faq-hero__card,
+      .faq-group{
+        padding:24px 22px;
+        border-radius:28px;
+      }
+
+      .faq-hero{
+        border-radius:28px;
+      }
+
+      .faq-hero__media{
+        min-height:280px;
+      }
+
+      .faq-hero__title{
+        font-size:42px;
+      }
+
+      .faq-group__title,
+      .faq-next__title{
+        font-size:30px;
+      }
+
+      .faq-next__title{
+        white-space:normal;
+      }
+    }
+  </style>
+</head>
+<body class="preview-body">
+
+<header class="header" id="mainHeader">
+  <div class="header-inner">
+    <a class="logo" href="00-home-landing.html" aria-label="Bodhiwell">
+      <img src="../assets/img/brand/logo-bodhiwell-color.png" alt="Bodhiwell">
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="00-home-landing.html#acerca">Acerca de</a>
+      <a href="00-home-landing.html#como-funciona">¿Cómo funciona?</a>
+      <a href="00-home-landing.html#comunidad">Comunidad</a>
+      <a href="../patterns/blog/index.html">Blog</a>
+      <a href="00-home-landing.html#contacto">Contacto</a>
+    </nav>
+
+    <div class="actions">
+      <button class="lang-switch" type="button" aria-label="Idioma actual: Español">
+        <img src="../assets/img/brand/mundo.png" alt="" aria-hidden="true">
+        <span>ES</span>
+      </button>
+      <a class="login-link" href="12-profile-creation.html">Acceder</a>
+      <a class="btn btn-outline header-btn btn-green" href="12-profile-creation.html">Crear mi cuenta</a>
+    </div>
+  </div>
+</header>
+
+<main class="preview-main">
+  <div class="preview-container faq-page">
+
+    <section class="faq-hero" id="acerca">
+      <article class="faq-hero__card">
+        <p class="preview-eyebrow">Preguntas frecuentes</p>
+                <h1 class="faq-hero__title">Respuestas simples para orientarte mejor</h1>
+        <p class="faq-hero__copy">
+          Encontrá las dudas más comunes sobre Bodhiwell y su funcionamiento en un formato claro, cercano y fácil de recorrer.
+        </p>
+
+        <div class="faq-hero__actions">
+          <a class="btn btn-green" href="#faq-sobre">Explorar preguntas</a>
+        </div>
+      </article>
+
+      <div class="faq-hero__media" aria-hidden="true">
+        <img src="../assets/img/examples/faq-hero-apoyo.jpg" alt="Manos en gesto de acompañamiento">
+      </div>
+    </section>
+
+    <section class="faq-layout" aria-label="Listado de preguntas frecuentes">
+      <aside class="faq-nav">
+        <p class="faq-nav__title">Categorías</p>
+        <a href="#faq-sobre">Sobre Bodhiwell</a>
+        <a href="#faq-registro">Registro y acceso</a>
+        <a href="#faq-consultas">Consultas y reservas</a>
+        <a href="#faq-planes">Planes y suscripciones</a>
+        <a href="#faq-privacidad">Privacidad y uso de datos</a>
+        <a href="#faq-profesionales">Profesionales de la salud</a>
+      </aside>
+
+      <div class="faq-groups">
+        <section class="faq-group" id="faq-sobre">
+          <h2 class="faq-group__title">Sobre Bodhiwell</h2>
+          <p class="faq-group__intro">
+            Un primer bloque para entender qué es la plataforma, qué propone y desde qué mirada acompaña.
+          </p>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>
+                <span class="faq-item__q">¿Qué es Bodhiwell?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Bodhiwell es una plataforma y una comunidad que conecta consultantes y profesionales de la salud desde una mirada integradora, humana y consciente.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Bodhiwell es una clínica?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>No. Bodhiwell no funciona como una clínica, sino como un espacio que facilita el encuentro entre personas y profesionales de distintas áreas de la salud.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Qué propone Bodhiwell de forma diferente?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Bodhiwell busca tender puentes entre enfoques, promover el intercambio y acercar contenido de valor, favoreciendo una comprensión menos fragmentada de la salud.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Qué tipo de profesionales participan en Bodhiwell?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Pueden formar parte profesionales provenientes de la medicina convencional, integrativa, complementaria y otras disciplinas vinculadas al bienestar y al acompañamiento de la salud humana.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Cuál es la mirada de Bodhiwell sobre la salud?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Bodhiwell entiende la salud de manera amplia e integradora, reconociendo que distintas miradas pueden convivir y complementarse en favor del bienestar.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="faq-group" id="faq-registro">
+          <h2 class="faq-group__title">Registro y acceso</h2>
+          <p class="faq-group__intro">
+            Preguntas vinculadas al ingreso a la plataforma, la creación de cuenta y el uso de datos reales.
+          </p>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Necesito registrarme para usar Bodhiwell?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Para acceder a determinadas funciones, como reservar una consulta o gestionar tu perfil, sí.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Por qué es importante registrarse con datos reales?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Porque ayuda a construir una experiencia más confiable, ordenada y segura para todos los actores que forman parte de la plataforma.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Puedo acceder sin contratar un plan?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí, según la modalidad disponible. Algunas funciones pueden estar sujetas al tipo de cuenta o plan activo.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="faq-group" id="faq-consultas">
+          <span id="como-funciona" aria-hidden="true"></span>
+          <h2 class="faq-group__title">Consultas y reservas</h2>
+          <p class="faq-group__intro">
+            Un bloque orientado a explicar el proceso de reserva y la dinámica de acompañamiento dentro de la plataforma.
+          </p>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Cómo funciona la reserva de consultas?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>La reserva se realiza a través de la plataforma y queda confirmada cuando se completa correctamente el proceso correspondiente.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Cuándo queda confirmada una reserva?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>La reserva queda validada una vez procesado el pago a través de los medios aceptados por la plataforma.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Las consultas son presenciales o virtuales?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Depende de la modalidad ofrecida por cada profesional. Dentro de la plataforma pueden existir ambas opciones.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Puedo atenderme con más de un profesional?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí. Parte de la propuesta de Bodhiwell es facilitar un acompañamiento más amplio, donde distintas miradas puedan complementarse cuando eso aporte valor al proceso de cada persona.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Puedo cancelar una consulta?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí. Las cancelaciones podrán realizarse dentro del plazo definido por la plataforma y estarán sujetas a las condiciones vigentes al momento de la reserva.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="faq-group" id="faq-planes">
+          <h2 class="faq-group__title">Planes y suscripciones</h2>
+          <p class="faq-group__intro">
+            Respuestas breves sobre los distintos tipos de planes y la lógica general de suscripción.
+          </p>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Bodhiwell ofrece planes o suscripciones?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí. La plataforma contempla distintos tipos de planes, pensados para acompañar diferentes necesidades de uso.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿La suscripción se renueva automáticamente?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí, salvo que se indique lo contrario en las condiciones del plan contratado.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Qué sucede si hay una dificultad con el pago?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Puede existir un período de gracia antes de la cancelación, según las condiciones activas de la suscripción.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Puedo cambiar de plan más adelante?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí, sujeto a las condiciones operativas y comerciales de la plataforma.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="faq-group" id="faq-privacidad">
+          <h2 class="faq-group__title">Privacidad y uso de datos</h2>
+          <p class="faq-group__intro">
+            Un área destinada a responder dudas frecuentes sobre resguardo, tratamiento y acceso a la información.
+          </p>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Cómo se protege mi información personal?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>La gestión de datos personales se realiza bajo criterios de privacidad, resguardo y uso responsable, de acuerdo con las políticas de la plataforma.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Mi información se comparte con profesionales?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Solo dentro del marco necesario para el correcto funcionamiento de la experiencia y del acompañamiento brindado a través de la plataforma.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Dónde puedo leer los términos y la política de privacidad?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>En las secciones legales correspondientes, disponibles dentro del sitio.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="faq-group" id="faq-profesionales">
+          <span id="profesionales" aria-hidden="true"></span>
+          <h2 class="faq-group__title">Profesionales de la salud</h2>
+          <p class="faq-group__intro">
+            Un cierre enfocado en la comunidad profesional y en la lógica colaborativa que propone Bodhiwell.
+          </p>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Puedo formar parte de Bodhiwell como profesional?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí. Bodhiwell también está pensado como una comunidad para profesionales interesados en una mirada colaborativa e integradora de la salud.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Cómo puedo postularme como profesional?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>A través de los canales o formularios habilitados por la plataforma para ese fin.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Qué busca Bodhiwell en los profesionales que se suman?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Una disposición a acompañar desde el profesionalismo, el respeto, la apertura al intercambio y una visión amplia del bienestar.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">¿Bodhiwell promueve el trabajo entre distintas disciplinas?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a"><p>Sí. La plataforma nace justamente de la necesidad de generar más diálogo, sinergia y colaboración entre enfoques que muchas veces funcionan por separado.</p></div>
+            </details>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="faq-next" id="cta-final">
+      <div class="faq-next__content">
+        <p class="preview-eyebrow">Siguiente paso</p>
+        <h2 class="faq-next__title">¿Cuál es tu próximo paso?</h2>
+        <p class="faq-next__copy">
+          Si ya resolviste tus dudas, podés explorar los profesionales disponibles en Bodhiwell
+          y seguir avanzando en el acompañamiento que estás buscando.
+        </p>
+      </div>
+      <div class="faq-next__actions">
+        <a class="btn btn-green" href="06-professionals-grid.html">Conocer profesionales</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<span id="blog" aria-hidden="true"></span>
+
+<footer class="footer" id="contacto">
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../assets/img/brand/logo-bodhiwell-color.png" alt="Bodhiwell">
+        <p>
+          Bodhiwell integra salud, conciencia y comunidad para acompañar 
+          una nueva forma de comprender y buscar el bienestar humano.
+        </p>
+      </div>
+
+      <div class="footer-aside">
+        <div class="footer-links">
+          <h3>Enlaces rápidos</h3>
+          <a href="00-home-landing.html#acerca">Acerca de</a>
+          <a href="00-home-landing.html#como-funciona">¿Cómo funciona?</a>
+          <a href="00-home-landing.html#comunidad">Comunidad</a>
+          <a href="../patterns/blog/index.html">Blog</a>
+          <a href="00-home-landing.html#contacto">Contacto</a>
+        </div>
+
+        <div class="footer-social">
+          <h3>Seguinos</h3>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div><a href="#">Términos y condiciones</a></div>
+      <div class="footer-contact">hola@bodhiwell.com</div>
+      <div class="footer-copy">© 2026 Bodhiwell. Todos los derechos reservados.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("mainHeader");
+    if (!header) return;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    });
+  });
+</script>
+</body>
+</html>

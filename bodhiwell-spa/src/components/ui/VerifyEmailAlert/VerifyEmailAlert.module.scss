@@ -1,0 +1,209 @@
+@import '../../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-gold: $color-gold;
+$bw-text: $text-main;
+$bw-muted: $text-muted;
+$bw-border: $color-border;
+$bw-radius-xl: $radius-xl;
+$bw-shadow-float: $shadow-card;
+
+.email-alert {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 100%;
+  max-width: 400px;
+  z-index: 9999;
+  font-family: "Sora", sans-serif;
+  animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &__card {
+    background-color: $color-surface;
+    padding: 24px;
+    border-radius: $bw-radius-xl;
+    box-shadow: $bw-shadow-float;
+    border: 1px solid $bw-border;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+  }
+
+  &__icon-box {
+    width: 44px;
+    height: 44px;
+    background: rgba($bw-gold, 0.1);
+    color: $bw-gold;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1px solid rgba($bw-gold, 0.2);
+  }
+
+  &__title-group {
+    flex: 1;
+    text-align: left;
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $bw-primary;
+    margin-bottom: 2px;
+  }
+
+  &__title {
+    font-size: 17px;
+    font-weight: 800;
+    color: $bw-text;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: transparent;
+    border: none;
+    color: $bw-muted;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.2s;
+
+    &:hover {
+      opacity: 1;
+      background-color: #F3F5F2;
+      color: $bw-text;
+    }
+  }
+
+  &__body {
+    text-align: left;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $bw-muted;
+    line-height: 1.5;
+    margin: 0 0 12px;
+    font-weight: 500;
+  }
+
+  &__info-box {
+    background-color: $color-surface-soft;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: $bw-muted;
+    border: 1px solid rgba(16, 25, 21, 0.04);
+    box-shadow: 0 2px 4px rgba(16, 25, 21, 0.02);
+
+    span { display: block; margin-bottom: 2px; opacity: 0.7; }
+    strong { color: $bw-text; font-weight: 700; word-break: break-all; }
+  }
+
+  &__actions {
+    width: 100%;
+    margin-top: 4px;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .email-alert {
+    bottom: 20px;
+    left: 20px;
+    max-width: 380px;
+
+    &__card {
+      padding: 20px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .email-alert {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+    width: auto;
+
+    &__card {
+      padding: 18px;
+      gap: 12px;
+    }
+
+    &__icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      
+      svg {
+        font-size: 20px !important;
+      }
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__eyebrow {
+      font-size: 9px;
+    }
+
+    &__body {
+      gap: 10px;
+    }
+
+    &__text {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    &__info-box {
+      padding: 8px 12px;
+      font-size: 11px;
+    }
+
+    &__actions {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .email-alert {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+
+    &__card {
+      padding: 16px;
+    }
+  }
+}

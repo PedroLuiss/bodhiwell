@@ -1,0 +1,35 @@
+{% set items = field.value ?? [] %}
+<div class="ea-field-wallet-ledgers">
+  {% if items is empty %}
+    <em>No hay movimientos de billetera</em>
+  {% else %}
+    <table class="table table-sm table-striped align-middle">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>UID</th>
+          <th>Operación</th>
+          <th>Monto</th>
+          <th>Wallet</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for wl in items %}
+        <tr>
+          <td>{{ wl.createdAt ? wl.createdAt|date('Y-m-d H:i') : '-' }}</td>
+          <td>{{ wl.uid ?? '-' }}</td>
+          <td>{{ wl.operationType ?? '-' }}</td>
+          <td>{{ wl.amount ?? '-' }}</td>
+          <td>
+            {% if wl.wallet %}
+              {{ wl.wallet.id }}
+            {% else %}
+              -
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>

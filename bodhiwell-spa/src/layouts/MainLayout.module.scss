@@ -1,0 +1,22 @@
+@import '../assets/styles/variables';
+
+p, h1,  h2 , h3 ,h4, h5, h6, a, li {
+  font-family: 'Sora', sans-serif !important;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: clip;
+  
+  &__content {
+    flex-grow: 1;
+    background-color: $color-bg;
+  }
+}
+
+
+
+
+

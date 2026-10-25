@@ -1,0 +1,138 @@
+$primary-color: #7A9E7E; 
+$text-color: #333;
+$hover-bg: #f5f5f5;
+$item-height: 40px; 
+$container-height: 220px; 
+
+.infinite-time-picker {
+  width: 100%;
+
+  @media (max-width: 600px) {
+    min-width: 150px;
+  }
+  @media (max-width: 500px) {
+    width: max-content;
+    min-width: 200px;
+    width: 100%;
+  }
+}
+
+.popover-paper {
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  overflow: hidden;
+  margin-top: 8px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.picker-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $container-height;
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee; 
+}
+
+.picker-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 60px;
+  position: relative;
+
+  &--meridiem {
+      width: 50px;
+      margin-left: 8px;
+  }
+}
+
+.column-label {
+    font-size: 0.75rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+    display: block;
+}
+
+.picker-separator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ccc;
+    margin-top: 24px; 
+    padding: 0 4px;
+}
+
+.scroll-column {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth; 
+    
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar { 
+        display: none;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding-top: calc((#{$container-height} - 28px) / 2 - #{$item-height} / 2);
+    padding-bottom: calc((#{$container-height} - 28px) / 2 - #{$item-height} / 2);
+}
+
+.static-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.scroll-item {
+    height: $item-height;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: $text-color;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+        background-color: $hover-bg;
+    }
+
+    &--selected {
+        background-color: rgba($primary-color, 0.15);
+        color: $primary-color;
+        font-weight: 700;
+        font-size: 15px;
+    }
+}
+
+.picker-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 16px;
+    gap: 8px;
+    background-color: #fff;
+
+    &__button {
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: $primary-color;
+        
+    }
+}

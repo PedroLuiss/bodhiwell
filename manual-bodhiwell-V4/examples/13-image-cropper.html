@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bodhiwell — Carga y recorte de imagen</title>
+<style>
+:root{
+  --font-sans:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --bw-bg:#EFF0EC;
+  --bw-card-surface:#F7F5F1;
+  --bw-card-surface-soft:#F8F6F2;
+  --bw-text:#13231D;
+  --bw-muted:rgba(19,35,29,.70);
+  --bw-border:rgba(16,25,21,.08);
+  --bw-primary:#82B194;
+  --bw-shadow:0 10px 30px rgba(0,0,0,.03);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body,body *,body *::before,body *::after{font-family:var(--font-sans);font-style:normal}
+body{background:var(--bw-bg);color:var(--bw-text)}
+a{text-decoration:none;color:inherit}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-style:normal}
+.bw-manual-nav{position:sticky;top:0;background:var(--bw-surface-card-strong, rgba(247,245,241,.92));backdrop-filter:blur(10px);padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06);display:flex;gap:12px;flex-wrap:wrap;z-index:10}
+.bw-manual-nav a{font-size:14px;color:#374151;padding:8px 12px;border-radius:12px}
+.bw-manual-nav a:hover,.bw-manual-nav a.active{color:#82B194;background:rgba(130,177,148,.10)}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 20px 72px}
+.back{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:14px;border:1px solid rgba(16,25,21,.10);background:var(--bw-surface-card-strong, rgba(247,245,241,.92));font-size:13px;font-weight:800}
+.eyebrow{margin:18px 0 10px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#67A27F}
+.title{margin:0;font-size:44px;line-height:1.04;letter-spacing:-.03em}
+.copy{margin:14px 0 0;max-width:880px;font-size:16px;line-height:1.72;color:var(--bw-muted)}
+.overview{margin-top:26px;display:grid;grid-template-columns:1.04fr .96fr;gap:18px;align-items:start}
+.panel{background:var(--bw-card-surface);border:1px solid var(--bw-border);border-radius:28px;padding:18px;box-shadow:var(--bw-shadow)}
+.panel h2{margin:0;font-size:28px;line-height:1.08;letter-spacing:-.03em}
+.panel p{margin:10px 0 0;color:var(--bw-muted);line-height:1.66}
+.main-frame{display:grid;place-items:center;min-height:360px;padding:12px;border-radius:22px;background:var(--bw-card-surface-soft);border:1px solid var(--bw-border)}
+.main-frame img{max-width:100%;max-height:340px;width:auto;height:auto;display:block;border-radius:16px;border:1px solid rgba(16,25,21,.08);background:#EEF2EE}
+.main-caption{margin-top:10px;font-size:13px;line-height:1.58;color:#516059}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chip{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:14px;background:var(--bw-card-surface-soft);border:1px solid var(--bw-border);font-size:12px;font-weight:800;color:#405149}
+.list{margin:16px 0 0;padding-left:18px;display:grid;gap:8px;color:#435249}
+.list li{line-height:1.58}
+.steps-grid{margin-top:20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.step-card{background:var(--bw-card-surface);border:1px solid var(--bw-border);border-radius:22px;padding:14px;box-shadow:var(--bw-shadow);display:grid;gap:10px}
+.step-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.step-index{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:0 10px;border-radius:999px;background:var(--bw-card-surface-soft);border:1px solid var(--bw-border);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#677A72}
+.step-title{margin:0;font-size:18px;line-height:1.1;letter-spacing:-.02em}
+.step-copy{margin:0;font-size:13px;line-height:1.55;color:#54645c}
+.thumb{display:grid;place-items:center;height:170px;padding:10px;border-radius:18px;background:var(--bw-card-surface-soft);border:1px solid var(--bw-border)}
+.thumb img{max-width:100%;max-height:148px;width:auto;height:auto;display:block;border-radius:14px;border:1px solid rgba(16,25,21,.08);background:#EEF2EE}
+.bottom-note{margin-top:20px;padding:18px;border-radius:22px;background:rgba(130,177,148,.08);border:1px solid rgba(130,177,148,.24);color:#32453b;line-height:1.62}
+.bottom-note strong{display:block;margin-bottom:8px}
+@media (max-width:1040px){
+  .overview,.steps-grid{grid-template-columns:1fr 1fr}
+  .overview{grid-template-columns:1fr}
+  .title{font-size:36px}
+}
+@media (max-width:720px){
+  .steps-grid{grid-template-columns:1fr}
+  .main-frame{min-height:280px}
+  .main-frame img{max-height:250px}
+}
+</style>
+<link rel="stylesheet" href="../assets/css/coherence.css">
+<link rel="stylesheet" href="../assets/css/examples-typography.css">
+</head>
+<body>
+<nav class="bw-manual-nav">
+  <a href="../start-here.html">Inicio</a>
+  <a href="../foundation/00_concepto_bodhiwell.html">Concepto</a>
+  <a href="../foundation/01_tokens.html">Tokens</a>
+  <a href="../foundation/02_componentes_base.html">Componentes</a>
+  <a href="../foundation/03_ejemplos.html">Ejemplos</a>
+  <a class="active" href="./13-image-cropper.html">Ejemplo cropper</a>
+</nav>
+<div class="wrap">
+  <a class="back" href="../foundation/03_ejemplos.html">← Volver a ejemplos</a>
+  <p class="eyebrow">EJEMPLO NAVEGABLE</p>
+  <h1 class="title">Carga y recorte de imagen</h1>
+  <p class="copy">Versión compacta del flujo real del componente. La documentación muestra solo los estados necesarios para entender el recorrido sin repetir la misma idea en varias secciones.</p>
+
+  <section class="overview">
+    <figure class="panel">
+      <div class="main-frame">
+        <img src="../assets/img/examples/cropper-real-exact/step-06-final-review.png" alt="Pantalla real de revisión final del componente">
+      </div>
+      <figcaption class="main-caption">Vista principal del flujo: revisión final con doble preview, acción de volver a editar y CTA de guardado.</figcaption>
+    </figure>
+
+    <article class="panel">
+      <h2>Qué documenta este ejemplo</h2>
+      <p>El componente resuelve siete estados reales: carga inicial, apertura de modal, selección de archivo, recorte horizontal, recorte vertical, revisión final y estado posterior con imagen aplicada.</p>
+      <div class="chips">
+        <span class="chip">--bw-card-surface · #F7F5F1</span>
+        <span class="chip">--bw-card-surface-soft · #F8F6F2</span>
+        <span class="chip">Sora · normal</span>
+        <span class="chip">Radios 16 · 18 · 24 · 999</span>
+      </div>
+      <ul class="list">
+        <li>El CTA sobre foto usa fondo blanco translúcido, borde sutil y blur leve.</li>
+        <li>El selector del sistema se documenta como parte del recorrido, aunque no se diseña desde Bodhiwell.</li>
+        <li>La portada usa relación 16/7 y la tarjeta usa 4/5.</li>
+        <li>El modal debe declararse con tipografía explícita y accesibilidad mínima.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="steps-grid">
+    <article class="step-card">
+      <div class="step-head"><span class="step-index">Paso 1</span></div>
+      <h2 class="step-title">Estado inicial</h2>
+      <p class="step-copy">Área de carga vacía con CTA centrado.</p>
+      <div class="thumb"><img src="../assets/img/examples/cropper-real-exact/step-01-empty.png" alt="Estado inicial vacío del componente"></div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-index">Paso 2</span></div>
+      <h2 class="step-title">Modal de carga</h2>
+      <p class="step-copy">Paso, título, helper y acción principal.</p>
+      <div class="thumb"><img src="../assets/img/examples/cropper-real-exact/step-02-upload-modal.png" alt="Modal de carga de imagen"></div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-index">Paso 3</span></div>
+      <h2 class="step-title">Selector de archivo</h2>
+      <p class="step-copy">Interacción del sistema operativo antes del recorte.</p>
+      <div class="thumb"><img src="../assets/img/examples/cropper-real-exact/step-03-system-picker.png" alt="Selector de archivo del sistema operativo"></div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-index">Paso 4</span></div>
+      <h2 class="step-title">Portada 16/7</h2>
+      <p class="step-copy">Encuadre horizontal con movimiento y zoom.</p>
+      <div class="thumb"><img src="../assets/img/examples/cropper-real-exact/step-04-cover-crop.png" alt="Paso de ajuste de portada del perfil"></div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-index">Paso 5</span></div>
+      <h2 class="step-title">Tarjeta 4/5</h2>
+      <p class="step-copy">Segunda salida vertical para la tarjeta.</p>
+      <div class="thumb"><img src="../assets/img/examples/cropper-real-exact/step-05-card-crop.png" alt="Paso de ajuste de imagen para tarjeta"></div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-index">Paso 6</span></div>
+      <h2 class="step-title">Revisión final</h2>
+      <p class="step-copy">Confirmación conjunta de perfil y tarjeta.</p>
+      <div class="thumb"><img src="../assets/img/examples/cropper-real-exact/step-06-final-review.png" alt="Pantalla de revisión final"></div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-index">Paso 7</span></div>
+      <h2 class="step-title">Imagen aplicada</h2>
+      <p class="step-copy">Estado posterior con CTA para reemplazarla.</p>
+      <div class="thumb"><img src="../assets/img/examples/cropper-real-exact/step-07-change-image.png" alt="Estado del componente con imagen cargada"></div>
+    </article>
+  </section>
+
+  <div class="bottom-note"><strong>Accesibilidad mínima</strong> usar <code>role="dialog"</code>, <code>aria-modal="true"</code>, cierre con tecla Escape y bloqueo de scroll de fondo mientras el modal está abierto.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+@import '../../../assets/styles/variables';
+
+.consultas {
+    padding: 0px 0 64px;
+    text-align: left;
+    background-color: transparent;
+    font-family: $font-main;
+
+    &__wrap {
+        width: min(100%, 1280px);
+        margin: 0 auto;
+        padding-left: 40px; 
+        padding-right: 40px;
+    }
+
+    &__head {
+        max-width: 820px;
+        margin: 0 0 24px; 
+    }
+
+    &__eyebrow {
+        color: $color-primary-hover;
+        font-weight: 700;
+        font-size: $font-size-caption;
+        line-height: 1.35;
+        margin-bottom: 12px !important;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 12px !important;
+        margin: 0px 0px 16px !important;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+    }
+
+    &__title {
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #3B3B3D;
+      margin-bottom: 20px !important;
+      font-size: 48px !important;
+      line-height: 1.04 !important;
+
+      @media (max-width: $breakpoint-md) {
+        font-size: $font-size-title-mobile !important;
+      }
+    }
+
+    &__text {
+      color: #4A4A4A;
+      margin-top: 0px !important;
+      max-width: 760px;
+      font-size: 16px !important;
+      line-height: 1.65 !important;
+      font-weight: 400 !important;
+      margin: 22px 0 0px;
+    }
+
+    &__images {
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        max-width: 980px;
+        margin: 32px auto 0;
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+            gap: 40px;
+            max-width: 520px;
+        }
+    }
+
+    &__image-container {
+        flex: 1;
+        border-radius: 22px;
+        overflow: hidden;
+        margin: 0;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+    }
+
+    &__img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+
+        &:last-child {
+            object-position: 84% center;
+        }
+
+        @media (max-width: 900px) {
+            height: 240px;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .consultas {
+        padding: 4px 0;
+
+        &__title {
+            font-size: $font-size-title-mobile;
+            line-height: 1.08;
+        }
+
+        &__wrap {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}

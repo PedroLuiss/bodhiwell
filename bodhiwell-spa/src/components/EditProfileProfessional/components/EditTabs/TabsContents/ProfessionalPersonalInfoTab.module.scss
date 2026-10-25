@@ -1,0 +1,64 @@
+@import '../../../../../assets/styles/variables';
+
+.info-tab {
+    width: 100%;
+
+    &__title {
+        margin: 0 0 14px;
+        font-size: 26px; 
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        font-weight: 700;
+        color: $text-main;
+    }
+
+    &__helper {
+        margin: -4px 0 18px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: $text-secondary;
+    }
+
+    &__editor-box {
+        min-height: 246px;
+        border-radius: 18px;
+        background: #FFFFFF;
+        border: 1px solid rgba(21, 36, 30, 0.10);
+        overflow: hidden;
+    }
+
+    &__content {
+        padding: 14px 16px 20px;
+        font-size: 14px;
+        line-height: 1.72;
+        color: $text-secondary;
+    }
+
+    &__editor-wrapper {
+        :global {
+            .ql-toolbar {
+                border: none !important;
+                border-bottom: 1px solid rgba(21, 36, 30, 0.1) !important;
+                background: #FFFFFF;
+            }
+            .ql-container {
+                border: none !important;
+                font-family: $font-main !important;
+            }
+            .ql-editor {
+                padding: 14px 16px 20px;
+                min-height: 200px;
+                font-size: 14px;
+                line-height: 1.72;
+            }
+        }
+    }
+
+    &__error {
+        margin-top: 10px;
+        color: $color-error;
+        font-size: 12px;
+        font-weight: 700;
+        display: block;
+    }
+}

@@ -1,0 +1,38 @@
+stages:
+  - deploy
+
+# ==========================================
+# DEVELOPMENT ENVIRONMENT (Local WSL Server)
+# ==========================================
+deploy_development:
+  stage: deploy
+  # Executes only when changes are pushed/merged to 'develop'
+  only:
+    - develop 
+  # Routes the job to the local WSL runner
+  tags:
+    - dev-onpremise
+  script:
+    - cd /home/julio/www/html/repostories/bodhiwell-spa
+    - git pull softmena-gitlab develop
+    - yarn install
+    - CI=false yarn build
+    - pm2 restart bodhiwell-spa
+
+# ==========================================
+# STAGING ENVIRONMENT (Cloud Hetzner Server)
+# ==========================================
+deploy_staging:
+  stage: deploy
+  # Executes only when changes are pushed/merged to 'staging'
+  only:
+    - staging 
+  # Routes the job to the Hetzner cloud runner
+  tags:
+    - staging-cloud
+  script:
+    - cd /var/www/projects/bodhiwell/bodhiwell-spa
+    - git pull softmena-gitlab staging
+    - yarn install
+    - CI=false yarn build
+    - pm2 restart spa-dev-bodhiwell

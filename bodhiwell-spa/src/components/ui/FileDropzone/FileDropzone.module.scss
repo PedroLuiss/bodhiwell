@@ -1,0 +1,50 @@
+$border-color: #d1d5db;
+$primary-color: #7A9E7E;
+
+.dropzone {
+  border: 2px dashed $border-color;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &__icon {
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F5F5F5;
+    border-radius: 50%;
+  }
+
+  &__text {
+    font-weight: 400;
+    color: #353535;
+    margin-bottom: 0;
+
+    span {
+      text-decoration: auto;
+      color: $primary-color;
+      font-weight: 400;
+    }
+  }
+
+  &__hint {
+    font-size: 0.8rem;
+    color: #353535;
+    margin-top: 0;
+  }
+}

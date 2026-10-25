@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Niconne&display=swap');
+
+.comingSoon {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../assets/images/ComingSoon/Bodhiwell.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &__content {
+        width: 100%;
+    }
+
+    &__Img {
+        width: 100%;
+        margin-bottom: 25px;
+        filter: invert(0.8);
+        max-width: 500px;
+
+        @media (max-width: 390px) {
+            width: 200px;
+        }
+    }
+
+    &__description {
+        font-size: 18px;
+        font-family: "Comfortaa";
+
+        @media (max-width: 390px) {
+            font-size: 15px;
+        }
+    }
+}

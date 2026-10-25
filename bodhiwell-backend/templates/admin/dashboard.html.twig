@@ -1,0 +1,90 @@
+{# templates/admin/my_dashboard.html.twig #}
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block main %}
+
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Dashboard Administrativo</h1>
+        <form method="get" style="display: inline-flex; align-items: center; gap: 10px;">
+            <label for="month">Filtrar por mes:</label>
+            <input type="month" id="month" name="month" value="{{ monthFilter }}" class="form-control-custom">
+            <button type="submit" class="btn btn-primary" style="background-color: #007bff; border: none; padding: 10px 20px; border-radius: 5px; font-size: 1rem;">Filtrar</button>
+        </form>
+    </div>
+
+    <div class="dashboard-metrics">
+        <div class="metric-card">
+            <h5>Total ingresado en dinero</h5>
+            <p>${{ metrics.totalIncome|number_format(2, ',', '.') }}</p>
+        </div>
+        <div class="metric-card">
+            <h5>Número de citas del mes</h5>
+            <p>{{ metrics.totalAppointments }}</p>
+        </div>
+        <div class="metric-card">
+            <h5>Nuevos consultantes</h5>
+            <p>{{ metrics.newPatients }}</p>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="chart-section">
+            <h5 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">Actividad de Reservas</h5>
+            <div style="position: relative; height: 300px; width: 100%;">
+                <canvas id="bookingActivityChart" 
+                        data-labels="{{ metrics.bookingActivity.labels|json_encode|e('html_attr') }}" 
+                        data-data="{{ metrics.bookingActivity.data|json_encode|e('html_attr') }}">
+                </canvas>
+            </div>
+        </div>
+
+        <div class="actions-section">
+            <h5 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">Acciones Requeridas</h5>
+            <h6 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;">Pago a Profesionales Pendientes</h6>
+            
+            <table class="dashboard-table">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Monto</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if metrics.pendingWithdrawals is empty %}
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No hay retiros pendientes</td>
+                        </tr>
+                    {% endif %}
+                    {% for withdrawal in metrics.pendingWithdrawals %}
+                        <tr>
+                            <td>
+                              {% if withdrawal.professional is defined %}
+                                {{ withdrawal.professional.getFullName() }}
+                              {% elseif withdrawal.professional_id is defined %}
+                                {{ withdrawal.professional_id }}
+                              {% else %}
+                                N/A
+                              {% endif %}
+                            </td>
+                            <td>${{ withdrawal.amount|number_format(2, ',', '.') }}</td>
+                            <td>{{ withdrawal.date }}</td>
+                            <td>
+                                <a href="{{ ea_url().setController('App\\Controller\\Admin\\WithdrawalCrudController').setAction('detail').setEntityId(withdrawal.id) }}" class="btn btn-primary" style="padding: 5px 10px; border-radius: 5px;">
+                                    Ver Detalles
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ asset('js/admin_dashboard.js') }}"></script>
+{% endblock main %}

@@ -1,0 +1,39 @@
+$primary-color: #3F78B0;
+$primary-color-dark: #2f3c7e;
+$white-color: #ffffff;
+
+.thankYou {
+  text-align: center;
+  padding: 2rem;
+
+//   &__title {
+//     // Estilos si son necesarios, MUI se encarga de la mayoría
+//   }
+
+//   &__message {
+//     // Estilos si son necesarios
+//   }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  &__button {
+    background: linear-gradient(to right, $primary-color-dark, $primary-color);
+    color: $white-color;
+    border: none;
+    padding: 0.6rem 2.6rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    }
+  }
+}

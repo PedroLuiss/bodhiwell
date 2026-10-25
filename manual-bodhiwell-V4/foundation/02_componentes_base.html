@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bodhiwell — Componentes base</title>
+<style>
+:root{
+  --bw-font-sans:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --bw-bg:#EFF0EC;
+  --bw-surface:#F7F5F1;
+  --bw-surface-2:#F8F6F2;
+  --bw-card-surface:#F7F5F1;
+  --bw-card-surface-soft:#F8F6F2;
+  --bw-text:#13231D;
+  --bw-muted:#65756E;
+  --bw-border:rgba(16,25,21,.08);
+  --bw-primary:#82B194;
+  --bw-primary-hover:#739F84;
+  --bw-primary-active:#678F77;
+  --bw-error:#C95C5C;
+  --bw-shadow:0 10px 30px rgba(0,0,0,.03);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body,body *{font-family:var(--bw-font-sans);font-style:normal}
+body{background:var(--bw-bg);color:var(--bw-text)}
+a{text-decoration:none;color:inherit}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-style:normal}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 22px 80px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.back,.quick a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:14px;border:1px solid rgba(16,25,21,.10);background:var(--bw-surface-card-strong, rgba(247,245,241,.92));box-shadow:0 10px 22px rgba(0,0,0,.03);font-size:13px;font-weight:800}
+.quick{display:flex;gap:10px;flex-wrap:wrap}
+.eyebrow{display:inline-block;margin:0 0 10px;padding-left:0;font-size:12px;line-height:1.2;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#82B194}
+.title{margin:0;font-size:52px;line-height:1.02;letter-spacing:-.04em}
+.copy{margin:16px 0 0;max-width:760px;font-size:16px;line-height:1.7;color:rgba(19,35,29,.68)}
+.section{margin-top:34px;background:var(--bw-surface);border:1px solid rgba(12,36,28,.08);border-radius:28px;padding:22px;box-shadow:var(--bw-shadow)}
+.section h2{margin:0 0 8px;font-size:24px;letter-spacing:-.02em}
+.section p{margin:0;color:rgba(19,35,29,.68);line-height:1.7}
+.demo{margin-top:16px;background:rgba(130,177,148,.10);border:1px solid rgba(130,177,148,.24);border-radius:20px;padding:16px}
+.demo h3{margin:0 0 12px;font-size:18px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 16px;border-radius:16px;font-weight:800;border:1px solid rgba(16,25,21,.12);background:var(--bw-input-surface, #FFFFFF);cursor:pointer;font-family:inherit;transition:background .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--bw-primary);border-color:transparent;color:#fff}
+.btn.primary:hover{background:var(--bw-primary-hover)}
+.btn.primary:active{background:var(--bw-primary-active);transform:translateY(0)}
+.btn.secondary{background:transparent;border-color:rgba(130,177,148,.58);color:#32453b}
+.btn.secondary:hover{background:rgba(130,177,148,.12)}
+.btn.secondary:active{background:rgba(130,177,148,.18)}
+.btn.ghost{background:#F3F4F1;border-color:rgba(16,25,21,.08);color:#42534b}
+.btn.ghost:hover{background:#ECEDE9}
+.btn.ghost:active{background:#E3E5E1}
+.btn[disabled]{opacity:.58;cursor:not-allowed;transform:none}
+.helper-box{margin-top:16px;padding:18px;border-radius:18px;background:var(--bw-card-surface);border:1px solid rgba(16,25,21,.08)}
+.helper-box ul{margin:12px 0 0 20px;padding:0}
+.helper-box li{margin:8px 0;color:#435249;line-height:1.55}
+.state-row{margin-top:14px}
+.input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.input-card{background:var(--bw-card-surface);border:1px solid rgba(12,36,28,.08);border-radius:18px;padding:16px}
+.field-label{display:block;margin-bottom:8px;font-size:13px;font-weight:800;color:#6B8277;letter-spacing:.08em;text-transform:uppercase}
+.field{min-height:50px;border-radius:16px;border:1px solid rgba(16,25,21,.10);background:var(--bw-card-surface, #F7F5F1);padding:0 16px;display:flex;align-items:center;justify-content:space-between;color:rgba(19,35,29,.44);font-size:15px}
+.field.focus{border-color:rgba(130,177,148,.72);box-shadow:0 0 0 4px rgba(130,177,148,.14)}
+.field.error{border-color:rgba(201,92,92,.72);box-shadow:0 0 0 4px rgba(201,92,92,.12)}
+.field.disabled{opacity:.48;background:var(--bw-input-surface-disabled, #F3F4F1)}
+.helper{margin-top:8px;font-size:12px;color:var(--bw-muted);line-height:1.55}
+.helper.error{color:var(--bw-error)}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.tag{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:0 11px;border-radius:999px;border:1px solid rgba(16,25,21,.10);font-size:11px;font-weight:800;background:var(--bw-card-surface, #F7F5F1)}
+.tag.cuerpo{background:#E7EEF7;color:#3A5F8A}
+.tag.mente{background:#EFE8F7;color:#6A4DA3}
+.tag.energia{background:#E9F4EF;color:#4E997C}
+.tag.conciencia{background:#EAF1FB;color:#5C7FAE}
+.flow-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
+.flow-step{padding:14px;border-radius:18px;background:rgba(255,255,255,.58);border:1px solid rgba(16,25,21,.08);line-height:1.55;color:#435249}
+.flow-step b{display:block;margin-bottom:6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B8277}
+.cropper-spec{margin-top:18px;display:grid;grid-template-columns:1.06fr .94fr;gap:18px;align-items:start}
+.stage-card,.modal-spec{background:var(--bw-card-surface-soft);border:1px solid rgba(16,25,21,.08);border-radius:24px;padding:18px}
+.stage-card{display:grid;gap:14px}
+.stage-photo{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:#D9DEDA;border:1px solid rgba(16,25,21,.08)}
+.stage-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.stage-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,35,29,.03),rgba(19,35,29,.10))}
+.overlay-cta{position:absolute;right:16px;top:16px;z-index:2;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:16px;background:rgba(255,255,255,.86);border:1px solid rgba(16,25,21,.10);backdrop-filter:blur(8px);font-weight:800}
+.stage-note{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.62);border:1px solid rgba(16,25,21,.08);line-height:1.6;color:#42524b}
+.modal-spec{background:var(--bw-card-surface)}
+.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.modal-title{margin:0;font-size:32px;line-height:1.08;letter-spacing:-.03em}
+.modal-copy{margin-top:10px;color:rgba(19,35,29,.68);line-height:1.65}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:16px;background:var(--bw-card-surface, #F7F5F1);border:1px solid rgba(16,25,21,.10);font-weight:800}
+.mini-grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.mini-step{background:var(--bw-card-surface, #F7F5F1);border:1px solid rgba(16,25,21,.08);border-radius:16px;padding:12px 12px 14px;line-height:1.45}
+.mini-step b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B8277;margin-bottom:4px}
+.preview-grid{margin-top:16px;display:grid;grid-template-columns:1.05fr .95fr;gap:14px}
+.preview-card{background:var(--bw-card-surface-soft);border:1px solid rgba(16,25,21,.08);border-radius:20px;padding:14px}
+.preview-frame{position:relative;overflow:hidden;border-radius:18px;background:#DFE5E0;border:1px solid rgba(16,25,21,.08)}
+.preview-frame.cover{aspect-ratio:16/7}
+.preview-frame.card{aspect-ratio:4/5}
+.preview-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.crop-box{position:absolute;border:2px solid rgba(255,255,255,.92);border-radius:18px;box-shadow:0 0 0 999px rgba(19,35,29,.18)}
+.crop-box.cover{inset:14% 10%}
+.crop-box.card{inset:8% 18%}
+.slider{height:6px;border-radius:999px;background:linear-gradient(90deg,var(--bw-primary),rgba(130,177,148,.20));margin-top:12px}
+.action-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.rule-list{margin:18px 0 0;padding-left:18px;display:grid;gap:8px;color:#435249}
+.rule-list li{line-height:1.55}
+.token-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.token-card{padding:14px;border-radius:18px;background:rgba(255,255,255,.58);border:1px solid rgba(16,25,21,.08)}
+.token-card strong{display:block;margin-bottom:6px}
+.bw-manual-nav{position:sticky;top:0;background:var(--bw-surface-card-strong, rgba(247,245,241,.92));backdrop-filter:blur(10px);padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06);display:flex;gap:12px;flex-wrap:wrap;z-index:10}
+.bw-manual-nav a{font-size:14px;color:#374151;padding:8px 12px;border-radius:12px}
+.bw-manual-nav a:hover,.bw-manual-nav a.active{color:#82B194;background:rgba(130,177,148,.10)}
+.real-shot-grid{margin-top:18px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.real-shot{background:var(--bw-card-surface-soft);border:1px solid rgba(16,25,21,.08);border-radius:20px;padding:12px;display:grid;gap:10px}
+.real-shot img{width:100%;display:block;border-radius:14px;border:1px solid rgba(16,25,21,.08);background:#E7ECE7}
+.real-shot b{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B8277}
+.real-shot span{line-height:1.5;color:#435249;font-size:14px}
+.real-main{margin-top:18px;display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}
+.real-hero,.real-notes{background:var(--bw-card-surface);border:1px solid rgba(16,25,21,.08);border-radius:24px;padding:16px}
+.real-hero img{width:100%;display:block;border-radius:18px;border:1px solid rgba(16,25,21,.08)}
+.real-notes h3{margin:0;font-size:28px;line-height:1.08;letter-spacing:-.03em}
+.real-notes p{margin-top:10px}
+.real-token-list{margin-top:16px;display:grid;gap:10px}
+.real-token-item{padding:14px;border-radius:18px;background:var(--bw-card-surface-soft);border:1px solid rgba(16,25,21,.08)}
+.real-token-item strong{display:block;margin-bottom:6px}
+.audit-box{margin-top:16px;padding:16px 18px;border-radius:18px;background:rgba(130,177,148,.08);border:1px solid rgba(130,177,148,.22);line-height:1.6;color:#32453b}
+
+.cropper-compact{margin-top:18px;display:grid;grid-template-columns:1.02fr .98fr;gap:16px;align-items:start}
+.cropper-main,.cropper-side{background:var(--bw-card-surface);border:1px solid rgba(16,25,21,.08);border-radius:24px;padding:16px}
+.cropper-main .field-label{margin-bottom:10px}
+.cropper-main-frame{display:grid;place-items:center;min-height:300px;padding:12px;border-radius:20px;background:var(--bw-card-surface-soft);border:1px solid rgba(16,25,21,.08)}
+.cropper-main-frame img{max-width:100%;max-height:278px;width:auto;height:auto;display:block;border-radius:14px;border:1px solid rgba(16,25,21,.08);background:#EEF2EE}
+.cropper-caption{margin-top:10px;font-size:13px;line-height:1.56;color:#516059}
+.cropper-side h3{margin:0;font-size:24px;line-height:1.08;letter-spacing:-.03em}
+.cropper-side p{margin-top:10px}
+.cropper-spec-list{margin:14px 0 0;padding-left:18px;display:grid;gap:8px;color:#435249}
+.cropper-spec-list li{line-height:1.55}
+.cropper-mini-grid{margin-top:16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cropper-mini-card{background:var(--bw-card-surface-soft);border:1px solid rgba(16,25,21,.08);border-radius:20px;padding:12px;display:grid;gap:8px}
+.cropper-mini-card b{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6B8277}
+.cropper-mini-card h4{margin:0;font-size:15px;line-height:1.18;letter-spacing:-.01em}
+.cropper-mini-card p{margin:0;font-size:12px;line-height:1.5;color:#56665e}
+.cropper-thumb{display:grid;place-items:center;height:118px;padding:8px;border-radius:16px;background:#F3F5F2;border:1px solid rgba(16,25,21,.08)}
+.cropper-thumb img{max-width:100%;max-height:100px;width:auto;height:auto;display:block;border-radius:12px;border:1px solid rgba(16,25,21,.08);background:#EEF2EE}
+.cropper-compact .btn.secondary{margin-top:16px}
+@media (max-width:980px){.real-shot-grid{grid-template-columns:1fr 1fr}.real-main,.cropper-compact{grid-template-columns:1fr}.cropper-mini-grid,.input-grid,.cropper-spec,.preview-grid,.token-grid,.flow-grid,.mini-grid{grid-template-columns:1fr 1fr}.title{font-size:40px}}
+@media (max-width:760px){.real-shot-grid,.cropper-mini-grid,.input-grid,.cropper-spec,.preview-grid,.token-grid,.flow-grid,.mini-grid{grid-template-columns:1fr}.modal-title{font-size:28px}.action-row .btn{width:100%}.cropper-main-frame{min-height:240px}.cropper-main-frame img{max-height:220px}}
+</style>
+<link rel="stylesheet" href="../assets/css/coherence.css">
+</head>
+<body>
+<nav class="bw-manual-nav">
+  <a href="../start-here.html">Inicio</a>
+  <a href="00_concepto_bodhiwell.html">Concepto</a>
+  <a href="01_tokens.html">Tokens</a>
+  <a class="active" href="02_componentes_base.html">Componentes</a>
+  <a href="03_ejemplos.html">Ejemplos</a>
+  <a href="03_como_usar_el_manual.html">Cómo usar</a>
+  <a href="04_base_oficial.html">Base oficial</a>
+</nav>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="../start-here.html">← Volver al índice</a>
+    <div class="quick">
+      <a href="00_concepto_bodhiwell.html">Concepto</a>
+      <a href="01_tokens.html">Tokens</a>
+      <a href="03_ejemplos.html">Ejemplos</a>
+      <a href="04_base_oficial.html">Base oficial</a>
+    </div>
+  </div>
+
+  <p class="eyebrow">COMPONENTES</p>
+  <h1 class="title">02 Componentes base</h1>
+  <p class="copy">Reglas aplicables para desarrollo. Esta página reúne variantes aprobadas, estados obligatorios y ejemplos vivos para validar comportamiento visual. Además, fija los radios oficiales del sistema para evitar resoluciones intermedias no previstas.</p>
+
+  <section class="section">
+    <h2>03.0 Eyebrow</h2>
+    <p>La eyebrow funciona como rótulo introductorio de sección. Sirve para anticipar el tema del bloque antes del <strong>H1</strong> o <strong>H2</strong>, ordenar la lectura y dar contexto sin competir con el título. En Bodhiwell se usa alineada al mismo arranque del título, nunca como un prefijo separado por guiones, líneas o espacios manuales.</p>
+    <div class="demo">
+      <h3>Regla aprobada</h3>
+      <div style="display:grid;justify-items:start;gap:0">
+        <p class="eyebrow" style="margin:0 0 12px;color:#82B194">Comunidad</p>
+        <h3 style="margin:0;font-size:34px;line-height:1.06;letter-spacing:-.03em;color:#13231D">Profesionales que acompañan con propósito</h3>
+      </div>
+      <div class="helper-box"><strong>Reglas de estilo</strong><ul><li>Se coloca siempre encima del título y con el mismo arranque visual del <strong>H1</strong> o <strong>H2</strong>.</li><li>Usa mayúsculas, tracking amplio y color <strong>Primary</strong>. No usa guiones iniciales, líneas decorativas ni sangrías manuales.</li><li>Se aplica en aperturas de bloque, héroes editoriales y módulos como comunidad, blog o glosario cuando ayuda a introducir el contenido.</li><li>No reemplaza tags, pills ni labels funcionales.</li><li>Separación recomendada respecto al título: <strong>12–18px</strong> abajo, según la escala del bloque.</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>03.1 Botones — (inline)</h2>
+    <p>Regla: máximo 1 Primary por pantalla. Radio oficial del control: <strong>16px</strong>.</p>
+    <div class="demo">
+      <h3>Ejemplo (inline)</h3>
+      <div class="row"><button class="btn primary">Primary</button><button class="btn secondary">Secondary</button><button class="btn ghost">Ghost</button><button class="btn primary" disabled>Primary disabled</button></div>
+      <p style="margin-top:12px;font-size:13px;color:#66786f"><strong>Radio de botón:</strong> 16px (LOCK).</p>
+      <div class="helper-box"><strong>Estados obligatorios (no libre decisión)</strong><ul><li><strong>Primary:</strong> Default — <code>--bw-primary</code> · Hover — <code>--bw-primary-hover</code> · Active — <code>--bw-primary-active</code> · Disabled: opacity.</li><li><strong>Secondary (outline):</strong> Hover/Active por tinte (background) — no crear un “primary 2”.</li><li><strong>Ghost:</strong> Hover/Active con neutros suaves.</li></ul></div>
+      <div class="row state-row"><button class="btn primary">Primary hover</button><button class="btn primary" style="background:var(--bw-primary-active)">Primary active</button><button class="btn secondary">Secondary hover</button><button class="btn secondary" style="background:rgba(130,177,148,.18)">Secondary active</button><button class="btn ghost">Ghost hover</button><button class="btn ghost" style="background:#E3E5E1">Ghost active</button></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>03.2 Inputs y helper</h2>
+    <p>Todos los inputs usan la misma base visual: fondo claro, borde sutil, radio oficial de <strong>16px</strong> y helper visible cuando aporta contexto.</p>
+    <div class="input-grid">
+      <div class="input-card"><label class="field-label">Default</label><div class="field">Nombre completo</div><div class="helper">Helper / apoyo para completar el campo.</div></div>
+      <div class="input-card"><label class="field-label">Focus</label><div class="field focus">Correo profesional</div><div class="helper">Estado de foco activo.</div></div>
+      <div class="input-card"><label class="field-label">Error</label><div class="field error">Número de registro</div><div class="helper error">Este campo necesita revisión.</div></div>
+      <div class="input-card"><label class="field-label">Disabled</label><div class="field disabled">Campo no disponible</div><div class="helper">Deshabilitado por contexto o paso previo.</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>03.3 Tags y chips</h2>
+    <p>Las etiquetas de dimensiones y especialidades se usan como apoyo visual, nunca como CTA principal. Para estos casos el sistema reserva radio pill <strong>999px</strong>.</p>
+    <div class="chip-row"><span class="tag cuerpo">Cuerpo</span><span class="tag mente">Mente</span><span class="tag energia">Energía</span><span class="tag conciencia">Conciencia</span></div>
+  </section>
+
+  <section class="section">
+    <h2>03.4 Carga y recorte de imagen</h2>
+    <p>Componente para cargar una foto, producir una salida horizontal para perfil, una salida vertical para tarjeta y revisar el resultado antes de guardar. La documentación se compacta para mostrar el flujo real sin reiteración.</p>
+
+    <div class="cropper-compact">
+      <div class="cropper-main">
+        <div class="field-label">Referencia principal del flujo</div>
+        <div class="cropper-main-frame"><img src="../assets/img/examples/cropper-real-exact/step-06-final-review.png" alt="Revisión final real del componente de carga y recorte"></div>
+        <div class="cropper-caption">La pantalla de revisión final reúne las dos salidas y es la referencia principal para validar cards, radios, tipografía y CTA de guardado.</div>
+      </div>
+
+      <div class="cropper-side">
+        <h3>Síntesis operativa</h3>
+        <p>Este componente se documenta con sus siete estados reales: estado vacío, modal de carga, selector de archivo, recorte 16/7, recorte 4/5, revisión final y estado con imagen aplicada.</p>
+        <div class="token-grid">
+          <div class="token-card"><strong>--bw-card-surface · #F7F5F1</strong> modal, revisión final y contenedores principales.</div>
+          <div class="token-card"><strong>--bw-card-surface-soft · #F8F6F2</strong> soportes internos y superficies secundarias.</div>
+        </div>
+        <ul class="cropper-spec-list">
+          <li>Tipografía declarada en HTML y CSS con <strong>Sora</strong> y <strong>font-style: normal</strong>.</li>
+          <li>El CTA sobre imagen usa fondo blanco translúcido, borde sutil y blur leve.</li>
+          <li>La portada usa relación <strong>16/7</strong> y la tarjeta <strong>4/5</strong>.</li>
+          <li>Accesibilidad mínima: <code>role="dialog"</code>, <code>aria-modal="true"</code>, tecla Escape y bloqueo de scroll.</li>
+        </ul>
+        <a class="btn secondary" href="../examples/13-image-cropper.html">Ver ejemplo navegable</a>
+      </div>
+    </div>
+
+    <div class="cropper-mini-grid">
+      <article class="cropper-mini-card">
+        <b>Paso 1</b><h4>Estado inicial</h4><p>Área vacía con CTA centrado.</p>
+        <div class="cropper-thumb"><img src="../assets/img/examples/cropper-real-exact/step-01-empty.png" alt="Estado inicial vacío del componente"></div>
+      </article>
+      <article class="cropper-mini-card">
+        <b>Paso 2</b><h4>Modal de carga</h4><p>Paso, título y acción principal.</p>
+        <div class="cropper-thumb"><img src="../assets/img/examples/cropper-real-exact/step-02-upload-modal.png" alt="Modal real para cargar imagen"></div>
+      </article>
+      <article class="cropper-mini-card">
+        <b>Paso 3</b><h4>Selector de archivo</h4><p>Interacción del sistema operativo.</p>
+        <div class="cropper-thumb"><img src="../assets/img/examples/cropper-real-exact/step-03-system-picker.png" alt="Selector de archivo del sistema operativo"></div>
+      </article>
+      <article class="cropper-mini-card">
+        <b>Paso 4</b><h4>Portada 16/7</h4><p>Encuadre horizontal con zoom.</p>
+        <div class="cropper-thumb"><img src="../assets/img/examples/cropper-real-exact/step-04-cover-crop.png" alt="Ajuste real de portada de perfil"></div>
+      </article>
+      <article class="cropper-mini-card">
+        <b>Paso 5</b><h4>Tarjeta 4/5</h4><p>Segunda salida vertical.</p>
+        <div class="cropper-thumb"><img src="../assets/img/examples/cropper-real-exact/step-05-card-crop.png" alt="Ajuste real de imagen para tarjeta"></div>
+      </article>
+      <article class="cropper-mini-card">
+        <b>Paso 6</b><h4>Revisión final</h4><p>Confirmación de ambas vistas.</p>
+        <div class="cropper-thumb"><img src="../assets/img/examples/cropper-real-exact/step-06-final-review.png" alt="Pantalla real de revisión final"></div>
+      </article>
+      <article class="cropper-mini-card">
+        <b>Paso 7</b><h4>Imagen aplicada</h4><p>Estado final con CTA de cambio.</p>
+        <div class="cropper-thumb"><img src="../assets/img/examples/cropper-real-exact/step-07-change-image.png" alt="Estado del componente con imagen cargada"></div>
+      </article>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@import '../../../assets/styles/variables';
+
+.main-footer {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background-color: $color-gold;
+  border-top: 1px solid $color-border;
+  position: relative;  
+}

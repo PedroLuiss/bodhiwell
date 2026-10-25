@@ -1,0 +1,15 @@
+{% extends '@EasyAdmin/crud/index.html.twig' %}
+
+{% block content_header %}
+    {{ parent() }}
+    
+    <div class="alert alert-info d-flex align-items-center mt-3 shadow-sm justify-content-between" role="alert">
+        <div>
+            <i class="fas fa-chart-line me-2 fa-2x"></i>
+            <span class="h4 mb-0 align-middle ml-2">Ingresos Totales Históricos</span>
+        </div>
+        <span class="badge badge-light text-dark p-2" style="font-size: 1.5em;">
+            ${{ totalEarnings|number_format(2) }}
+        </span>
+    </div>
+{% endblock %}

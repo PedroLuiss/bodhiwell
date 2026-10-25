@@ -1,0 +1,48 @@
+$text-color: #333;
+$border-color: transparent; 
+$input-bg: transparent;
+$focus-color: #007BFF;
+$error-color: #ff4d4f;
+
+.form-selector {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .MuiSelect-root{
+    border-radius: 12px;
+  }
+
+  label.Mui-focused, label.MuiInputLabel-shrink {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    color: $text-color;
+    z-index: 1;
+    background-color: #fff;
+    padding: 5px 10px;
+  }
+
+  input {
+    padding: 0.5rem;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    appearance: none;
+    background: $input-bg;
+
+    &:focus {
+      outline: 2px solid $focus-color;
+    }
+
+    &--invalid {
+      border-color: $error-color;
+    }
+  }
+
+  &__error {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: $error-color;
+  }
+}

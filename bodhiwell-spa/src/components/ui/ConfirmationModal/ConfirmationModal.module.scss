@@ -1,0 +1,110 @@
+@import '../../../assets/styles/variables';
+
+// Tokens Bodhiwell basados en el manual
+$bw-primary: $color-primary;
+$bw-gold: $color-gold;
+$bw-error: $color-error;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-radius-xl: $border-radius;
+$bw-shadow-modal: $shadow-card;
+
+.modal {
+    border-radius: $bw-radius-xl !important; 
+    background-color: #ffffff !important;
+    box-shadow: $bw-shadow-modal !important;
+    overflow: hidden !important;
+    
+    &__wrapper {
+        padding: 40px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-family: "Sora", sans-serif;
+    }
+
+    &__icon-box {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 24px;
+        
+        svg {
+            font-size: 32px;
+        }
+
+        &--primary {
+            background-color: rgba($bw-primary, 0.1);
+            color: $bw-primary;
+            border: 1px solid rgba($bw-primary, 0.2);
+        }
+
+        &--error {
+            background-color: rgba($bw-error, 0.1);
+            color: $bw-error;
+            border: 1px solid rgba($bw-error, 0.2);
+        }
+
+        &--warning {
+            background-color: rgba($bw-gold, 0.1);
+            color: $bw-gold;
+            border: 1px solid rgba($bw-gold, 0.2);
+        }
+    }
+
+    &__title {
+        padding: 0 !important;
+        margin-bottom: 12px !important;
+        font-family: "Sora", sans-serif !important;
+        font-size: 24px !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.02em !important;
+        color: $bw-text !important;
+        line-height: 1.2 !important;
+    }
+
+    &__content {
+        padding: 0 !important;
+        margin-bottom: 32px !important;
+    }
+
+    &__description {
+        margin: 0;
+        font-family: "Sora", sans-serif !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+        color: $bw-muted !important;
+        font-weight: 500;
+    }
+
+    &__actions {
+        padding: 0 !important;
+        width: 100%;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+
+        @media (max-width: 480px) {
+            flex-direction: column-reverse;
+            
+            button {
+                width: 100%;
+                margin: 0 !important;
+            }
+        }
+    }
+
+    &__btn-cancel {
+        color: $bw-muted !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+    }
+
+    &__btn-confirm {
+        min-width: 160px;
+    }
+}

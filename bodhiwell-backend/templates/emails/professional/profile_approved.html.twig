@@ -1,0 +1,11 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block content %}
+<h2>¡Tu perfil profesional ha sido aprobado!</h2>
+<p>Hola {{ user.firstName }},</p>
+<p>Nos complace informarte que tu perfil profesional ha sido revisado y <strong>aprobado</strong>.</p>
+<p>Ahora eres parte de nuestra red de profesionales y puedes comenzar a recibir consultas.</p>
+<p style="text-align: center; margin-top: 30px;">
+    <a href="{{ portalUrl }}/dashboard" class="button" style="color: #ffffff !important;">Ir a mi Panel</a>
+</p>
+{% endblock %}

@@ -1,0 +1,112 @@
+@import '../../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-shadow-dropdown: $shadow-card;
+
+.action-menu {
+  position: relative;
+  display: inline-flex;
+  font-family: "Sora", sans-serif;
+
+  &__trigger {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: $bw-muted;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #F3F5F2;
+      color: $bw-text;
+      border-color: $bw-border;
+    }
+  }
+
+  &--active {
+    .action-menu__trigger {
+        background-color: #fff;
+        border-color: $bw-primary;
+        color: $bw-primary;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 220px;
+    background-color: #ffffff;
+    border: 1px solid $bw-border;
+    border-radius: 16px;
+    box-shadow: $bw-shadow-dropdown;
+    z-index: 200;
+    overflow: hidden;
+    padding: 6px;
+    transform-origin: top right;
+    animation: dropdownFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__item {
+    width: 100%;
+
+    :global(button), :global(a) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: $bw-text;
+      font-family: "Sora", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+
+      :global(svg) {
+        font-size: 18px;
+        color: $bw-muted;
+        transition: color 0.15s ease;
+      }
+
+      &:hover {
+        background-color: rgba(130, 177, 148, 0.08); 
+        color: $bw-primary;
+
+        :global(svg) {
+          color: $bw-primary;
+        }
+      }
+    }
+  }
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

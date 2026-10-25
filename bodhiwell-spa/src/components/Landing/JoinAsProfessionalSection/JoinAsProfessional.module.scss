@@ -1,0 +1,122 @@
+@import '../../../assets/styles/variables';
+.join-as-professional {
+    background-color: #F7F7FF;
+    padding: 5rem 0;
+
+    &__container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    &__group {
+        &:first-of-type {
+            margin-bottom: 10rem;
+            text-align: end;
+        }
+    }
+
+    &__group-botom {
+        text-align: end;
+
+        &__heading {
+            font-size: $font-size-section-subtitles;
+            font-weight: 600;
+            color: #000000;
+            line-height: 1.2;
+            max-width: 650px;
+            text-align: center;
+            margin: auto;
+        }
+
+        &__text {
+            font-size: $font-size-section-descripcion;
+            color: #2D2D2F;
+            line-height: 1;
+            text-align: center;
+            width: 773px;
+            margin: auto;
+        }
+    }
+
+
+    &__eyebrow {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #2D2D2F;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 1rem;
+        text-align: justify;
+    }
+
+    &__heading {
+        font-size: $font-size-section-subtitles;
+        font-weight: 600;
+        color: #000000;
+        line-height: 1.2;
+        max-width: 650px;
+        text-align: left;
+    }
+
+    &__text {
+        font-size: $font-size-section-descripcion;
+        color: #2D2D2F;
+        line-height: 1;
+        text-align: left;
+    }
+
+    &__button {
+        display: inline-block;
+        background: transparent;
+        border: 1px solid #485967;
+        color: #2D2D2F;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.4rem 2rem;
+        border-radius: 12px;
+        margin-top: 0rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #333;
+            border-color: #333;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+    }
+
+
+
+    @media (max-width: 768px) {
+        padding: 4rem 0;
+
+        &__group {
+            &:first-of-type {
+                margin-bottom: 4rem;
+                text-align: center;
+            }
+        }
+
+        &__group-botom {
+            text-align: end;
+
+            &__heading {
+                max-width: auto;
+            }
+
+            &__text {
+                width: auto;
+            }
+        }
+
+        &__heading {
+            font-size: 1.8rem;
+        }
+
+        &__text {
+            font-size:1.67rem;
+        }
+    }
+}

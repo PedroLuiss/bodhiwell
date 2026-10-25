@@ -1,0 +1,164 @@
+
+// =============================================================================
+// BODHIWELL DESIGN TOKENS
+// =============================================================================
+
+// FONTS
+$font-main: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$font-accent: $font-main;
+
+
+// Brand Colors
+$color-primary:        #82B194; // CTA principal, estados activos y acentos del sistema.
+$color-primary-hover:  #739F84;
+$color-primary-active: #678F77;
+$color-gold:           #D6A640;  // Acento complementario para journeys, hitos y estados destacados dentro del dashboard.
+$color-gold-soft:      rgba(214, 166, 64, 0.10);
+
+// Backgrounds & Surfaces
+$color-bg:             #EFF0EC; // Fondo general del sistema y de ejemplos.
+$color-surface:        #F7F5F1; // Superficie oficial para cards, modales y contenedores principales del sistema.
+$color-surface-soft:   #F8F6F2; // Variante suave para interiores, previews, campos y superficies secundarias.
+$color-border:         rgba(16, 25, 21, 0.08); 
+
+// Text Colors
+$text-main:            #13231D; // Titulares, labels y acciones principales. Color principal para títulos, cuerpo y acciones prioritarias. 
+$text-muted:           #5F726B;
+$text-secondary:       rgba(19,35,29,.68); // Textos de apoyo, descripciones, subtítulos y metadata.
+$text-tertiary:        rgba(19,35,29,.46);  // Footer, placeholders y elementos de menor jerarquía visual.
+
+// Status Colors
+$color-error:          #C95C5C; // Mensajes de validación, borde error y helper error.
+
+
+// Font Sizes
+$font-size-h1:      64px; 
+$font-size-h2:      48px; 
+$font-size-h3:      24px; 
+$font-size-title-mobile: 32px; 
+$font-size-body:    16px; 
+$font-size-small:   14px; 
+$font-size-caption: 13px; 
+
+$font-size-section-titles: $font-size-h2; 
+$font-size-section-subtitles: $font-size-h3;
+$font-size-section-descripcion: $font-size-body;
+
+$radius-nav:    12px;  // Navegación del manual, tabs suaves y acciones de baja jerarquía.
+$radius-sm:     14px;  // Botones de soporte, badges rectangulares y accesos rápidos.
+$radius-md:     16px;  // Botones principales, inputs, CTA sobre imagen y controles activos.
+$radius-lg:     18px;  // Cards internas, previews, notas y paneles secundarios.
+$radius-xl:     24px;  // Cards principales del manual, modales y contenedores base del sistema.
+$radius-pill:   999px; // Tags de dimensión, chips y elementos totalmente redondeados.
+
+$border-radius: $radius-md;
+$btn-radius:    $radius-pill;
+
+// --- 5. SPACING SCALE ---
+$space-4:  4px;
+$space-8:  8px;
+$space-12: 12px;
+$space-16: 16px;
+$space-24: 24px;
+$space-32: 32px;
+$space-48: 48px;
+
+// --- 6. SHADOWS ---
+$shadow-card: 0 10px 30px rgba(0, 0, 0, 0.03); 
+
+$header-height:       64px;
+$sidebar-width-open:  240px;
+$sidebar-width-closed: 80px;
+$submenu-panel-width: 280px;
+
+$transition-speed:    0.3s;
+
+$breakpoint-sm:       576px;
+$breakpoint-md:       767px;
+$breakpoint-lg:       992px;
+$breakpoint-desktop:  1024px;
+
+$base-container:1280px;
+$gutter-desktop:40px;
+$gutter-tablet:28px;
+$gutter-mobile:20px;
+
+$border-soft:rgba(19,35,29,.08);
+$border-mid:rgba(19,35,29,.22);
+
+$radius-card:32px;
+$radius-card-sm:24px;
+$radius-button:20px;
+$radius-button-header:18px;
+
+$shadow-soft:0 18px 48px rgba(18,34,29,.04);
+
+$sidebar-bg:           $color-surface;
+$sidebar-submenu-bg:   #ffffff;
+$sidebar-text-color:   $text-main;
+$sidebar-active-bg:    rgba($color-primary, 0.1);
+$sidebar-active-text:  $color-primary;
+
+
+// Mixins para Tipografía
+@mixin h1 {
+    font-size: 64px;
+    line-height: 1.0;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+}
+
+@mixin h2 {
+    font-size: 48px;
+    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+}
+
+@mixin h3 {
+    font-size: 24px;
+    line-height: 1.28;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+@mixin body-text {
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+@mixin small-text {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+
+:root {
+    --bw-text: #{$text-main};
+    --bw-text-secondary: #{$text-secondary};
+    --bw-text-tertiary: #{$text-tertiary};
+    --bw-primary: #{$color-primary};
+
+    --base-container: #{$base-container};
+    --gutter-desktop: #{$gutter-desktop};
+    --gutter-tablet: #{$gutter-tablet};
+    --gutter-mobile: #{$gutter-mobile};
+
+
+    --border-soft: #{$border-soft};
+    --border-mid: #{$border-mid};
+
+    --radius-card: #{$radius-card};
+    --radius-card-sm: #{$radius-card-sm};
+    --radius-button: #{$radius-button};
+    --radius-button-header: #{$radius-button-header};
+
+    --shadow-soft: #{$shadow-soft};
+
+}
+
+//Notes
+//El color oficial de card queda formalizado como --bw-card-surface con valor #F7F5F1. 
+//Su variante complementaria --bw-card-surface-soft usa #F8F6F2 para superficies internas, previews y contenedores suaves.

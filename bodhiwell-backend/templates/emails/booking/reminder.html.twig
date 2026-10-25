@@ -1,0 +1,42 @@
+{# Variables esperadas:
+   - booking (App\Entity\Booking)
+   - recipient (App\Entity\User)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+
+{% set patientName = booking.patientUser ? (booking.patientUser.firstName ~ ' ' ~ booking.patientUser.lastName) : '—' %}
+{% set proName     = booking.professionalUser ? (booking.professionalUser.firstName ~ ' ' ~ booking.professionalUser.lastName) : '—' %}
+{% set startAt     = booking.dateBookingStart ? booking.dateBookingStart|date('Y-m-d H:i') : '—' %}
+{% if isProfessional is not defined %}
+    {% set isProfessional = (booking.professionalUser and recipient.email == booking.professionalUser.email) %}
+{% endif %}
+
+{% block title %}Recordatorio de Cita{% endblock %}
+
+{% block content %}
+    <h2>Recordatorio de Cita</h2>
+
+    {% set isToday = startAt|date('Y-m-d') == "now"|date('Y-m-d', 'America/Montevideo') %}
+    {% set dateText = isToday ? 'hoy' : 'mañana' %}
+
+    {% if isProfessional %}
+        <p>Te recordamos que tienes una cita programada con {{ patientName }} para {{ dateText }}. Por favor, asegúrate de estar disponible.</p>
+    {% else %}
+        <p>Te recordamos que tienes una cita programada con {{ proName }} para {{ dateText }}. Por favor, asegúrate de estar disponible.</p>
+    {% endif %}
+
+    <div style="margin: 10px 0 16px; line-height: 1.6;">
+        <strong>Consultante:</strong> {{ patientName }}<br>
+        <strong>Profesional:</strong> {{ proName }}<br>
+        <strong>Fecha y hora:</strong> {{ startAt }}
+    </div>
+
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{{ portalUrl }}/professionals/booking-details/{{ booking.uid }}" class="button" style="color: #ffffff !important;">Ver detalles de la cita</a>
+    </p>
+
+    <p style="color:#666; font-size: 12px; margin-top:14px;">
+        Este es un recordatorio automático.
+    </p>
+{% endblock %}

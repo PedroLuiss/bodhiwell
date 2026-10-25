@@ -1,0 +1,272 @@
+@import '../../assets/styles/variables.scss';
+
+$bw-surface: $color-surface;
+$bw-surface-soft: $color-surface-soft;
+$bw-border: $border-soft;
+$bw-primary: $color-primary;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-radius-xl: 24px;
+$bw-shadow: $shadow-card;
+
+.list-payment {
+  width: 100%;
+  font-family: "Sora", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wallet-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $bw-surface;
+  border: 1px solid $bw-border;
+  border-radius: 20px;
+  padding: 24px 32px;
+  box-shadow: $bw-shadow;
+
+  &__body {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__icon {
+    width: 52px;
+    height: 52px;
+    background: rgba($bw-primary, 0.1);
+    color: $bw-primary;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+  }
+
+  &__text {
+    h4 { margin: 0; font-size: 18px; font-weight: 800; color: $bw-text; }
+    p { margin: 4px 0 0; font-size: 14px; color: $bw-muted; font-weight: 500; }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    &__body { flex-direction: column; }
+  }
+}
+
+.filters {
+  background: $bw-surface;
+  border: 1px solid $bw-border;
+  border-radius: $bw-radius-xl;
+  padding: 28px;
+  box-shadow: $bw-shadow;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__header { margin-bottom: 24px; }
+  
+  &__eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $bw-primary;
+    margin-bottom: 8px;
+  }
+
+  &__title { margin: 0; font-size: 24px; font-weight: 800; color: $bw-text; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+    gap: 16px;
+    align-items: flex-end;
+
+    @media (max-width: 1300px) { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 640px) { grid-template-columns: 1fr; }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 6px;
+    @media (max-width: 640px) { flex-direction: column; }
+  }
+}
+
+.amount-cell {
+  font-weight: 800;
+  color: $bw-text;
+  font-size: 15px;
+}
+
+.status-tag {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+
+  &--approved, &--captured { background: #E9F4EF; color: #4E997C; border-color: #d1e7dd; }
+  &--processing, &--initiated, &--pending_provider { background: #FEF9E7; color: #D6A640; border-color: #fcf3cf; }
+  &--rejected, &--failed, &--canceled { background: #FEF2F2; color: #C95C5C; border-color: #fadbd8; }
+  &--refunded { background: #E7EEF7; color: #3A5F8A; border-color: #d4e0ef; }
+}
+
+.reservation-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+
+  &__text {
+    p { margin: 0; font-size: 14px; color: $bw-text; }
+    span { font-size: 13px; color: $bw-muted; font-weight: 500; }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: $bw-primary;
+    text-decoration: none;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid rgba($bw-primary, 0.2);
+    border-radius: 10px;
+    white-space: nowrap;
+    transition: all 0.2s;
+
+    &:hover { background: rgba($bw-primary, 0.05); transform: translateY(-1px); }
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+  .filters {
+    padding: 24px;
+    
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .list-payment {
+    gap: 16px;
+  }
+
+  .wallet-card {
+    padding: 24px;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+
+    &__body {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    &__icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    &__text h4 {
+      font-size: 16px;
+    }
+
+    &__text p {
+      font-size: 13px;
+    }
+  }
+
+  .filters {
+    padding: 20px;
+    border-radius: 20px;
+
+    &__header {
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__actions {
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0;
+      
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  .reservation-info {
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 8px;
+    max-width: 65%;
+
+    &__text {
+      p { font-size: 13px; }
+      span { font-size: 12px; }
+    }
+
+    &__link {
+      padding: 4px 8px;
+      font-size: 11px;
+    }
+  }
+
+  .amount-cell {
+    font-size: 14px;
+  }
+
+  .status-tag {
+    padding: 2px 10px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters {
+    padding: 16px;
+    
+    &__title {
+      font-size: 18px;
+    }
+  }
+
+  .reservation-info {
+    max-width: 100%;
+  }
+
+  .amount-cell {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,222 @@
+@import '../../assets/styles/variables';
+
+$bw-primary: $color-primary;
+$bw-text: $text-main;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-surface: $color-surface;
+$bw-surface-soft: $color-surface-soft;
+$bw-radius-xl: $radius-xl;
+$bw-shadow: $shadow-card;
+
+.report {
+    width: 100%;
+    font-family: $font-main;
+    color: $bw-text;
+
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 24px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__eyebrow {
+        display: block;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: $bw-primary;
+        margin-bottom: 8px;
+
+        @media (max-width: 768px) {
+            font-size: 10px;
+        }
+    }
+
+    &__title {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 0;
+
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
+    }
+
+    &__actions {
+        @media (max-width: 768px) {
+            display: flex;
+            width: 100%;
+            
+            & > * {
+                flex: 1;
+            }
+        }
+    }
+
+    &__card {
+        background: $bw-surface;
+        border: 1px solid $bw-border;
+        border-radius: $bw-radius-xl;
+        padding: 40px;
+        box-shadow: $bw-shadow;
+
+        @media (max-width: 768px) {
+            padding: 24px 20px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 20px 16px;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        &--full {
+            grid-column: 1 / -1;
+        }
+    }
+
+    &__label {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #6B8277; 
+
+        @media (max-width: 768px) {
+            font-size: 11px;
+        }
+    }
+
+    &__value {
+        font-size: 16px;
+        font-weight: 600;
+        color: $bw-text;
+        margin: 0;
+
+        @media (max-width: 768px) {
+            font-size: 15px;
+        }
+    }
+
+    &__date-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 800;
+        color: #e67e22; 
+        text-decoration: none;
+        background: rgba(230, 126, 34, 0.08);
+        padding: 4px 10px;
+        border-radius: 8px;
+        width: fit-content;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(230, 126, 34, 0.15);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 11px;
+        }
+    }
+
+    &__divider {
+        height: 1px;
+        background-color: rgba(16, 25, 21, 0.06);
+        border: none;
+        margin: 32px 0;
+
+        @media (max-width: 768px) {
+            margin: 24px 0;
+        }
+    }
+
+    &__section {
+        margin-bottom: 24px;
+        &:last-child { margin-bottom: 0; }
+
+        @media (max-width: 768px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__observations-box, &__notes-box {
+        margin-top: 12px;
+        padding: 20px;
+        background: #ffffff;
+        border: 1px solid $bw-border;
+        border-radius: 16px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: $bw-muted;
+        
+        p { margin: 0; }
+
+        @media (max-width: 768px) {
+            padding: 16px;
+            font-size: 14px;
+            border-radius: 12px;
+        }
+    }
+
+    &__notes-box {
+        background: $bw-surface-soft;
+        border-style: dashed;
+    }
+}
+
+@media print {
+    .report {
+        padding: 0;
+        &__header { margin-bottom: 20px; }
+        &__actions { display: none; }
+        &__card {
+            box-shadow: none;
+            border: 1px solid #eee;
+            background: #fff;
+            padding: 20px;
+        }
+        &__observations-box, &__notes-box {
+            border: 1px solid #eee;
+        }
+    }
+}

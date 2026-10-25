@@ -1,0 +1,62 @@
+$primary-color: #3D7EBE;
+$white-color: #ffffff;
+$breakpoint-md: 767px; 
+
+.confirmDate {
+  width: auto;
+
+  &__calendarWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__timeInput {
+    margin-top: 1rem;
+    max-width: 360px;
+    width: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  &__button {
+    background: linear-gradient(to right, $primary-color, #495867);
+    color: $white-color;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: none;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    }
+
+    // &--back {
+    //   // Estilos específicos para el botón "Atrás" si los hubiera
+    // }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    margin-top: 4rem;
+    &__button {
+      width: 46%;
+      padding: 0.8rem;
+      font-size: 0.7rem;
+      svg{
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

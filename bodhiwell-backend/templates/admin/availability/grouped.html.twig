@@ -1,0 +1,122 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block head_stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+    <div class="grouped-view-container">
+        <div class="grouped-view-header">
+            <div>
+                <h1 class="grouped-view-title">Disponibilidad Agrupada</h1>
+                <span class="grouped-view-subtitle">
+                    Vista organizada por 
+                    {% if groupBy == 'day' %}día{% elseif groupBy == 'week' %}semana{% else %}especialidad{% endif %}
+                </span>
+            </div>
+            <div class="filter-buttons">
+                <a href="{{ ea_url().setAction('index').unset('groupBy') }}" class="btn-filter">
+                    <i class="fa fa-arrow-left"></i> Volver al listado
+                </a>
+                <a href="{{ ea_url().setAction('viewGrouped').set('groupBy', 'day') }}"
+                   class="btn-filter {{ groupBy == 'day' ? 'active' : '' }}">
+                   <i class="fa fa-calendar-day"></i> Por Día
+                </a>
+                <a href="{{ ea_url().setAction('viewGrouped').set('groupBy', 'week') }}"
+                   class="btn-filter {{ groupBy == 'week' ? 'active' : '' }}">
+                   <i class="fa fa-calendar-week"></i> Por Semana
+                </a>
+                <a href="{{ ea_url().setAction('viewGrouped').set('groupBy', 'specialty') }}"
+                   class="btn-filter {{ groupBy == 'specialty' ? 'active' : '' }}">
+                   <i class="fa fa-stethoscope"></i> Por Especialidad
+                </a>
+            </div>
+        </div>
+
+        {% if groups is empty %}
+            <div class="alert alert-info text-center">
+                <i class="fa fa-info-circle me-2"></i> No hay disponibilidades para la agrupación seleccionada.
+            </div>
+        {% else %}
+            {% for key, items in groups %}
+                <div class="group-card">
+                    <div class="group-header">
+                        <span class="group-title">
+                            {% if groupBy == 'day' %}
+                                <i class="fa fa-calendar me-2"></i> {{ key|date('d/m/Y') }}
+                            {% elseif groupBy == 'week' %}
+                                <i class="fa fa-calendar-week me-2"></i> Semana: {{ key }}
+                            {% else %}
+                                <i class="fa fa-user-md me-2"></i> {{ key }}
+                            {% endif %}
+                        </span>
+                        <span class="badge-count">
+                            {{ items|length }} registros
+                        </span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%">Profesional</th>
+                                    <th style="width: 20%">Especialidad</th>
+                                    <th style="width: 15%">Fecha</th>
+                                    <th style="width: 40%">Bloques Horarios</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in items %}
+                                    <tr>
+                                        <td>
+                                            <strong>{{ item.professionalName }}</strong>
+                                        </td>
+                                        <td>{{ item.specialtyName ?? 'Sin especialidad' }}</td>
+                                        <td>
+                                            {% if item.dateAvailability is not null %}
+                                                {{ item.dateAvailability|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if item.slots is iterable and item.slots is not empty %}
+                                                {% for s in item.slots %}
+                                                    <span class="slot-badge">
+                                                        {{ s.start ?? '' }}{% if s.end is defined %} - {{ s.end }}{% endif %}
+                                                    </span>
+                                                {% endfor %}
+                                            {% else %}
+                                                <span class="text-muted" style="font-style: italic;">Sin bloques</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {# Paginación #}
+            {% if pagination.totalPages > 1 %}
+                <div class="pagination-container">
+                    <a href="{{ ea_url().setAction('viewGrouped').set('groupBy', groupBy).set('page', pagination.page - 1) }}" 
+                       class="pagination-btn {{ pagination.page <= 1 ? 'disabled' : '' }}">
+                       <i class="fa fa-chevron-left"></i> Anterior
+                    </a>
+                    
+                    <span class="pagination-btn disabled" style="border: none; background: none;">
+                        Página {{ pagination.page }} de {{ pagination.totalPages }}
+                    </span>
+
+                    <a href="{{ ea_url().setAction('viewGrouped').set('groupBy', groupBy).set('page', pagination.page + 1) }}" 
+                       class="pagination-btn {{ pagination.page >= pagination.totalPages ? 'disabled' : '' }}">
+                       Siguiente <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

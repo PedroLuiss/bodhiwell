@@ -1,0 +1,26 @@
+@import '../../../assets/styles/variables';
+
+.container {
+    display: flex;
+    align-items: flex-start; 
+    gap: 8px;
+    width: 100%;
+}
+
+.tooltip-icon-wrapper {
+    display: flex;
+    color: $color-primary; 
+    flex-shrink: 0;
+    margin-top: 36px; 
+
+    svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+
+        &:hover { opacity: 1; }
+    }
+}

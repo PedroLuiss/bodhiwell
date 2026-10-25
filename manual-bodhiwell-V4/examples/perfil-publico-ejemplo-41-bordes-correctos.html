@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhiwell — Perfil público ejemplo 08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bw-bg:#EFF0EC;
+      --bw-surface:#F7F5F1;
+      --bw-surface-2:#F8F6F2;
+      --bw-input:#FFFFFF;
+      --bw-text:#13231D;
+      --bw-muted:rgba(19,35,29,.68);
+      --bw-muted-2:rgba(19,35,29,.46);
+      --bw-border:rgba(16,25,21,.08);
+      --bw-border-soft:rgba(16,25,21,.05);
+      --bw-primary:#82B194;
+      --bw-primary-dark:#739F84;
+      --bw-primary-soft:rgba(130,177,148,.10);
+      --bw-chip-purple:#E7DDF7;
+      --bw-chip-purple-text:#7A62A7;
+      --bw-shadow:0 10px 30px rgba(0,0,0,.03);
+      --bw-shadow-md:0 14px 34px rgba(18,34,28,.08);
+      --bw-shadow-floating:0 10px 18px rgba(18,34,28,.10);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bw-bg);
+      color:var(--bw-text);
+    }
+
+    .shell{
+      width:min(calc(100vw - 32px), 1400px);
+      margin:18px auto;
+      display:grid;
+      grid-template-columns:216px minmax(0, 1fr);
+      gap:22px;
+    }
+
+    .sidebar{
+      background:#F7F5F1;
+      border:1px solid rgba(16,25,21,.05);
+      border-radius:24px;
+      padding:18px 14px 16px;
+      min-height:760px;
+      display:flex;
+      flex-direction:column;
+      position:sticky;
+      top:18px;
+      align-self:start;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; font-size:14px; margin:6px 4px 20px;
+    }
+
+    .brand-mark{
+      width:32px; height:32px; border-radius:10px;
+      background:linear-gradient(135deg, #7f7cff, #7bc29b, #d6b06c);
+      opacity:.9;
+    }
+
+    .section-label{
+      margin:14px 8px 10px;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--bw-muted-2);
+      font-weight:800;
+    }
+
+    .nav{display:grid; gap:8px}
+    .nav-item{
+      min-height:44px;
+      border-radius:14px;
+      padding:0 14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--bw-muted);
+      font-weight:600;
+      border:1px solid transparent;
+      background:transparent;
+    }
+    .nav-item.active{
+      color:var(--bw-text);
+      background:rgba(130,177,148,.10);
+      border-color:rgba(130,177,148,.28);
+      font-weight:700;
+    }
+    .nav-item.disabled{color:rgba(19,35,29,.28)}
+    .nav-spacer{flex:1 1 auto}
+    .user-mini{
+      margin:8px 8px 14px;
+      color:var(--bw-muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .logout{
+      min-height:42px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(16,25,21,.10);
+      background:rgba(255,255,255,.4);
+      font-weight:700;
+      margin:0 2px;
+    }
+
+    .main{min-width:0}
+
+    .status{
+      min-height:72px;
+      background:rgba(130,177,148,.08);
+      border:1px solid rgba(130,177,148,.16);
+      border-radius:22px;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:22px;
+      width:100%;
+    }
+    .status-icon{
+      width:40px; height:40px; border-radius:14px;
+      background:rgba(130,177,148,.12);
+      display:grid; place-items:center;
+      color:#628D73; font-weight:800; flex:0 0 40px;
+      font-size:18px;
+    }
+    .status-title{
+      margin:0 0 3px;
+      font-size:14px;
+      font-weight:800;
+      line-height:1.2;
+    }
+    .status-copy{
+      margin:0;
+      font-size:13px;
+      line-height:1.45;
+      color:var(--bw-muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.62fr) 408px;
+      gap:28px;
+      align-items:start;
+    }
+    .left-col,.right-col{
+      display:grid;
+      gap:20px;
+      min-width:0;
+    }
+
+    .top-actions{
+      display:flex;
+      justify-content:flex-end;
+      margin-bottom:0;
+    }
+
+    .btn{
+      min-height:40px;
+      padding:0 18px;
+      border-radius:14px;
+      border:1px solid transparent;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
+      background:#FFFFFF;
+      color:var(--bw-text);
+    }
+    .btn-secondary{
+      background:transparent;
+      border-color:rgba(130,177,148,.40);
+      color:var(--bw-text);
+      box-shadow:none;
+    }
+    .btn-secondary-on-image{
+      min-height:38px;
+      padding:0 20px;
+      border-radius:14px;
+      background:rgba(247,245,241,.78);
+      border:1px solid rgba(130,177,148,.70);
+      color:rgba(19,35,29,.88);
+      backdrop-filter:none;
+      box-shadow:none;
+      font-weight:800;
+    }
+    .btn-primary{
+      background:var(--bw-primary);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(130,177,148,.22);
+    }
+    .btn-disabled{
+      background:rgba(19,35,29,.05);
+      color:rgba(19,35,29,.40);
+      border-color:rgba(19,35,29,.05);
+    }
+
+    .card{
+      background:var(--bw-surface);
+      border:1px solid var(--bw-border-soft);
+      border-radius:24px;
+      box-shadow:var(--bw-shadow);
+      padding:24px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:18px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+    .card-desc{
+      margin:0 0 18px;
+      font-size:13px;
+      line-height:1.6;
+      color:var(--bw-muted);
+    }
+
+    .hero-preview{
+      height:292px;
+      border-radius:24px;
+      position:relative;
+      overflow:hidden;
+      
+      background-size:cover;
+      background-position:center;
+      margin-bottom:16px;
+    }
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .fields{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-bottom:20px;
+    }
+    .field{display:grid; gap:8px; min-width:0}
+    .field.full{grid-column:1 / -1}
+    .label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:#6E897C;
+      font-weight:800;
+    }
+    .input,.select{
+      min-height:50px;
+      border-radius:16px;
+      background:#FFFFFF;
+      border:1px solid rgba(21,36,30,.08);
+      padding:0 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:14px;
+      width:100%;
+    }
+    .input.placeholder{color:rgba(21,36,30,.42)}
+
+    .chips{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{
+      min-height:28px;
+      padding:0 12px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      background:#FFFFFF;
+      border:1px solid rgba(21,36,30,.08);
+      font-size:12px;
+      font-weight:700;
+    }
+    .chip.purple{
+      background:var(--bw-chip-purple);
+      color:var(--bw-chip-purple-text);
+      border-color:transparent;
+    }
+    .helper{
+      margin-top:10px;
+      font-size:12px;
+      line-height:1.55;
+      color:var(--bw-muted);
+    }
+
+    .editor-title{
+      margin:0 0 14px;
+      font-size:28px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+    }
+    .editor-box{
+      min-height:190px;
+      border-radius:18px;
+      background:#FFFFFF;
+      border:1px solid rgba(21,36,30,.10);
+      overflow:hidden;
+    }
+    .toolbar{
+      min-height:42px;
+      border-bottom:1px solid rgba(21,36,30,.10);
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:0 16px;
+      font-size:13px;
+      color:var(--bw-muted);
+      font-weight:700;
+      background:#FFFFFF;
+    }
+    .editor-content{
+      padding:14px 16px 20px;
+      font-size:14px;
+      line-height:1.72;
+      color:var(--bw-muted);
+      background:#FFFFFF;
+    }
+
+    .tabs{
+      margin:-4px -22px 18px;
+      padding:0 22px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-bottom:1px solid rgba(21,36,30,.08);
+    }
+    .tab{
+      min-height:54px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--bw-muted);
+      font-weight:700;
+      position:relative;
+    }
+    .tab.active{color:var(--bw-primary-dark)}
+    .tab.active::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:-1px;
+      height:2px;
+      background:var(--bw-primary);
+      border-radius:2px;
+    }
+
+    .calendar-card .calendar-title-main{
+      margin:0 0 12px;
+      font-size:18px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      text-align:center;
+    }
+    .calendar-shell{
+      background:#F8F6F2;
+      border:1px solid rgba(16,25,21,.05);
+      border-radius:24px;
+      padding:18px 18px 16px;
+      width:100%;
+      max-width:352px;
+      margin:0 auto;
+      opacity:.82;
+    }
+    .calendar-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .calendar-title{
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .calendar-nav{
+      display:flex;
+      gap:10px;
+      color:var(--bw-muted-2);
+      font-weight:700;
+    }
+    .weekdays,.days{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:8px;
+    }
+    .dow,.day{
+      display:grid;
+      place-items:center;
+      font-size:12px;
+      color:var(--bw-muted);
+    }
+    .dow{
+      height:20px;
+      font-weight:700;
+      color:var(--bw-muted-2);
+    }
+    .day{
+      width:100%;
+      aspect-ratio:1/1;
+      border-radius:12px;
+      background:transparent;
+      border:1px solid transparent;
+      font-weight:700;
+    }
+    .day.muted{
+      color:rgba(19,35,29,.28);
+    }
+    .day.selected{
+      background:transparent;
+      border-color:rgba(19,35,29,.26);
+      color:var(--bw-text);
+    }
+    .calendar-note{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(19,35,29,.04);
+      border:1px solid rgba(19,35,29,.05);
+      color:var(--bw-muted);
+      font-size:12px;
+      line-height:1.55;
+      text-align:center;
+    }
+
+    .save-bar-wrap{
+      position:sticky;
+      bottom:20px;
+      z-index:8;
+      padding-top:10px;
+      margin-top:2px;
+    }
+    .save-pill{
+      min-height:74px;
+      border-radius:28px;
+      background:var(--bw-surface);
+      border:1px solid rgba(16,25,21,.08);
+      box-shadow:var(--bw-shadow-floating);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 12px 12px 16px;
+    }
+    .save-state{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-width:0;
+    }
+    .save-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn-save-exit{
+      min-width:104px;
+      min-height:42px;
+      border-radius:14px;
+      background:transparent;
+      border-color:rgba(130,177,148,.40);
+    }
+    .save-dot{
+      width:10px;
+      height:10px;
+      border-radius:16px;
+      background:var(--bw-primary);
+      flex:0 0 10px;
+      margin-top:6px;
+    }
+    .save-copy{
+      font-size:13px;
+      font-weight:800;
+      color:var(--bw-text);
+      line-height:1.25;
+      margin-bottom:2px;
+    }
+    .save-sub{
+      font-size:12px;
+      color:var(--bw-muted);
+      line-height:1.35;
+    }
+    .save-cta{
+      min-width:148px;
+      min-height:42px;
+      border-radius:14px;
+      background:var(--bw-primary);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:800;
+      padding:0 18px;
+    }
+
+    @media (max-width: 1220px){
+      .grid{grid-template-columns:1fr}
+      .right-col{order:2}
+      .calendar-shell{max-width:none}
+    }
+    @media (max-width: 980px){
+      .shell{grid-template-columns:1fr}
+      .sidebar{display:none}
+    }
+    @media (max-width: 700px){
+      .shell{width:min(calc(100vw - 20px), 1400px); margin:10px auto}
+      .grid{gap:20px}
+      .fields{grid-template-columns:1fr}
+      .tabs{grid-template-columns:1fr}
+      .top-actions{justify-content:flex-start; flex-wrap:wrap}
+      .save-bar-wrap{bottom:14px}
+      .save-pill{
+        border-radius:24px;
+        flex-direction:column;
+        align-items:stretch;
+        padding:14px;
+      }
+      .save-cta{width:100%; min-width:0}
+    }
+  
+    button.btn,
+    button.save-cta{
+      appearance:none;
+      cursor:pointer;
+      font-family:inherit;
+    }
+    .toast{
+      position:fixed;
+      right:20px;
+      top:20px;
+      min-height:48px;
+      padding:0 16px;
+      border-radius:16px;
+      background:var(--bw-surface);
+      border:1px solid rgba(16,25,21,.08);
+      box-shadow:0 10px 24px rgba(18,34,28,.12);
+      display:none;
+      align-items:center;
+      font-size:13px;
+      font-weight:700;
+      z-index:60;
+    }
+    .toast.is-open{display:flex;}
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(19,35,29,.16);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:50;
+      backdrop-filter:blur(2px);
+    }
+    .modal-backdrop.is-open{ display:flex; }
+    .modal{
+      width:min(100%, 560px);
+      background:var(--bw-surface);
+      border:1px solid rgba(16,25,21,.08);
+      border-radius:24px;
+      box-shadow:0 18px 40px rgba(18,34,28,.14);
+      padding:24px;
+    }
+    .modal h4{
+      margin:0 0 8px;
+      font-size:22px;
+      line-height:1.12;
+      letter-spacing:-.03em;
+    }
+    .modal p{
+      margin:0;
+      font-size:14px;
+      line-height:1.6;
+      color:var(--bw-muted);
+      white-space:nowrap;
+    }
+    .modal-actions{
+      margin-top:20px;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      flex-wrap:nowrap;
+      align-items:center;
+    }
+
+  
+    .save-cta.is-saved{
+      background:rgba(130,177,148,.18);
+      color:var(--bw-text);
+      border:1px solid rgba(130,177,148,.28);
+    }
+
+  
+    button,
+    button.btn,
+    button.save-cta{
+      appearance:none !important;
+      -webkit-appearance:none !important;
+      -moz-appearance:none !important;
+      border:0 !important;
+      outline:0 !important;
+      background-clip:padding-box !important;
+      box-shadow:none !important;
+      font-family:inherit;
+      cursor:pointer;
+    }
+    button::-moz-focus-inner{
+      border:0 !important;
+      padding:0 !important;
+    }
+    button:focus,
+    button:focus-visible,
+    button:active,
+    button.btn:focus,
+    button.btn:focus-visible,
+    button.btn:active,
+    button.save-cta:focus,
+    button.save-cta:focus-visible,
+    button.save-cta:active{
+      outline:0 !important;
+      box-shadow:none !important;
+    }
+
+  
+    button.btn.btn-secondary{
+      border:1px solid rgba(130,177,148,.40) !important;
+      background:transparent !important;
+      color:var(--bw-text) !important;
+    }
+    button.save-cta{
+      border:0 !important;
+    }
+
+  
+    button.btn-secondary-on-image{
+      border:1px solid rgba(130,177,148,.70) !important;
+      background:rgba(247,245,241,.78) !important;
+      color:rgba(19,35,29,.88) !important;
+    }
+
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>Panel Profesional</div>
+      </div>
+
+      <div class="section-label">Registro</div>
+      <nav class="nav">
+        <div class="nav-item">Inicio</div>
+        <div class="nav-item">Datos Personales</div>
+        <div class="nav-item active">Perfil Público</div>
+        <div class="nav-item disabled">Disponibilidad</div>
+      </nav>
+
+      <div class="section-label" style="margin-top:18px">Administración</div>
+      <nav class="nav">
+        <div class="nav-item disabled">Artículos</div>
+        <div class="nav-item disabled">Mis Reservas</div>
+        <div class="nav-item disabled">Mis Consultas</div>
+        <div class="nav-item disabled">Mis Pagos</div>
+        <div class="nav-item disabled">Mi Billetera</div>
+        <div class="nav-item">Notificaciones</div>
+      </nav>
+
+      <div class="nav-spacer"></div>
+
+      <div class="user-mini">
+        Andrés Camarano •<br>
+        Profesional
+      </div>
+
+      <div class="logout">↪ Cerrar sesión</div>
+    </aside>
+
+    <section class="main">
+      <div class="status">
+        <div class="status-icon">✓</div>
+        <div>
+          <div class="status-title">En revisión</div>
+          <p class="status-copy">Tu perfil está siendo revisado por un administrador. Cuando sea aprobado, vas a poder configurar tu disponibilidad.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="left-col">
+          <div class="top-actions">
+            <button class="btn btn-secondary" id="btn-preview" type="button">Previsualizar</button>
+          </div>
+
+          <section class="card">
+            <h3>Portada del perfil</h3>
+            <p class="card-desc">La imagen se gestiona directamente sobre la portada. El video se carga aparte, como un enlace. Recomendación de imagen: 1200 × 500 px.</p>
+
+            <div class="hero-preview">
+              <div class="hero-overlay">
+                <button class="btn btn-secondary-on-image" id="btn-cover-image" type="button">Cambiar imagen</button>
+              </div>
+            </div>
+
+            <div class="fields" style="margin-bottom:0">
+              <div class="field full">
+                <div class="label">Video de presentación</div>
+                <div class="input placeholder">https://www.youtube.com/...</div>
+                <div class="helper">Pegá el enlace de tu video para mostrarlo en tu perfil.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <h3>Información pública</h3>
+            <p class="card-desc">Datos visibles en tu perfil y resultados derivados de la información académica cargada.</p>
+
+            <div class="fields">
+              <div class="field">
+                <div class="label">Nombre</div>
+                <div class="input">Andrés</div>
+              </div>
+
+              <div class="field">
+                <div class="label">Apellido</div>
+                <div class="input">Camarano</div>
+              </div>
+
+              <div class="field">
+                <div class="label">Precio de consulta</div>
+                <div class="input">4000 <span style="color:var(--bw-muted)">UYU</span></div>
+              </div>
+
+              <div class="field">
+                <div class="label">Modalidad de atención</div>
+                <div class="select"><span>Presencial</span><span>▾</span></div>
+              </div>
+            </div>
+
+            <div class="label" style="margin-bottom:10px">Profesión principal</div>
+            <div class="chips" style="margin-bottom:18px">
+              <div class="chip">Facilitador PSYCH-K®</div>
+            </div>
+
+            <div class="label" style="margin-bottom:10px">Especialidades</div>
+            <div class="chips">
+              <div class="chip purple">PSYCH-K®</div>
+            </div>
+
+            <div class="helper">Estos datos se derivan de la información académica cargada en tu perfil.</div>
+          </section>
+
+          <section class="card">
+            <h2 class="editor-title">Mi propósito y enfoque</h2>
+            <div class="editor-box">
+              <div class="toolbar">Normal &nbsp; • &nbsp; B &nbsp; I &nbsp; Lista</div>
+              <div class="editor-content">
+                Acompaño procesos de bienestar desde una mirada integrativa, priorizando la escucha, el respeto por los tiempos de cada persona y el trabajo interdisciplinario cuando la situación lo requiere.
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="tabs">
+              <div class="tab active">Presentación</div>
+              <div class="tab">Estudios</div>
+              <div class="tab">Profesión principal</div>
+            </div>
+
+            <h2 class="editor-title" style="font-size:26px">Formación y experiencia</h2>
+            <div class="helper" style="margin:-4px 0 18px; font-size:14px">
+              Detallá tu formación académica, certificaciones, experiencia y áreas de especialización.
+            </div>
+
+            <div class="editor-box" style="min-height:246px">
+              <div class="toolbar">Normal &nbsp; • &nbsp; B &nbsp; I &nbsp; Lista</div>
+              <div class="editor-content">
+                Médico egresado de la Universidad de la República. Formación en Medicina Integrativa y actualización continua en abordajes complementarios. Más de 12 años de experiencia clínica en acompañamiento de enfermedades crónicas y promoción del bienestar.
+              </div>
+            </div>
+          </section>
+
+          <div class="save-bar-wrap">
+            <div class="save-pill">
+              <div class="save-state">
+                <div class="save-dot"></div>
+                <div>
+                  <div class="save-copy">Tenés cambios sin guardar</div>
+                  <div class="save-sub">Guardalos para actualizar la información visible en tu perfil.</div>
+                </div>
+              </div>
+              <div class="save-actions">
+                <button class="btn btn-secondary btn-save-exit" id="btn-exit" type="button">Salir</button>
+                <button class="save-cta" id="btn-save" type="button">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="right-col">
+          <section class="card calendar-card" style="padding:24px 24px 22px;">
+            <h3 class="calendar-title-main">Disponibilidad</h3>
+
+            <div class="calendar-shell">
+              <div class="calendar-head">
+                <div class="calendar-title">abril 2026</div>
+                <div class="calendar-nav">‹ ›</div>
+              </div>
+
+              <div class="weekdays">
+                <div class="dow">L</div><div class="dow">M</div><div class="dow">M</div><div class="dow">J</div><div class="dow">V</div><div class="dow">S</div><div class="dow">D</div>
+              </div>
+
+              <div class="days">
+                <div class="day muted">30</div><div class="day muted">31</div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
+                <div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div>
+                <div class="day">13</div><div class="day selected">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div>
+                <div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div>
+                <div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day muted">1</div><div class="day muted">2</div><div class="day muted">3</div>
+              </div>
+            </div>
+
+            <div class="calendar-note">
+              Este bloque se muestra como referencia visual hasta que el perfil sea aprobado.
+            </div>
+
+            <div style="margin-top:18px">
+              <div class="btn btn-disabled" style="width:100%; border-radius:14px;">Editar disponibilidad</div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="exit-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+      <h4 id="exit-modal-title">Cambios sin guardar</h4>
+      <p>Si salís ahora, los cambios realizados en tu perfil se van a perder.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="modal-continue" type="button">Seguir editando</button>
+        <button class="btn btn-secondary" id="modal-discard" type="button">Salir sin guardar</button>
+        <button class="save-cta" id="modal-save-exit" type="button" style="min-width:148px;">Guardar y salir</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="ui-toast">Acción simulada</div>
+
+
+  
+  <script>
+    (() => {
+      const $ = (sel) => document.querySelector(sel);
+      const btnExit = $('#btn-exit');
+      const btnSave = $('#btn-save');
+      const btnPreview = $('#btn-preview');
+      const btnCover = $('#btn-cover-image');
+      const modal = $('#exit-modal');
+      const btnContinue = $('#modal-continue');
+      const btnDiscard = $('#modal-discard');
+      const btnSaveExit = $('#modal-save-exit');
+      const saveCopy = document.querySelector('.save-copy');
+      const saveSub = document.querySelector('.save-sub');
+      const saveDot = document.querySelector('.save-dot');
+
+      function setSavedState(saved){
+        if(!saveCopy || !saveSub || !saveDot) return;
+        if(saved){
+          saveCopy.textContent = 'Cambios guardados';
+          saveSub.textContent = 'Tu perfil está actualizado.';
+          saveDot.style.background = 'rgba(19,35,29,.18)';
+        } else {
+          saveCopy.textContent = 'Tenés cambios sin guardar';
+          saveSub.textContent = 'Guardalos para actualizar la información visible en tu perfil.';
+          saveDot.style.background = 'var(--bw-primary)';
+        }
+      }
+
+      function pulseSaveButton(text = 'Guardado'){
+        if(!btnSave) return;
+        const originalText = btnSave.dataset.originalText || btnSave.textContent.trim() || 'Guardar';
+        btnSave.dataset.originalText = originalText;
+        btnSave.textContent = text;
+        btnSave.classList.add('is-saved');
+        btnSave.disabled = true;
+        clearTimeout(window.__saveBtnTimer);
+        window.__saveBtnTimer = setTimeout(() => {
+          btnSave.textContent = originalText;
+          btnSave.classList.remove('is-saved');
+          btnSave.disabled = false;
+        }, 1800);
+      }
+
+      btnExit?.addEventListener('click', () => {
+        modal?.classList.add('is-open');
+      });
+
+      btnContinue?.addEventListener('click', () => {
+        modal?.classList.remove('is-open');
+      });
+
+      btnDiscard?.addEventListener('click', () => {
+        modal?.classList.remove('is-open');
+      });
+
+      btnSaveExit?.addEventListener('click', () => {
+        setSavedState(true);
+        modal?.classList.remove('is-open');
+        pulseSaveButton('Guardado');
+      });
+
+      btnSave?.addEventListener('click', () => {
+        setSavedState(true);
+        pulseSaveButton('Guardado');
+      });
+
+      btnPreview?.addEventListener('click', () => {
+        console.log('Previsualización simulada');
+      });
+
+      btnCover?.addEventListener('click', () => {
+        console.log('Cambio de imagen simulado');
+      });
+
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('is-open');
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') modal?.classList.remove('is-open');
+      });
+
+      setSavedState(false);
+    })();
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+
+

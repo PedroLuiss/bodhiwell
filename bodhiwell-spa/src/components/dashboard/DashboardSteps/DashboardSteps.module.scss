@@ -1,0 +1,210 @@
+@import "../../../assets/styles/variables";
+
+$bw-primary: $color-primary;
+$bw-gold: $color-gold;
+$bw-muted: $text-secondary;
+$bw-border: $color-border;
+$bw-text: $text-main;
+
+.journey {
+    width: 100%;
+    margin-bottom: 32px;
+    font-family: $font-main;
+    background: $color-surface;
+    border: 1px solid $bw-border;
+    border-radius: 24px;
+    padding: 28px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .03);
+
+    @media (max-width: 768px) {
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    &__head {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+
+        @media (max-width: 480px) {
+            gap: 12px;
+        }
+    }
+
+    &__mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #F8F4F0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        color: #67a27f;
+        font-weight: 800;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    &__text {
+        h2 {
+            margin: 0;
+            font-weight: 800;
+            color: $bw-text;
+            font-size: 48px;
+            letter-spacing: -.04em;
+            line-height: 1;
+
+            @media (max-width: 1024px) {
+                font-size: 36px;
+            }
+            @media (max-width: 768px) {
+                font-size: 28px;
+            }
+        }
+        p {
+            color: #13231dad;
+            margin: 10px 0 0;
+            max-width: 760px;
+            font-size: 17px;
+            line-height: 1.6;
+
+            @media (max-width: 768px) {
+                font-size: 14px;
+                margin: 6px 0 0;
+            }
+        }
+    }
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+    }
+
+    &--patient {
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.step {
+    border-radius: 18px;
+    padding: 24px;
+    min-height: 236px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &--highlight {
+        background: $color-surface;
+        border: 1px solid rgba(214, 166, 64, 0.62);
+        box-shadow: 0 12px 28px rgba(214, 166, 64, 0.12);
+
+        .step__ico {
+            background: $bw-gold;
+            box-shadow: 0 10px 20px rgba(214, 166, 64, 0.18);
+        }
+    }
+
+    &--disabled {
+        background: $color-surface ;
+        border: 1px solid rgba(16, 25, 21, 0.08);
+        opacity: 0.72;
+
+        .step__ico {
+            background: #eef2ef;
+            color: $bw-muted;
+            box-shadow: none;
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__ico {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: #6da77c;
+        color: #fff;
+        font-weight: 900;
+    }
+
+    &__title {
+        margin: 36px 0 0;
+        font-size: 20px;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        color: $bw-text;
+        margin-bottom: 10px;
+    }
+
+    &__btn {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        width: 100%;
+        border-radius: 16px;
+        font-weight: 800;
+        gap: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &--primary {
+            background: $bw-primary;
+            color: #fff;
+            &:hover {
+                background: darken($bw-primary, 5%);
+                transform: translateY(-1px);
+            }
+        }
+
+        &--disabled {
+            background: #f3f4f1;
+            color: #9da5a2;
+            border: 1px solid rgba(12, 36, 28, 0.08);
+            cursor: pointer; 
+            
+            &:hover {
+                background: #e9eae6;
+            }
+        }
+    }
+
+    &__arrow {
+        transition: transform 0.2s ease;
+    }
+
+    &:hover .step__arrow {
+        transform: translateX(4px);
+    }
+}
+
+.badge {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    &--done { color: #5c8a68; }
+    &--progress { color: #8a6516; }
+    &--off { color: $bw-muted; }
+}

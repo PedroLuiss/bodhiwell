@@ -1,0 +1,25 @@
+{# Variables esperadas:
+   - user (App\Entity\User)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+{% set userName = user.firstName ?? user.username %}
+
+{% block title %}Bienvenido a Bodhiwell{% endblock %}
+
+{% block content %}
+<h2>¡Bienvenido!</h2>
+
+<p>Hola <strong>{{ userName }}</strong>,</p>
+
+<p>Gracias por unirte a nuestra comunidad. Estamos emocionados de tenerte con nosotros.</p>
+<p>Para comenzar, por favor completa tu perfil en nuestra plataforma para sacar el máximo provecho.</p>
+
+<p style="text-align: center; margin-top: 30px;">
+    <a href="{{ portalUrl }}/profile" class="button" style="color: #ffffff !important;">Completar perfil</a>
+</p>
+
+<p style="color:#999; font-size: 12px; margin-top:14px;">
+    Si no te registraste en Bodhiwell, por favor ignora este mensaje.
+</p>
+{% endblock %}

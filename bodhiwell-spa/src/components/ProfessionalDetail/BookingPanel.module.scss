@@ -1,0 +1,226 @@
+@import '../../assets/styles/variables';
+
+$bw-surface: $color-surface;
+$bw-surface-2: $color-surface-soft;
+$bw-text: $text-main;
+$bw-muted: rgba($text-main, 0.68);
+$bw-border: $color-border;
+$bw-primary: $color-primary;
+$bw-radius-lg: $radius-xl;
+
+.booking {
+    background: $bw-surface;
+    border: 1px solid $bw-border;
+    border-radius: $bw-radius-lg;
+    box-shadow: 0 10px 30px rgba(0,0,0,.03);
+    padding: 24px 20px;
+    font-family: "Sora", sans-serif;
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(14, 42, 34, 0.08);
+    }
+
+    &__title {
+        margin: 0 0 12px;
+        font-size: 20px;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        text-align: center;
+        font-weight: 800;
+        color: $bw-text;
+    }
+
+    &__legend {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 18px;
+        font-size: 11px;
+        color: $bw-muted;
+        font-weight: 700;
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        border: 2px solid $bw-primary;
+        display: inline-block;
+        margin-right: 6px;
+        vertical-align: -2px;
+        background: white;
+
+        &--selected {
+            background: $bw-primary;
+        }
+    }
+
+    &__calendar-card {
+        background: $bw-surface-2;
+        border: 1px solid rgba(12, 36, 28, 0.08);
+        border-radius: 18px;
+        padding: 16px 10px;
+        box-shadow: 0 8px 22px rgba(0,0,0,.02);
+    }
+
+    &__field-wrapper {
+        margin-top: 12px;
+    }
+
+    &__field-inner {
+        width: 100%;
+    }
+
+    &__select-container {
+        background: $bw-surface-2;
+        border: 1px solid rgba(12, 36, 28, 0.08);
+        border-radius: 18px;
+        box-shadow: 0 8px 22px rgba(0,0,0,.02);
+        display: flex;
+        align-items: center;
+        padding-right: 14px;
+        transition: border-color 0.2s;
+
+        &:hover {
+            border-color: rgba($bw-primary, 0.5);
+        }
+
+        :global(.MuiTextField-root) {
+            .MuiOutlinedInput-notchedOutline { border: none; }
+            .MuiInputBase-root { height: 48px; }
+            .MuiSelect-select { 
+                padding-left: 14px; 
+                font-size: 13px; 
+                font-weight: 700; 
+                color: $bw-text;
+            }
+        }
+    }
+
+    &__field-icon {
+        width: 26px;
+        height: 21px;   
+        stroke: #6b7c73;
+        stroke-width: 2px;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        margin-right: 14px;
+    }
+
+    &__helper-text {
+        margin: 12px 0 10px;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: $bw-muted;
+    }
+
+    &__split-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        background: $bw-surface-2;
+        border: 1px solid rgba(12, 36, 28, 0.08);
+        border-radius: 18px;
+
+        button {
+            min-height: 52px;
+            background: transparent;
+            border: 0;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 800;
+            color: $bw-text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+
+            img {
+                width: 48px;
+                height: 48px;
+                object-fit: contain;
+                opacity: .82;
+            }
+
+            &.is-active {
+                background: rgba(130, 177, 148, .16);
+                box-shadow: inset 0 0 0 1px rgba(130, 177, 148, .42);
+            }
+
+            &:hover:not(.is-active) {
+                background: #82b1941a;
+            }
+            
+            &:active {
+                transform: translateY(1px); 
+            }
+
+            & + button {
+                border-left: 1px solid $bw-border;
+            }
+        }
+    }
+
+    &__price-card {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 14px;
+        background: $bw-surface-2;
+        border: 1px solid rgba(12, 36, 28, 0.08);
+        border-radius: 18px;
+        box-shadow: 0 8px 22px rgba(0,0,0,.02);
+    }
+
+    &__price-label {
+        font-size: 13px;
+        font-weight: 800;
+        color: $bw-text;
+        line-height: 1.2;
+    }
+
+    &__price-value {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #4b4b4b;
+        line-height: 1;
+    }
+
+    &__cta {
+        margin-top: 16px;
+        width: 100%;
+        min-height: 48px;
+        border-radius: 16px;
+        border: 0;
+        background: $bw-primary;
+        color: white;
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(130, 177, 148, 0.25);
+        transition: all 0.2s;
+
+        &:hover:not(:disabled) {
+            background: darken($bw-primary, 5%);
+            transform: translateY(-1px);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+}

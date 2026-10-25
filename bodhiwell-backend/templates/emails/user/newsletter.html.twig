@@ -1,0 +1,30 @@
+{# Variables esperadas:
+   - user (App\Entity\User)
+   - newsletterTitle (string)
+   - newsletterBody (string)
+   - portalUrl (string)
+#}
+{% extends 'emails/base.html.twig' %}
+{% set userName = user.firstName ?? user.username %}
+
+{% block title %}{{ newsletterTitle }}{% endblock %}
+
+{% block content %}
+    <h2>{{ newsletterTitle }}</h2>
+
+    <p>Hola <strong>{{ userName }}</strong>,</p>
+
+    <div style="margin: 20px 0; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #7A9E7E; border-radius: 4px;">
+        {{ newsletterBody|nl2br }}
+    </div>
+
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{{ portalUrl }}" class="button" style="color: #ffffff !important;">Ir a la plataforma</a>
+    </p>
+
+    <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
+
+    <p style="color:#666; font-size: 12px; margin-top:14px;">
+        Recibiste este correo porque estás suscrito a nuestro boletín. Si deseas darte de baja, puedes hacerlo desde tu perfil.
+    </p>
+{% endblock %}

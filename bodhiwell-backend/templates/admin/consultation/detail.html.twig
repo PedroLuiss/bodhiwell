@@ -1,0 +1,85 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'consultation.detail_title'|trans({}, 'messages') }}
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <strong>{{ 'consultation.booking_info'|trans({}, 'messages') }}</strong>
+                </div>
+                <div class="card-body">
+                    <p><strong>{{ 'booking.fields.date_start'|trans({}, 'messages') }}:</strong> {{ consultation.booking.dateBookingStart|date('d/m/Y H:i') }}</p>
+                    <p><strong>{{ 'users.professional'|trans({}, 'messages') }}:</strong> {{ consultation.booking.professionalUser.firstName }} {{ consultation.booking.professionalUser.lastName }}</p>
+                    <p><strong>{{ 'users.patient'|trans({}, 'messages') }}:</strong> {{ consultation.booking.patientUser.firstName }} {{ consultation.booking.patientUser.lastName }}</p>
+                    <p><strong>{{ 'consultation.fields.type'|trans({}, 'messages') }}:</strong> {{ consultation.type.value|trans({}, 'messages') }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <strong>{{ 'consultation.fields.reserve_reason'|trans({}, 'messages') }}</strong>
+                </div>
+                <div class="card-body">
+                    {{ consultation.reserveReason|nl2br }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <strong>{{ 'consultation.fields.notes'|trans({}, 'messages') }} ({{ 'consultation.report'|trans({}, 'messages') }})</strong>
+                </div>
+                <div class="card-body">
+                    {{ consultation.notes|nl2br }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if consultation.consultationDetails|length > 0 %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <strong>{{ 'consultation.details_label'|trans({}, 'messages') }}</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{ 'consultation_detail.key'|trans({}, 'messages') }}</th>
+                                <th>{{ 'consultation_detail.value'|trans({}, 'messages') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for detail in consultation.consultationDetails %}
+                                <tr>
+                                    <td>{{ ('consultation_detail.fields.' ~ detail.detailKey)|trans({}, 'messages') }}</td>
+                                    <td>{{ detail.detailValue }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-12">
+            <a href="{{ ea_url().setController('App\\Controller\\Admin\\ConsultationCrudController').setAction('index') }}" class="btn btn-secondary">
+                <i class="fa fa-arrow-left"></i> {{ 'action.back'|trans({}, 'messages') }}
+            </a>
+        </div>
+    </div>
+{% endblock %}

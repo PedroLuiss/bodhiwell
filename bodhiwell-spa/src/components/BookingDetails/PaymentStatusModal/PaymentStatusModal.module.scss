@@ -1,0 +1,103 @@
+$breakpoint-md: 767px;
+
+.payment-modal {
+  &__backdrop {
+    background-color: rgba(30, 41, 59, 0.8) !important;
+    backdrop-filter: blur(4px);
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 450px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    padding: 3rem 2rem 2.5rem 2rem;
+    text-align: center;
+    outline: none;
+    border: 1px solid #e2e8f0;
+  }
+
+  &__icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    transition: background-color 0.3s ease;
+  }
+
+  &__icon {
+    color: #ffffff;
+    font-size: 3rem !important;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.75rem 0;
+  }
+
+  &__subtitle {
+    font-size: 1.1rem;
+    color: #475569;
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  &__button {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #334155;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      transform: translateY(-2px);
+      background-color: #f8fafc;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    &--primary {
+      background: #7A9E7E;
+      color: white;
+      border: none;
+      
+      &:hover {
+        background: #6a8a6e;
+        box-shadow: 0 4px 15px rgba(63, 120, 176, 0.3);
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__content {
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+    }
+    &__title {
+      font-size: 1.5rem;
+    }
+    &__subtitle {
+      font-size: 1rem;
+    }
+  }
+}

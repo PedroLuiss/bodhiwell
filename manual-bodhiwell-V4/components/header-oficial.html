@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhiwell — Header oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/base-oficial.css" />
+</head>
+<body class="preview-body">
+
+<header class="header" id="mainHeader">
+  <div class="header-inner">
+    <a class="logo" href="../start-here.html" aria-label="Bodhiwell">
+      <img src="../assets/img/brand/logo-bodhiwell-color.png" alt="Bodhiwell">
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#acerca">Acerca de</a>
+      <a href="#como-funciona">¿Cómo funciona?</a>
+      <a href="#profesionales">Comunidad</a>
+      <a href="#blog">Blog</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="actions">
+      <button class="lang-switch" type="button" aria-label="Idioma actual: Español">
+        <img src="../assets/img/brand/mundo.png" alt="" aria-hidden="true">
+        <span>ES</span>
+      </button>
+      <a class="login-link" href="#">Acceder</a>
+      <a class="btn btn-outline header-btn btn-green" href="#contacto">Crear mi cuenta</a>
+    </div>
+  </div>
+</header>
+
+<main class="preview-main">
+  <div class="preview-container">
+    <section class="preview-hero">
+      <p class="preview-eyebrow">Componente oficial</p>
+      <h1 class="preview-title">Header oficial Bodhiwell</h1>
+      <p class="preview-copy">
+        Este preview usa la misma estructura base de la landing para revisar altura,
+        paddings, posición del logo, navegación central y acciones derechas.
+      </p>
+    </section>
+  </div>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("mainHeader");
+    if (!header) return;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+    });
+  });
+</script>
+</body>
+</html>
